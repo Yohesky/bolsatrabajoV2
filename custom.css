@@ -1,0 +1,128 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+#controlpanel
+{
+	background: #E6DADA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.menu
+{
+    cursor: pointer;
+    color: white;
+    margin-left: 50px;
+}
+
+.navbar .titulo
+{
+	text-decoration: none;
+}
+
+.close
+{
+    cursor: pointer;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+
+}
+
+.fondo
+{
+    background-color: rgba(30, 39, 46,.9);
+}
+
+
+.nav-menu 
+{
+  
+	margin-top:150px;
+	list-style: none;
+	display: block;
+}
+
+.nav-menu li{
+
+	border-bottom: 1px solid #323232;
+	overflow: hidden;
+}
+
+.nav-menu a.menu{
+	position: relative;
+	padding:16px;
+	padding-right: 25px;
+	float:right;
+	color:white;
+	opacity: .6;
+	font-size: 1.2em;
+    -webkit-transition: opacity .2s;
+    text-decoration: none;
+}
+
+.nav-menu div.barra{
+	position: absolute;
+	height: 50px;
+	width: 0px;
+	background-color: #aaa;
+	opacity: .1;
+	-webkit-transition: width .2s;
+}
+
+.nav-menu li:hover div.barra{
+	width:250px;
+}
+
+
+.nav-menu li:hover a.menu{
+	opacity: 1;
+}
+
+
+.grupo1
+{
+	width: 400px;
+	height: 200px;
+	border: 1px solid black;
+}
+
+
+.trabajos
+{
+	background: #27ae60;
+}
+
+
+
+.perfil
+{
+	background: #192a56;
+}
+
+.postulaciones
+{
+	background: #2980b9;
+}
+
+.sesion
+{
+	background: #c0392b;
+}
+
+
+
+
+.row .col-md-6 .off
+{
+	text-decoration: none;
+	color: white;
+}
+
+
+
+

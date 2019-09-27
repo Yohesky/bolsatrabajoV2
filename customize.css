@@ -1,0 +1,40 @@
+body 
+{   background: #4b6584;
+    overflow: hidden;
+    overflow-y: scroll;
+    overflow: -moz-scrollbars-vertical/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+}
+
+.grid-2 {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+img {
+    border-radius: 1%;
+    margin-top: 200px;
+}
+
+.empresa {
+    height: 200px;
+    width: 200px;
+    margin-left: 400px;
+    transition: all 1s;
+}
+
+.empresa:hover {
+    transform: scale(1.1);
+}
+
+.trabajador {
+    height: 200px;
+    width: 200px;
+    margin-right: 400px;
+    transition: all 1s;
+}
+
+.trabajador:hover {
+    transform: scale(1.1);
+}
