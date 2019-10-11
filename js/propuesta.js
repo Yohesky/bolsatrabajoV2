@@ -1,5 +1,6 @@
 $(function () {
    
+    obtenerPublicacion();
 
     $("#formulario").submit(function(e)
     {
@@ -15,29 +16,50 @@ $(function () {
                  data: form,
                  success: function(response)
                  {
-                     console.log(response);
+                     obtenerPublicacion();
                  }
              })
          }
 
     $("#formulario").trigger("reset");
-
-    let plantilla = '';
-    plantilla +=
-    `
-    <div class="card card-body mt-4 shadow-lg p-3 mb-5 bg-white rounded animated fadeInRightBig">
-    <p><strong>Nombre:</strong> ${nombre} <br> <strong>Descripción:</strong> ${descripcion}</p> <br>
-    <strong>Funciones:</strong> ${funciones}</p> <br>
-    <p><strong>Vacantes:</strong> ${vacantes} <br> <strong>Sueldo:</strong> ${sueldo} BsS</p> <br>
-    <p><strong>Ubicación:</strong> ${localizacion} 
-    <button class="btn btn-danger btn-block mt-4" id="quitar">Eliminar</button>
-    </div>
-    `;
- 
-    $("#mostrar").html(plantilla);
  
     e.preventDefault();
     });
+
+    function obtenerPublicacion()
+    {
+        $.ajax
+    ({
+        url: "includes/publicaciones.php",
+        type: 'GET',
+        success: function(response)
+        {
+                let propuesta =  JSON.parse(response);
+                let plantilla = "";
+                propuesta.forEach
+                (
+                    propuesta => 
+                    {
+                    plantilla += 
+                    //le asignamos un atributo para encontrar el ID
+                    `
+                    <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${propuesta.titulo}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">${propuesta.descripcion}</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+                    
+                   `;
+                    }
+                )
+                $("#mostrar").html(plantilla);
+        }
+    });
+    }
  
  
  

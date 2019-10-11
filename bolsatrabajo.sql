@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2019 at 07:09 PM
+-- Generation Time: Oct 11, 2019 at 10:38 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -90,15 +90,24 @@ INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`
 --
 
 CREATE TABLE `experiencia` (
-  `id` int(11) NOT NULL,
+  `idexp` int(11) NOT NULL,
   `expEmpresa` varchar(100) NOT NULL,
   `expPais` varchar(100) NOT NULL,
   `expSector` varchar(100) NOT NULL,
   `expArea` varchar(100) NOT NULL,
   `expLabor` varchar(100) NOT NULL,
   `expFechaIni` datetime NOT NULL,
-  `expFechaFin` datetime NOT NULL
+  `expFechaFin` datetime NOT NULL,
+  `usuarios_idusuarios` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `experiencia`
+--
+
+INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`) VALUES
+(4, 'sad', 'dd', 'sad', 'ad', 'ad', '0111-11-11 00:00:00', '0011-11-11 00:00:00', 3),
+(6, 'SMART PROCESS', 'VENEZUELA', 'INGENIERIA', 'DPTO TECNOLOGIA', 'MANTENIMIENTO DE EQUIPOS', '0011-11-11 00:00:00', '0011-11-11 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +140,9 @@ INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `su
 (33, 'laravel', 'saber laravel', 4, 144, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, ''),
 (34, 'eee', 'eee', 11, 111, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, ''),
 (35, 'PROGRAMADOR', 'QUE SEPA PROGRAMAR', 11, 444, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, 'DEBE PROGRAMAR SIEMPRE'),
-(36, 'profesor', 'que sepa matematicas', 1, 500, 'Maracaibo', '0000-00-00 00:00:00', 5, 19, 'dar clases de matematica');
+(36, 'profesor', 'que sepa matematicas', 1, 500, 'Maracaibo', '0000-00-00 00:00:00', 5, 19, 'dar clases de matematica'),
+(37, 'trabajador', 'asd', 123, 111, 'Maracaibo', '0000-00-00 00:00:00', 5, 19, 'asd'),
+(38, 'diseÃ±ador', 'dasd', 23, 11, 'Maracaibo', '0000-00-00 00:00:00', 5, 19, 'ad');
 
 -- --------------------------------------------------------
 
@@ -175,9 +186,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `ciudad`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`) VALUES
-(1, 'yohesky', 'pimentel', 26878565, 'yoheskyjpp@gmail.com', '1234', '0000-00-00 00:00:00', '', '', 0, '', '', '', 'gerente', '', '', '', '', '', '', NULL, 'EEE', '', '', '', '', '0000-00-00', '0000-00-00'),
-(3, 'jose', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00 00:00:00', '', '', 0, '', '', '', 'creo que funciona gracais dios', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00'),
-(4, 'luis', 'colmenarez', 244444, 'luis@gmail.com', 'luis', '0000-00-00 00:00:00', '', '', 0, '', '', '', 'eeeeee', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00'),
+(1, 'Yohesky', 'Pimentel', 26878565, 'yoheskyjpp@gmail.com', '1234', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'Maracaibo- SOLER ', 'san francisco', 'programador', 'Universitario', '', 'frances', 'basico', '', '', NULL, 'EEE', '', '', '', '', '0000-00-00', '0000-00-00'),
+(3, 'jose', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'Maracaibo', 'Venezuela', 'PROGRAMADOR WEB', 'bachiller', '', 'ingles', 'intermedio', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00'),
+(4, 'luis', 'colmenarez', 2512345, 'luis@gmail.com', 'luis', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela zulia', 'Maracaibo', 'Venezuela', 'tecnico', 'bachiller', '', 'ingles', 'basico', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00'),
 (5, '', '', 0, '', '', '0000-00-00 00:00:00', '', '', 0, '', '', '', '', '', '', '', '', '', '', NULL, 'elinca', 'vzla', 'contratista', 'it', 'instalar computadoras', '0001-11-11', '0011-11-11');
 
 -- --------------------------------------------------------
@@ -211,7 +222,8 @@ ALTER TABLE `empresa`
 -- Indexes for table `experiencia`
 --
 ALTER TABLE `experiencia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`idexp`,`usuarios_idusuarios`),
+  ADD KEY `fk_experiencia_usuarios_idx` (`usuarios_idusuarios`);
 
 --
 -- Indexes for table `propuesta`
@@ -255,13 +267,13 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT for table `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
@@ -272,6 +284,12 @@ ALTER TABLE `usuarios`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `experiencia`
+--
+ALTER TABLE `experiencia`
+  ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `propuesta`

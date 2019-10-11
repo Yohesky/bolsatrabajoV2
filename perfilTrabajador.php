@@ -35,7 +35,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Añade tu experiencia Laboral</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -84,113 +84,13 @@
                 </div>
             </div>
 
+            
             <div class="card mt-2">
                 <!-- card-body para un espaciado interno entre los componentes -->
-                <div class="card-body scroll-derecha">
-                    <form id="formularioTarea">
-                        <div class="form-group">
-                            <input type="text" id="nombre" placeholder="Nombre" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="nombre" placeholder="Apellido" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="number" id="nombre" placeholder="Cédula" class="form-control" title="Por favor" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="nombre" placeholder="Teléfono" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="puesto" name="puesto" placeholder="Puesto Deseado" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="nombre" placeholder="País" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="nombre" placeholder="Dirección" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="nombre" placeholder="Nacionalidad" class="form-control" required>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="educacion" placeholder="Educación" class="form-control" required>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" id="idioma" placeholder="Idioma" class="form-control" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" id="nivelIdioma" placeholder="Nivel de Idioma" class="form-control" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <h5>Fecha de Nacimiento</h5>
-                            <input type="date" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <h5>Género</h5>
-                            <label for="hombre"> <input type="radio" id="hombre"> Hombre </label>
-                            <label for="mujer"> <input type="radio" id="muujer"> Mujer </label>
-                        </div>
-
-                        <div class="form-group">
-                            <h5>Disponibilidad para viajar</h5>
-                            <label for="si"> <input type="radio" id="si"> Si </label>
-                            <label for="no"> <input type="radio" id="no"> No </label>
-                        </div>
-
-                        <div class="form-group">
-
-                            <h5>Licencia de Conducir</h5>
-                            <label for="motocicletas"> <input type="radio" id="motocicletas"> Motocicletas </label>
-                            <label for="automoviles"> <input type="radio" id="automoviles"> automóviles </label>
-                            <label for="personas"> <input type="radio" id="personas"> Vehículos para transporte de personas </label>
-                            <label for="camiones"> <input type="radio" id="camiones"> Camiones de Carga/Vehículos Agrícolas </label>
-                            <label for="notengo"> <input type="radio" id="notengo"> No tengo </label>
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <h5>¿Posee Vehículo propio?</h5>
-
-                            <label for="si"> <input type="radio" id="si"> Si </label>
-                            <label for="no"> <input type="radio" id="no"> No </label>
-
-                        </div>
-
-                        <div class="form-group">
-                            <select name="ec" id="ec" class="form-control" required>
-                                <option value="ec">Estado Civil</option>
-                                <option value="casado">Casado</option>
-                                <option value="soltero">Soltero</option>
-                                <option value="divorciado">Divorciado</option>
-                                <option value="viudo">Viudo</option>
-                            </select>
-                        </div>
-
-                        <!-- btn-block para que ocupe el ancho disponible -->
-                        <button id="btnDatos" class="btn btn-primary btn-block text-center">
-                            Actualizar
-                        </button>
-                    </form>
+                <div class="card-body">
+                    <?php include("includes/datosPersonales.php") ?>
                 </div>
+                
             </div>
         </div>
     </div>

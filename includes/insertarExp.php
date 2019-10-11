@@ -1,9 +1,8 @@
 <?php
 
 include("conexion.php");
-include("id.php");
 session_start();
-$correo = $_SESSION["correo"];
+$idusuario = $_SESSION['idusuarios'];
 
 
 if(isset($_POST["expEmpresa"]) && isset($_POST["expPais"]) && isset($_POST["expSector"])
@@ -19,8 +18,8 @@ if(isset($_POST["expEmpresa"]) && isset($_POST["expPais"]) && isset($_POST["expS
     $expFechaFin = $_POST['expFechaFin'];
 
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
-    $query = "INSERT INTO usuarios WHERE correo='$correo' (expEmpresa, expPais, expSector, expArea,expLabor,expFechaIni,expFechaFin) 
-    VALUES('$expEmpresa', '$expPais', '$expSector', '$expArea', '$expLabor','$expFechaIni','$expFechaFin')";
+    $query = "INSERT INTO experiencia (expEmpresa, expPais, expSector, expArea,expLabor,expFechaIni,expFechaFin, usuarios_idusuarios) 
+    VALUES('$expEmpresa', '$expPais', '$expSector', '$expArea', '$expLabor','$expFechaIni','$expFechaFin', '$idusuario')";
 
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 
