@@ -19,11 +19,21 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
     $educacion = $_POST["educacion"];
     $idioma = $_POST["idioma"];
     $nivelIdioma = $_POST["nivelIdioma"];
+    
+    
+    //guardar curricum
+    $tipo = $_FILES['curriculum']['type'];
+    $tmp_name = $_FILES['curriculum']['tmp_name'];
+    $name = $_FILES['curriculum']['name'];
+
+    $nueva_path = "../curriculum/" . $name;
+    move_uploaded_file($tmp_name, $nueva_path);
+    $src = "./curriculum/" . $name;
 
 
     $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', num1='$num1', puestoDeseado='$puesto',
     pais='$pais', ciudad='$ciudad', direccion='$direccion', educacion='$educacion', 
-    idioma='$idioma', nivelIdioma='$nivelIdioma' where idusuarios='$idusuario'";
+    idioma='$idioma', nivelIdioma='$nivelIdioma', curriculum='$src' where idusuarios='$idusuario'";
     
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 

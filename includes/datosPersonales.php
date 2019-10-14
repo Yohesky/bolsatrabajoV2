@@ -19,7 +19,7 @@ while($row = mysqli_fetch_array($resultado))
 {
    echo 
    "
-   <form id='formularioTarea'>
+   <form id='formularioTarea' enctype='multipart/form-data'>
    <div class='form-group'>
                             <input type='text' id='nombre' name='nombre' value='".$row['nombre']."' class='form-control' required>
     </div>
@@ -68,6 +68,10 @@ while($row = mysqli_fetch_array($resultado))
 
     </div>
 
+    <div class=' mb-4'>
+        <input type='file' class='' name='curriculum' accept='.pdf' name='curriculum' file='.r".$row['curriculum']."'>
+        <label class='' for='curriculum'>Ingresar Curriculum</label>
+    </div>
     
 
     <button type='button' class='btn btn-success' id='btnDatos'>

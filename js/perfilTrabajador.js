@@ -7,14 +7,18 @@ $(function () {
   function actualizar() {
     $("#btnDatos").click(function (e) {
 
-      let form = $("#formularioTarea").serialize();
-
-      console.log(form);
+      let form = new FormData(document.getElementById("formularioTarea"));
+      form.append('dato', 'valor');
+      console.log(form)
       if ($.trim(nombre).length > 0) {
         $.ajax({
-          method: 'POST',
+          type: 'POST',
           url: 'includes/datosTrabajador.php',
+          dataType: 'html',
           data: form,
+          cache: false,
+          contentType: false,
+          processData: false,
           success: function (response) {
             if (response === 'exito') {
               swal({
@@ -23,6 +27,8 @@ $(function () {
                 icon: "success",
                 button: "Continuar",
               });
+            }else{
+              console.log(response);
             }
           }
         });

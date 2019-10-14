@@ -40,7 +40,8 @@ function mostrarPublicaciones() {
                    `;
                         }
                     )
-                $("#publicaciones").html(plantilla);
+            plantilla += mostrarPagina();
+            $("#publicaciones").html(plantilla);
             }
         });
     }
@@ -72,7 +73,7 @@ function mostrarPagina(){
 				</nav>
             `
     }
-        $('#paginacion').html(plantilla2);
+        return plantilla2;
     }
     //los <li> que tienen el nuemero de pagina
     function obtenerListaPagina(paginas){
