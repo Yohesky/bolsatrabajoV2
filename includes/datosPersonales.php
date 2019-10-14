@@ -14,7 +14,7 @@ if(!$resultado)
 
 }
 
-$json = array();
+
 while($row = mysqli_fetch_array($resultado))
 {
    echo 

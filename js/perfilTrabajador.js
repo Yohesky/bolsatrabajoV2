@@ -27,8 +27,6 @@ $(function () {
                 icon: "success",
                 button: "Continuar",
               });
-            }else{
-              console.log(response);
             }
           }
         });

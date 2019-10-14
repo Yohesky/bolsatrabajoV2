@@ -8,10 +8,10 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
 && isset($_POST["puesto"]) && isset($_POST["pais"]) && isset($_POST["ciudad"]) && isset($_POST["direccion"])
 && isset($_POST["educacion"]) && isset($_POST["idioma"]) && isset($_POST["nivelIdioma"]))
 {
-   $nombre = $_POST["nombre"];
-   $apellido = $_POST["apellido"];
-   $ci = $_POST["ci"];
-   $num1 = $_POST["num1"];
+    $nombre = $_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $ci = $_POST["ci"];
+    $num1 = $_POST["num1"];
     $puesto = $_POST["puesto"];
     $pais = $_POST["pais"];
     $ciudad = $_POST["ciudad"];

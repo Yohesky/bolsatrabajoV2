@@ -31,6 +31,10 @@
   <div class="card-footer text-muted">
     2 days ago
   </div>
+
+  <div class="card-footer text-muted">
+  <a href="descripcionEmpresa.php?idempresa=<?php echo $idempresa; ?>" t>Ver información de la empresa</a>
+  </div>
 </div>
 </div>
 
