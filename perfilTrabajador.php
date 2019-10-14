@@ -25,10 +25,13 @@
         <!-- formulario de datos -->
 
         <div class="col-md-6">
-            <div class="card card-body mt-1" data-toggle="modal" data-target="#exampleModal">
+            <div class="card card-body mt-1" data-toggle="modal">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Añadir experiencia Laboral
                 </button>
+
+
+                
             </div>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,6 +77,7 @@
                                 </div>
 
 
+
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -83,7 +87,7 @@
                     </div>
                 </div>
             </div>
-
+            
             
             <div class="card mt-2">
                 <!-- card-body para un espaciado interno entre los componentes -->

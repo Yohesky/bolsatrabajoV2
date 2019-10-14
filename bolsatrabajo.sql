@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 11, 2019 at 10:38 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Servidor: localhost
+-- Tiempo de generación: 14-10-2019 a las 02:36:58
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bolsatrabajo`
+-- Base de datos: `bolsatrabajo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorias`
+-- Estructura de tabla para la tabla `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -34,7 +34,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `categorias`
+-- Volcado de datos para la tabla `categorias`
 --
 
 INSERT INTO `categorias` (`idcategorias`, `nombreCategoria`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `categorias` (`idcategorias`, `nombreCategoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empresa`
+-- Estructura de tabla para la tabla `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -75,7 +75,7 @@ CREATE TABLE `empresa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `empresa`
+-- Volcado de datos para la tabla `empresa`
 --
 
 INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`) VALUES
@@ -86,7 +86,7 @@ INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `experiencia`
+-- Estructura de tabla para la tabla `experiencia`
 --
 
 CREATE TABLE `experiencia` (
@@ -102,7 +102,7 @@ CREATE TABLE `experiencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `experiencia`
+-- Volcado de datos para la tabla `experiencia`
 --
 
 INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expAr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `propuesta`
+-- Estructura de tabla para la tabla `propuesta`
 --
 
 CREATE TABLE `propuesta` (
@@ -129,7 +129,7 @@ CREATE TABLE `propuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `propuesta`
+-- Volcado de datos para la tabla `propuesta`
 --
 
 INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `categorias_idcategorias`, `funciones`) VALUES
@@ -147,7 +147,7 @@ INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `su
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -178,23 +178,24 @@ CREATE TABLE `usuarios` (
   `expArea` varchar(100) NOT NULL,
   `expLabor` varchar(100) NOT NULL,
   `expFechaIni` date NOT NULL,
-  `expFechaFin` date NOT NULL
+  `expFechaFin` date NOT NULL,
+  `curriculum` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `ciudad`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`) VALUES
-(1, 'Yohesky', 'Pimentel', 26878565, 'yoheskyjpp@gmail.com', '1234', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'Maracaibo- SOLER ', 'san francisco', 'programador', 'Universitario', '', 'frances', 'basico', '', '', NULL, 'EEE', '', '', '', '', '0000-00-00', '0000-00-00'),
-(3, 'jose', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'Maracaibo', 'Venezuela', 'PROGRAMADOR WEB', 'bachiller', '', 'ingles', 'intermedio', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00'),
-(4, 'luis', 'colmenarez', 2512345, 'luis@gmail.com', 'luis', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela zulia', 'Maracaibo', 'Venezuela', 'tecnico', 'bachiller', '', 'ingles', 'basico', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00'),
-(5, '', '', 0, '', '', '0000-00-00 00:00:00', '', '', 0, '', '', '', '', '', '', '', '', '', '', NULL, 'elinca', 'vzla', 'contratista', 'it', 'instalar computadoras', '0001-11-11', '0011-11-11');
+INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `ciudad`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`) VALUES
+(1, 'jose javier', 'Pimentel', 268785655, 'yoheskyjpp@gmail.com', '1234', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'MAracaivo', 'dfsd', 'programador', 'Universitario', '', 'frances', 'basico', '', '', NULL, 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', ''),
+(3, 'jose', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'Maracaibo', 'Venezuela', 'PROGRAMADOR WEB', 'bachiller', '', 'ingles', 'intermedio', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL),
+(4, 'luis', 'colmenarez', 2512345, 'luis@gmail.com', 'luis', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela zulia', 'Maracaibo', 'Venezuela', 'tecnico', 'bachiller', '', 'ingles', 'basico', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL),
+(5, '', '', 0, '', '', '0000-00-00 00:00:00', '', '', 0, '', '', '', '', '', '', '', '', '', '', NULL, 'elinca', 'vzla', 'contratista', 'it', 'instalar computadoras', '0001-11-11', '0011-11-11', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios_has_propuesta`
+-- Estructura de tabla para la tabla `usuarios_has_propuesta`
 --
 
 CREATE TABLE `usuarios_has_propuesta` (
@@ -203,30 +204,30 @@ CREATE TABLE `usuarios_has_propuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `categorias`
+-- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`idcategorias`);
 
 --
--- Indexes for table `empresa`
+-- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idempresa`);
 
 --
--- Indexes for table `experiencia`
+-- Indices de la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD PRIMARY KEY (`idexp`,`usuarios_idusuarios`),
   ADD KEY `fk_experiencia_usuarios_idx` (`usuarios_idusuarios`);
 
 --
--- Indexes for table `propuesta`
+-- Indices de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
   ADD PRIMARY KEY (`idpropuesta`,`empresa_idempresa`,`categorias_idcategorias`),
@@ -234,13 +235,13 @@ ALTER TABLE `propuesta`
   ADD KEY `fk_propuesta_categorias1_idx` (`categorias_idcategorias`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idusuarios`);
 
 --
--- Indexes for table `usuarios_has_propuesta`
+-- Indices de la tabla `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
   ADD PRIMARY KEY (`usuarios_idusuarios`,`propuesta_idpropuesta`),
@@ -248,58 +249,58 @@ ALTER TABLE `usuarios_has_propuesta`
   ADD KEY `fk_usuarios_has_propuesta_usuarios_idx` (`usuarios_idusuarios`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `categorias`
+-- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `idcategorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `empresa`
+-- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `experiencia`
+-- AUTO_INCREMENT de la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
   MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `propuesta`
+-- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
   MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `experiencia`
+-- Filtros para la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `propuesta`
+-- Filtros para la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
   ADD CONSTRAINT `fk_propuesta_categorias1` FOREIGN KEY (`categorias_idcategorias`) REFERENCES `categorias` (`idcategorias`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_propuesta_empresa1` FOREIGN KEY (`empresa_idempresa`) REFERENCES `empresa` (`idempresa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `usuarios_has_propuesta`
+-- Filtros para la tabla `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
   ADD CONSTRAINT `fk_usuarios_has_propuesta_propuesta1` FOREIGN KEY (`propuesta_idpropuesta`) REFERENCES `propuesta` (`idpropuesta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
