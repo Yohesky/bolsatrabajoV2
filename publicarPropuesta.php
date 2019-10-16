@@ -56,7 +56,8 @@
                     </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6">  
+                    <h1 class="text-center after mt-4"> Tus publicaciones Realizadas </h1>
             <div id="mostrar">
 
             </div>

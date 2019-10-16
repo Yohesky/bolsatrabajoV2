@@ -115,6 +115,17 @@ background: linear-gradient(to left, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Fi
 }
 
 
+.after::after
+{
+	content: '';
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	width: 100px;
+	height: 2px;
+	background: rgb(219,144,.5);
+	margin-bottom: 45px;
+}
 
 
 .row .col-md-6 .off

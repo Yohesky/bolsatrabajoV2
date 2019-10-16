@@ -2,9 +2,10 @@
 
 //incluir la conexion con el servidor
 include("conexion.php");
+session_start();
+$idempresa = $_SESSION['idempresa'];
 
-
-$query = "SELECT * from propuesta order by idpropuesta desc limit 1";
+$query = "SELECT * from propuesta where empresa_idempresa='$idempresa'";
 $resultado = mysqli_query($conexion, $query);
 
 if(!$resultado)
@@ -19,7 +20,10 @@ while($row = mysqli_fetch_array($resultado))
     $json[] = array
     (
         "titulo" => $row["titulo"],
-        "descripcion" => $row["descripcion"]
+        "descripcion" => $row["descripcion"],
+        "vacantes" => $row["vacantes"],
+        "sueldo" => $row["sueldo"],
+        "localizacion" => $row["localizacion"]
     );
 }
 

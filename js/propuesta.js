@@ -43,15 +43,19 @@ $(function () {
                     plantilla += 
                     //le asignamos un atributo para encontrar el ID
                     `
-                    <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">${propuesta.titulo}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">${propuesta.descripcion}</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+                    <div>
+                    <div class="alert alert-primary" role="alert">
+                    <div class="row">
+                        <div class="col-md-10">
+                        <span> ${propuesta.titulo} </span> -  <span> ${propuesta.descripcion} </span> - <span> ${propuesta.vacantes} </span> -  <span> ${propuesta.sueldo} </span> -  <span> ${propuesta.localizacion} </span>  
+                        </div>
+
+                        <div class="col-md-2">
+                        <i class="fas fa-pencil-alt text-info"></i> <i class="far fa-trash-alt text-danger"></i>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
                     
                    `;
                     }
@@ -60,11 +64,5 @@ $(function () {
         }
     });
     }
- 
- 
- 
-     
- 
-     
  
  });
