@@ -2,6 +2,7 @@ $(function () {
   actualizar();
   insertarExp();
   mostrarExp();
+  actualizarDescripcion();
 
 
   function actualizar() {
@@ -91,6 +92,32 @@ $(function () {
           $("#experiencia").html(plantilla);
         }
       });
+  }
+
+  function actualizarDescripcion()
+  {
+    $("#btnDescripcion").click(function(e)
+    {
+      let form = $("#formularioDescripcion").serialize();
+      console.log(form);
+      if($.trim(descripcion).length > 0 )
+      {
+        $.ajax(
+          {
+            url: 'includes/actualizarDescripcion.php',
+            method: 'POST',
+            data: form,
+            success: function(response)
+            {
+              console.log(response)
+            }      
+          }
+        )
+      }
+      e.preventDefault();
+      $("#formularioDescripcion").trigger("reset");
+    }
+    )
   }
 
 

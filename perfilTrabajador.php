@@ -12,9 +12,7 @@
             <img src="img/usuario.jpg" alt="" class="responsive rounded mt-5">
             <h3 class="shadow-lg p-3 mb-5 bg-white rounded"><?php echo '' . $_SESSION["nombre"] . ''; ?></h3>
             <div class="container">
-                <div class="form-group text-center">
-                    <textarea name="descripcion" id="descricion" cols="30" rows="4" class="form-control" placeholder="Añade tu Biografia laboral, destrezas, actitudes, etc."></textarea>
-                </div>
+            <?php include("includes/mostrarDescripcion.php") ?>
             </div>
             <h4 class="text-center">Experiencia Laboral</h4>
             <div id="experiencia">
