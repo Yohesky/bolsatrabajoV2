@@ -26,14 +26,14 @@
     <p class="card-text"><?php echo $propuesta['sueldo']; ?></p>
     <p class="card-text"><?php echo $propuesta['vacantes']; ?></p>
     <p class="card-text"><?php echo $propuesta['nombreEmpresa']; ?></p>
-    <a href="#" class="btn btn-primary">Postularme</a>
+    <button id="postular"class="btn btn-success">Postularme</button>
   </div>
   <div class="card-footer text-muted">
     2 days ago
   </div>
 
   <div class="card-footer text-muted">
-  <a href="descripcionEmpresa.php?idempresa=<?php echo $idempresa; ?>" t>Ver información de la empresa</a>
+  <a href="descripcionEmpresa.php?idempresa=<?php echo $idempresa; ?>">Ver información de la empresa</a>
   </div>
 </div>
 </div>
@@ -42,6 +42,7 @@
 
 
 <?php include("includes/footer.php") ?>
+<script src="js/postulacion.js"></script>
 
 
 

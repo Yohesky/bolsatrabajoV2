@@ -21,7 +21,7 @@ if(isset($_POST["descripcion"]))
     //   die("la consulta fallo");
     // }
 
-    echo "guardada";
+    echo "exito";
 }
 
 ?>

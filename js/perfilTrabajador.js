@@ -107,15 +107,21 @@ $(function () {
             url: 'includes/actualizarDescripcion.php',
             method: 'POST',
             data: form,
-            success: function(response)
-            {
-              console.log(response)
-            }      
+            success: function (response) {
+              if (response === 'exito') {
+                swal({
+                  title: "Descripción actualizada",
+                  text: "Su descripción ha sido actualizada",
+                  icon: "success",
+                  button: "Continuar",
+                });
+              }
+            }   
           }
         )
       }
       e.preventDefault();
-      $("#formularioDescripcion").trigger("reset");
+      
     }
     )
   }
