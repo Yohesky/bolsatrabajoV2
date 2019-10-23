@@ -16,25 +16,75 @@ function getGET()
             var tmp = GET[i].split('=');
             get[tmp[0]] = unescape(decodeURI(tmp[1]));
         }
-        return get;
+        // console.log(get);
+      
+        
     }
+    return get;
 }
 
+insertarPostulacion()
+mostrarPostulaciones();
 
-
-window.onload = function()
+function insertarPostulacion()
 {
-    // Cogemos los valores pasados por get
-    var valores=getGET();
-    if(valores)
-    {
-        // hacemos un bucle para pasar por cada indice del array de valores
-        for(var index in valores)
-        {
-            document.write("<br>clave: "+index+" - valor: "+valores[index]);
-        }
-    }else{
-        // no se ha recibido ningun parametro por GET
-        document.write("<br>No se ha recibido ningún parámetro");
-    }
+    
+
+    $("#postular").click(function (e){
+       
+        $.ajax({
+            method: 'POST',
+            url: 'includes/insertarPostulacion.php',
+            data: getGET(),
+            success: function (response) {
+                if (response === 'exito') {
+                    swal({
+                      title: "POSTULACIÓN EXITOSA",
+                      text: "Se ha postulado con exito",
+                      icon: "success",
+                      button: "Continuar",
+                    });
+                  }
+            }
+          });
+    })
+
+
+
+
 }
+
+
+function mostrarPostulaciones() {
+    $.ajax
+      ({
+        url: "includes/mostrarPostulaciones.php",
+        type: 'GET',
+        success: function (response) {
+          let postulacion = JSON.parse(response);
+          let plantilla = "";
+          postulacion.forEach
+            (
+              postulacion => {
+                plantilla +=
+                  //le asignamos un atributo para encontrar el ID
+                  `
+              
+                  
+            <tr class="mt-5">
+                  <td> ${postulacion.titulo} </td>
+                  <td> ${postulacion.descripcion} </td>
+                     <td> ${postulacion.sueldo} </td>
+                  <td> ${postulacion.localizacion} </td>
+                  <td> <a href="#">Eliminar</a></td>
+            </tr>
+                
+                    `;
+              }
+            )
+          $("#postulaciones").html(plantilla);
+        }
+      });
+  }
+
+
