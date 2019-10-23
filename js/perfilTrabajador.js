@@ -3,17 +3,37 @@ $(function () {
   insertarExp();
   mostrarExp();
   actualizarDescripcion();
+  monstrarCurriculum();
+
+  var archivoValidado = false;
+
+ $('#archivoCurriculum').change(function(evento){
+  let archivo = evento.target.files[0];
+  if(archivo.size > 10485760){
+    archivoValidado = false;
+    alert('Tamaño del archivo:' + returnFileSize(archivo.size) +'\nEl archivo no puede superar los 10MB');
+  }else{
+    archivoValidado = true;
+  }
+  console.log(archivoValidado);
+ });
+ 
 
 
   function actualizar() {
     $("#btnDatos").click(function (e) {
+      
+    var form;
+    
+    form = new FormData(document.getElementById("formularioTarea"));
 
-      let form = new FormData(document.getElementById("formularioTarea"));
-      form.append('dato', 'valor');
-      console.log(form)
+    if(!archivoValidado){
+      form.delete('curriculum');
+    }
+
       if ($.trim(nombre).length > 0) {
         $.ajax({
-          type: 'POST',
+          method: 'POST',
           url: 'includes/datosTrabajador.php',
           dataType: 'html',
           data: form,
@@ -21,8 +41,9 @@ $(function () {
           contentType: false,
           processData: false,
           success: function (response) {
+            console.log(response);
             if (response === 'exito') {
-              swal({
+              alert({
                 title: "Datos actualizados",
                 text: "Sus datos han sido actualizados",
                 icon: "success",
@@ -32,9 +53,7 @@ $(function () {
           }
         });
       }
-
-
-
+    
     });
   }
 
@@ -129,3 +148,31 @@ $(function () {
 
 
 });
+
+function monstrarCurriculum(){
+  let curriculum = $("#curriculum");
+  let direcion = curriculum.attr('direccion');
+
+  curriculum.html(`
+    <embed class='mostrar-curriculum' src="${direcion}"></embed>
+    `);
+
+}
+
+
+
+function returnFileSize(number) {
+  if(number < 1024) {
+    return number + 'bytes';
+  } else if(number >= 1024 && number < 1048576) {
+    return (number/1024).toFixed(1) + 'KB';
+  } else if(number >= 1048576) {
+    return (number/1048576).toFixed(1) + 'MB';
+  }
+}
+
+function actualizarCurriculum(){
+  let archivo = document.getElementById('archivoCurriculum');
+  archivo.addEventListener('')
+	
+}

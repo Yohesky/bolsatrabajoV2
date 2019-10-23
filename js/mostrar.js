@@ -79,16 +79,17 @@ function mostrarPagina(){
     function obtenerListaPagina(paginas){
         let liPagina = [];
     
-        var paginaActual = obtenerPaginaActual();
-
+        var paginaActual = parseInt(obtenerPaginaActual());
+    
         for(let i=1 ;i <= paginas; i++) { 
-        let desactivar = '';
-        if(paginaActual == i){
-            desactivar = 'disabled';
-        }
+            let desactivar = '';
+            if(paginaActual == i){
+                desactivar = 'disabled';
+            }
 		
-        liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="trabajador.php?pagina=${i}">${i}</a></li>`);
+            liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="trabajador.php?pagina=${i}">${i}</a></li>`);
         }
+
         return liPagina;
     }
 
