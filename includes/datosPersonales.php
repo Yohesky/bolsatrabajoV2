@@ -69,10 +69,13 @@ while($row = mysqli_fetch_array($resultado))
     </div>
 
     <div class=' mb-4'>
-        <input type='file' class='' name='curriculum' accept='.pdf' name='curriculum' file='.r".$row['curriculum']."'>
+        <input type='file' class='' id='archivoCurriculum' accept='.pdf' name='curriculum' file='.r".$row['curriculum']."'>
         <label class='' for='curriculum'>Ingresar Curriculum</label>
     </div>
     
+    <div id='curriculum' direccion='".$row['curriculum']."'>
+
+    </div>
 
     <button type='button' class='btn btn-success' id='btnDatos'>
     Actualizar
