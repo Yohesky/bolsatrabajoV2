@@ -18,6 +18,7 @@ while($row = mysqli_fetch_array($resultado))
 {
     $json [] = array
     (
+        "idexp" => $row ["idexp"],
         "expEmpresa" => $row ["expEmpresa"],
         "expPais" => $row ["expPais"],
         "expSector" => $row ["expSector"],

@@ -1,6 +1,8 @@
 $(function () {
    
     obtenerPublicacion();
+    eliminarPropuesta();
+
 
     $("#formulario").submit(function(e)
     {
@@ -51,7 +53,7 @@ $(function () {
                         </div>
 
                         <div class="col-md-2">
-                        <i class="fas fa-pencil-alt text-info"></i> <i class="far fa-trash-alt text-danger"></i>
+                        <button type="button" class="btn btn-warning eliminar-propuesta" value="${propuesta.idpropuesta}"> <i class="far fa-trash-alt text-danger"></i> </button> 
                         </div>
                     </div>
                     </div>
@@ -65,4 +67,26 @@ $(function () {
     });
     }
  
+
+    function eliminarPropuesta()
+  {
+    $(document).on("click", ".eliminar-propuesta", function()
+    {
+        //obtiene el boton que fue clickeado "eliminar-tarea"
+        //el boton es un arreglo que esta en la posicion 0 por eso se selecciona
+        let elemento = $(this);
+          //encontramos el ID tareas para enviarlo al backend
+          let id = $(elemento).attr("value")
+          console.log(id);
+  
+         $.post("includes/eliminarPropuesta.php", {id}, function(response)
+          {   
+              //para que haga de nuevo la peticion al backend y no refresque la pagina
+             obtenerPublicacion()
+             console.log(response)
+          });
+  
+  
+    });
+  }
  });

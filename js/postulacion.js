@@ -25,6 +25,7 @@ function getGET()
 
 insertarPostulacion()
 mostrarPostulaciones();
+eliminarPostulacion();
 
 function insertarPostulacion()
 {
@@ -63,7 +64,7 @@ function mostrarPostulaciones() {
         success: function(response)
         
         {
-          console.log(response);
+          
                 let postulacion =  JSON.parse(response);
                 let plantilla = "";
                 postulacion.forEach
@@ -73,15 +74,13 @@ function mostrarPostulaciones() {
                     plantilla += 
                     //le asignamos un atributo para encontrar el ID
                     `<tr>
-                    
-                    |
-                    <td> ${postulacion.propuesta_idpropuesta} </td>
+                
                     <td> ${postulacion.titulo}  </td>
                     <td> ${postulacion.descripcion}  </td>
                     <td> ${postulacion.sueldo}  </td>
                     <td> ${postulacion.localizacion}  </td>
                     <td>
-                        <button value="${postulacion.propuesta_idpropuesta} " class="btn btn-danger eliminar-postulacion">Eliminar</button>
+                        <button value="${postulacion.propuesta_idpropuesta}" class="btn btn-danger eliminar-postulacion">Eliminar</button>
                     </td>
                     </tr>
                     
@@ -94,16 +93,26 @@ function mostrarPostulaciones() {
   }
 
 
-  $(document).on("click", ".eliminar-postulacion", function()
+  function eliminarPostulacion()
   {
-      //obtiene el boton que fue clickeado "eliminar-tarea"
-      //el boton es un arreglo que esta en la posicion 0 por eso se selecciona
-      let elemento = $(this);
-        //encontramos el ID tareas para enviarlo al backend
-        let id = $(elemento).attr("value")
-        console.log(id);
-
-
-  });
+    $(document).on("click", ".eliminar-postulacion", function()
+    {
+        //obtiene el boton que fue clickeado "eliminar-tarea"
+        //el boton es un arreglo que esta en la posicion 0 por eso se selecciona
+        let elemento = $(this);
+          //encontramos el ID tareas para enviarlo al backend
+          let id = $(elemento).attr("value")
+          console.log(id);
+  
+          $.post("includes/eliminarPostulacion.php", {id}, function(response)
+          {   
+              //para que haga de nuevo la peticion al backend y no refresque la pagina
+              mostrarPostulaciones()
+              console.log(response)
+          });
+  
+  
+    });
+  }
 
 

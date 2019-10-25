@@ -4,6 +4,7 @@ $(function () {
   mostrarExp();
   actualizarDescripcion();
   monstrarCurriculum();
+  eliminarExperiencia();
 
   var archivoValidado = false;
 
@@ -102,6 +103,16 @@ $(function () {
                   <h5 class="card-title">${experiencia.expSector}</h5>
                   <h5 class="card-title">${experiencia.expArea}</h5>
                   <p class="card-text">${experiencia.expLabor}.</p>
+                  <div class="row">
+
+                  <div class="col-md-6">
+                  <button type="button" class="btn btn-light">Modificar</button>
+                  </div>
+
+                  <div class="col-md-6">
+                  <button type="button" class="btn btn-danger eliminar-exp" value="${experiencia.idexp}">Eliminar</button>
+                  </div>
+                  </div>
                 </div>
               </div>
                 
@@ -143,6 +154,28 @@ $(function () {
       
     }
     )
+  }
+
+  function eliminarExperiencia()
+  {
+    $(document).on("click", ".eliminar-exp", function()
+    {
+        //obtiene el boton que fue clickeado "eliminar-tarea"
+        //el boton es un arreglo que esta en la posicion 0 por eso se selecciona
+        let elemento = $(this);
+          //encontramos el ID tareas para enviarlo al backend
+          let id = $(elemento).attr("value")
+          console.log(id);
+  
+          $.post("includes/eliminarExperiencia.php", {id}, function(response)
+          {   
+          //     //para que haga de nuevo la peticion al backend y no refresque la pagina
+            mostrarExp();
+            console.log(response)
+          });
+  
+  
+    });
   }
 
 

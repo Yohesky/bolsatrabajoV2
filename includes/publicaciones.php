@@ -18,7 +18,8 @@ $json = array();
 while($row = mysqli_fetch_array($resultado))
 {
     $json[] = array
-    (
+    (   
+        "idpropuesta" => $row["idpropuesta"],
         "titulo" => $row["titulo"],
         "descripcion" => $row["descripcion"],
         "vacantes" => $row["vacantes"],
