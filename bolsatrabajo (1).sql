@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2019 a las 17:24:18
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Servidor: localhost
+-- Tiempo de generación: 25-10-2019 a las 21:24:43
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -135,11 +135,6 @@ CREATE TABLE `propuesta` (
 --
 
 INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `categorias_idcategorias`, `funciones`) VALUES
-(29, 'backend', 'mysql\r\nphp', 1, 100, 'Cabimas', '0000-00-00 00:00:00', 6, 19, NULL),
-(30, 'front end', 'angular\r\nbootstrap', 5, 500, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, NULL),
-(31, 'programador', 'angular', 4, 1333, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, ''),
-(32, 'react', 'react', 5, 111, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, ''),
-(33, 'laravel', 'saber laravel', 4, 144, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, ''),
 (34, 'eee', 'eee', 11, 111, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, ''),
 (35, 'PROGRAMADOR', 'QUE SEPA PROGRAMAR', 11, 444, 'Maracaibo', '0000-00-00 00:00:00', 6, 19, 'DEBE PROGRAMAR SIEMPRE'),
 (36, 'profesor', 'que sepa matematicas', 1, 500, 'Maracaibo', '0000-00-00 00:00:00', 5, 19, 'dar clases de matematica'),
@@ -204,7 +199,7 @@ INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `con
 CREATE TABLE `usuarios_has_propuesta` (
   `usuarios_idusuarios` int(11) NOT NULL,
   `propuesta_idpropuesta` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Índices para tablas volcadas
@@ -247,9 +242,8 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
-  ADD PRIMARY KEY (`usuarios_idusuarios`,`propuesta_idpropuesta`),
-  ADD KEY `fk_usuarios_has_propuesta_propuesta1_idx` (`propuesta_idpropuesta`),
-  ADD KEY `fk_usuarios_has_propuesta_usuarios_idx` (`usuarios_idusuarios`);
+  ADD KEY `usuarios_idusuarios` (`usuarios_idusuarios`),
+  ADD KEY `propuesta_idpropuesta` (`propuesta_idpropuesta`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -306,8 +300,8 @@ ALTER TABLE `propuesta`
 -- Filtros para la tabla `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
-  ADD CONSTRAINT `fk_usuarios_has_propuesta_propuesta1` FOREIGN KEY (`propuesta_idpropuesta`) REFERENCES `propuesta` (`idpropuesta`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_usuarios_has_propuesta_usuarios` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `usuarios_has_propuesta_ibfk_1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE CASCADE,
+  ADD CONSTRAINT `usuarios_has_propuesta_ibfk_2` FOREIGN KEY (`propuesta_idpropuesta`) REFERENCES `propuesta` (`idpropuesta`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
