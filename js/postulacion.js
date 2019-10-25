@@ -60,31 +60,50 @@ function mostrarPostulaciones() {
       ({
         url: "includes/mostrarPostulaciones.php",
         type: 'GET',
-        success: function (response) {
-          let postulacion = JSON.parse(response);
-          let plantilla = "";
-          postulacion.forEach
-            (
-              postulacion => {
-                plantilla +=
-                  //le asignamos un atributo para encontrar el ID
-                  `
-              
-                  
-            <tr class="mt-5">
-                  <td> ${postulacion.titulo} </td>
-                  <td> ${postulacion.descripcion} </td>
-                     <td> ${postulacion.sueldo} </td>
-                  <td> ${postulacion.localizacion} </td>
-                  <td> <a href="#">Eliminar</a></td>
-            </tr>
-                
-                    `;
-              }
-            )
-          $("#postulaciones").html(plantilla);
+        success: function(response)
+        
+        {
+          console.log(response);
+                let postulacion =  JSON.parse(response);
+                let plantilla = "";
+                postulacion.forEach
+                (
+                    postulacion => 
+                    {
+                    plantilla += 
+                    //le asignamos un atributo para encontrar el ID
+                    `<tr>
+                    
+                    |
+                    <td> ${postulacion.propuesta_idpropuesta} </td>
+                    <td> ${postulacion.titulo}  </td>
+                    <td> ${postulacion.descripcion}  </td>
+                    <td> ${postulacion.sueldo}  </td>
+                    <td> ${postulacion.localizacion}  </td>
+                    <td>
+                        <button value="${postulacion.propuesta_idpropuesta} " class="btn btn-danger eliminar-postulacion">Eliminar</button>
+                    </td>
+                    </tr>
+                    
+                   `;
+                    }
+                )
+                $("#postulaciones").html(plantilla);
         }
       });
   }
+
+
+  $(document).on("click", ".eliminar-postulacion", function()
+  {
+      //obtiene el boton que fue clickeado "eliminar-tarea"
+      //el boton es un arreglo que esta en la posicion 0 por eso se selecciona
+      let elemento = $(this);
+        //encontramos el ID tareas para enviarlo al backend
+        let id = $(elemento).attr("value")
+        console.log(id);
+
+
+  });
 
 
