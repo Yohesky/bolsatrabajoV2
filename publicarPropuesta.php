@@ -8,6 +8,7 @@
                         <!-- card-body para un espaciado interno entre los componentes -->
                         <div class="card-body">
                             <form id="formulario">
+                                <input type="hidden" id="postulacionId" name="postulacionId">
                                 <div class="form-group">
                                     <input type="text" id="nombre" name="nombre" placeholder="Titular del Empleo" class="form-control" autofocus>
                                 </div>

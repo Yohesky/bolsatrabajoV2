@@ -24,6 +24,7 @@ while($row = mysqli_fetch_array($resultado))
     
     $json [] = array
     (
+        "id" => $row["idpropuesta"],
         "titulo" => $row["titulo"],
         "descripcion" => $row["descripcion"],
         "funciones" => $row["funciones"],

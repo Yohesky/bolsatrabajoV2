@@ -121,7 +121,9 @@ $(function () {
                $("#sueldo").val(postulacion.sueldo);
                $("#localizacion").val(postulacion.localizacion);
                $("#Categoria").val(postulacion.categorias_idcategorias);
+               $("#postulacionId").val(postulacion.id)
                editar = true;
+              
               });
       
       
