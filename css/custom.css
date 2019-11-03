@@ -364,4 +364,31 @@ html, body {
   font-size: 0.9em;
 }
 
+.visualizadorFotoPerfil{
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  border: 1px solid;
+  overflow: hidden;
+}
 
+#formFotoPerfil{
+  display: flex;
+  justify-content: center;
+}
+
+.contenedor-foto-perfil{
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.texto-editar{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  font-size: 2rem;
+  visibility: hidden;
+}
