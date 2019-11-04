@@ -4,7 +4,7 @@
 	require_once('./conexion.php');
 	$id = '';
 
-	if(isset($_SESSION['idusuarios']) && !empty($_SESSION['idusurios'])){
+	if(isset($_SESSION['idusuarios']) && !empty($_SESSION['idusuarios'])){
 		$id = $_SESSION['idusuarios'];
 	}else if(isset($_SESSION['idempresa']) && !empty($_SESSION['idempresa'])){
 		$id = $_SESSION['idempresa'];
@@ -45,7 +45,7 @@
 		$resultadoSubir = mysqli_query($conexion, $querySubir) or die(mysqli_error($conexion));
 
 		if($resultadoSubir){
-			print_r($_FILES);
+			echo "exito";
 		}else{
 			echo $resultadoSubir;
 		}
