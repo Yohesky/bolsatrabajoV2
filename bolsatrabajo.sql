@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-11-2019 a las 16:45:33
+-- Tiempo de generación: 04-11-2019 a las 05:58:57
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -71,17 +71,18 @@ CREATE TABLE `empresa` (
   `areaEmpresa` varchar(45) NOT NULL,
   `correoEmpresa` varchar(45) NOT NULL,
   `webEmpresa` varchar(45) NOT NULL,
-  `contrasenaEmpresa` varchar(45) NOT NULL
+  `contrasenaEmpresa` varchar(45) NOT NULL,
+  `imagenEmpresa` varchar(1000) NOT NULL DEFAULT './img-empresa/perfil-predeterminado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`) VALUES
-(5, 'Colegio Adventista', 'colegio', 'j-123123', 'sierra maestra', 'EnseÃ±anza', 'adv@gmail.com', '', '123'),
-(6, 'smartprocess', 'ingeneria', 'j-123123', 'tierra negra', 'IngenierÃ­a', 'sp@smartprocessgroup.com', 'www.sp.com', '1234'),
-(7, 'asd', 'asd', 'asd', 'asd', 'Asesorias', 'sp@sp.com', 'asd', '1234');
+INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`, `imagenEmpresa`) VALUES
+(5, 'Colegio Adventista', 'colegio', 'j-123123', 'sierra maestra', 'EnseÃ±anza', 'adv@gmail.com', '', '123', './img-empresa/perfil-predeterminado.png'),
+(6, 'smartprocess', 'ingeneria', 'j-123123', 'tierra negra', 'IngenierÃ­a', 'sp@smartprocessgroup.com', 'www.sp.com', '1234', './img-empresa/perfil-predeterminado.png'),
+(7, 'asd', 'asd', 'asd', 'asd', 'Asesorias', 'sp@sp.com', 'asd', '1234', './img-empresa/perfil-predeterminado.png');
 
 -- --------------------------------------------------------
 
@@ -177,7 +178,7 @@ CREATE TABLE `usuarios` (
   `expFechaFin` date NOT NULL,
   `curriculum` text,
   `descripcion` varchar(100) DEFAULT NULL,
-  `fotoPerfil` varchar(1000) DEFAULT './img-perfil/perfil-predeterminado.png'
+  `fotoPerfil` varchar(1000) DEFAULT './img-perfil/perfil-predeterminado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
