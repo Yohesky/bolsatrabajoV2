@@ -1,16 +1,22 @@
 $(function()
 {
     obtenerPublicacion();
+    mostrarPagina();
     function obtenerPublicacion()
     {
         $.ajax
     ({
-        url: "includes/postulados.php",
+        url: "includes/postulados.php"+location.search,
         type: 'GET',
         success: function(response)
         {
                 let publicacion =  JSON.parse(response);
                 let plantilla = "";
+
+                sessionStorage.setItem('paginasPostulado',publicacion[publicacion.length - 1].paginas + '');
+                delete publicacion[publicacion.length - 1]; //Borra el ultimo objeto que tiene el numero de pagina
+
+
                 publicacion.forEach
                 (
                     publicacion => 
@@ -131,9 +137,64 @@ $(function()
                    `;
                     }
                 )
+                plantilla += mostrarPagina();
                 $("#info").html(plantilla);
         }
     });
     }
 })
 
+function mostrarPagina(){
+  let paginas = parseInt(sessionStorage.getItem('paginasPostulado'));
+  if(paginas > 1){
+          let paginaActual = parseInt(obtenerPaginaActual());
+          if(paginaActual === 1){var siguiente = 'disabled';}
+          if(paginaActual === parseInt(paginas)){var anterior = 'disabled';}
+          var plantilla2 = `
+          <nav aria-label="Page navigation example">
+         <ul class="pagination justify-content-center">
+        <li class="page-item ${siguiente}">
+              <a class="page-link" href="infoPostulados.php?pagina=${paginaActual- 1}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+              </a>
+            </li>
+                  ${obtenerListaPagina(paginas).join('')}
+        
+        <li class="page-item ${anterior}">
+              <a class="page-link" href="infoPostulados.php?pagina=${paginaActual + 1}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+              </a>
+          </li>
+          </ul>
+      </nav>
+          `
+  }
+      return plantilla2;
+  }
+  //los <li> que tienen el nuemero de pagina
+  function obtenerListaPagina(paginas){
+      let liPagina = [];
+  
+      var paginaActual = parseInt(obtenerPaginaActual());
+  
+      for(let i=1 ;i <= paginas; i++) { 
+          let desactivar = '';
+          if(paginaActual == i){
+              desactivar = 'disabled';
+          }
+  
+          liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="infoPostulados.php?pagina=${i}">${i}</a></li>`);
+      }
+
+      return liPagina;
+  }
+
+  function obtenerPaginaActual(){
+      let pagina = location.search.split('=')[1];
+      if(pagina){
+          return pagina;
+      }
+      return 1;
+  }
