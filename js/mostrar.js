@@ -2,8 +2,6 @@
 
 $(function () {
     mostrarPublicaciones();
-    mostrarPagina();
-
 });
 
 function mostrarPublicaciones() {
@@ -48,11 +46,12 @@ function mostrarPublicaciones() {
 
 function mostrarPagina(){
     let paginas = parseInt(sessionStorage.getItem('paginas'));
+    let plantilla2 = '';
     if(paginas > 1){
             let paginaActual = parseInt(obtenerPaginaActual());
             if(paginaActual === 1){var siguiente = 'disabled';}
             if(paginaActual === parseInt(paginas)){var anterior = 'disabled';}
-            var plantilla2 = `
+            plantilla2 = `
             <nav aria-label="Page navigation example">
  					<ul class="pagination justify-content-center">
 					<li class="page-item ${siguiente}">
@@ -73,6 +72,7 @@ function mostrarPagina(){
 				</nav>
             `
     }
+        
         return plantilla2;
     }
     //los <li> que tienen el nuemero de pagina
