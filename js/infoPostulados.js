@@ -93,11 +93,12 @@ $(function()
 
 function mostrarPagina(){
   let paginas = parseInt(sessionStorage.getItem('paginasPostulado'));
+  let plantilla2 = '';
   if(paginas > 1){
           let paginaActual = parseInt(obtenerPaginaActual());
           if(paginaActual === 1){var siguiente = 'disabled';}
           if(paginaActual === parseInt(paginas)){var anterior = 'disabled';}
-          var plantilla2 = `
+          plantilla2 = `
           <nav aria-label="Page navigation example">
          <ul class="pagination justify-content-center">
         <li class="page-item ${siguiente}">
