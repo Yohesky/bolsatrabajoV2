@@ -32,9 +32,9 @@
 		echo $fila['imagenEmpresa'];
 
 	}else if(isset($_FILES['fotoPerfil']) && !empty($_FILES['fotoPerfil'])){
-
+		
 		$tmp_name = $_FILES['fotoPerfil']['tmp_name'];
-        $name = $_FILES['fotoPerfil']['name'];
+        $name = $_FILES['fotoPerfil']['name'] = time();
 
         $nueva_path = "../img-perfil/" . $name;
         move_uploaded_file($tmp_name, $nueva_path);
@@ -53,7 +53,7 @@
 	}else if(isset($_FILES['imagenEmpresa']) && !empty($_FILES['imagenEmpresa'])){
 
 		$tmp_name = $_FILES['imagenEmpresa']['tmp_name'];
-        $name = $_FILES['imagenEmpresa']['name'];
+        $name = $_FILES['imagenEmpresa']['name'] = time();
 
         $nueva_path = "../img-empresa/" . $name;
         move_uploaded_file($tmp_name, $nueva_path);
