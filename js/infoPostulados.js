@@ -26,7 +26,7 @@ $(function()
                     `
                     
 
-                    <div class="card">
+                    <div class="carta mx-auto">
     <div class="additional">
       <div class="user-card">
         <div class="level center">
