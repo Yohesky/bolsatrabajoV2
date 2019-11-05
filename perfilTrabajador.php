@@ -80,6 +80,7 @@
                         </div>
                         <div class="modal-body">
                             <form class="card card-body" id="formularioExperiencia">
+                            <input type="hidden" id="experienciaID" name="experienciaID">
                                 <div class="form-group">
                                     <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required>
                                 </div>
