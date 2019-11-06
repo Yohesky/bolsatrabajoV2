@@ -4,35 +4,6 @@
 
 <!-- Modal -->
 <div class="modal fade" id="subirFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal3Label">Subir Foto de Perfil</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-      <div class="container">
-        <div class="row">
-            <div class="visualizadorFotoPerfil">
-            <img alt="Subir Foto" id="visualizador" class="img-fluid"></div>
-            <div id="datosFoto"></div>
-        </div>
-      </div>
-        
-        
-        <form id="formFotoPerfil" class="mt-5">
-            <input type="file" name="fotoPerfil" accept=".jpg, .png">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="botonCancelar">Cancelar</button>
-        <button type="submit" class="btn btn-primary" form="formFotoPerfil" id="botonGuardar" disabled>Guardar</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 
