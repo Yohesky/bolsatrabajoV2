@@ -1,4 +1,3 @@
-
 <?php
 
 //se incluye la conexion
@@ -6,16 +5,16 @@ include("conexion.php");
 
 
 //le enviamos "busqueda" desde DATA y almacenamos con $busqueda el valor desde el lado del servidor
-$busquedaTitulo = $_POST["busquedaTitulo"];
+$titulo = $_POST["titulo"];
 $sueldo = $_POST["sueldo"];
 
 //si el valor de busqueda NO esta vacio se hace una consulta
-if(!empty($busquedaTitulo) && !empty($sueldo))
+if(!empty($titulo) && !empty($sueldo))
 {
     //consulta a la base de datos
     //selecciona todos los datos de la tabla llamada TAREAS
     //donde el nombre de la tarea coincida con la variable llamada BUSQUEDA
-    $query = "SELECT * FROM propuesta WHERE titulo LIKE '$busquedaTitulo%' AND sueldo LIKE '$sueldo%' ";
+    $query = "SELECT * FROM propuesta WHERE titulo LIKE '$titulo%' AND sueldo LIKE '$sueldo%' ";
     $result = mysqli_query($conexion, $query);
 
     //si no tengo respuesta de la BD
@@ -32,8 +31,9 @@ if(!empty($busquedaTitulo) && !empty($sueldo))
         //array asociativo
         $json[] = array
         (
-            "busquedaTitulo" =>  $row ["titulo"],
-            "sueldo" =>  $row ["sueldo"]
+            "titulo" =>  $row ["titulo"],
+            "sueldo" => $row ["sueldo"],
+            "idpropuesta" => $row ["idpropuesta"]
         );
     }
 

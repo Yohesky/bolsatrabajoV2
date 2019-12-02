@@ -5,7 +5,7 @@
     <div class="col-md-6">
 
         <div class="card-body">
-            <form id="formularioBusqueda">
+            <form id="formulario">
 
                 <div class="form-group">
                     <input type="text" id="titulo" name="titulo" placeholder="Titular del Empleo" class="form-control" autofocus>
@@ -33,7 +33,7 @@
                 </div>
 
                 <!-- btn-block para que ocupe el ancho disponible -->
-                <button type="submit" class="btn btn-primary btn-block text-center">
+                <button type="submit" class="btn btn-primary btn-block text-center" id="btnEnviar">
                     Buscar
                 </button>
             </form>
@@ -54,4 +54,4 @@
 
 
 <?php include("includes/footer.php"); ?>
-<script src="js/filtros.js"></script>
+<script src="js/filtro.js"></script>
