@@ -1,48 +1,57 @@
-<?php include("includes/headerTrabajador.php") ?>
+<?php include("includes/headerTrabajador.php"); ?>
 
-    <div class="container row">
+<div class="container row">
 
-        <div class="card col-md-6 mt-4">
-                        <!-- card-body para un espaciado interno entre los componentes -->
-                        <div class="card-body">
-                            <form id="formulario">
-                                <input type="hidden" id="postulacionId" name="postulacionId">
-                                <div class="form-group">
-                                    <input type="text" id="titulo" name="titulo" placeholder="Titular del Empleo" class="form-control" autofocus>
-                                </div>
+    <div class="col-md-6">
 
-                                <div class="form-group">
-                                        <input type="number" id="vacantes" name="vacantes" min="1" class="form-control" placeholder="Cantidad de Vacantes" >
-                                </div>
-                                <div class="form-group">
-                                        <input type="number" name="sueldo" id="sueldo"  min="1" class="form-control" placeholder="Sueldo" >
-                                </div>
+        <div class="card-body">
+            <form id="formulario">
 
+                <div class="form-group">
+                    <input type="text" id="titulo" name="titulo" placeholder="Titular del Empleo" class="form-control" autofocus>
+                </div>
 
-                                <div class="form-group">
-                                        <select name="Categoria" id="Categoria">
+                <div class="form-group">
+                <input type="text" id="sueldo" name="sueldo" placeholder="Salario" class="form-control" autofocus>
+                </div>
 
-                                        <?php include("includes/categorias.php") ?>
-                                        </select>
-                                       
-                                </div>
+                <div class="form-group">
+                    <label for="localizacion">Localización</label>
+                    <select id="localizacion" name="localizacion">
+                        <option value="Maracaibo">Maracaibo</option>
+                        <option value="Cabimas">Cabimas</option>
+                        <option value="CiudadOjeda">Ciudad Ojeda</option>
+                    </select>
+                </div>
 
-                            
-                                <!-- btn-block para que ocupe el ancho disponible -->
-                                <button type="submit"class="btn btn-primary btn-block text-center">
-                                    Guardar
-                                </button>
-                            </form>
-                        </div>
-        </div>
+                <div class="form-group">
+                    <select name="categoria" id="Categoria">
 
-        <div class="col-md-6">
-            <div id="resultados">
+                        <?php include("includes/categorias.php") ?>
+                    </select>
 
-            </div>
+                </div>
+
+                <!-- btn-block para que ocupe el ancho disponible -->
+                <button type="submit" class="btn btn-primary btn-block text-center" id="btnEnviar">
+                    Buscar
+                </button>
+            </form>
         </div>
 
     </div>
 
-<?php include("includes/footer.php") ?>
+    <div class="col-md-6">
+    
+        <div id="resultados"> </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<?php include("includes/footer.php"); ?>
 <script src="js/filtro.js"></script>

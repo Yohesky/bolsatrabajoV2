@@ -52,6 +52,13 @@
                              <a href="trabajador.php" class="menu">Trabajos</a>
                      </li>
              </a>
+
+             <a href="busquedaPersonalizada.php">
+                         <li>
+                                 <div class="barra"></div>
+                                 <a href="busquedaPersonalizada.php" class="menu">Busqueda Personalizada</a>
+                             </li>
+                 </a>
                  
      
      

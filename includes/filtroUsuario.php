@@ -1,4 +1,3 @@
-
 <?php
 
 //se incluye la conexion
@@ -8,9 +7,10 @@ include("conexion.php");
 //le enviamos "busqueda" desde DATA y almacenamos con $busqueda el valor desde el lado del servidor
 $titulo = $_POST["titulo"];
 $sueldo = $_POST["sueldo"];
+$categoria = $_POST["categoria"];
 
 //si el valor de busqueda NO esta vacio se hace una consulta
-if(!empty($titulo) && !empty($sueldo))
+if(isset($_POST["titulo"]) && isset($_POST["sueldo"]))
 {
     //consulta a la base de datos
     //selecciona todos los datos de la tabla llamada TAREAS
