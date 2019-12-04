@@ -30,7 +30,8 @@ while($row = mysqli_fetch_array($resultado))
         "funciones" => $row["funciones"],
         "vacantes" => $row["vacantes"],
         "sueldo" => $row["sueldo"],
-        "categorias_idcategorias" => $row["categorias_idcategorias"]
+        "localizacion" => $row["localizacion"],
+        "categoria" => $row["categoria"]
     );
 }
 

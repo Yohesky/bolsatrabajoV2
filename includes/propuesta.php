@@ -3,10 +3,10 @@
 //incluir la conexion con el servidor
 include("conexion.php");
 include("loginEmpresa.php");
-include("categorias.php");
+
 
 $idempresa = $_SESSION['idempresa'];
-$idcategorias = $_SESSION['idcategorias'];
+
 
 if(isset($_POST["nombre"]))
 {
@@ -17,10 +17,11 @@ if(isset($_POST["nombre"]))
     $sueldo = $_POST["sueldo"];
     $localizacion = $_POST["localizacion"];
     $funciones = $_POST['funciones'];
+    $categoria = $_POST['categoria'];
 
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
-    $query = "INSERT INTO propuesta(titulo, descripcion, vacantes, sueldo,localizacion,empresa_idempresa,categorias_idcategorias, funciones) 
-    VALUES('$nombre', '$descripcion', '$vacantes', '$sueldo', '$localizacion','$idempresa','$idcategorias', '$funciones')";
+    $query = "INSERT INTO propuesta(titulo, descripcion, vacantes, sueldo,localizacion,empresa_idempresa, funciones, categoria) 
+    VALUES('$nombre', '$descripcion', '$vacantes', '$sueldo', '$localizacion','$idempresa', '$funciones', '$categoria')";
 
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 

@@ -4,7 +4,7 @@
 
     <div class="col-md-6">
 
-        <div class="card-body">
+        <div class="mt-4 card card-body">
             <form id="formulario">
 
                 <div class="form-group">
@@ -18,6 +18,7 @@
                 <div class="form-group">
                     <label for="localizacion">Localización</label>
                     <select id="localizacion" name="localizacion">
+                        <option >Seleccione una Opcion</option>
                         <option value="Maracaibo">Maracaibo</option>
                         <option value="Cabimas">Cabimas</option>
                         <option value="CiudadOjeda">Ciudad Ojeda</option>
@@ -25,9 +26,11 @@
                 </div>
 
                 <div class="form-group">
-                    <select name="categoria" id="Categoria">
-
-                        <?php include("includes/categorias.php") ?>
+                <label for="localizacion">Categoria</label>
+                    <select name="categoria" id="categoria">
+                        <option >Seleccione una Opcion</option>
+                        <option value="Ventas">Ventas</option>
+                        <option value="mantenimiento">Mantenimiento</option>
                     </select>
 
                 </div>

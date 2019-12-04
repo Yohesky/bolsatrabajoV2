@@ -7,8 +7,6 @@ class Filtro {
     //METODO 1
     async enviar(){
 
-       
-
         console.log(this.form)
 
          $.ajax({
@@ -26,8 +24,11 @@ class Filtro {
                         <h5 class="card-header">${filtro.titulo}</h5>
                         <div class="card-body">
                             <h5 class="card-title">${filtro.sueldo} BsS </h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <hr>
+                            <p class="card-text">${filtro.descripcion}</p>
+                            <hr>
+                            <p class="card-text">${filtro.funciones}</p>
+                            <a href="#" class="btn btn-primary">Ver propuesta</a>
                         </div>
                     </div>
 
