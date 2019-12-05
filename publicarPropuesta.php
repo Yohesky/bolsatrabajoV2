@@ -37,9 +37,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                        <select name="Categoria" id="Categoria">
-
-                                        <?php include("includes/categorias.php") ?>
+                                        <select name="categoria" id="categoria">
+                                            <option value="Ventas">Ventas</option>
+                                            <option value="Mantenimiento">Mantenimiento</option>
                                         </select>
                                        
                                 </div>

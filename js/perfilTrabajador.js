@@ -1,8 +1,10 @@
 $(function () {
+  let editar = false;
   obtenerFotoPerfil();
   actualizar();
   insertarExp();
   mostrarExp();
+  editarExperiencia();
   actualizarDescripcion();
   monstrarCurriculum();
   eliminarExperiencia();
@@ -11,6 +13,7 @@ $(function () {
 
   //$('#subirFoto').modal('show');
   var archivoValidado = false;
+
 
  $('#archivoCurriculum').change(function(evento){
   let archivo = evento.target.files[0];
@@ -66,16 +69,19 @@ $(function () {
     $("#guardar").click(function (e) {
 
       let form = $("#formularioExperiencia").serialize();
-
+     
       console.log(form);
       if ($.trim(expEmpresa).length > 0 && $.trim(expPais).length > 0 && $.trim(expSector).length > 0 &&
         $.trim(expArea).length > 0 && $.trim(expLabor).length > 0 && $.trim(expFechaIni).length > 0 && $.trim(expFechaFin).length > 0) {
+          let direccion = editar === false ? "includes/insertarExp.php" : "includes/actualizacionExperiencia.php";
+          console.log(direccion)
         $.ajax({
           method: 'POST',
-          url: 'includes/insertarExp.php',
+          url: direccion,
           data: form,
           success: function (response) {
             mostrarExp();
+            console.log(response)
           }
         });
       }
@@ -110,7 +116,9 @@ $(function () {
                   <div class="row">
 
                   <div class="col-md-6">
-                  <button type="button" class="btn btn-light">Modificar</button>
+                  <button type="button" class="btn btn-light editar-experiencia" value="${experiencia.idexp}" data-toggle="modal" data-target="#exampleModal">
+                  Modificar
+                  </button>
                   </div>
 
                   <div class="col-md-6">
@@ -181,6 +189,37 @@ $(function () {
   
     });
   }
+
+  function editarExperiencia()
+    {
+        $(document).on("click", ".editar-experiencia", function()
+        {
+            //obtiene el boton que fue clickeado "eliminar-tarea"
+            //el boton es un arreglo que esta en la posicion 0 por eso se selecciona
+            let elemento = $(this);
+              //encontramos el ID tareas para enviarlo al backend
+              let idexp = $(elemento).attr("value")
+              console.log(idexp);
+      
+              $.post("includes/actExperiencia.php", {idexp}, function(response)
+             {   
+               const experiencia = JSON.parse(response);
+               $("#expEmpresa").val(experiencia.expEmpresa);
+               $("#expPais").val(experiencia.expPais);
+               $("#expSector").val(experiencia.expSector);
+               $("#expArea").val(experiencia.expArea);
+               $("#expLabor").val(experiencia.expLabor);
+               $("#expFechaIni").val(experiencia.expFechaIni);
+               $("#expFechaFin").val(experiencia.expFechaFin);
+               $("#experienciaID").val(experiencia.idexp)
+               editar = true;
+               console.log(response)
+              
+              });
+      
+      
+        });  
+    }
 
 
 

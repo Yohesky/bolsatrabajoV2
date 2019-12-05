@@ -12,7 +12,7 @@ $(function () {
          // console.log(form);
          
 
-         if($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(vacantes).length > 0 && $.trim(sueldo).length > 0 && $.trim(localizacion).length > 0&& $.trim(funciones).length >0)
+         if($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(vacantes).length > 0 && $.trim(sueldo).length > 0 && $.trim(localizacion).length > 0 && $.trim(funciones).length > 0 && $.trim(categoria).length >0)
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
             console.log(direccion);
@@ -120,7 +120,7 @@ $(function () {
                $("#vacantes").val(postulacion.vacantes);
                $("#sueldo").val(postulacion.sueldo);
                $("#localizacion").val(postulacion.localizacion);
-               $("#Categoria").val(postulacion.categorias_idcategorias);
+               $("#categoria").val(postulacion.categoria);
                $("#postulacionId").val(postulacion.id)
                editar = true;
               

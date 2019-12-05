@@ -9,7 +9,7 @@ $resultado = mysqli_query($conexion,$sql);
 while($row = mysqli_fetch_array($resultado))
 {
     echo "<option value='".$row['idcategorias']."'>".$row['nombreCategoria']."</option>";
-    $_SESSION['idcategorias'] = $row['idcategorias'];
+    $_SESSION['nombreCategoria'] = $row['nombreCategoria'];
 }
 
 
