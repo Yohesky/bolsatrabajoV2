@@ -22,7 +22,7 @@ $(function()
 
                     <div class="rad-info-box rad-txt-danger">
                     <i class="fas fa-check"></i>
-                                                <span class="heading"> <a href="infoPostulados?idempresa=${publicacion.idempresa}"> ${publicacion.titulo} </a> </span>
+                                                <span class="heading"> <a href="infoPostulados.php?idempresa=${publicacion.idempresa}"> ${publicacion.titulo} </a> </span>
                                                 <span class="value"><span>N° de Postulados 100</span></span>
                     </div>
                       

@@ -28,7 +28,7 @@ class Filtro {
                             <p class="card-text">${filtro.descripcion}</p>
                             <hr>
                             <p class="card-text">${filtro.funciones}</p>
-                            <a href="#" class="btn btn-primary">Ver propuesta</a>
+                            <a href="propuesta.php?id=${filtro.idpropuesta}&idempresa=${filtro.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver Propuesta</button> </a>
                         </div>
                     </div>
 

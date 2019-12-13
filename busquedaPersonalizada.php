@@ -16,9 +16,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="localizacion">Localización</label>
+                   
                     <select id="localizacion" name="localizacion">
-                        <option >Seleccione una Opcion</option>
+                        <option value="">Seleccione una Opcion</option>
                         <option value="Maracaibo">Maracaibo</option>
                         <option value="Cabimas">Cabimas</option>
                         <option value="CiudadOjeda">Ciudad Ojeda</option>
@@ -26,9 +26,9 @@
                 </div>
 
                 <div class="form-group">
-                <label for="localizacion">Categoria</label>
+                
                     <select name="categoria" id="categoria">
-                        <option >Seleccione una Opcion</option>
+                        <option value="">Seleccione una Opcion</option>
                         <option value="Ventas">Ventas</option>
                         <option value="mantenimiento">Mantenimiento</option>
                     </select>
