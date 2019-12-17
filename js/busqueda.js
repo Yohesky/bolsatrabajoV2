@@ -7,7 +7,7 @@ $(function()
     //sino NO
      if($("#buscar").val())
      {
-            //cada vez que tipee el usuario obtenemos el valor
+        //cada vez que tipee el usuario obtenemos el valor
         // y lo almacenamos
         let busqueda = $("#buscar").val();
         console.log(busqueda);
