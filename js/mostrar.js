@@ -1,12 +1,18 @@
 
 
 $(function () {
+
     mostrarPublicaciones();
+    agregarEventoCheckboxRadio(['chkCategoria', 'chkSalario', 'chkUbicacion']);
+    agregarEventoFormulario();
+
 });
+
+
 
 function mostrarPublicaciones() {
     paginaActual = obtenerPaginaActual();
-    console.log(paginaActual);
+
     $.ajax({
             url: "includes/mostrar.php"+location.search,
             type: "GET",
@@ -100,3 +106,68 @@ function mostrarPagina(){
         }
         return 1;
     }
+
+function agregarEventoCheckboxRadio(nombres){
+    
+    nombres.forEach(nombre => {
+
+        procesarCheckBoxRadio(nombre);
+    });
+}
+
+function procesarCheckBoxRadio(nombre){
+
+
+    checkboxes = document.getElementsByName(nombre);
+    for (let i = 0; i < checkboxes.length; i++) {
+
+        checkboxes[i].addEventListener('change', function(){
+
+            //uso bind para usar el this de la funcion anonima y luego le paso el nombre como parametro
+            checkboxRadio.bind(this)(nombre);
+        });
+    }
+}
+
+function checkboxRadio(name){
+
+    if (!this.checked) return
+    elem=document.getElementsByName(name);
+
+    for(i=0;i<elem.length;i++) 
+        elem[i].checked=false;
+
+    this.checked=true;
+}
+
+function agregarEventoFormulario(){
+
+    $('#formularioBuscar').submit(function(){
+
+        event.preventDefault();
+        if($('#buscar').val().trim()){
+
+            let formData = $(this).serializeArray();
+            let json = convertirFormJSON(formData);
+            buscarJSON(json);
+            
+        }
+    });
+}
+
+function convertirFormJSON(formData){
+
+    let data = {};
+    $(formData).each(function(index, obj){
+
+        data[obj.name] = obj.value;
+    });
+
+    return JSON.stringify(data);
+}
+
+function buscarJSON(json){
+    $.ajax({
+        url: 'includes/mostrar.php'
+    })
+}
