@@ -10,6 +10,7 @@ $(function () {
   eliminarExperiencia();
   agregarFotoPerfil();
 
+
   //$('#subirFoto').modal('show');
   var archivoValidado = false;
 
@@ -252,11 +253,53 @@ function actualizarCurriculum(){
 	
 }
 
+
+
 function agregarFotoPerfil(){
-  let fotoPerfil = $('.contenedor-foto-perfil');
+  
+  let fotoPerfil = $('.contenedor-foto-perfil').click(function(){
+    $('#subirFoto').html(`
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal3Label">Subir Foto de Perfil</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      <div class="container">
+        <div class="row">
+            <div class="visualizadorFotoPerfil">
+            <img alt="Subir Foto" id="visualizador" class="img-fluid"></div>
+            <div id="datosFoto"></div>
+        </div>
+      </div>
+        
+        
+        <form id="formFotoPerfil" class="mt-5">
+            <input type="file" name="fotoPerfil" accept=".jpg, .png">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  id="botonCancelar" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" form="formFotoPerfil" id="botonGuardar" disabled>Guardar</button>
+      </div>
+    </div>
+  </div>
+    `);  
+    
   agregarOpacidad(fotoPerfil);
   previsualizar();
   subirFoto();
+  });
+
+  $('#botonCancelar').click(function(){
+    quitarModal();
+    $('#subirFoto').html('');
+  });
+
 }
 
 function agregarOpacidad(fotoPerfil){
@@ -275,8 +318,9 @@ function agregarOpacidad(fotoPerfil){
 function subirFoto(){
   let form = $('#formFotoPerfil').submit(function(){
     event.preventDefault();
-    
     enviarFotoPerfil();
+    quitarModal();
+
   });
 }
 
@@ -332,7 +376,6 @@ function enviarFotoPerfil(){
     console.log(respuesta);
     if(respuesta === 'exito'){
       obtenerFotoPerfil();
-      quitarModal();
     }
   });
 

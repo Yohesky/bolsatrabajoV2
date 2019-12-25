@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +19,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <i class="fas fa-bars fa-3x menu" data-pushbar-target="pushbar-menu"></i>
     <nav class="navbar navbar-dark bg-dark ml-auto">
-           
-           
-           <input class="form-control" type="buscar" id="buscar" placeholder="Busca empleo" aria-label="Search">
-           
+
+        <!--<input class="form-control" type="buscar" id="buscar" placeholder="Busca empleo" aria-label="Search">-->   
+
        </nav>
 
        <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu fondo">
