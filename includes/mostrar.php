@@ -2,6 +2,9 @@
 
 //incluir la conexion con el servidor
 include("conexion.php");
+switch($_SERVER['REQUEST_METHOD']){
+
+    case 'GET':
 $postulacionePorPagina = 5;
 $pagina = 0;
 if(isset($_GET['pagina'])){
@@ -44,4 +47,15 @@ while($row = mysqli_fetch_array($resultado))
 $json[] = Array('paginas' => $paginas);
 $jsonString = json_encode($json);
 echo $jsonString;
+break;
+
+    case 'POST':
+
+        $parametrosDeBusqueda = json_decode(file_get_contents("php://input"), true);
+        $abuscar = "";// las cosas que debe buscar
+        
+        print_r($parametrosDeBusqueda);
+        
+    break;
+}
 ?>

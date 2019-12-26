@@ -16,8 +16,8 @@
 				<div class="card-body">
 					<form id="formularioBuscar">
 						<div class="form-group d-flex">
-							<input type="search" name="buscar" class="form-control" id="buscar">
-							<button type="submit" class="btn btn-primary">Buscar</button>
+							<input type="search" name="buscar" class="form-control" id="buscar" placeholder="buscar">
+							<button type="button" class="btn btn-primary" id="iniciarBusqueda">Buscar</button>
 						</div>
 					</form>
 				</div>

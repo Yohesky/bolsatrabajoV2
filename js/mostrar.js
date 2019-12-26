@@ -138,21 +138,28 @@ function checkboxRadio(name){
         elem[i].checked=false;
 
     this.checked=true;
+
+    buscar();
 }
 
 function agregarEventoFormulario(){
 
-    $('#formularioBuscar').submit(function(){
+    $('#iniciarBusqueda').click(function(){
 
-        event.preventDefault();
-        if($('#buscar').val().trim()){
-
-            let formData = $(this).serializeArray();
-            let json = convertirFormJSON(formData);
-            buscarJSON(json);
-            
-        }
+        buscar();
     });
+}
+
+function buscar(){
+    
+    let formData = $('#formularioBuscar').serializeArray();
+    let json = convertirFormJSON(formData);
+    if($('#buscar').val() == ' '){
+        delete json.buscar;
+    }
+
+    //buscarJSON(json);
+    console.log(json);
 }
 
 function convertirFormJSON(formData){
@@ -168,6 +175,11 @@ function convertirFormJSON(formData){
 
 function buscarJSON(json){
     $.ajax({
-        url: 'includes/mostrar.php'
+        url: 'includes/mostrar.php',
+        type: 'POST',
+        data: json,
+        contentType: 'application/json; charset=utf-8'
+    }).done(function(respuesta){
+        console.log(respuesta);
     })
 }
