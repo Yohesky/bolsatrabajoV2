@@ -52,10 +52,47 @@ break;
     case 'POST':
 
         $parametrosDeBusqueda = json_decode(file_get_contents("php://input"), true);
-        $abuscar = "";// las cosas que debe buscar
-        
-        
-        
+        $abuscar = "SELECT * FROM propuesta";// las cosas que debe buscar
+
+        $almenosUno = true;
+        $contador = 0;
+        foreach ($parametrosDeBusqueda as $clave => $valor) {
+
+            $contador += 1;
+
+            if($almenosUno){
+                $abuscar .= " WHERE ";
+            }
+            if($contador < sizeof($parametrosDeBusqueda)){
+                $abuscar .= (parametrosJsonASql($clave, $valor) . " AND ");
+            }else{
+                $abuscar .= parametrosJsonASql($clave, $valor);
+            }
+
+            
+            
+        }
+
+       echo $abuscar;
     break;
+}
+
+function parametrosJsonASql($clave, $valor){
+
+    $cadenaSQL = "";
+    switch($clave){
+        case "buscar":
+            $cadenaSQL = "titulo = '$valor'";
+        break;
+        case "chkCategoria":
+            $cadenaSQL = "categoria = '$valor'";
+        break;
+        case "chkSalario":
+            $cadenaSQL = "salario = '$valor'";
+        break;
+    }
+
+    return $cadenaSQL;
+
 }
 ?>
