@@ -121,10 +121,11 @@ function procesarCheckBoxRadio(nombre){
     checkboxes = document.getElementsByName(nombre);
     for (let i = 0; i < checkboxes.length; i++) {
 
-        checkboxes[i].addEventListener('change', function(){
+        checkboxes[i].addEventListener('input', function(){
 
             //uso bind para usar el this de la funcion anonima y luego le paso el nombre como parametro
             checkboxRadio.bind(this)(nombre);
+            buscar();
         });
     }
 }
@@ -139,7 +140,7 @@ function checkboxRadio(name){
 
     this.checked=true;
 
-    buscar();
+    
 }
 
 function agregarEventoFormulario(){
@@ -153,13 +154,15 @@ function agregarEventoFormulario(){
 function buscar(){
     
     let formData = $('#formularioBuscar').serializeArray();
-    let json = convertirFormJSON(formData);
-    if($('#buscar').val() == ' '){
-        delete json.buscar;
+    let datos = JSON.parse(convertirFormJSON(formData));
+    
+    //comprueba si el input text buscar esta vacio
+    if(datos.buscar == ''){
+        delete datos.buscar;
     }
 
-    //buscarJSON(json);
-    console.log(json);
+    buscarJSON(JSON.stringify(datos));
+
 }
 
 function convertirFormJSON(formData){

@@ -54,7 +54,7 @@ break;
         $parametrosDeBusqueda = json_decode(file_get_contents("php://input"), true);
         $abuscar = "";// las cosas que debe buscar
         
-        print_r($parametrosDeBusqueda);
+        
         
     break;
 }
