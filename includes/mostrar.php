@@ -1,98 +1,164 @@
 <?php
 
 //incluir la conexion con el servidor
-include("conexion.php");
+require_once("conexion.php");
+
+//Por Hacer: cambiar convertirConsultaJSON por convertirConsultaArray
+// convirte los resultados de una consulta mysqli a un array
+function convertirConsultaJSON($resultado): array{
+
+    $json = array();
+    while($row = mysqli_fetch_array($resultado)){
+
+        $json[] = array 
+        (
+            "titulo" =>  $row ["titulo"],
+            "descripcion" =>  $row ["descripcion"],
+            "vacantes" => $row ["vacantes"],
+            "sueldo" => $row ["sueldo"],
+            "localizacion" => $row ["localizacion"],
+            "publicacion" => $row ["publicacion"],
+            "id" =>  $row ["idpropuesta"],
+            "idempresa" => $row["idempresa"]
+        );
+
+    }
+
+    return $json;
+}
+
+//Genera te genera tus consultas con paginacion
+class GeneradorConsultaConPaginacion{
+
+    private $pagina = 0;
+    private $postulacionesPorPagina = 0;
+    private $conexion;
+    private $consultaSQL = "";
+    private $limites = "";
+
+    public function __construct($postulacionePorPagina = 5, $conexion, $consultaSQL = "SELECT * FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa"){
+
+        $this->postulacionesPorPagina = $postulacionePorPagina;
+        $this->conexion = $conexion;
+        
+        if(isset($_GET['pagina'])){
+
+            $this->pagina = (filter_var($_GET['pagina'], FILTER_SANITIZE_NUMBER_INT)-1) * $this->postulacionesPorPagina;
+        }
+        
+        $this->consultaSQL = $consultaSQL;
+        $this->limites = $consultaSQL . " LIMIT $this->pagina, $this->postulacionesPorPagina";
+    }
+
+    //te devuelve el json listo
+    public function obtenerJSON(): string{
+
+        $json = convertirConsultaJSON($this->consultarPostulaciones());
+
+        $json[] = Array('paginas' => $this->obtenerNumeroDePaginas());
+        $jsonString = json_encode($json);
+
+        return $jsonString;
+    }
+
+    private function consultarPostulaciones(){
+
+        $resultado = mysqli_query($this->conexion, $this->limites);
+        if(!$resultado){
+
+            die("conexion fallida". mysqli_error($this->conexion));
+        }
+
+        return $resultado;
+    }
+
+    private function obtenerNumeroDePaginas(): int{
+
+        $queryPaginacion = "SELECT COUNT(*) FROM propuesta";
+        $filas = mysqli_query($this->conexion, $queryPaginacion) or die(mysqli_error($this->conexion));
+        $aux = mysqli_fetch_row($filas);
+        $numeroDePaginas = ceil($aux[0] / $this->postulacionesPorPagina);
+        
+        return $numeroDePaginas;
+    }
+}
+
+class GeneradorSQL{
+
+    private $abuscar;
+    private $parametros;
+    
+    function __construct(array $parametros){
+        $this->parametrosDeBusqueda = $parametros;
+        $this->abuscar = "SELECT * FROM propuesta";// las cosas que debe buscar
+    }
+
+    public function sql(): string{
+
+        $almenosUno = true;
+        $contador = 0;
+        foreach ($this->parametrosDeBusqueda as $clave => $valor) {
+
+            $contador += 1;
+
+            if($almenosUno){
+
+                $this->abuscar .= " WHERE ";
+                $almenosUno = false;
+            }
+
+            if($contador < sizeof($this->parametrosDeBusqueda)){
+
+                $this->abuscar .= ($this->parametrosJsonASql($clave, $valor) . " AND ");
+            }else{
+
+                $this->abuscar .= $this->parametrosJsonASql($clave, $valor);
+            }
+        }
+       return $this->abuscar;
+    }
+
+    private function parametrosJsonASql($clave, $valor){
+
+        $cadenaSQL = "";
+        switch($clave){
+            case "buscar":
+                $cadenaSQL = "titulo = '$valor'";
+            break;
+            case "chkCategoria":
+                $cadenaSQL = "categorias = '$valor'";
+            break;
+            case "chkSueldo":
+                $cadenaSQL = "sueldo >= '$valor'";
+            break;
+        }
+
+        return $cadenaSQL;
+
+    }
+}
+
 switch($_SERVER['REQUEST_METHOD']){
 
     case 'GET':
-$postulacionePorPagina = 5;
-$pagina = 0;
-if(isset($_GET['pagina'])){
-    $pagina = (filter_var($_GET['pagina'], FILTER_SANITIZE_NUMBER_INT)-1) * $postulacionePorPagina;
-}
+    $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion);
+    echo $generadorConsulta->obtenerJSON();
 
-$query = "SELECT * FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa LIMIT $pagina, $postulacionePorPagina";
-$resultado = mysqli_query($conexion, $query);
-
-
-$queryPaginacion = "SELECT COUNT(*) FROM propuesta";
-$filas = mysqli_query($conexion, $queryPaginacion) or die(mysqli_error($conexion));
-$a = mysqli_fetch_row($filas);
-$paginas = ceil($a[0] / $postulacionePorPagina);
-
-if(!$resultado)
-{
-    die("conexion fallida". mysqli_error($conexion));
-}
-
-$json = array();
-while($row = mysqli_fetch_array($resultado))
-{
-    $json[] = array 
-    (
-        "titulo" =>  $row ["titulo"],
-        "descripcion" =>  $row ["descripcion"],
-        "vacantes" => $row ["vacantes"],
-        "sueldo" => $row ["sueldo"],
-        "localizacion" => $row ["localizacion"],
-        "publicacion" => $row ["publicacion"],
-        "id" =>  $row ["idpropuesta"],
-        "idempresa" => $row["idempresa"]
-    );
-    
-
-    
-}
-
-$json[] = Array('paginas' => $paginas);
-$jsonString = json_encode($json);
-echo $jsonString;
 break;
 
     case 'POST':
 
         $parametrosDeBusqueda = json_decode(file_get_contents("php://input"), true);
-        $abuscar = "SELECT * FROM propuesta";// las cosas que debe buscar
+        $generadorSql = new GeneradorSQL($parametrosDeBusqueda);
+        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion);
 
-        $almenosUno = true;
-        $contador = 0;
-        foreach ($parametrosDeBusqueda as $clave => $valor) {
-
-            $contador += 1;
-
-            if($almenosUno){
-                $abuscar .= " WHERE ";
-            }
-            if($contador < sizeof($parametrosDeBusqueda)){
-                $abuscar .= (parametrosJsonASql($clave, $valor) . " AND ");
-            }else{
-                $abuscar .= parametrosJsonASql($clave, $valor);
-            }
-
-            
-            
-        }
-
-       echo $abuscar;
+        echo $generadorConsulta->obtenerJSON();
+        
     break;
 }
 
-function parametrosJsonASql($clave, $valor){
 
-    $cadenaSQL = "";
-    switch($clave){
-        case "buscar":
-            $cadenaSQL = "titulo = '$valor'";
-        break;
-        case "chkCategoria":
-            $cadenaSQL = "categoria = '$valor'";
-        break;
-        case "chkSalario":
-            $cadenaSQL = "salario = '$valor'";
-        break;
-    }
 
-    return $cadenaSQL;
 
-}
+
 ?>

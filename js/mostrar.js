@@ -3,7 +3,7 @@
 $(function () {
 
     mostrarPublicaciones();
-    agregarEventoCheckboxRadio(['chkCategoria', 'chkSalario', 'chkUbicacion']);
+    agregarEventoCheckboxRadio(['chkCategoria', 'chkSueldo', 'chkUbicacion']);
     agregarEventoFormulario();
 
 });
@@ -16,39 +16,49 @@ function mostrarPublicaciones() {
     $.ajax({
             url: "includes/mostrar.php"+location.search,
             type: "GET",
-            success: function (response) {
-                let publicaciones = JSON.parse(response);
-                sessionStorage.setItem('paginas',publicaciones[publicaciones.length - 1].paginas + '');
-                delete publicaciones[publicaciones.length - 1]; //Borra el ultimo objeto que tiene el numero de pagina
-                let plantilla = "";
-                publicaciones.forEach
-                    (
-                        publicaciones => {
-                            plantilla +=
-                                //le asignamos un atributo para encontrar el ID
-                                `
-            <div class="card card-body mb-2 container shadow-lg  bg-white rounded">
-            
-             <p><strong>Nombre:</strong> ${publicaciones.titulo}
-             <br> <strong>Descripción:</strong> ${publicaciones.descripcion} 
-             <br> <strong>Vacantes:</strong> ${publicaciones.vacantes} 
-             <br> <strong>Sueldo:</strong> ${publicaciones.sueldo} 
-             <br> <strong>Localizacion:</strong> ${publicaciones.localizacion} 
-             <br> <strong>ID:</strong> ${publicaciones.id}
-             <br> 
-             <br>
-             <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
-            
-             </div>
-            
-                   `;
-                        }
-                    )
-            plantilla += mostrarPagina();
-            $("#publicaciones").html(plantilla);
-            }
+            dataType: 'json'
+        }).done(function(respuesta){
+            console.log(respuesta);
+            let publicaciones = JSON.parse(respuesta);
+            publicar(publicaciones, "#publicaciones");
+        }).fail(function(error){
+            console.log(error);
         });
     }
+
+//por hacer: buscar un mejor nombre
+function publicar(publicaciones, ancla){
+
+    sessionStorage.setItem('paginas',publicaciones[publicaciones.length - 1].paginas + '');
+    delete publicaciones[publicaciones.length - 1]; //Borra el ultimo objeto que tiene el numero de pagina
+    let plantilla = "";
+    publicaciones.forEach
+        (
+            publicaciones => {
+                plantilla +=
+                    //le asignamos un atributo para encontrar el ID
+                    `
+<div class="card card-body mb-2 container shadow-lg  bg-white rounded">
+
+ <p><strong>Nombre:</strong> ${publicaciones.titulo}
+ <br> <strong>Descripción:</strong> ${publicaciones.descripcion} 
+ <br> <strong>Vacantes:</strong> ${publicaciones.vacantes} 
+ <br> <strong>Sueldo:</strong> ${publicaciones.sueldo} 
+ <br> <strong>Localizacion:</strong> ${publicaciones.localizacion} 
+ <br> <strong>ID:</strong> ${publicaciones.id}
+ <br> 
+ <br>
+ <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
+
+ </div>
+
+       `;
+            }
+        )
+plantilla += mostrarPagina();
+$(ancla).html(plantilla);
+
+}
 
 function mostrarPagina(){
     let paginas = parseInt(sessionStorage.getItem('paginas'));
@@ -177,12 +187,23 @@ function convertirFormJSON(formData){
 }
 
 function buscarJSON(json){
-    $.ajax({
+
+    let ajax = $.ajax({
         url: 'includes/mostrar.php',
         type: 'POST',
         data: json,
-        contentType: 'application/json; charset=utf-8'
-    }).done(function(respuesta){
-        console.log(respuesta);
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json'
     })
+    
+    ajax.done(function(respuesta){
+
+        let publicaciones = JSON.parse(respuesta);
+        publicar(publicaciones, "#publicaciones");
+    });
+
+    ajax.fail(function(error){
+
+        console.log(error);
+    });
 }

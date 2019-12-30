@@ -65,33 +65,32 @@
 				</div>
 			</div>
 
-			<div class="accordion" id="filtroSalario">
+			<div class="accordion" id="filtroSueldo">
 				<div class="card">
-					<div class="card-header bg-dark" id="salarioHeader">
+					<div class="card-header bg-dark" id="SueldoHeader">
 						<h2 class="mb-0">
-							<button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#salario">Salario</button>
+							<button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#Sueldo">Sueldo</button>
 						</h2>
 					</div>
 
-					<div id="salario" class="collapse show" data-parent="#filtroSalario">
+					<div id="Sueldo" class="collapse show" data-parent="#filtroSueldo">
 						<div class="card-body">
-							<form id="">
-								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="salario1" name="chkSalario" form="formularioBuscar" value="1">
- 									<label class="custom-control-label" for="salario1">0 - 50$</label>
-								</div>
+							
+							<div class="custom-control custom-checkbox">
+  								<input type="checkbox" class="custom-control-input" id="sueldo1" name="chkSueldo" form="formularioBuscar" value="1">
+ 								<label class="custom-control-label" for="sueldo1">0 - 50$</label>
+							</div>
 
-								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="salario2" name="chkSalario" form="formularioBuscar" value="2">
- 									<label class="custom-control-label" for="salario2">50$ - 100$</label>
-								</div>
+							<div class="custom-control custom-checkbox">
+  								<input type="checkbox" class="custom-control-input" id="sueldo2" name="chkSueldo" form="formularioBuscar" value="2">
+ 								<label class="custom-control-label" for="sueldo2">50$ - 100$</label>
+							</div>
 
-								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="salario3" name=chkSalario form="formularioBuscar" value="3">
- 									<label class="custom-control-label" for="salario3">> 100$</label>
-								</div>
+							<div class="custom-control custom-checkbox">
+  								<input type="checkbox" class="custom-control-input" id="sueldo3" name=chkSueldo form="formularioBuscar" value="3">
+ 								<label class="custom-control-label" for="sueldo3">> 100$</label>
+							</div>
 
-							</form>
 						</div>
 					</div>
 				</div>
