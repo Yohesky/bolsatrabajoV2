@@ -15,9 +15,9 @@
 				</div>
 				<div class="card-body">
 					<form id="formularioBuscar">
-						<div class="form-group d-flex">
-							<input type="search" name="buscar" class="form-control" id="buscar" placeholder="buscar">
-							<button type="button" class="btn btn-primary" id="iniciarBusqueda">Buscar</button>
+						<div class="form-group row">
+							<input type="search" name="buscar" class="form-control col-8" id="buscar" placeholder="buscar">
+							<button type="button" class="btn btn-primary col-4" id="iniciarBusqueda">Buscar</button>
 						</div>
 					</form>
 				</div>
@@ -55,9 +55,14 @@
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  								<input type="checkbox" class="custom-control-input" id="categoria5" name="chkCategoria"  form="formularioBuscar">
- 								<label class="custom-control-label" for="categoria5">Construcción</label>
-							</div>
+  									<input type="checkbox" class="custom-control-input" id="categoria5" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria5">Construcción</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria6" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria6">Ventas</label>
+								</div>
 
 
 						</div>

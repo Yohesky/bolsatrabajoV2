@@ -16,11 +16,11 @@ function mostrarPublicaciones() {
     $.ajax({
             url: "includes/mostrar.php"+location.search,
             type: "GET",
-            dataType: 'json'
         }).done(function(respuesta){
             console.log(respuesta);
             let publicaciones = JSON.parse(respuesta);
             publicar(publicaciones, "#publicaciones");
+
         }).fail(function(error){
             console.log(error);
         });
@@ -110,11 +110,15 @@ function mostrarPagina(){
     }
 
     function obtenerPaginaActual(){
-        let pagina = location.search.split('=')[1];
+        let pagina = location.search.split('pagina=')[1];
         if(pagina){
             return pagina;
         }
         return 1;
+    }
+
+    function establecerPagina(){
+    
     }
 
 function agregarEventoCheckboxRadio(nombres){
@@ -189,15 +193,14 @@ function convertirFormJSON(formData){
 function buscarJSON(json){
 
     let ajax = $.ajax({
-        url: 'includes/mostrar.php',
-        type: 'POST',
-        data: json,
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json'
+        url: 'includes/mostrar.php?busqueda=true',
+        type: 'GET',
+        data: {datos: json}
     })
     
     ajax.done(function(respuesta){
-
+        console.log(respuesta);
+        history.pushState(null, "", "trabajador.php?pagina=1");
         let publicaciones = JSON.parse(respuesta);
         publicar(publicaciones, "#publicaciones");
     });
