@@ -22,7 +22,7 @@ function manejadorEventoTeclado(){
 function agregarParametroBusqueda(parametro){
 
     parametros.push(`
-        <div class="col-12 col-md-3 border text-break parametro" idParametro=>
+        <div class="col-12 col-md-3 border text-break parametro" idParametro= >
             <span>${parametro}</span>
             <button class="float-rigth" onclick="eliminarParametro">X</button>
         </div>

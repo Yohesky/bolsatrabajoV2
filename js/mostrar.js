@@ -3,7 +3,7 @@
 $(function () {
 
     mostrarPublicaciones();
-    agregarEventoCheckboxRadio(['chkCategoria', 'chkSalario', 'chkUbicacion']);
+    agregarEventoCheckboxRadio(['chkCategoria', 'chkSueldo', 'chkUbicacion']);
     agregarEventoFormulario();
 
 });
@@ -16,39 +16,49 @@ function mostrarPublicaciones() {
     $.ajax({
             url: "includes/mostrar.php"+location.search,
             type: "GET",
-            success: function (response) {
-                let publicaciones = JSON.parse(response);
-                sessionStorage.setItem('paginas',publicaciones[publicaciones.length - 1].paginas + '');
-                delete publicaciones[publicaciones.length - 1]; //Borra el ultimo objeto que tiene el numero de pagina
-                let plantilla = "";
-                publicaciones.forEach
-                    (
-                        publicaciones => {
-                            plantilla +=
-                                //le asignamos un atributo para encontrar el ID
-                                `
-            <div class="card card-body mb-2 container shadow-lg  bg-white rounded">
-            
-             <p><strong>Nombre:</strong> ${publicaciones.titulo}
-             <br> <strong>Descripción:</strong> ${publicaciones.descripcion} 
-             <br> <strong>Vacantes:</strong> ${publicaciones.vacantes} 
-             <br> <strong>Sueldo:</strong> ${publicaciones.sueldo} 
-             <br> <strong>Localizacion:</strong> ${publicaciones.localizacion} 
-             <br> <strong>ID:</strong> ${publicaciones.id}
-             <br> 
-             <br>
-             <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
-            
-             </div>
-            
-                   `;
-                        }
-                    )
-            plantilla += mostrarPagina();
-            $("#publicaciones").html(plantilla);
-            }
+        }).done(function(respuesta){
+            console.log(respuesta);
+            let publicaciones = JSON.parse(respuesta);
+            publicar(publicaciones, "#publicaciones");
+
+        }).fail(function(error){
+            console.log(error);
         });
     }
+
+//por hacer: buscar un mejor nombre
+function publicar(publicaciones, ancla){
+
+    sessionStorage.setItem('paginas',publicaciones[publicaciones.length - 1].paginas + '');
+    delete publicaciones[publicaciones.length - 1]; //Borra el ultimo objeto que tiene el numero de pagina
+    let plantilla = "";
+    publicaciones.forEach
+        (
+            publicaciones => {
+                plantilla +=
+                    //le asignamos un atributo para encontrar el ID
+                    `
+<div class="card card-body mb-2 container shadow-lg  bg-white rounded">
+
+ <p><strong>Nombre:</strong> ${publicaciones.titulo}
+ <br> <strong>Descripción:</strong> ${publicaciones.descripcion} 
+ <br> <strong>Vacantes:</strong> ${publicaciones.vacantes} 
+ <br> <strong>Sueldo:</strong> ${publicaciones.sueldo} 
+ <br> <strong>Localizacion:</strong> ${publicaciones.localizacion} 
+ <br> <strong>ID:</strong> ${publicaciones.id}
+ <br> 
+ <br>
+ <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
+
+ </div>
+
+       `;
+            }
+        )
+plantilla += mostrarPagina();
+$(ancla).html(plantilla);
+
+}
 
 function mostrarPagina(){
     let paginas = parseInt(sessionStorage.getItem('paginas'));
@@ -100,11 +110,15 @@ function mostrarPagina(){
     }
 
     function obtenerPaginaActual(){
-        let pagina = location.search.split('=')[1];
+        let pagina = location.search.split('pagina=')[1];
         if(pagina){
             return pagina;
         }
         return 1;
+    }
+
+    function establecerPagina(){
+    
     }
 
 function agregarEventoCheckboxRadio(nombres){
@@ -121,10 +135,11 @@ function procesarCheckBoxRadio(nombre){
     checkboxes = document.getElementsByName(nombre);
     for (let i = 0; i < checkboxes.length; i++) {
 
-        checkboxes[i].addEventListener('change', function(){
+        checkboxes[i].addEventListener('input', function(){
 
             //uso bind para usar el this de la funcion anonima y luego le paso el nombre como parametro
             checkboxRadio.bind(this)(nombre);
+            buscar();
         });
     }
 }
@@ -138,21 +153,30 @@ function checkboxRadio(name){
         elem[i].checked=false;
 
     this.checked=true;
+
+    
 }
 
 function agregarEventoFormulario(){
 
-    $('#formularioBuscar').submit(function(){
+    $('#iniciarBusqueda').click(function(){
 
-        event.preventDefault();
-        if($('#buscar').val().trim()){
-
-            let formData = $(this).serializeArray();
-            let json = convertirFormJSON(formData);
-            buscarJSON(json);
-            
-        }
+        buscar();
     });
+}
+
+function buscar(){
+    
+    let formData = $('#formularioBuscar').serializeArray();
+    let datos = JSON.parse(convertirFormJSON(formData));
+    
+    //comprueba si el input text buscar esta vacio
+    if(datos.buscar == ''){
+        delete datos.buscar;
+    }
+
+    buscarJSON(JSON.stringify(datos));
+
 }
 
 function convertirFormJSON(formData){
@@ -167,7 +191,22 @@ function convertirFormJSON(formData){
 }
 
 function buscarJSON(json){
-    $.ajax({
-        url: 'includes/mostrar.php'
+
+    let ajax = $.ajax({
+        url: 'includes/mostrar.php?busqueda=true',
+        type: 'GET',
+        data: {datos: json}
     })
+    
+    ajax.done(function(respuesta){
+        console.log(respuesta);
+        history.pushState(null, "", "trabajador.php?pagina=1");
+        let publicaciones = JSON.parse(respuesta);
+        publicar(publicaciones, "#publicaciones");
+    });
+
+    ajax.fail(function(error){
+
+        console.log(error);
+    });
 }
