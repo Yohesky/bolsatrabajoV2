@@ -199,7 +199,7 @@ function buscarJSON(json){
     })
     
     ajax.done(function(respuesta){
-        console.log(respuesta);
+        console.log('respusta desde funcion BUSCARJSON()',respuesta);
         history.pushState(null, "", "trabajador.php?pagina=1");
         let publicaciones = JSON.parse(respuesta);
         publicar(publicaciones, "#publicaciones");

@@ -119,7 +119,7 @@ class GeneradorSQL{
     
     function __construct(array $parametros){
         $this->parametrosDeBusqueda = $parametros;
-        $this->abuscar = "SELECT * FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa";// las cosas que debe buscar
+        $this->abuscar = "SELECT * FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa";// las cosas que debe buscar
         $this->condicionales = "";
         $this->sql();
     }
@@ -170,7 +170,7 @@ class GeneradorSQL{
                 $cadenaSQL = "categoria = '$valor'";
             break;
             case "chkSueldo":
-                $cadenaSQL = "sueldo >= '$valor'";
+                $cadenaSQL = "sueldo > '$valor'";
             break;
         }
 
