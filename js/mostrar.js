@@ -191,7 +191,7 @@ function convertirFormJSON(formData){
 }
 
 function buscarJSON(json){
-
+    console.log('Datos de Entrada: ', json);
     let ajax = $.ajax({
         url: 'includes/mostrar.php?busqueda=true',
         type: 'GET',
@@ -199,7 +199,7 @@ function buscarJSON(json){
     })
     
     ajax.done(function(respuesta){
-        console.log(respuesta);
+        console.log('Datos de Salida', respuesta);
         history.pushState(null, "", "trabajador.php?pagina=1");
         let publicaciones = JSON.parse(respuesta);
         publicar(publicaciones, "#publicaciones");
@@ -207,6 +207,6 @@ function buscarJSON(json){
 
     ajax.fail(function(error){
 
-        console.log(error);
+        console.log('Datos de Salida', error);
     });
 }

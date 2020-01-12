@@ -83,7 +83,7 @@ class GeneradorConsultaConPaginacion{
 
         $json[] = Array('paginas' => $this->obtenerNumeroDePaginas());
         $jsonString = json_encode($json);
-
+        //echo json_last_error_msg();
         return $jsonString;
     }
 
@@ -172,6 +172,11 @@ class GeneradorSQL{
             case "chkSueldo":
                 $cadenaSQL = "sueldo >= '$valor'";
             break;
+            case "chkUbicacion":
+                $cadenaSQL = "localizacion = '$valor'";
+            break;
+            default:
+                'error clave no valida';
         }
 
         return $cadenaSQL;

@@ -113,13 +113,13 @@
 						<div class="card-body">
 							<form id="">
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion1" name="chkUbicacion">
- 									<label class="custom-control-label" for="ubicacion1">Maracaibo</label>
+  									<input type="checkbox" class="custom-control-input" id="ubicacion1" name="chkUbicacion" form="formularioBuscar" value="Maracaibo">
+ 									<label class="custom-control-label" for="ubicacion1" >Maracaibo</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion2" name="chkUbicacion">
- 									<label class="custom-control-label" for="ubicacion2">Caracas</label>
+  									<input type="checkbox" class="custom-control-input" id="ubicacion2" name="chkUbicacion" form="formularioBuscar" value="Cabimas">
+ 									<label class="custom-control-label" for="ubicacion2" value="Cabimas">Cabimas</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
