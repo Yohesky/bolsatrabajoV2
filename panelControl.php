@@ -76,7 +76,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mi Cuenta <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
-                  <!-- <li><a href="#"><i class="fa fa-envelope-o fw"></i></a></li> -->
+                  <li><a href="#"><i class="fa fa-envelope-o fw"></i></a></li> 
                   <li role="separator" class="divider"></li>
                   <li><a href="#"><i class="fa fa-sign-out"></i> salir</a></li>
                 </ul>
@@ -107,16 +107,30 @@
               <div class="box">
                 <i class="fa fa-envelope fa-fw bg-primary"></i>
                 <div class="info">
-                  <h3>1,245</h3> <span>Trabajos</span>
+                  <h3> <?php echo trabajos() ?> </h3> <span>Trabajos</span>
                   <p>Ultimos empleos publicados</p>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
-              <div class="box">
+              <div class="box" style="width: 500px"> 
                 <i class="fa fa-file fa-fw danger"></i>
                 <div class="info">
-                  <h3>34</h3> <span>Mis Postulaciones</span>
+                  <!-- <?php 
+                        function postulaciones(){
+                          include("includes/conexion.php");
+                          session_start();
+                          $idusuario = '';
+                          
+                          $query = "SELECT * FROM usuarios_has_propuesta WHERE usuarios_idusuarios='$idusuario' ";
+                          $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                          $numregistros = mysqli_num_rows($rsQuery);
+                          return $numregistros;
+                        }
+
+                  ?> -->
+
+                  <h3> 6 </h3> <span>Mis Postulaciones</span>
                   <p>Revisa a donde te has postulado</p>
                 </div>
               </div>
@@ -133,31 +147,88 @@
           </div>
         </div>
       </section>
-      <!-- <section class="charts">
+      <section class="charts">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="chart-container">
                 <h3>Chart</h3>
-                <canvas id="myChart"></canvas>
+                <div class="graficoLib">
+
+                  
+
+                <div style="width: 100%">
+			            <canvas id="canvas1" height="190" width="600"></canvas>
+                </div>
+                
+                <script>
+                      var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+                      var medianaData = {
+                        labels : ["Empresas","Trabajos","Usuarios"],
+                        datasets : [
+                          {
+                            fillColor : "rgba(220,220,220,0.5)",
+                            strokeColor : "rgba(220,220,220,0.8)",
+                            highlightFill: "rgba(220,220,220,0.75)",
+                            highlightStroke: "rgba(220,220,220,1)",
+                            data : 
+                            <?php 
+                                
+                                function empresas(){
+                                  include('includes/conexion.php');
+                                  $query = "SELECT * FROM empresa";
+                                  $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                                  $numregistros = mysqli_num_rows($rsQuery);
+                                  return $numregistros;
+                                }
+
+                                function trabajos(){
+                                  include('includes/conexion.php');
+                                  $query = "SELECT * FROM propuesta";
+                                  $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                                  $numregistros = mysqli_num_rows($rsQuery);
+                                  return $numregistros;
+                                }
+
+                                function usuarios(){
+                                  include('includes/conexion.php');
+                                  $query = "SELECT * FROM usuarios";
+                                  $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                                  $numregistros = mysqli_num_rows($rsQuery);
+                                  return $numregistros;
+                                }
+                            ?>
+                          
+                    
+                            [ <?php echo empresas() ?>, <?php echo trabajos() ?>, <?php echo usuarios() ?> ]
+                          }
+                        ]
+
+                      }
+                      window.onload = function(){
+                        var ctx = document.getElementById("canvas1").getContext("2d");
+                        window.myBar = new Chart(ctx).Bar(medianaData, {
+                          responsive : true
+                        });
+                      }
+
+	              </script>
+
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="chart-container">
-                <h3>Chart2</h3>
-                <canvas id="myChart2"></canvas>
-              </div>
             </div>
           </div>
         </div>
-      </section> -->
-      <!-- <section class="admins">
-        
-        </section>
-      </section> -->
+      </section> 
+      
+      </section> 
       <script src='http://code.jquery.com/jquery-latest.js'></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
       <script src='js/db.js'></script>
+      <script src="js/Chart.js"></script>
+      <script src="js/Chart.Doughnut.js"></script>
       </body>
     </html>
