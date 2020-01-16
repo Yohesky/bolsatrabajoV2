@@ -112,7 +112,17 @@ function parametrosJsonASql($clave, $valor){
                 $cadenaSQL = "categoria = '$valor'";
             break;
             case "chkSueldo":
-                $cadenaSQL = "sueldo >= '$valor'";
+                switch($valor){
+                    case 1:
+                        $cadenaSQL = "sueldo > 0 AND sueldo <= 50";
+                    break;
+                    case 2:
+                        $cadenaSQL = "sueldo >= 50 AND sueldo <= 100";
+                    break;
+                    case 3:
+                        $cadenaSQL = "sueldo >= 100";
+                    break;
+                }
             break;
             case "chkUbicacion":
                 $cadenaSQL = "localizacion = '$valor'";
