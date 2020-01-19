@@ -95,7 +95,7 @@
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area12" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area12" name="chkArea"  form="formularioBuscar" value="Asesorias">
  									<label class="custom-control-label" for="area12">Asesorias</label>
 								</div>
 

@@ -86,7 +86,7 @@ class GeneradorSQL{
             if(!$this->almenosUno){
 
                 $this->condicionales .= " WHERE ";
-                $this->almenosUno = false;
+                $this->almenosUno = true;
             }
 
             if($contador < sizeof($this->parametrosDeBusqueda)){
