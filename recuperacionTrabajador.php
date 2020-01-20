@@ -25,10 +25,10 @@
 
         <button class="btn btn-success btn-block mt-5" id="enviar">Enviar</button>
         
-        
+        <div id="result" class="mt-5"></div>
     </form>
 
-    <div id="result"></div>
+    
 </div>
 </div>
 
