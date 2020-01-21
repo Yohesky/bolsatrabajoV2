@@ -3,7 +3,7 @@
 $(function () {
 
     mostrarPublicaciones();
-    agregarEventoCheckboxRadio(['chkCategoria', 'chkSueldo', 'chkUbicacion']);
+    agregarEventoCheckboxRadio(['chkArea']);
     agregarEventoFormulario();
 
 });
@@ -14,7 +14,7 @@ function mostrarPublicaciones() {
     paginaActual = obtenerPaginaActual();
 
     $.ajax({
-            url: "includes/mostrar.php"+location.search,
+            url: "includes/buscarEmpresa.php"+location.search,
             type: "GET",
         }).done(function(respuesta){
             console.log(respuesta);
@@ -40,12 +40,9 @@ function publicar(publicaciones, ancla){
                     `
 <div class="card card-body mb-2 container shadow-lg  bg-white rounded">
 
- <p><strong>Nombre:</strong> ${publicaciones.titulo}
+ <p><strong>Nombre:</strong> ${publicaciones.nombre}
  <br> <strong>Descripción:</strong> ${publicaciones.descripcion} 
- <br> <strong>Vacantes:</strong> ${publicaciones.vacantes} 
- <br> <strong>Sueldo:</strong> ${publicaciones.sueldo} 
- <br> <strong>Localizacion:</strong> ${publicaciones.localizacion} 
- <br> <strong>ID:</strong> ${publicaciones.id}
+ <br> <strong>Area:</strong> ${publicaciones.area} 
  <br> 
  <br>
  <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
@@ -71,7 +68,7 @@ function mostrarPagina(){
             <nav aria-label="Page navigation example">
  					<ul class="pagination justify-content-center">
 					<li class="page-item ${siguiente}">
-      					<a class="page-link" href="trabajador.php?pagina=${paginaActual- 1}" aria-label="Previous">
+      					<a class="page-link" href="buscarEmpresa.php?pagina=${paginaActual- 1}" aria-label="Previous">
         				<span aria-hidden="true">&laquo;</span>
         				<span class="sr-only">Previous</span>
       					</a>
@@ -79,7 +76,7 @@ function mostrarPagina(){
                     ${obtenerListaPagina(paginas).join('')}
 					
 					<li class="page-item ${anterior}">
-      					<a class="page-link" href="trabajador.php?pagina=${paginaActual + 1}" aria-label="Next">
+      					<a class="page-link" href="buscarEmpresa.php?pagina=${paginaActual + 1}" aria-label="Next">
 						<span aria-hidden="true">&raquo;</span>
 						<span class="sr-only">Next</span>
       					</a>
@@ -103,7 +100,7 @@ function mostrarPagina(){
                 desactivar = 'disabled';
             }
 		
-            liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="trabajador.php?pagina=${i}">${i}</a></li>`);
+            liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="buscarEmpresa.php?pagina=${i}">${i}</a></li>`);
         }
 
         return liPagina;
@@ -193,14 +190,14 @@ function convertirFormJSON(formData){
 function buscarJSON(json){
     console.log('Datos de Entrada: ', json);
     let ajax = $.ajax({
-        url: 'includes/mostrar.php?busqueda=true',
+        url: 'includes/buscarEmpresa.php?busqueda=true',
         type: 'GET',
         data: {datos: json}
     })
     
     ajax.done(function(respuesta){
         console.log('Datos de Salida', respuesta);
-        history.pushState(null, "", "trabajador.php?pagina=1");
+        history.pushState(null, "", "buscarEmpresa.php?pagina=1");
         let publicaciones = JSON.parse(respuesta);
         publicar(publicaciones, "#publicaciones");
     });

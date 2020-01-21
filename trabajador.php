@@ -2,13 +2,13 @@
 
 <main class="container mx-auto">
 	<div class="row">
-		<section class="col-md-9">
+		<section class="col-12 col-md-9 order-1 order-md-0">
 			<div id="publicaciones" class="mt-4">
 
 			</div>
 		</section>
 
-		<aside class="col-md-3 mt-4">
+		<aside class="col-12 col-md-3 mt-4">
 			<div class="card">
 				<div class="card-header bg-dark">
 					<h3>Buscar</h3>
@@ -31,8 +31,8 @@
 						</h2>
 					</div>
 
-					<div id="categorias" class="collapse show" data-parent="#filtroCategoria">
-						<div class="card-body">
+					<div id="categorias" class="collapse" data-parent="#filtroCategoria">
+						<div class="card-body text-break">
 							
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria1" name="chkCategoria" form="formularioBuscar" value="Administración">
@@ -60,8 +60,63 @@
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="categoria6" name="chkCategoria"  form="formularioBuscar" value="Ventas">
- 									<label class="custom-control-label" for="categoria6">Ventas</label>
+  									<input type="checkbox" class="custom-control-input" id="categoria6" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria6">Contabilidad</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria7" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria7">Gerencia</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria8" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria8">Diseño</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria9" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria9">Enseñanza</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria10" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria10">Turismo</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria11" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria11">Informática</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria12" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria12">Ingeniería</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria13" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria13">Asesorias</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria14" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria14">Reparación</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria15" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria15">Publicidad</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria16" name="chkCategoria"  form="formularioBuscar">
+ 									<label class="custom-control-label" for="categoria16">Recursos Humanos</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria17" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria17">Ventas</label>
 								</div>
 
 
@@ -78,7 +133,7 @@
 						</h2>
 					</div>
 
-					<div id="Sueldo" class="collapse show" data-parent="#filtroSueldo">
+					<div id="Sueldo" class="collapse" data-parent="#filtroSueldo">
 						<div class="card-body">
 							
 							<div class="custom-control custom-checkbox">
@@ -109,17 +164,17 @@
 						</h2>
 					</div>
 
-					<div id="ubicacion" class="collapse show" data-parent="#filtroUbicacion">
+					<div id="ubicacion" class="collapse" data-parent="#filtroUbicacion">
 						<div class="card-body">
 							<form id="">
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion1" name="chkUbicacion">
- 									<label class="custom-control-label" for="ubicacion1">Maracaibo</label>
+  									<input type="checkbox" class="custom-control-input" id="ubicacion1" name="chkUbicacion" form="formularioBuscar" value="Maracaibo">
+ 									<label class="custom-control-label" for="ubicacion1" >Maracaibo</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion2" name="chkUbicacion">
- 									<label class="custom-control-label" for="ubicacion2">Caracas</label>
+  									<input type="checkbox" class="custom-control-input" id="ubicacion2" name="chkUbicacion" form="formularioBuscar" value="Cabimas">
+ 									<label class="custom-control-label" for="ubicacion2" value="Cabimas">Cabimas</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
