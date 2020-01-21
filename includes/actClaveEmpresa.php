@@ -1,12 +1,12 @@
 <?php
 include("conexion.php");
 
-if(isset($_POST["nContrasena"]) &&isset($_POST["idusuario"]) ){
+if(isset($_POST["nContrasena"]) &&isset($_POST["idempresa"]) ){
     $contrasena = $_POST["nContrasena"];
-    $idusuario = $_POST["idusuario"];
+    $idempresa = $_POST["idempresa"];
 
     
-    $query = "UPDATE usuarios SET contrasena='$contrasena' WHERE idusuarios = '$idusuario' ";
+    $query = "UPDATE empresa SET contrasenaEmpresa='$contrasena' WHERE idempresa = '$idempresa' ";
     $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
     echo "exito";
