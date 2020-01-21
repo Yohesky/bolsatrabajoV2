@@ -62,7 +62,6 @@ class GeneradorSQL{
     
     function __construct(string $consulta, string $parametrosJsonASql, array $parametros){
         $this->parametrosDeBusqueda = $parametros;
-
         $this->abuscar = $consulta;// las cosas que debe buscar
         $this->condicionales = "";
         $this->callBack = $parametrosJsonASql;
@@ -87,7 +86,7 @@ class GeneradorSQL{
             if(!$this->almenosUno){
 
                 $this->condicionales .= " WHERE ";
-                $this->almenosUno = false;
+                $this->almenosUno = true;
             }
 
             if($contador < sizeof($this->parametrosDeBusqueda)){

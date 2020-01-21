@@ -42,7 +42,7 @@ function publicar(publicaciones, ancla){
 
  <p><strong>Nombre:</strong> ${publicaciones.nombre}
  <br> <strong>Descripción:</strong> ${publicaciones.descripcion} 
- <br> <strong>Vacantes:</strong> ${publicaciones.area} 
+ <br> <strong>Area:</strong> ${publicaciones.area} 
  <br> 
  <br>
  <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>

@@ -2,13 +2,13 @@
 
 <main class="container mx-auto">
 	<div class="row">
-		<section class="col-md-9">
+		<section class="col-12 col-md-9 order-1 order-md-0">
 			<div id="publicaciones" class="mt-4">
 
 			</div>
 		</section>
 
-		<aside class="col-md-3 mt-4">
+		<aside class="col-12 col-md-3 mt-4">
 			<div class="card">
 				<div class="card-header bg-dark">
 					<h3>Buscar</h3>
@@ -31,7 +31,7 @@
 						</h2>
 					</div>
 
-					<div id="areas" class="collapse show" data-parent="#filtroArea">
+					<div id="areas" class="collapse" data-parent="#filtroArea">
 						<div class="card-body">
 							
 								<div class="custom-control custom-checkbox">
@@ -95,7 +95,7 @@
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area12" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area12" name="chkArea"  form="formularioBuscar" value="Asesorias">
  									<label class="custom-control-label" for="area12">Asesorias</label>
 								</div>
 
