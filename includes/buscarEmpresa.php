@@ -135,7 +135,6 @@ class GeneradorConsultaConPaginacion{
     public function obtenerJSON(): string{
 
         $json = convertirConsultaJSON($this->consultarPostulaciones());
-
         $json[] = Array('paginas' => $this->obtenerNumeroDePaginas());
         $jsonString = json_encode($json);
         //echo json_last_error_msg();
