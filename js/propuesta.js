@@ -12,7 +12,8 @@ $(function () {
          // console.log(form);
          
 
-         if($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(vacantes).length > 0 && $.trim(sueldo).length > 0 && $.trim(localizacion).length > 0 && $.trim(funciones).length > 0 && $.trim(categoria).length >0)
+         if($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(vacantes).length > 0 && $.trim(sueldo).length > 0 && $.trim(localizacion).length > 0 && $.trim(funciones).length > 0 && $.trim(categoria).length >0
+         && $.trim(aExp).length >0 && $.trim(vehiculo).length >0 && $.trim(viajes).length >0 && $.trim(educacion).length >0)
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
             console.log(direccion);
@@ -121,6 +122,10 @@ $(function () {
                $("#sueldo").val(postulacion.sueldo);
                $("#localizacion").val(postulacion.localizacion);
                $("#categoria").val(postulacion.categoria);
+               $("#aExp").val(postulacion.aExp);
+               $("#vehiculo").val(postulacion.vehiculo);
+               $("#viajes").val(postulacion.viajes);
+               $("#educacion").val(postulacion.educacion);
                $("#postulacionId").val(postulacion.id)
                editar = true;
               
