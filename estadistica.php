@@ -3,6 +3,7 @@
 <?php 
 
 session_start();
+
 $idpropuesta = $_GET['idpropuesta'];
 $idusuario = $_SESSION['idusuarios'];
 

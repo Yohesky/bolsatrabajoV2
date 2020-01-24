@@ -13,14 +13,29 @@
     <div class="row text-center">
         <div class="col-md-6">
             <!-- FOTO DE PERFIL -->
-            <div class="contenedor-foto-perfil my-4" data-toggle="modal" data-target="#subirFoto">
-                <img src="" alt="perfil" class="responsive rounded-circle  bg-white" id="fotoPerfil" >
-                <div class="texto-editar bg-white">Editar</div>
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <div class="contenedor-foto-perfil my-4" data-toggle="modal" data-target="#subirFoto">
+                            <img src="" alt="perfil" class="responsive bg-white" id="fotoPerfil" style="border-radius: 5%">
+                            <div class="texto-editar bg-white">Editar</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo '' . $_SESSION["nombre"] . ''; ?></h3> </h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="shadow-lg p-3 mb-5 bg-white rounded"><?php echo '' . $_SESSION["nombre"] . ''; ?></h3>
+
+           
             <div class="container">
-            <?php include("includes/mostrarDescripcion.php") ?>
+                <?php include("includes/mostrarDescripcion.php") ?>
             </div>
             <h4 class="text-center">Experiencia Laboral</h4>
             <div id="experiencia">
@@ -37,7 +52,7 @@
                 </button>
 
 
-                
+
             </div>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,7 +66,7 @@
                         </div>
                         <div class="modal-body">
                             <form class="card card-body" id="formularioExperiencia">
-                            <input type="hidden" id="experienciaID" name="experienciaID">
+                                <input type="hidden" id="experienciaID" name="experienciaID">
                                 <div class="form-group">
                                     <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required>
                                 </div>
@@ -75,11 +90,11 @@
                                 <div class="row">
 
                                     <div class="col-md-6 form-group">
-                                        <input type="date" class="form-control" name="expFechaIni" id="expFechaIni">
+                                        <input readonly='' placeholder="Fecha de inicio" type="text" class="form-control" name="expFechaIni" id="expFechaIni">
                                     </div>
 
                                     <div class="col-md-6 form-group">
-                                        <input type="date" class="form-control" name="expFechaFin" id="expFechaFin">
+                                        <input type="text" readonly ='' placeholder="Fecha de culminacion" class="form-control" name="expFechaFin" id="expFechaFin">
                                     </div>
                                 </div>
 
@@ -94,14 +109,14 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <div class="card mt-2">
                 <!-- card-body para un espaciado interno entre los componentes -->
                 <div class="card-body">
                     <?php include("includes/datosPersonales.php") ?>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -109,3 +124,41 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/perfilTrabajador.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#fechaNacimiento").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1970:' + 2020,
+            dateFormat: "yy-mm-dd"
+        })
+
+        $("#expFechaIni").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1970:' + 2020,
+            dateFormat: "yy-mm-dd"
+        })
+
+
+        $("#expFechaIni"),$("#expFechaFin").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1970:' + 2020,
+            dateFormat: "yy-mm-dd"
+        })
+
+        $("#fechaNacimiento").change(() => {
+            $.ajax({
+                type: "POST",
+                data: "fecha=" + $("#fechaNacimiento").val(),
+                url: "includes/calcularEdad.php",
+                success: (r) => {
+
+                    $("#edadCalculada").text(r + "años")
+
+                }
+            })
+        })
+    })
+</script>

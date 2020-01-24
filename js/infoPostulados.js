@@ -74,7 +74,9 @@ $(function()
       </div>
     </div>
     <div class="general">
-      <h1>${publicacion.nombre}</h1>
+      <div class="text-center mx-auto"> 
+      <h3>${publicacion.nombre}</h3> - <h3>${publicacion.apellido}</h3>
+      </div>
       <p>${publicacion.descripcion}</p>
       <a class="btn btn-info" href="postulados.php?id=${publicacion.id}"> Ver perfil </a>
     </div>
