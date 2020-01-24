@@ -31,6 +31,11 @@
         <br>
         <a href="registroTrabajador.php" class="mt-4"> ¿No tienes cuenta? Crea una!</a>
         <br> <br>
+
+
+        <br>
+        <a href="recuperacionTrabajador.php" class="mt-4"> ¿Olvidó su contraseña? </a>
+        <br> <br>
         <a href="index.php" class="mt-4 btn btn-info"> Volver</a>
         <div class="resultado"></div>
     </form>

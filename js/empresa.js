@@ -7,7 +7,8 @@ $(function()
         
         console.log(form);
         if ($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(rif).length > 0 && $.trim(direccion).length > 0 &&
-        $.trim(sector).length > 0 && $.trim(contrasena).length > 0 && $.trim(contrasena2).length > 0) {
+        $.trim(sector).length > 0 && $.trim(contrasena).length > 0 && $.trim(contrasena2).length > 0
+        && $.trim(preguntas).length > 0 && $.trim(respuesta).length > 0 ) {
             $.ajax({
                 method: 'POST',
                 url: 'includes/registrarEmpresa.php',

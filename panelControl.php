@@ -78,7 +78,7 @@
                   <li><a href="#"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
                   <li><a href="#"><i class="fa fa-envelope-o fw"></i></a></li> 
                   <li role="separator" class="divider"></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i> salir</a></li>
+                  <li><a href="includes/logout.php"><i class="fa fa-sign-out"></i> salir</a></li>
                 </ul>
               </li>
               <li><a href="#"><i class="fa fa-comments"></i><span>23</span></a></li>

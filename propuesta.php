@@ -2,9 +2,10 @@
 
 <?php
 			include('includes/conexion.php');
-			
+			session_start();
 				$idpropuesta = $_GET['id'];
 				$idempresa = $_GET['idempresa'];
+        $idusuario = $_SESSION['idusuarios'];
 
 				$query = "SELECT * FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE idpropuesta='$idpropuesta' AND empresa_idempresa='$idempresa'" ;
 
@@ -27,6 +28,9 @@
     <p class="card-text"><?php echo $propuesta['vacantes']; ?></p>
     <p class="card-text"><?php echo $propuesta['nombreEmpresa']; ?></p>
     <button id="postular"class="btn btn-success">Postularme</button>
+
+    <hr>
+    <a class="btn btn-info" id="boton" href="estadistica.php?idpropuesta=<?php echo $idpropuesta; ?>&&idusuario=<?php echo $idusuario; ?>">Ver mis estadisticas</a>
   </div>
   <div class="card-footer text-muted">
     2 days ago
