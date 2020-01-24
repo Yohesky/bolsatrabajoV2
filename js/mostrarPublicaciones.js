@@ -35,4 +35,9 @@ $(function()
         }
     });
     }
+
+    function obtenerNumero()
+    {
+        
+    }
 })

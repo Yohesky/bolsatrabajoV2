@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2020 at 08:00 PM
+-- Generation Time: Jan 24, 2020 at 09:42 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -66,21 +66,21 @@ CREATE TABLE `experiencia` (
   `expSector` varchar(100) NOT NULL,
   `expArea` varchar(100) NOT NULL,
   `expLabor` varchar(100) NOT NULL,
-  `expFechaIni` datetime NOT NULL,
-  `expFechaFin` datetime NOT NULL,
-  `usuarios_idusuarios` int(11) NOT NULL
+  `expFechaIni` date NOT NULL,
+  `expFechaFin` date NOT NULL,
+  `usuarios_idusuarios` int(11) NOT NULL,
+  `yearExp` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `experiencia`
 --
 
-INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`) VALUES
-(4, 'YOLOPIDO', 'VZLA', 'INGENIERIA', 'TECNOLOGIA', 'PROGRAMADOR', '0001-11-11 00:00:00', '0011-11-11 00:00:00', 3),
-(6, 'SMARTPROCESS', 'VENEZUELA', 'INGENIERIA', 'DPTO TECNOLOGIA', 'SOPORTE TECNICO', '0011-11-11 00:00:00', '0011-11-11 00:00:00', 1),
-(8, 'urbe', 'venezuela', 'educacion', 'tecnico', 'preparar pc', '2019-10-22 00:00:00', '2019-10-02 00:00:00', 3),
-(9, 'urbe', 'urbe', 'urbe', 'urbe', 'urbe', '0001-11-11 00:00:00', '0001-11-11 00:00:00', 1),
-(10, 'CONTROVAL', 'Venezuela', 'Ingenieria', 'Logistica', 'Controlar procesos', '2016-01-01 00:00:00', '2020-01-29 00:00:00', 7);
+INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`, `yearExp`) VALUES
+(4, 'YOLOPIDO', 'VZLA', 'INGENIERIA', 'TECNOLOGIA', 'PROGRAMADOR', '0001-11-11', '0011-11-11', 3, NULL),
+(8, 'urbe', 'venezuela', 'educacion', 'tecnico', 'preparar pc', '2019-10-22', '2019-10-02', 3, NULL),
+(10, 'CONTROVAL', 'Venezuela', 'Ingenieria', 'Logistica', 'Controlar procesos', '2016-01-01', '2020-01-29', 7, NULL),
+(14, 'SMARTPROCESS', 'Venezuela', 'INGENIERIA', 'SOPORTE TECNICO', 'REPARAR TODO', '2015-01-01', '2020-11-18', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -127,7 +127,7 @@ CREATE TABLE `usuarios` (
   `ci` int(11) NOT NULL,
   `correo` varchar(45) NOT NULL,
   `contrasena` varchar(45) NOT NULL,
-  `fechaNacimiento` datetime NOT NULL,
+  `fechaNacimiento` date NOT NULL,
   `estadoCivil` varchar(45) NOT NULL,
   `genero` varchar(45) NOT NULL,
   `num1` int(11) NOT NULL,
@@ -154,19 +154,20 @@ CREATE TABLE `usuarios` (
   `fotoPerfil` varchar(1000) DEFAULT './img-perfil/perfil-predeterminado',
   `pregunta1` varchar(150) DEFAULT NULL,
   `resp1` char(150) DEFAULT NULL,
-  `sueldoDeseado` char(100) DEFAULT NULL
+  `sueldoDeseado` char(100) DEFAULT NULL,
+  `edad` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `ciudad`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`) VALUES
-(1, 'Yohesky', 'Pimentel', 268785655, 'yoheskyjpp@gmail.com', '1234', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'MAracaivo', 'dfsd', 'programador', 'Universitario', '', 'frances', 'basico', '', '', NULL, 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, NULL),
-(3, 'jose', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela', 'Maracaibo', 'Venezuela', 'PROGRAMADOR WEB', 'bachiller', '', 'ingles', 'intermedio', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1572969632', NULL, NULL, NULL),
-(4, 'luis', 'colmenarez', 2512345, 'luis@gmail.com', 'luis', '0000-00-00 00:00:00', '', '', 2147483647, 'venezuela zulia', 'Maracaibo', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, NULL),
-(5, '', '', 0, '', '', '0000-00-00 00:00:00', '', '', 0, '', '', '', '', '', '', '', '', '', '', NULL, 'elinca', 'vzla', 'contratista', 'it', 'instalar computadoras', '0001-11-11', '0011-11-11', NULL, NULL, './img-perfil/perfil-predeterminado.png', NULL, NULL, NULL),
-(7, 'coral', 'portillo', 14901511, 'cportillo@gmail.com', 'coral', '0000-00-00 00:00:00', 'Casado/a', 'Hombre', 2147483647, 'Venezuela', 'Maracaibo', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400');
+INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `ciudad`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`) VALUES
+(1, 'Yohesky', 'Pimentel', 26878565, 'yoheskyjpp@gmail.com', '1234', '1998-05-29', 'Casado/a', 'Hombre', 2147483647, 'venezuela', 'Maracaibo', 'UrbanizaciÃ³n el Soler', 'programador', 'Universitario', '', 'Ingles', 'intermedio', 'No', '', 'No', 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, '400', 22),
+(3, 'jose', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00', '', '', 2147483647, 'venezuela', 'Maracaibo', 'Venezuela', 'PROGRAMADOR WEB', 'bachiller', '', 'ingles', 'intermedio', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1572969632', NULL, NULL, NULL, NULL),
+(4, 'luis', 'colmenarez', 2512345, 'luis@gmail.com', 'luis', '0000-00-00', '', '', 2147483647, 'venezuela zulia', 'Maracaibo', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
+(5, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', '', NULL, 'elinca', 'vzla', 'contratista', 'it', 'instalar computadoras', '0001-11-11', '0011-11-11', NULL, NULL, './img-perfil/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
+(7, 'coral', 'portillo', 14901511, 'cportillo@gmail.com', 'coral', '0000-00-00', 'Casado/a', 'Hombre', 2147483647, 'Venezuela', 'Maracaibo', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400', NULL);
 
 -- --------------------------------------------------------
 
@@ -240,7 +241,7 @@ ALTER TABLE `empresa`
 -- AUTO_INCREMENT for table `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `propuesta`

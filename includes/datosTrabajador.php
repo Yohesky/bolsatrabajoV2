@@ -1,5 +1,6 @@
 <?php
 include("conexion.php");
+
 session_start();
 
 $idusuario = $_SESSION['idusuarios'];
@@ -26,6 +27,10 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
     $disponibilidadViajar = $_POST["disponibilidadViajar"];
     $vehiculo = $_POST["vehiculo"];
     $estadoCivil = $_POST["estadoCivil"];
+    $fechaActual = date('Y-m-d');
+    $edad = $fechaActual - $fechaNacimiento;
+    
+
 
 
     if(isset($_FILES['curriculum'])){
@@ -45,8 +50,9 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
         $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', num1='$num1', puestoDeseado='$puesto',
         pais='$pais', ciudad='$ciudad', direccion='$direccion', educacion='$educacion', 
         idioma='$idioma', nivelIdioma='$nivelIdioma', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
-        educacion='$educacion', genero='$genero', disponibilidadViajar='$disponibilidadViajar', vehiculo='$vehiculo', estadoCivil='$estadoCivil'
-         where idusuarios='$idusuario'";
+        educacion='$educacion', genero='$genero', disponibilidadViajar='$disponibilidadViajar', vehiculo='$vehiculo', estadoCivil='$estadoCivil',
+        edad='$edad'
+        where idusuarios='$idusuario'";
     }
     
     
