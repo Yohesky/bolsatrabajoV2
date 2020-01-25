@@ -13,6 +13,8 @@
     crossorigin="anonymous">
     <link rel="stylesheet" href="css/pushbar.css">
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
+    
 
 </head>
 <body>

@@ -59,6 +59,21 @@
         </div>
 
         <div class="form-group">
+            <select name="preguntas" id="preguntas" class="form-control">
+                    <option value="" disabled selected>Selecciona tu pregunta de seguridad</option>
+                    <option value="¿Cual es tu color favorito?">¿Cual es tu color favorito?</option>
+                    <option value="¿Cual es el segundo apellido de tu padre?">¿Cual es el segundo apellido de tu padre?</option>
+                    <option value="¿Donde estudiaste primaria?">¿Donde estudiaste primaria?</option>
+            </select>
+
+            
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="respuesta" id="respuesta" placeholder="Escriba su respuesta" class="form-control">
+        </div>
+
+        <div class="form-group">
             <input type="url" name="pagina" id="pagina" placeholder="Pagina web" class="form-control">
         </div>
 

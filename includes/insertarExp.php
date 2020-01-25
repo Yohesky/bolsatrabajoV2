@@ -16,10 +16,11 @@ if(isset($_POST["expEmpresa"]) && isset($_POST["expPais"]) && isset($_POST["expS
     $expLabor = $_POST["expLabor"];
     $expFechaIni = $_POST["expFechaIni"];
     $expFechaFin = $_POST['expFechaFin'];
+    $expYear = $expFechaFin - $expFechaIni;
 
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
-    $query = "INSERT INTO experiencia (expEmpresa, expPais, expSector, expArea,expLabor,expFechaIni,expFechaFin, usuarios_idusuarios) 
-    VALUES('$expEmpresa', '$expPais', '$expSector', '$expArea', '$expLabor','$expFechaIni','$expFechaFin', '$idusuario')";
+    $query = "INSERT INTO experiencia (expEmpresa, expPais, expSector, expArea,expLabor,expFechaIni,expFechaFin, usuarios_idusuarios, yearExp) 
+    VALUES('$expEmpresa', '$expPais', '$expSector', '$expArea', '$expLabor','$expFechaIni','$expFechaFin', '$idusuario', '$expYear')";
 
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 

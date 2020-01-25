@@ -1,5 +1,6 @@
 <?php
 include("conexion.php");
+
 session_start();
 
 $idusuario = $_SESSION['idusuarios'];
@@ -19,7 +20,18 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
     $educacion = $_POST["educacion"];
     $idioma = $_POST["idioma"];
     $nivelIdioma = $_POST["nivelIdioma"];
+    $fechaNacimiento = $_POST["fechaNacimiento"];
+    $sueldoDeseado = $_POST["sueldoDeseado"];
+    $educacion = $_POST["educacion"];
+    $genero = $_POST["genero"];
+    $disponibilidadViajar = $_POST["disponibilidadViajar"];
+    $vehiculo = $_POST["vehiculo"];
+    $estadoCivil = $_POST["estadoCivil"];
+    $fechaActual = date('Y-m-d');
+    $edad = $fechaActual - $fechaNacimiento;
     
+
+
 
     if(isset($_FILES['curriculum'])){
         //guardar curricum
@@ -37,7 +49,10 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
     }else{
         $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', num1='$num1', puestoDeseado='$puesto',
         pais='$pais', ciudad='$ciudad', direccion='$direccion', educacion='$educacion', 
-        idioma='$idioma', nivelIdioma='$nivelIdioma' where idusuarios='$idusuario'";
+        idioma='$idioma', nivelIdioma='$nivelIdioma', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
+        educacion='$educacion', genero='$genero', disponibilidadViajar='$disponibilidadViajar', vehiculo='$vehiculo', estadoCivil='$estadoCivil',
+        edad='$edad'
+        where idusuarios='$idusuario'";
     }
     
     

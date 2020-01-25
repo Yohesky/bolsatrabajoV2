@@ -31,6 +31,21 @@
         </div>
 
         <div class="form-group">
+            <select name="preguntas" id="preguntas" class="form-control">
+                    <option value="" disabled selected>Selecciona tu pregunta de seguridad</option>
+                    <option value="¿Como se llama tu mejor amigo de la infancia?">¿Como se llama tu mejor amigo de la infancia?</option>
+                    <option value="¿Cual es el nombre de tu primera mascota?">¿Cual es el nombre de tu primera mascota?</option>
+                    <option value="¿Donde estudiaste primaria?">¿Donde estudiaste primaria?</option>
+            </select>
+
+            
+        </div>
+
+        <div class="form-group">
+            <input type="text" name="res1" id="res1" placeholder="Escriba su respuesta" class="form-control">
+        </div>
+
+        <div class="form-group">
             <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="form-control">
         </div>
 
