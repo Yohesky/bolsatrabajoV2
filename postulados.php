@@ -113,7 +113,7 @@ $rsquery2 = mysqli_query($conexion, $query2);
                                 <hr>
                                 <?php 
                                     if(!empty($cv["curriculum"])){
-                                      echo "<a href='".$cv['curriculum']."' target='_blank' class='btn btn-success'> Descargar PDF </a>";
+                                      echo "<a id='notificacion' href='".$cv['curriculum']."' target='_blank' class='btn btn-success'> Descargar PDF </a>";
                                     }
                                 ?>
 
@@ -139,3 +139,4 @@ $rsquery2 = mysqli_query($conexion, $query2);
             toggle: false
         })
     </script>
+    <script src="js/notificaciones.js"></script>

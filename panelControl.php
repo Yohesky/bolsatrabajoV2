@@ -75,7 +75,7 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mi Cuenta <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
+                  <li><a href="perfilTrabajador.php"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
                   <li><a href="#"><i class="fa fa-envelope-o fw"></i></a></li> 
                   <li role="separator" class="divider"></li>
                   <li><a href="includes/logout.php"><i class="fa fa-sign-out"></i> salir</a></li>
