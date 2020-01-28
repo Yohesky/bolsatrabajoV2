@@ -2,14 +2,19 @@
 
 <div class="container mx-auto">
 
-<table class="table table-bordered  table-sm text-center mt-5">
+<table class="table table-hover table-dark mt-5">
                 <thead>
                     <tr>
-                        <td>Id</td>
-                        <td>Titulo</td>
-                        <td>Descripción</td>
-                        <td>Sueldo</td>
-                        <td>Localización</td>
+                        
+                        <td scope="col">Titulo</td>
+                        <td scope="col">Descripción</td>
+                        <td scope="col">Vacantes</td>
+                        <td scope="col">Sueldo</td>
+                        <td scope="col">Localizacion</td>
+                        <td scope="col">Funciones</td>
+                        
+
+                        <td scope="col"> </td>
                     </tr>
                 </thead>
 

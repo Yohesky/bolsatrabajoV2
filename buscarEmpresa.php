@@ -40,57 +40,57 @@
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area2" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area2" name="chkArea"  form="formularioBuscar" value="Almacén">
  									<label class="custom-control-label" for="area2">Almacén</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area3" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area3" name="chkArea"  form="formularioBuscar" value="Atención">
  									<label class="custom-control-label" for="area3">Atención al Cliente</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area4" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area4" name="chkArea"  form="formularioBuscar" value="Compras">
  									<label class="custom-control-label" for="area4">Compras</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area5" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area5" name="chkArea"  form="formularioBuscar" value="Construcción">
  									<label class="custom-control-label" for="area5">Construcción</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area6" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area6" name="chkArea"  form="formularioBuscar" value="Contabilidad">
  									<label class="custom-control-label" for="area6">Contabilidad</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area7" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area7" name="chkArea"  form="formularioBuscar" value="Gerencia">
  									<label class="custom-control-label" for="area7">Gerencia</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area8" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area8" name="chkArea"  form="formularioBuscar" value="Diseño">
  									<label class="custom-control-label" for="area8">Diseño</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area9" name="chkArea"  form="formularioBuscar" value="Ventas">
+  									<input type="checkbox" class="custom-control-input" id="area9" name="chkArea"  form="formularioBuscar" value="Enseñanza">
  									<label class="custom-control-label" for="area9">Enseñanza</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area10" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area10" name="chkArea"  form="formularioBuscar" value="Turismo">
  									<label class="custom-control-label" for="area10">Turismo</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area10" name="chkArea"  form="formularioBuscar">
- 									<label class="custom-control-label" for="area10">Informática</label>
+  									<input type="checkbox" class="custom-control-input" id="area17" name="chkArea"  form="formularioBuscar" value="Informática">
+ 									<label class="custom-control-label" for="area17">Informática</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area11" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area11" name="chkArea"  form="formularioBuscar" value="Ingeniería">
  									<label class="custom-control-label" for="area11">Ingeniería</label>
 								</div>
 
@@ -100,22 +100,22 @@
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area13" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area13" name="chkArea"  form="formularioBuscar" value="Reparación">
  									<label class="custom-control-label" for="area13">Reparación</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area14" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area14" name="chkArea"  form="formularioBuscar" value="Publicidad">
  									<label class="custom-control-label" for="area14">Publicidad</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area15" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area15" name="chkArea"  form="formularioBuscar" value="Recursos Humanos">
  									<label class="custom-control-label" for="area15">Recursos Humanos</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="area16" name="chkArea"  form="formularioBuscar">
+  									<input type="checkbox" class="custom-control-input" id="area16" name="chkArea"  form="formularioBuscar" value="Ventas">
  									<label class="custom-control-label" for="area16">Ventas</label>
 								</div>
 

@@ -18,7 +18,10 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(0, 0, 0, 0.3);
   }
-  body {background-color: #2a2b3d}
+  body {background-color: #2a2b3d;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
   #contents {
     position: relative;
     transition: .3s;
