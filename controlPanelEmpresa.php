@@ -1,4 +1,4 @@
-<?php   ?>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -8,31 +8,34 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
   </head>
-
   <body>
   <?php
   session_start();
   include("includes/conexion.php");
-  $idusuario = $_SESSION['idusuarios'];
 
-  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa WHERE idusuario = '$idusuario'";
-  $resultado = mysqli_query($conexion,$query) or die(mysqli_error($conexion));
+  function nPostulados(){
+    include("includes/conexion.php");
+    $idempresa = $_SESSION['idempresa'];
+    $query = "SELECT * FROM usuarios_has_propuesta JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE empresa.idempresa = '$idempresa'";
+
+    $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+    $numregistros = mysqli_num_rows($rsQuery);
+    return $numregistros;
+  }
   
 
-  function postulaciones(){
+  function trabajosPublicados(){
        include("includes/conexion.php"); 
 
-        $idusuario = $_SESSION['idusuarios'];
+        $idempresa = $_SESSION['idempresa'];
 
-       $query = "SELECT * FROM usuarios_has_propuesta WHERE usuarios_idusuarios = '$idusuario'";
+       $query = "SELECT * FROM propuesta WHERE empresa_idempresa = '$idempresa'";
        $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
        $numregistros = mysqli_num_rows($rsQuery);
        return $numregistros;
   }
 
     ?>
-
-   
     <aside class="side-nav" id="show-side-navigation1">
       <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
       
@@ -100,14 +103,14 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mi Cuenta <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="perfilTrabajador.php"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
+                  <li><a href="perfilEmpresa.php"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
                   
                   <li role="separator" class="divider"></li>
-                  <li><a href="includes/logout.php"><i class="fa fa-sign-out"></i> salir</a></li>
+                  <li><a href="includes/logout.php"><i class="fa fa-sign-out"></i>Salir</a></li>
                 </ul>
               </li>
 
-              <li class="dropdown">
+              <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Notificaciones <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <?php
@@ -119,9 +122,8 @@
                   
                   ?>
                 </ul>
-              </li>
-              <li><a href="#"><i class="fa fa-comments"></i><span>23</span></a></li>
-              <li><a href="#"><i class="fa fa-bell-o"></i><span>98</span></a></li>
+              </li> -->
+             
               <li><a href="#"><i data-show="show-side-navigation1" class="fa fa-bars show-side-btn"></i></a></li>
             </ul>
           </div>
@@ -142,29 +144,22 @@
       <section class="statistics">
         <div class="container-fluid">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="box">
                 <i class="fa fa-envelope fa-fw bg-primary"></i>
                 <div class="info">
-                  <h3> <?php echo trabajos() ?> </h3> <span>Trabajos</span>
-                  <p>Ultimos empleos publicados</p>
+                  <h3> <?php echo trabajosPublicados() ?> </h3> <span>Trabajos</span>
+                  <p>Tus ofertas publicadas</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="box" style="width: 500px"> 
-                <i class="fa fa-file fa-fw danger"></i>
-                <div class="info"> <h3> <?php echo postulaciones() ?>  </h3> <span>Mis Postulaciones</span>
-                  <p>Revisa a donde te has postulado</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-            <div class="box" style="width: 500px"> 
+            
+            <div class="col-md-6">
+              <div class="box">
                 <i class="fa fa-users fa-fw success"></i>
                 <div class="info">
-                  <h3>5,245</h3> <span>Perfil</span>
-                  <p>Accede rapidamente a tu perfil</p>
+                  <h3> <?php echo nPostulados() ?> </h3> <span>Postulados</span>
+                  <p>Numero de inscritos a tus ofertas de trabajo</p>
                 </div>
               </div>
             </div>
