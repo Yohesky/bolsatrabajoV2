@@ -15,6 +15,8 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']))
     $pagina = mysqli_real_escape_string($conexion, $_POST['pagina']);
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
     $contrasena2 = mysqli_real_escape_string($conexion, $_POST['contrasena2']);
+    $preguntaSeguridad = mysqli_real_escape_string($conexion, $_POST['preguntas']);
+    $respuestaSeguridad = mysqli_real_escape_string($conexion, $_POST['respuesta']);
     $result = '';
 
     if(strlen($contrasena) > 30)
@@ -52,7 +54,8 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']))
     }
 
     else{
-        $sql = "INSERT INTO empresa VALUES(NULL, '$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena')";
+        $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad) 
+        VALUES('$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad')";
         mysqli_query($conexion, $sql);
         echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
         

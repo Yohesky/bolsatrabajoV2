@@ -38,7 +38,10 @@ $json[] = array
 (
     "nombre" => $row["nombre"],
     "apellido" => $row["apellido"],
-    "foto" => $row["fotoPerfil"]
+    "foto" => $row["fotoPerfil"],
+    "id" => $row["idusuarios"],
+    "descripcion" => $row["descripcion"],
+    "idpropuesta" => $row["propuesta_idpropuesta"]
 );
     
 }

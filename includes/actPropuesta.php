@@ -31,7 +31,11 @@ while($row = mysqli_fetch_array($resultado))
         "vacantes" => $row["vacantes"],
         "sueldo" => $row["sueldo"],
         "localizacion" => $row["localizacion"],
-        "categoria" => $row["categoria"]
+        "categoria" => $row["categoria"],
+        "viajes" => $row["viajes"],
+        "vehiculo" => $row["vehiculo"],
+        "educacion" => $row["educacion"],
+        "aExp" => $row["aExp"]
     );
 }
 

@@ -24,15 +24,47 @@
                                 <div class="form-group">
                                         <input type="number" id="vacantes" name="vacantes" min="1" class="form-control" placeholder="Cantidad de Vacantes" required>
                                 </div>
+
                                 <div class="form-group">
                                         <input type="number" name="sueldo" id="sueldo"  min="1" class="form-control" placeholder="Sueldo" required>
                                 </div>
+
+                                <div class="form-group">
+                                        <input type="number" name="aExp" id="aExp"  min="0" class="form-control" placeholder="Años de experiencia" required>
+                                </div>
+
                                 <div class="form-group">
                                         <label for="localizacion">Localización</label>
                                         <select id="localizacion" name="localizacion">
                                           <option value="Maracaibo">Maracaibo</option>
                                           <option value="Cabimas">Cabimas</option>
-                                          <option value="CiudadOjeda">Ciudad Ojeda</option>
+                                          <option value="Ciudad Ojeda">Ciudad Ojeda</option>
+                                        </select>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="vehiculo">¿Se requiere automovil?</label>
+                                        <select id="vehiculo" name="vehiculo">
+                                          <option value="Si">Si</option>
+                                          <option value="No">No</option>
+                                        </select>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="viajes">¿Se requiere viajar?</label>
+                                        <select id="viajes" name="viajes">
+                                          <option value="Si">Si</option>
+                                          <option value="No">No</option>
+                                        </select>
+                                </div>
+
+                                <div class="form-group">
+                                        <label for="educacion">Nivel de educacion requerido</label>
+                                        <select id="educacion" name="educacion">
+                                          <option value="Bachiller">Bachiller</option>
+                                          <option value="Tecnico Medio">Tecnico Medio</option>
+                                          <option value="Tecnico Superior Universitario">Tecnico Superior Universitario</option>
+                                          <option value="Universitario">Universitario</option>
                                         </select>
                                 </div>
 

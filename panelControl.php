@@ -1,3 +1,4 @@
+<?php   ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -7,7 +8,31 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
   </head>
+
   <body>
+  <?php
+  session_start();
+  include("includes/conexion.php");
+  $idusuario = $_SESSION['idusuarios'];
+
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa WHERE idusuario = '$idusuario'";
+  $resultado = mysqli_query($conexion,$query) or die(mysqli_error($conexion));
+  
+
+  function postulaciones(){
+       include("includes/conexion.php"); 
+
+        $idusuario = $_SESSION['idusuarios'];
+
+       $query = "SELECT * FROM usuarios_has_propuesta WHERE usuarios_idusuarios = '$idusuario'";
+       $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+       $numregistros = mysqli_num_rows($rsQuery);
+       return $numregistros;
+  }
+
+    ?>
+
+   
     <aside class="side-nav" id="show-side-navigation1">
       <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
       
@@ -75,10 +100,25 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mi Cuenta <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
+                  <li><a href="perfilTrabajador.php"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
                   <li><a href="#"><i class="fa fa-envelope-o fw"></i></a></li> 
                   <li role="separator" class="divider"></li>
                   <li><a href="includes/logout.php"><i class="fa fa-sign-out"></i> salir</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Notificaciones <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <?php
+                    
+                    while($row = mysqli_fetch_array($resultado))
+                    {
+                        echo "<li class='mt-2 list-group-item list-group-item-success'> La empresa ".$row['nombreEmpresa']." Ha visto tu CV </li>";
+                        
+                    }
+                  
+                  ?>
                 </ul>
               </li>
               <li><a href="#"><i class="fa fa-comments"></i><span>23</span></a></li>
@@ -115,22 +155,7 @@
             <div class="col-md-4">
               <div class="box" style="width: 500px"> 
                 <i class="fa fa-file fa-fw danger"></i>
-                <div class="info">
-                  <!-- <?php 
-                        function postulaciones(){
-                          include("includes/conexion.php");
-                          session_start();
-                          $idusuario = '';
-                          
-                          $query = "SELECT * FROM usuarios_has_propuesta WHERE usuarios_idusuarios='$idusuario' ";
-                          $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
-                          $numregistros = mysqli_num_rows($rsQuery);
-                          return $numregistros;
-                        }
-
-                  ?> -->
-
-                  <h3> 6 </h3> <span>Mis Postulaciones</span>
+                <div class="info"> <h3> <?php echo postulaciones() ?>  </h3> <span>Mis Postulaciones</span>
                   <p>Revisa a donde te has postulado</p>
                 </div>
               </div>

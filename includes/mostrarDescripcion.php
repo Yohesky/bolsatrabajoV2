@@ -18,9 +18,9 @@ while($row = mysqli_fetch_array($resultado))
 {
    echo 
    "
-  <form  id='formularioDescripcion' class='card card-body'>
+  <form  id='formularioDescripcion' class='card card-body' style='max-width: 540px;'>
                 <div class='form-group text-center'>
-    <textarea name='descripcion' id='descripcion' cols='30' rows='4' class='form-control'>".$row['descripcion']."</textarea>
+    <textarea name='descripcion' id='descripcion' cols='30' rows='4' class='form-control' placeholder='Ingresa una breve descripción' >".$row['descripcion']."</textarea>
                 </div>
                 <button id='btnDescripcion' class='btn btn-success' >Actualizar</button>
     </form>

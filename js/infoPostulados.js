@@ -74,9 +74,11 @@ $(function()
       </div>
     </div>
     <div class="general">
-      <h1>${publicacion.nombre}</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
-      <span class="more">Mouse over the card for more info</span>
+      <div class="text-center mx-auto"> 
+      <h3>${publicacion.nombre}</h3> - <h3>${publicacion.apellido}</h3>
+      </div>
+      <p>${publicacion.descripcion}</p>
+      <a class="btn btn-info" href="postulados.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"> Ver perfil </a>
     </div>
   </div>
 
