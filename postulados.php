@@ -33,14 +33,15 @@ $rsquery2 = mysqli_query($conexion, $query2);
 
             <ul class="categories">
                 <h5 class="mt-5 ml-4">Principales Conocimientos</h5>
-                <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="#"> About us</a></li>
-                    <ul class="side-nav-dropdown">
-                        <li><a href="#">Lorem ipsum</a></li>
-                        <li><a href="#">ipsum dolor</a></li>
-                        <li><a href="#">dolor ipsum</a></li>
-                        <li><a href="#">amet consectetur</a></li>
-                        <li><a href="#">ipsum dolor sit</a></li>
-                    </ul>
+                <?php 
+                    $query4 = "SELECT * FROM habilidades WHERE idusuario = '$id'";
+                    $rsquery4 = mysqli_query($conexion, $query4);
+                    while ($row4 = mysqli_fetch_array($rsquery4))
+                    {
+                        echo " <li><i class='fa fa-home fa-fw' aria-hidden='true'></i><a href='#'> ".$row4["nombreHabilidad"]." </a></li>  ";
+                    }
+
+                ?>
             </ul>
         </aside>
 

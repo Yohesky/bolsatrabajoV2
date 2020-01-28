@@ -25,14 +25,16 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo '' . $_SESSION["nombre"] . ''; ?></h3> </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">  </p>
                             
                         </div>
                     </div>
                 </div>
             </div>
-
-
+            <h1 class="text-center bg-dark">Habilidades</h1>
+            <div id="mostrar">
+               
+            </div>
            
             <div class="container">
                 <?php include("includes/mostrarDescripcion.php") ?>
@@ -51,6 +53,28 @@
                     Añadir experiencia Laboral
                 </button>
 
+
+              <form id="habilidades" class="card card-body mt-5">
+              <input type="hidden" id="habilidadId" name="habilidadId">
+                  <div class="form-group">
+                      <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control">
+                  </div>
+
+                <div class='form-group'>
+ 
+                        <label class='form-control' for='nivelHabilidad'>Nivel Habilidad</label>
+                        <select class='form-control' id='nivelHabilidad' name='nivelHabilidad'>
+                    
+                        <option value='Basico'>Basico</option>
+                        <option value='Intermedio'>Intermedio</option>
+                        <option value='Avanzado'>Avanzado</option>
+                        </select>
+
+                </div>
+                  
+
+                  <button class="btn btn-success" id="btnHabilidad">Guardar</button>
+              </form>
 
 
             </div>
@@ -110,6 +134,8 @@
                 </div>
             </div>
 
+            
+
 
             <div class="card mt-2">
                 <!-- card-body para un espaciado interno entre los componentes -->
@@ -162,3 +188,4 @@
         })
     })
 </script>
+<script src="js/habilidad.js"></script>
