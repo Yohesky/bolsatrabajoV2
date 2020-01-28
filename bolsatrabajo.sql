@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2020 a las 03:09:45
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Host: 127.0.0.1
+-- Generation Time: Jan 28, 2020 at 01:26 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bolsatrabajo`
+-- Database: `bolsatrabajo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empresa`
+-- Table structure for table `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -44,7 +44,7 @@ CREATE TABLE `empresa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `empresa`
+-- Dumping data for table `empresa`
 --
 
 INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`, `imagenEmpresa`, `preguntaSeguridad`, `respuestaSeguridad`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `experiencia`
+-- Table structure for table `experiencia`
 --
 
 CREATE TABLE `experiencia` (
@@ -73,7 +73,7 @@ CREATE TABLE `experiencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `experiencia`
+-- Dumping data for table `experiencia`
 --
 
 INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`, `yearExp`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expAr
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `notificaciones`
+-- Table structure for table `notificaciones`
 --
 
 CREATE TABLE `notificaciones` (
@@ -94,10 +94,18 @@ CREATE TABLE `notificaciones` (
   `idpropuesta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `notificaciones`
+--
+
+INSERT INTO `notificaciones` (`idempresa`, `idusuario`, `idpropuesta`) VALUES
+(5, 1, 50),
+(6, 1, 51);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `propuesta`
+-- Table structure for table `propuesta`
 --
 
 CREATE TABLE `propuesta` (
@@ -118,7 +126,7 @@ CREATE TABLE `propuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `propuesta`
+-- Dumping data for table `propuesta`
 --
 
 INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `funciones`, `categoria`, `aExp`, `educacion`, `viajes`, `vehiculo`) VALUES
@@ -129,7 +137,7 @@ INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `su
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -171,7 +179,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `ciudad`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`) VALUES
@@ -184,7 +192,7 @@ INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `con
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios_has_propuesta`
+-- Table structure for table `usuarios_has_propuesta`
 --
 
 CREATE TABLE `usuarios_has_propuesta` (
@@ -193,34 +201,35 @@ CREATE TABLE `usuarios_has_propuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuarios_has_propuesta`
+-- Dumping data for table `usuarios_has_propuesta`
 --
 
 INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropuesta`) VALUES
 (3, 50),
 (1, 50),
 (4, 50),
-(7, 51);
+(7, 51),
+(1, 51);
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `empresa`
+-- Indexes for table `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idempresa`);
 
 --
--- Indices de la tabla `experiencia`
+-- Indexes for table `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD PRIMARY KEY (`idexp`,`usuarios_idusuarios`),
   ADD KEY `fk_experiencia_usuarios_idx` (`usuarios_idusuarios`);
 
 --
--- Indices de la tabla `notificaciones`
+-- Indexes for table `notificaciones`
 --
 ALTER TABLE `notificaciones`
   ADD KEY `idempresa` (`idempresa`),
@@ -228,65 +237,65 @@ ALTER TABLE `notificaciones`
   ADD KEY `idpropuesta` (`idpropuesta`);
 
 --
--- Indices de la tabla `propuesta`
+-- Indexes for table `propuesta`
 --
 ALTER TABLE `propuesta`
   ADD PRIMARY KEY (`idpropuesta`,`empresa_idempresa`),
   ADD KEY `fk_propuesta_empresa1_idx` (`empresa_idempresa`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idusuarios`);
 
 --
--- Indices de la tabla `usuarios_has_propuesta`
+-- Indexes for table `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
   ADD KEY `usuarios_idusuarios` (`usuarios_idusuarios`),
   ADD KEY `propuesta_idpropuesta` (`propuesta_idpropuesta`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `empresa`
+-- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
   MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de la tabla `experiencia`
+-- AUTO_INCREMENT for table `experiencia`
 --
 ALTER TABLE `experiencia`
   MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT de la tabla `propuesta`
+-- AUTO_INCREMENT for table `propuesta`
 --
 ALTER TABLE `propuesta`
   MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `experiencia`
+-- Constraints for table `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `notificaciones`
+-- Constraints for table `notificaciones`
 --
 ALTER TABLE `notificaciones`
   ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`idempresa`) ON DELETE CASCADE,
@@ -294,13 +303,13 @@ ALTER TABLE `notificaciones`
   ADD CONSTRAINT `notificaciones_ibfk_3` FOREIGN KEY (`idpropuesta`) REFERENCES `propuesta` (`idpropuesta`) ON DELETE CASCADE;
 
 --
--- Filtros para la tabla `propuesta`
+-- Constraints for table `propuesta`
 --
 ALTER TABLE `propuesta`
   ADD CONSTRAINT `fk_propuesta_empresa1` FOREIGN KEY (`empresa_idempresa`) REFERENCES `empresa` (`idempresa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `usuarios_has_propuesta`
+-- Constraints for table `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
   ADD CONSTRAINT `usuarios_has_propuesta_ibfk_1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE CASCADE,

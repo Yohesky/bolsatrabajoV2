@@ -78,7 +78,7 @@ $(function()
       <h3>${publicacion.nombre}</h3> - <h3>${publicacion.apellido}</h3>
       </div>
       <p>${publicacion.descripcion}</p>
-      <a class="btn btn-info" href="postulados.php?id=${publicacion.id}"> Ver perfil </a>
+      <a class="btn btn-info" href="postulados.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"> Ver perfil </a>
     </div>
   </div>
 

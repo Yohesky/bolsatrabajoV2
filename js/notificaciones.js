@@ -1,30 +1,52 @@
-$(function (){
+$(function () {
 
+    enviarNotificacion()
 
 
 })
 
-function enviarNotificacion(){
-    $("#notificacion").click( () => {
+function getGET() {
+    // capturamos la url
+    var loc = document.location.href;
+    // si existe el interrogante
+    if (loc.indexOf('?') > 0) {
+        // cogemos la parte de la url que hay despues del interrogante
+        var getString = loc.split('?')[1];
+        // obtenemos un array con cada clave=valor
+        var GET = getString.split('&');
+        var get = {};
+
+        // recorremos todo el array de valores
+        for (var i = 0, l = GET.length; i < l; i++) {
+            var tmp = GET[i].split('=');
+            get[tmp[0]] = unescape(decodeURI(tmp[1]));
+        }
+        // console.log(get);
+
+
+    }
+    return get;
+}
+
+function enviarNotificacion() {
+    $("#notificacion").click((e) => {
+        console.log('click');
+
 
         $.ajax
-        ({
-            //hacer una peticion al servidor
-            //url: direccion a donde se quiere pedir los datos
-            url: "includes/busqueda.php",
-            //POST cuando el navegador le envia algo al servidor 
-            type: "POST",
-            //para enviar el valor del input al servidor
-            data: {busqueda},
-            //Eventos si el servidor responde
-            //function con parametro response cuando el servidor responda algo 
-            success: function(response)
-            {
-                console.log(response);
-                
-            }
-            
-             
-        });
+            ({
+
+                url: "includes/notificaciones.php",
+
+                type: "POST",
+                data: getGET(),
+
+                success: function (response) {
+                    console.log(response);
+
+                }
+
+
+            });
     })
 }
