@@ -1,10 +1,8 @@
-<?php include("conexion.php") ?>
-<?php
+<?php include("conexion.php");
 
 session_start();
-if(isset($_SESSION['correo'])){
+if(isset($_SESSION["correo"])){
     header('location: panelControl.php');
 }
-
 
 ?>
