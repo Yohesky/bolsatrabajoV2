@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2020 at 01:26 PM
+-- Generation Time: Jan 28, 2020 at 03:30 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -100,6 +100,8 @@ CREATE TABLE `notificaciones` (
 
 INSERT INTO `notificaciones` (`idempresa`, `idusuario`, `idpropuesta`) VALUES
 (5, 1, 50),
+(6, 1, 51),
+(6, 1, 51),
 (6, 1, 51);
 
 -- --------------------------------------------------------
@@ -208,8 +210,7 @@ INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropue
 (3, 50),
 (1, 50),
 (4, 50),
-(7, 51),
-(1, 51);
+(7, 51);
 
 --
 -- Indexes for dumped tables

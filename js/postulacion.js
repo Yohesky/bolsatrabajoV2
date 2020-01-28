@@ -75,13 +75,16 @@ function mostrarPostulaciones() {
                     //le asignamos un atributo para encontrar el ID
                     `<tr>
                 
-                    <td> ${postulacion.titulo}  </td>
-                    <td> ${postulacion.descripcion}  </td>
-                    <td> ${postulacion.sueldo}  </td>
-                    <td> ${postulacion.localizacion}  </td>
-                    <td>
-                        <button value="${postulacion.propuesta_idpropuesta}" class="btn btn-danger eliminar-postulacion">Eliminar</button>
-                    </td>
+                        <td scope="col"> ${postulacion.titulo}  </td>
+                        <td scope="col"> ${postulacion.descripcion}  </td>
+                        <td scope="col"> ${postulacion.vacantes}  </td>
+                        <td scope="col"> ${postulacion.sueldo}  </td>
+                        <td scope="col"> ${postulacion.localizacion}  </td>
+                        <td scope="col"> ${postulacion.funciones}  </td>
+                        <td scope="col">   </td>
+                        <td scope="col">
+                            <button value="${postulacion.propuesta_idpropuesta}" class="btn btn-danger eliminar-postulacion">Retirarme</button>
+                        </td>
                     </tr>
                     
                    `;

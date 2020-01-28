@@ -101,7 +101,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mi Cuenta <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="perfilTrabajador.php"><i class="fa fa-user-o fw"></i> Mi Perfil</a></li>
-                  <li><a href="#"><i class="fa fa-envelope-o fw"></i></a></li> 
+                  
                   <li role="separator" class="divider"></li>
                   <li><a href="includes/logout.php"><i class="fa fa-sign-out"></i> salir</a></li>
                 </ul>
@@ -115,7 +115,6 @@
                     while($row = mysqli_fetch_array($resultado))
                     {
                         echo "<li class='mt-2 list-group-item list-group-item-success'> La empresa ".$row['nombreEmpresa']." Ha visto tu CV </li>";
-                        
                     }
                   
                   ?>
@@ -161,7 +160,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div class="box">
+            <div class="box" style="width: 500px"> 
                 <i class="fa fa-users fa-fw success"></i>
                 <div class="info">
                   <h3>5,245</h3> <span>Perfil</span>
