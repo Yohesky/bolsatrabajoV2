@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2020 at 03:30 PM
+-- Generation Time: Jan 28, 2020 at 07:31 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -81,6 +81,26 @@ INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expAr
 (8, 'urbe', 'venezuela', 'educacion', 'tecnico', 'preparar pc', '2019-10-22', '2019-10-02', 3, NULL),
 (10, 'CONTROVAL', 'Venezuela', 'Ingenieria', 'Logistica', 'Controlar procesos', '2016-01-01', '2020-01-29', 7, NULL),
 (14, 'SMARTPROCESS', 'Venezuela', 'INGENIERIA', 'SOPORTE TECNICO', 'REPARAR TODO', '2015-01-01', '2020-11-18', 1, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `habilidades`
+--
+
+CREATE TABLE `habilidades` (
+  `idHabilidad` int(11) NOT NULL,
+  `nombreHabilidad` varchar(150) NOT NULL,
+  `idusuario` int(11) NOT NULL,
+  `nivelHabilidad` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `habilidades`
+--
+
+INSERT INTO `habilidades` (`idHabilidad`, `nombreHabilidad`, `idusuario`, `nivelHabilidad`) VALUES
+(3, 'ANGULAR', 1, 'Intermedio');
 
 -- --------------------------------------------------------
 
@@ -230,6 +250,13 @@ ALTER TABLE `experiencia`
   ADD KEY `fk_experiencia_usuarios_idx` (`usuarios_idusuarios`);
 
 --
+-- Indexes for table `habilidades`
+--
+ALTER TABLE `habilidades`
+  ADD PRIMARY KEY (`idHabilidad`),
+  ADD KEY `idusuario` (`idusuario`);
+
+--
 -- Indexes for table `notificaciones`
 --
 ALTER TABLE `notificaciones`
@@ -274,6 +301,12 @@ ALTER TABLE `experiencia`
   MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `habilidades`
+--
+ALTER TABLE `habilidades`
+  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `propuesta`
 --
 ALTER TABLE `propuesta`
@@ -294,6 +327,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `habilidades`
+--
+ALTER TABLE `habilidades`
+  ADD CONSTRAINT `fk_habilidades_usuarios1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `notificaciones`
