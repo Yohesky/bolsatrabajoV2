@@ -21,6 +21,7 @@ if(isset($_POST['correo']) && isset($_POST['contrasena']))
          $_SESSION['nombre'] = $data['nombre'];
          $_SESSION['idusuarios'] = $data['idusuarios'];
          
+         
          return $_SESSION['idusuarios'];
          echo '1';
       }
