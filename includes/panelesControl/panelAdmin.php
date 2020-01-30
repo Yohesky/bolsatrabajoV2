@@ -9,7 +9,8 @@
 			"empresas" => empresas($conexion),
 			"trabajadores" => usuarios($conexion),
 			"ofertas" => trabajos($conexion),
-			"educacion" => nivelEducacion($conexion)
+			"educacion" => nivelEducacion($conexion),
+			"sueldo" => nivelSueldo($conexion)
 		];
 		echo json_encode($datos);
 	}	
@@ -60,6 +61,20 @@
 			$datos[$key] = mysqli_fetch_array($rsQuery)[0]; 
 		}
 		
+		return $datos;
+	}
+
+	function nivelSueldo($conexion){
+		$querys = array("sueldo1" => "SELECT COUNT(*) from propuesta where sueldo > 0 AND sueldo <= 50",
+		"sueldo2" => "SELECT COUNT(*) from propuesta where sueldo >= 50 AND sueldo <= 100",
+		"sueldo3" => "SELECT COUNT(*) from propuesta where sueldo >= 100");
+
+		$datos = array();
+		foreach ($querys as $key => $value) {
+			$rsQuery = mysqli_query($conexion, $value) or die(mysqli_error($conexion));
+			$datos[$key] = mysqli_fetch_array($rsQuery)[0]; 
+		}
+
 		return $datos;
 	}
 
