@@ -1,5 +1,5 @@
 <?php include("includes/headerTrabajador.php") ?>
-
+<?php include("includes/sesionTrabajador.php") ?>
 <div class="container mx-auto">
 
 <table class="table table-hover table-dark mt-5">
@@ -26,3 +26,4 @@
 </div>
 <?php include("includes/footer.php") ?>
 <script src="js/postulacion.js"></script>
+<script src="js/direcciones.js"></script>

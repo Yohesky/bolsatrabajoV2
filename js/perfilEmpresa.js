@@ -1,6 +1,7 @@
 $(function () {
     actualizar();
     obtenerFotoPerfil();
+    actualizarDescripcion()
   
     function actualizar() {
       $("#btnDatos").click(function (e) {
@@ -185,4 +186,36 @@ $(function () {
     } else if(number >= 1048576) {
       return (number/1048576).toFixed(1) + 'MB';
     }
+  }
+
+  function actualizarDescripcion()
+  {
+    $("#btnDescripcion").click(function(e)
+    {
+      let form = $("#formularioDescripcionEmpresa").serialize();
+      console.log(form);
+      if($.trim(descripcion).length > 0 )
+      {
+        $.ajax(
+          {
+            url: 'includes/actualizarDescripcionEmpresa.php',
+            method: 'POST',
+            data: form,
+            success: function (response) {
+              if (response === 'exito') {
+                swal({
+                  title: "Descripción actualizada",
+                  text: "Su descripción ha sido actualizada",
+                  icon: "success",
+                  button: "Continuar",
+                });
+              }
+            }   
+          }
+        )
+      }
+      e.preventDefault();
+      
+    }
+    )
   }

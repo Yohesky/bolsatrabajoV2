@@ -46,7 +46,7 @@ function obtenerHabilidad(){
                                 //le asignamos un atributo para encontrar el ID
                                 ` 
                                 <div class="alert alert-dark" role="alert">
-                                    <row>
+                                    <div class="row">
                                         <div class="col-md-8">
                                         <span> ${habilidad.nombreHabilidad}  </span> - <span> ${habilidad.nivelHabilidad} </span> 
                                         </div>
@@ -57,7 +57,7 @@ function obtenerHabilidad(){
 
 
                                         <div class="col-md-2">
-                                        <button type="button" class="btn btn-warning editar-habilidad" value="${habilidad.idHabilidad}"> <i class="fas fa-pencil-alt"></i> </button> 
+                                            <button type="button" class="btn btn-warning editar-habilidad" value="${habilidad.idHabilidad}"> <i class="fas fa-pencil-alt"></i> </button> 
                                         </div>
                                     </row>
                                 </div>                 

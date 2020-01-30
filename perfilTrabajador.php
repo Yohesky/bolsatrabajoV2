@@ -25,7 +25,9 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo '' . $_SESSION["nombre"] . ''; ?></h3> </h5>
-                            <p class="card-text">  </p>
+                            <hr>
+                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white"><?php echo '' . $_SESSION["apellido"] . ''; ?></h3>
+                            
                             
                         </div>
                     </div>
@@ -39,7 +41,7 @@
             <div class="container">
                 <?php include("includes/mostrarDescripcion.php") ?>
             </div>
-            <h4 class="text-center">Experiencia Laboral</h4>
+            <h1 class="text-center bg-dark">Experiencias Laborales</h1>
             <div id="experiencia">
 
             </div>
@@ -189,3 +191,4 @@
     })
 </script>
 <script src="js/habilidad.js"></script>
+<script src="js/direcciones.js"></script>

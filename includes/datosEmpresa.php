@@ -25,10 +25,6 @@ while($row = mysqli_fetch_array($resultado))
     </div>
 
     <div class='form-group'>
-    <input type='text' id='descripcionEmpresa' name='descripcionEmpresa' value='".$row['descripcionEmpresa']."' class='form-control' required>
-    </div>
-
-    <div class='form-group'>
                             <input type='text' id='rif' name='rif' value='".$row['rif']."' class='form-control' required>
     </div>
 

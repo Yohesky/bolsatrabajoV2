@@ -14,17 +14,18 @@
     <link rel="stylesheet" href="css/pushbar.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
     
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <i class="fas fa-bars fa-3x menu" data-pushbar-target="pushbar-menu"></i>
-    <nav class="navbar navbar-dark bg-dark ml-auto">
-
-        <!--<input class="form-control" type="buscar" id="buscar" placeholder="Busca empleo" aria-label="Search">-->   
-
-       </nav>
+    <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-pushbar-target="pushbar-menu"></i>
+    <!-- <i class="fas fa-bars fa-3x menu" data-pushbar-target="pushbar-menu"></i> -->
+   
 
        <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu fondo">
         <div class="btn-cerrar">
@@ -35,57 +36,21 @@
  
        
  
-       <nav class="nav-menu">
+       <nav class="side-nav">
              
-       <a href="panelControl.php">
-                 
-                 <li>
-                         <div class="barra"></div>
-                         <a href="panelControl.php" class="menu">Panel de Control</a>
-                 </li>
-         </a>
+       <ul class="categories">
 
+       <li id="controlPanel"> <i class="fas fa-solar-panel"></i> Panel de Control </li>
 
-             <a href="trabajador.php">
-                 
-                     <li>
-                             <div class="barra"></div>
-                             <a href="trabajador.php" class="menu">Trabajos</a>
-                     </li>
-             </a>
+        <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
+          
+        <li id="misPostulaciones"> <i class="fas fa-bullseye"></i> Mis Postulaciones</li>
+        
+        <li id="perfil"> <i class="fa fa-user-o fw"></i> Perfil</li>
 
-             <a href="busquedaPersonalizada.php">
-                         <li>
-                                 <div class="barra"></div>
-                                 <a href="busquedaPersonalizada.php" class="menu">Busqueda Personalizada</a>
-                             </li>
-                 </a>
-                 
-     
-     
-                 <a href="postulaciones.php">
-                         <li>
-                                 <div class="barra"></div>
-                                 <a href="postulaciones.php" class="menu">Mis Postulaciones</a>
-                             </li>
-                 </a>
-     
-     
-     
-                 <a href="perfilTrabajador.php">
-                         <li>
-                                 <div class="barra"></div>
-                                 <a href="perfilTrabajador.php" class="menu">Mi Perfil</a>
-                             </li>
-                 </a>
-     
-             
-                 <a href="includes/logout.php">
-                         <li>
-                                 <div class="barra"></div>
-                                 <a href="includes/logout.php" class="menu">Salir</a>
-                             </li>
-                 </a>
+        <li id="salir"> <i class="fa fa-sign-out"></i> Salir</li>
+        
+      </ul>
      
      
      
