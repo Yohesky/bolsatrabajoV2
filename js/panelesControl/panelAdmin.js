@@ -25,6 +25,9 @@ function estadisticasGenerales(json){
 	$('#numTecnicoMedio').text(json.educacion.tecnicoMedio);
 	$('#numTSU').text(json.educacion.TSU);
 	$('#numUniversitario').text(json.educacion.universitario);
+	$('#numSueldo1').text(json.sueldo.sueldo1);
+	$('#numSueldo2').text(json.sueldo.sueldo2);
+	$('#numSueldo3').text(json.sueldo.sueldo3);
 
 	graficosGenerales(json);
 }
@@ -35,6 +38,7 @@ function graficosGenerales(datos){
 	var ctx2 = document.getElementById("canvas2").getContext("2d");
 	var ctx3 = document.getElementById("canvas3").getContext("2d");
 	var ctxEducacion = document.getElementById('canvasEducacion').getContext('2d');
+	var ctxSueldo = document.getElementById('canvasSueldo').getContext('2d');
 
 
 	window.myBar = new Chart(ctx).Bar({
@@ -82,6 +86,18 @@ function graficosGenerales(datos){
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
 			data :  [datos.educacion.bachiller, datos.educacion.tecnicoMedio, datos.educacion.TSU, datos.educacion.universitario] //tiene que ser un arreglo
+		}]},{
+		responsive: true
+	});
+
+	window.myBar = new Chart(ctxSueldo).Bar({
+		labels : ["0 - 50$", "50$ - 100$", "+100$"],
+		datasets : [{
+            fillColor : "#d9534f",
+            strokeColor : "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+			data :  [datos.sueldo.sueldo1, datos.sueldo.sueldo2, datos.sueldo.sueldo3] //tiene que ser un arreglo
 		}]},{
 		responsive: true
 	});
