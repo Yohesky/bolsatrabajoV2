@@ -79,6 +79,7 @@ $(function()
       </div>
       <p>${publicacion.descripcion}</p>
       <a class="btn btn-info" href="postulados.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"> Ver perfil </a>
+      <a class="btn btn-secondary" href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"><i class="far fa-file-pdf"></i> PDF </a>
     </div>
   </div>
 
