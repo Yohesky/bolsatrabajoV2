@@ -1,4 +1,4 @@
-<?php include("includes/sesionTrabajador.php") ?>
+
 <html lang="en">
 
 <head>

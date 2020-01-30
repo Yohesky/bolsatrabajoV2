@@ -59,7 +59,7 @@ function obtenerHabilidad(){
                                         <div class="col-md-2">
                                             <button type="button" class="btn btn-warning editar-habilidad" value="${habilidad.idHabilidad}"> <i class="fas fa-pencil-alt"></i> </button> 
                                         </div>
-                                    </row>
+                                    </div>
                                 </div>                 
                                 `;
                                 }

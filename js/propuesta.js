@@ -127,6 +127,8 @@ $(function () {
                $("#vehiculo").val(postulacion.vehiculo);
                $("#viajes").val(postulacion.viajes);
                $("#educacion").val(postulacion.educacion);
+               $("#estado").val(postulacion.estado);
+               $("#ciudad").val(postulacion.ciudad);
                $("#postulacionId").val(postulacion.id)
                editar = true;
               
