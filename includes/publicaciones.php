@@ -5,7 +5,7 @@ include("conexion.php");
 session_start();
 $idempresa = $_SESSION['idempresa'];
 
-$query = "SELECT * from propuesta where empresa_idempresa='$idempresa'";
+$query = "SELECT * from propuesta WHERE empresa_idempresa='$idempresa'";
 $resultado = mysqli_query($conexion, $query);
 
 if(!$resultado)

@@ -17,7 +17,7 @@ function Header()
     $resultado = mysqli_fetch_array($rsQuery);
 
     $id_propuesta = $_GET["idpropuesta"];
-    $Query2 = "SELECT * FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE idempresa= '$id_empresa'";
+    $Query2 = "SELECT * FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE idpropuesta= '$id_propuesta'";
     $rsQuery2 = mysqli_query($conexion, $Query2) or die(mysqli_error($conexion));
     $resultado2 = mysqli_fetch_array($rsQuery2);
     // Logo
