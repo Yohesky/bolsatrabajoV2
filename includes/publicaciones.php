@@ -24,7 +24,8 @@ while($row = mysqli_fetch_array($resultado))
         "descripcion" => $row["descripcion"],
         "vacantes" => $row["vacantes"],
         "sueldo" => $row["sueldo"],
-        "localizacion" => $row["localizacion"]
+        "localizacion" => $row["localizacion"],
+        "estado" => $row["estado"]
     );
 }
 

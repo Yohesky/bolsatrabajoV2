@@ -85,7 +85,10 @@ function mostrarPostulaciones() {
                         <td scope="col">
                             <button value="${postulacion.propuesta_idpropuesta}" class="btn btn-danger eliminar-postulacion">Retirarme</button>
                         </td>
-                    </tr>
+                        <td scope="col">
+                             <a class="btn btn-info" id="boton" href="estadistica.php?idpropuesta=${postulacion.idpropuesta}&&idusuario=${postulacion.idusuario}">Ver mis estadisticas</a>
+                        </td>
+                        </tr>
                     
                    `;
                     }
