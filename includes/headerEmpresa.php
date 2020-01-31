@@ -12,34 +12,53 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="css/pushbar.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"> Bolsa de Trabajo VE </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- ML-AUTO para que se vaya el menu a la derecha -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="empresa.php"> <i class="fas fa-home"></i> Inicio</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="publicarPropuesta.php"> <i class="fas fa-building"></i> Publicar</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Mi Cuenta
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="perfilEmpresa.php">Mi Perfil</a>
-                              <a class="dropdown-item" href="includes/logoutEmpresa.php">Salir</a>
-                            </div>
-                          </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-pushbar-target="pushbar-menu"></i>
+    <!-- <i class="fas fa-bars fa-3x menu" data-pushbar-target="pushbar-menu"></i> -->
+   
+
+       <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu fondo">
+        <div class="btn-cerrar">
+         
+             <i class="fas fa-times close fa-5x" data-pushbar-close></i>
+         
         </div>
+ 
+       
+ 
+       <nav class="side-nav">
+             
+       <ul class="categories">
+
+       <li id="controlPanel"> <i class="fas fa-solar-panel"></i> Panel de Control </li>
+
+       <li id="publicar"> <i class="fas fa-briefcase"></i> Publicar </li>
+
+        <li id="mistrabajos"> <i class="fas fa-briefcase"></i> Mis Publicaciones </li>
+          
+        
+        <li id="perfilEmpresa"> <i class="fa fa-user-o fw"></i> Perfil</li>
+
+        <li id="salir"> <i class="fa fa-sign-out"></i> Salir</li>
+        
+      </ul>
+     
+     
+     
+             
+        
+       </nav>
+    </div>
+
+       
+        
+        
     </nav>

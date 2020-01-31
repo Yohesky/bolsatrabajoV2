@@ -1,3 +1,4 @@
+
 <?php
 	session_start();
 	if(isset($_SESSION['esAdmin']) && !empty($_SESSION['esAdmin']) && $_SESSION['esAdmin'] == 1){
