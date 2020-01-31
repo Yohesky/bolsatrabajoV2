@@ -27,8 +27,6 @@ function Header()
     // Datos de emision del reporte
     $this->Cell(0,5, utf8_decode($resultado['nombreEmpresa']),0,1,'R');
     $this->Cell(0,5, utf8_decode($resultado['correoEmpresa']),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Fecha de emision de Reporte '),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Hora de emision de Reporte '),0,1,'R');
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha
