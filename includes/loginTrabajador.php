@@ -3,7 +3,6 @@
 session_start();
 include("conexion.php");
 
-echo "desde servidor";
 if(isset($_POST['correo']) && isset($_POST['contrasena']))
 {
       $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
@@ -22,7 +21,6 @@ if(isset($_POST['correo']) && isset($_POST['contrasena']))
          $_SESSION['idusuarios'] = $data['idusuarios'];
          $_SESSION['esAdmin'] = $data['esAdmin'];
          
-         return $_SESSION['idusuarios'];
          echo '1';
       }
       else

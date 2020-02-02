@@ -27,15 +27,11 @@
             <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="form-control">
         </div>
         <button class="btn btn-success btn-block mt-5" id="ingresar">Ingresar</button>
-        
-        <br>
+        <div id="resultado" class="my-3"></div>
         <a href="registroTrabajador.php" class="mt-4"> ¿No tienes cuenta? Crea una!</a>
-        <br> <br>
-
-
         <br>
         <a href="recuperacionTrabajador.php" class="mt-4"> ¿Olvidó su contraseña? </a>
-        <br> <br>
+        <br>
         <a href="index.php" class="mt-4 btn btn-info"> Volver</a>
         <div class="resultado"></div>
     </form>
