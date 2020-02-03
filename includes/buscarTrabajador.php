@@ -99,7 +99,7 @@ class GeneradorSQL{
 	$cadenaSQL = "";
 	switch($clave){
 		case "buscar":
-			$cadenaSQL = "nombre LIKE '%$valor%'";
+			$cadenaSQL = "(nombre LIKE '%$valor%' OR apellido LIKE '%$valor%')";
 		break;
 		case "chkCiudad":
 			$cadenaSQL = "ciudad = '$valor'";

@@ -45,7 +45,7 @@ function publicar(publicaciones, ancla){
         </div>
         <div class="col-12 col-md-9 text-md-left">           
             <article class="ml-md-2">
-            <a href="" class="text-dark"><strong class="h2">${publicaciones.nombre} ${publicaciones.apellido}</strong></a>
+            <a href="perfil.php?id=${publicaciones.idusuarios}" class="text-dark"><strong class="h2">${publicaciones.nombre} ${publicaciones.apellido}</strong></a>
             <br> <strong>Ciudad:</strong> ${publicaciones.ciudad} 
             <br> <strong>Educación:</strong> ${publicaciones.educacion} 
             <br> <strong>Profesión:</strong> ${publicaciones.profesion}
