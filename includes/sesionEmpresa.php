@@ -2,7 +2,7 @@
 
 session_start();
 if (!isset($_SESSION['correoEmpresa'])) {
-    header('location: ../loginEmpresa.php');
+    header('location: loginEmpresa.php');
 }
 
 ?>

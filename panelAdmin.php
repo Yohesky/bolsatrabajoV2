@@ -60,6 +60,11 @@
         </li>
         
       </ul>
+
+    <section class="d-flex justify-content-center fixed-button">
+      <button class="btn btn-primary">Descargar Reporte</button>
+    </section>
+
     </aside>
     <section id="contents">
       <nav class="navbar navbar-default">
@@ -157,7 +162,7 @@
         </div>
       </section> 
 
-      <!--Estadisticas de Empresas-->
+      <!--Estadisticas de educacion-->
 
       <div class="welcome">
         <div class="container-fluid">
@@ -228,7 +233,7 @@
         </div>
       </section>
 
-      <!--Estadisticas Disponibilidad de Viajar-->
+      <!--Estadisticas Sueldos-->
       <div class="welcome">
         <div class="container-fluid">
           <div class="row">
@@ -271,20 +276,20 @@
         </div>
       </section>
       <section class=charts>
-      <div class="container-fluid">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="chart-container">
                 <h3>Nivel de Sueldo</h3>
                 <div class="graficoLib">
 
-                <div>
-			            <canvas id="canvasSueldo"></canvas>
-                </div>
+                  <div>
+			              <canvas id="canvasSueldo"></canvas>
+                  </div>
+         
 
                 </div>
               </div>
-            </div>
             </div>
           </div>
         </div>
@@ -296,12 +301,40 @@
           <div class="row">
             <div class="col-md-12">
               <div class="content">
-                <h2 class="text-center">Estadisticas de Sueldos de las Postulaciones</h2>
+                <h2 class="text-center">Indice de Carrera más Demandada</h2>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <section class="statistics">
+        <div class="container-fluid">
+          <div class="row" id="carreras">
+
+          </div>
+        </div>
+      </section>
+
+      <section class=charts>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="chart-container">
+                <h3>Nivel de Sueldo</h3>
+                <div class="graficoLib">
+
+                  <div>
+			              <canvas id="canvasCarreras"></canvas>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
 
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src='http://code.jquery.com/jquery-latest.js'></script>

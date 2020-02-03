@@ -28,7 +28,7 @@
                     <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="form-control">
                 </div>
                 <button class="btn btn-success btn-block mt-5" id="ingresar">Ingresar</button>
-
+                <div id="resultado"></div>
                 <br>
                 <a href="registroEmpresa.php" class="mt-4"> ¿No tienes cuenta empresarial? Crea una!</a>
                 <br> <br>

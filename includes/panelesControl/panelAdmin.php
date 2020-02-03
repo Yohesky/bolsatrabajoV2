@@ -10,7 +10,9 @@
 			"trabajadores" => usuarios($conexion),
 			"ofertas" => trabajos($conexion),
 			"educacion" => nivelEducacion($conexion),
-			"sueldo" => nivelSueldo($conexion)
+			"sueldo" => nivelSueldo($conexion),
+			"carreras" => carreras($conexion)
+
 		];
 		echo json_encode($datos);
 	}	
@@ -76,6 +78,21 @@
 		}
 
 		return $datos;
+	}
+
+
+	function carreras($conexion){
+		$query = "SELECT categoria, COUNT(categoria) FROM `propuesta` GROUP BY categoria";
+		$rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+
+		$resultado = array();
+		while($fila = mysqli_fetch_array($rsQuery)){
+			$resultado[] = array(
+				$fila["categoria"] => $fila["COUNT(categoria)"]
+			);
+		}
+
+		return $resultado;
 	}
 
 	
