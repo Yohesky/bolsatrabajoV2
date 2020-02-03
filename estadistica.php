@@ -25,6 +25,8 @@ function nInscritos()
     $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
     $numregistros = mysqli_num_rows($rsQuery);
     return $numregistros;
+}
+
 
 ?>
 <div class="container">
@@ -39,7 +41,7 @@ function nInscritos()
         <div class="row">
           <div class="col-md-12">
             <div class="chart-container">
-              <h3>Estadisticas de Localizacion</h3>
+              <h3>Chart</h3>
               <div class="graficoLib">
 
 
@@ -110,7 +112,6 @@ function nInscritos()
           </div>
         </div>
 
-
         
       </div>
       </div>
@@ -118,9 +119,7 @@ function nInscritos()
 </div>
 
 
-
 <?php include("includes/footer.php") ?>
 <script src="js/direcciones.js"></script>
 
 <script src="js/Chart.js"></script>
-
