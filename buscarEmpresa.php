@@ -131,4 +131,4 @@
 </main>
 
 <?php include("includes/footer.php") ?>
-<script src="./js/buscarEmpresa.js"></script>
+<script src="./js/buscadores/buscarEmpresa.js"></script>

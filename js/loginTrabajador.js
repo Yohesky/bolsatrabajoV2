@@ -1,8 +1,9 @@
 $(function () {
-   console.log("funcionando");
+   
     $("#ingresar").click(function(e){
 
     
+    e.preventDefault();
     
         var correo = $("#correo").val();
         var contrasena = $("#contrasena").val();
@@ -24,15 +25,13 @@ $(function () {
                 success: function(response)
                 {
                     $("#ingresar").val("Ingresar");
-                    if(response=="1")
+                    if(response == 1)
                      {
-                       $(location).attr('href', 'panelControl.php');
+                       location.href = 'perfilTrabajador.php';
                     }
                     else
                      {
-                    $("#resultado")
-                    .html
-                    ('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>ERROR!</strong> Las credenciales son incorrectas.</div>');
+                    $("#resultado").html('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>ERROR!</strong> Las credenciales son incorrectas.</div>');
                     }
 
                     console.log(response);

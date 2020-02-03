@@ -25,8 +25,6 @@ function nInscritos()
     $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
     $numregistros = mysqli_num_rows($rsQuery);
     return $numregistros;
-}
-
 
 ?>
 <div class="container">
@@ -134,11 +132,13 @@ function nInscritos()
 </div>
 
 
+
 <?php include("includes/footer.php") ?>
 <script src="js/direcciones.js"></script>
 
 <script src="js/Chart.js"></script>
 
+<<<<<<< HEAD
 <script>
 
 var ctx2 = document.getElementById("educacion").getContext("2d");
@@ -160,3 +160,5 @@ window.myBar = new Chart(ctx2).Bar({
 	});
 
 </script>
+=======
+>>>>>>> c74cd8ae03e9a9244072c3c444aa311a7d9a3c30

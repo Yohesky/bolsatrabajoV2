@@ -194,7 +194,7 @@
 
 <div id="paginacion"></div>
 <?php include("includes/footer.php") ?>
-<script src="js/mostrar.js"></script>
+<script src="./js/buscadores/mostrar.js"></script>
 <!--<script src="js/busqueda.js"></script>-->
 <script src="js/direcciones.js"></script>
 
