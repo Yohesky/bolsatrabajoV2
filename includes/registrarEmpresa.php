@@ -4,7 +4,7 @@ include("conexion.php");
 
 if(isset($_POST['nombre']) && isset($_POST['descripcion']) &&
 isset($_POST['rif']) && isset($_POST['direccion']) && isset($_POST['correo']) && isset($_POST['sector']) &&
-isset($_POST['pagina']) && isset($_POST['contrasena2']))
+isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado']) && isset($_POST['ciudad']))
 {
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
@@ -17,6 +17,8 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']))
     $contrasena2 = mysqli_real_escape_string($conexion, $_POST['contrasena2']);
     $preguntaSeguridad = mysqli_real_escape_string($conexion, $_POST['preguntas']);
     $respuestaSeguridad = mysqli_real_escape_string($conexion, $_POST['respuesta']);
+    $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
+    $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
     $result = '';
 
     if(strlen($contrasena) > 30)
@@ -54,8 +56,8 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']))
     }
 
     else{
-        $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad) 
-        VALUES('$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad')";
+        $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad, estado,ciudad) 
+        VALUES('$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad', '$estado', '$ciudad')";
         mysqli_query($conexion, $sql);
         echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
         

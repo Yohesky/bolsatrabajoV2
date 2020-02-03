@@ -14,17 +14,27 @@
     <div class="row text-center">
         <div class="col-md-6">
             <!-- FOTO DE PERFIL -->
-            <div class="contenedor-foto-perfil my-4" data-toggle="modal" data-target="#subirFoto">
-                <img src="" alt="perfil" class="responsive rounded-circle  bg-white" id="fotoPerfil" >
-                <div class="texto-editar bg-white">Editar</div>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <div class="contenedor-foto-perfil my-4" data-toggle="modal" data-target="#subirFoto">
+                            <img src="" alt="perfil" class="responsive bg-white" id="fotoPerfil" style="border-radius: 5%">
+                            <div class="texto-editar bg-white">Editar</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo '' . $_SESSION["nombreEmpresa"] . ''; ?></h3> </h5>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3 class="shadow-lg p-3 mb-5 bg-white rounded"><?php echo '' . $_SESSION["nombreEmpresa"] . ''; ?></h3>
-            <div class="list-group card">
-                <button type="button" class="list-group-item list-group-item-action form-control">JavaScript</button>
-                <button type="button" class="list-group-item list-group-item-action form-control">HTML</button>
-                <button type="button" class="list-group-item list-group-item-action form-control">NodeJS</button>
-                <button type="button" class="list-group-item list-group-item-action form-control">Angular</button>
+
+            <div class="container">
+                <?php include("includes/mostrarDescripcionEmpresa.php") ?>
             </div>
+            
         </div>
 
         <!-- formulario de datos -->
@@ -46,3 +56,4 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/perfilEmpresa.js"></script>
+<script src="js/direccionesEmpresa.js"></script>

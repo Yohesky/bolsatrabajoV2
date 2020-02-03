@@ -10,10 +10,11 @@ if(isset($_GET['pagina'])){
 
 
 $idempresa = $_SESSION['idempresa'];
+$idpropuesta = $_GET["idpropuesta"];
 
 $query = "SELECT * FROM usuarios_has_propuesta JOIN propuesta
 ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta
-JOIN usuarios ON usuarios_has_propuesta.usuarios_idusuarios = usuarios.idusuarios WHERE empresa_idempresa='$idempresa' LIMIT $pagina, $postulacionePorPagina";
+JOIN usuarios ON usuarios_has_propuesta.usuarios_idusuarios = usuarios.idusuarios WHERE idpropuesta='$idpropuesta' LIMIT $pagina, $postulacionePorPagina";
 $resultado = mysqli_query($conexion,$query);
 
 

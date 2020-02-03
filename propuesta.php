@@ -47,6 +47,7 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/postulacion.js"></script>
+<script src="js/direcciones.js"></script>
 
 
 

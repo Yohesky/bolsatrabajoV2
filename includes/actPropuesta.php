@@ -35,7 +35,9 @@ while($row = mysqli_fetch_array($resultado))
         "viajes" => $row["viajes"],
         "vehiculo" => $row["vehiculo"],
         "educacion" => $row["educacion"],
-        "aExp" => $row["aExp"]
+        "aExp" => $row["aExp"],
+        "ciudad" => $row["ciudad"],
+        "estado" => $row["estado"]
     );
 }
 

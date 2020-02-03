@@ -28,8 +28,6 @@ function Header()
     // Datos de emision del reporte
     $this->Cell(0,5, utf8_decode($resultado['nombreEmpresa']),0,1,'R');
     $this->Cell(0,5, utf8_decode($resultado['correoEmpresa']),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Fecha de emision de Reporte '),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Hora de emision de Reporte '),0,1,'R');
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha
@@ -75,13 +73,14 @@ $fpdf->SetFillColor(220,135,20);
 $fpdf->SetTextColor(0,0,0);
 $fpdf->SetDrawColor(88,88,88);
 $fpdf->Cell(180,10, utf8_decode('Lista de Postulados'),1,1,'C',1);
-$fpdf->SetFillColor(255,255,255);
-$fpdf->SetTextColor(0,0,0);
-$fpdf->SetDrawColor(88,88,88);
+
 
 for($i=0; $i < $filas6; $i++){
     $resultado6[$i] = mysqli_fetch_array($rsQuery6);
     
+    $fpdf->SetFillColor(255,255,255);
+    $fpdf->SetTextColor(0,0,0);
+    $fpdf->SetDrawColor(88,88,88);
     $fpdf->Cell(90,10, utf8_decode('Nombres: '. $resultado6[$i]['nombre']),1,0,'L',1);
     $fpdf->Cell(90,10, utf8_decode('Apellidos: '. $resultado6[$i]['apellido']),1,1,'L',1);
     $fpdf->Cell(27,10, utf8_decode('DNI: '. $resultado6[$i]['ci']),1,0,'L',1);
