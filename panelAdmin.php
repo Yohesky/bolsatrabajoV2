@@ -247,7 +247,7 @@
               <div class="box h-100">
                 <i class="fa fa-envelope fa-fw bg-primary"></i>
                 <div class="info">
-                  <h3 id="numBachiller"></h3> <span>0 - 50$</span>
+                  <h3 id="numSueldo1"></h3> <span>0 - 50$</span>
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@
               <div class="box h-100"> 
                 <i class="fa fa-file fa-fw danger"></i>
                 <div class="info">
-                  <h3 id="numTecnicoMedio"></h3> <span>50$ - 100$</span>
+                  <h3 id="numSueldo2"></h3> <span>50$ - 100$</span>
                 </div>
               </div>
             </div>
@@ -263,7 +263,7 @@
               <div class="box h-100">
                 <i class="fa fa-users fa-fw success"></i>
                 <div class="info">
-                  <h3 id="numTSU"></h3> <span>100$ o más</span>
+                  <h3 id="numSueldo3"></h3> <span>100$ o más</span>
                 </div>
               </div>
             </div>
@@ -279,7 +279,7 @@
                 <div class="graficoLib">
 
                 <div>
-			            <canvas id="canvasSueldos"></canvas>
+			            <canvas id="canvasSueldo"></canvas>
                 </div>
 
                 </div>
@@ -289,10 +289,24 @@
           </div>
         </div>
       </section>
+
+      <!--Estadisticas de Localizacion-->
+      <div class="welcome">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="content">
+                <h2 class="text-center">Estadisticas de Sueldos de las Postulaciones</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src='http://code.jquery.com/jquery-latest.js'></script>
       <script src="js/bootstrap.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+      
       <script src='js/db.js'></script>
       <script src="js/Chart.js"></script>
       <script src="js/Chart.Doughnut.js"></script>

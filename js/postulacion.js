@@ -74,7 +74,7 @@ function mostrarPostulaciones() {
                     plantilla += 
                     //le asignamos un atributo para encontrar el ID
                     `<tr>
-                
+
                         <td scope="col"> ${postulacion.titulo}  </td>
                         <td scope="col"> ${postulacion.descripcion}  </td>
                         <td scope="col"> ${postulacion.vacantes}  </td>
@@ -89,6 +89,7 @@ function mostrarPostulaciones() {
                              <a class="btn btn-info" id="boton" href="estadistica.php?idpropuesta=${postulacion.idpropuesta}&&idusuario=${postulacion.idusuario}">Ver mis estadisticas</a>
                         </td>
                         </tr>
+
                     
                    `;
                     }
