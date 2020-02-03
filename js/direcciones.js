@@ -1,6 +1,6 @@
 $("#controlPanel").click( (e) => {
   console.log("click");
-  $(location).attr('href','panelControl.php');
+  $(location).attr('href','panelAdmin.php');
   
 }) 
 
