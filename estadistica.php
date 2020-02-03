@@ -110,20 +110,6 @@ function nInscritos()
           </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-              <div class="chart-container">
-                <h3>Nivel de Educación</h3>
-                <div class="graficoLib">
-
-                <div>
-			            <canvas id="educacion"></canvas>
-                </div>
-
-                </div>
-              </div>
-            </div>
-            </div>
 
         
       </div>
@@ -138,27 +124,4 @@ function nInscritos()
 
 <script src="js/Chart.js"></script>
 
-<<<<<<< HEAD
-<script>
 
-var ctx2 = document.getElementById("educacion").getContext("2d");
-
-window.myBar = new Chart(ctx2).Bar({
-        labels : ["Empresas"],
-        datasets : [{
-            fillColor : "#007bff",
-            strokeColor : "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-      data : [<?php echo estado() ?>
-    
-    
-    ] //tiene que ser un arreglo
-		}]
-	}, {
-        responsive : true
-	});
-
-</script>
-=======
->>>>>>> c74cd8ae03e9a9244072c3c444aa311a7d9a3c30
