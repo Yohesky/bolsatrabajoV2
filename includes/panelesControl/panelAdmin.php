@@ -12,6 +12,7 @@
 			"educacion" => nivelEducacion($conexion),
 			"sueldo" => nivelSueldo($conexion),
 			"carreras" => carreras($conexion)
+
 		];
 		echo json_encode($datos);
 	}	
@@ -79,6 +80,7 @@
 		return $datos;
 	}
 
+
 	function carreras($conexion){
 		$query = "SELECT categoria, COUNT(categoria) FROM `propuesta` GROUP BY categoria";
 		$rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
@@ -92,5 +94,6 @@
 
 		return $resultado;
 	}
+
 	
 ?>

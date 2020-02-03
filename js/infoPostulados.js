@@ -78,7 +78,12 @@ $(function()
       <h3>${publicacion.nombre}</h3> - <h3>${publicacion.apellido}</h3>
       </div>
       <p>${publicacion.descripcion}</p>
+<<<<<<< HEAD
       <a class="btn btn-info" href="postulados.php?id=${publicacion.id}"> Ver perfil </a>
+=======
+      <a class="btn btn-info" href="postulados.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"> Ver perfil </a>
+      <a class="btn btn-secondary" href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"><i class="far fa-file-pdf"></i> PDF </a>
+>>>>>>> 6a7d39bd4852946bd9b44bf10e0510533d4099af
     </div>
   </div>
 

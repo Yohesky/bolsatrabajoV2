@@ -23,6 +23,8 @@ while($row = mysqli_fetch_array($resultado))
         "descripcion" => $row["descripcion"],
         "sueldo" => $row["sueldo"],
         "localizacion" => $row["localizacion"],
+        "funciones" => $row["funciones"],
+        "vacantes" => $row["vacantes"],
     );
 }
 

@@ -42,6 +42,7 @@ function graficosGenerales(datos) {
 	var ctxCarreras = document.getElementById('canvasCarreras').getContext('2d');
 
 
+
 	window.myBar = new Chart(ctx).Bar({
 		labels: ["Empresas"],
 		datasets: [{
@@ -106,6 +107,7 @@ function graficosGenerales(datos) {
 	}, {
 		responsive: true
 	});
+
 	const carreras = datos.carreras.map(function(valor){
 
 		let claves = '';
@@ -138,7 +140,7 @@ function graficosGenerales(datos) {
 		responsive: true
 	});
 generadorColor();
-				
+			
 }
 
 function cargarCarreras(carreras) {

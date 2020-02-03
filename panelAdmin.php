@@ -286,6 +286,7 @@
                   <div>
 			              <canvas id="canvasSueldo"></canvas>
                   </div>
+         
 
                 </div>
               </div>
@@ -313,6 +314,7 @@
           </div>
         </div>
       </section>
+
       <section class=charts>
         <div class="container-fluid">
           <div class="row">
@@ -330,7 +332,9 @@
             </div>
           </div>
         </div>
+
       </section>
+
 
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src='http://code.jquery.com/jquery-latest.js'></script>

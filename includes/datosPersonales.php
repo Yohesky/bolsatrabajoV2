@@ -96,7 +96,7 @@ while($row = mysqli_fetch_array($resultado))
         <select class='form-control' id='genero' name='genero'>
         <option value='".$row['genero']."'>".$row['genero']."</option>
         <option value='Hombre'>Hombre</option>
-        <option value='Nujer'>Nujer</option>
+        <option value='Mujer'>Mujer</option>
       
         </select>
 
