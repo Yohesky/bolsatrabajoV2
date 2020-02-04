@@ -2,7 +2,7 @@
 
 <?php
 
-session_start();
+
 include("includes/conexion.php");
 
 $idpropuesta = $_GET['idpropuesta'];

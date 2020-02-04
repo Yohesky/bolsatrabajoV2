@@ -50,6 +50,14 @@
 
       <li id="salir"> <i class="fa fa-sign-out"></i> Salir</li>
 
+      <div class="ml-5">
+      <a href="empresasRegistradasPDF.php" target="_blank" class="btn btn-success ml-3 mt-5">PDF de empresas registradas</a>
+       
+       <hr>
+
+       <a href="usuariosRegistradosPDF.php" target="_blank" class="btn btn-success ml-3">PDF de usuarios registrados</a> 
+      </div>
+
     </ul>
   </aside>
   <section id="contents">

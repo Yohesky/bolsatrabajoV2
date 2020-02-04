@@ -14,7 +14,7 @@ $(function () {
          
 
          if($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(vacantes).length > 0 && $.trim(sueldo).length > 0 && $.trim(funciones).length > 0 && $.trim(categoria).length >0
-         && $.trim(aExp).length >0 && $.trim(vehiculo).length >0 && $.trim(viajes).length >0 && $.trim(educacion).length >0 && $.trim(estado).length >0 && $.trim(ciudad).length >0)
+         && $.trim(aExp).length >0 && $.trim(vehiculo).length >0 && $.trim(viajes).length >0 && $.trim(educacion).length >0 && $.trim(estado).length >0 && $.trim(ciudad).length >0 && $.trim(aExp).length >0)
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
             console.log(direccion);
@@ -121,7 +121,6 @@ $(function () {
                $("#funciones").val(postulacion.funciones);
                $("#vacantes").val(postulacion.vacantes);
                $("#sueldo").val(postulacion.sueldo);
-               $("#localizacion").val(postulacion.localizacion);
                $("#categoria").val(postulacion.categoria);
                $("#aExp").val(postulacion.aExp);
                $("#vehiculo").val(postulacion.vehiculo);
@@ -130,6 +129,7 @@ $(function () {
                $("#estado").val(postulacion.estado);
                $("#ciudad").val(postulacion.ciudad);
                $("#postulacionId").val(postulacion.id)
+               $("#aExp").val(postulacion.aExp)
                editar = true;
               
               });

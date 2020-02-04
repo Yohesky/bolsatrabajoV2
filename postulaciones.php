@@ -10,7 +10,7 @@
                         <td scope="col">Descripción</td>
                         <td scope="col">Vacantes</td>
                         <td scope="col">Sueldo</td>
-                        <td scope="col">Localizacion</td>
+                        <td scope="col">Estado</td>
                         <td scope="col">Funciones</td>
                         
 
