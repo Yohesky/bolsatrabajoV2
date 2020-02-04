@@ -40,7 +40,14 @@
              
        <ul class="categories">
 
-       <li id="controlPanel"> <i class="fas fa-solar-panel"></i> Panel de Control </li>
+       <?php
+        session_start();
+
+        if(isset($_SESSION['esAdmin']) && !empty($_SESSION['esAdmin'])){
+            if($_SESSION['esAdmin'] == 1){
+               echo "<li id='controlPanel'> <i class='fas fa-briefcase'></i> Panel de Control </li>";
+            }}
+       ?>
 
         <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
           
@@ -60,6 +67,4 @@
     </div>
 
        
-        
-        
     </nav>

@@ -1,6 +1,6 @@
 <?php include("includes/headerTrabajador.php") ?>
 
-<?php include("includes/sesionTrabajador.php") ?>
+<!-- <?php include("includes/sesionTrabajador.php") ?> -->
 
 <!-- Modal -->
 <div class="modal fade" id="subirFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">

@@ -1,5 +1,5 @@
 <?php include("includes/headerTrabajador.php") ?>
-<?php include("includes/sesionTrabajador.php") ?>
+<!-- <?php include("includes/sesionTrabajador.php") ?> -->
 <div class="container mx-auto">
 
 <table class="table table-hover table-dark mt-5">
