@@ -22,13 +22,15 @@ if(isset($_POST["nombre"]))
     $aExp = $_POST['aExp'];
     $vehiculo = $_POST['vehiculo'];
     $educacion = $_POST['educacion'];
+    $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
+    $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
 
 
 
 
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
-    $query = "INSERT INTO propuesta(titulo, descripcion, vacantes, sueldo,localizacion,empresa_idempresa, funciones, categoria, aExp, educacion, viajes, vehiculo) 
-    VALUES('$nombre', '$descripcion', '$vacantes', '$sueldo', '$localizacion','$idempresa', '$funciones', '$categoria', '$aExp', '$educacion', '$viajes', '$vehiculo' )";
+    $query = "INSERT INTO propuesta(titulo, descripcion, vacantes, sueldo,localizacion,empresa_idempresa, funciones, categoria, aExp, educacion, viajes, vehiculo, estado, ciudad) 
+    VALUES('$nombre', '$descripcion', '$vacantes', '$sueldo', '$localizacion','$idempresa', '$funciones', '$categoria', '$aExp', '$educacion', '$viajes', '$vehiculo', '$estado', '$ciudad' )";
 
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 

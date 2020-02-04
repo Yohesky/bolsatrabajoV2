@@ -17,7 +17,7 @@ function Header()
     $resultado = mysqli_fetch_array($rsQuery);
 
     $id_propuesta = $_GET["idpropuesta"];
-    $Query2 = "SELECT * FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE idempresa= '$id_empresa'";
+    $Query2 = "SELECT * FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE idpropuesta= '$id_propuesta'";
     $rsQuery2 = mysqli_query($conexion, $Query2) or die(mysqli_error($conexion));
     $resultado2 = mysqli_fetch_array($rsQuery2);
     // Logo
@@ -27,8 +27,6 @@ function Header()
     // Datos de emision del reporte
     $this->Cell(0,5, utf8_decode($resultado['nombreEmpresa']),0,1,'R');
     $this->Cell(0,5, utf8_decode($resultado['correoEmpresa']),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Fecha de emision de Reporte '),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Hora de emision de Reporte '),0,1,'R');
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha

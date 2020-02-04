@@ -141,3 +141,4 @@ $rsquery2 = mysqli_query($conexion, $query2);
         })
     </script>
     <script src="js/notificaciones.js"></script>
+    <script src="js/direccionesEmpresa.js"></script>

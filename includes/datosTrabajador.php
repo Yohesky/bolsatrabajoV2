@@ -5,12 +5,13 @@ session_start();
 
 $idusuario = $_SESSION['idusuarios'];
 
-if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) && isset($_POST["num1"])
+if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]) && isset($_POST["ci"]) && isset($_POST["num1"])
 && isset($_POST["puesto"]) && isset($_POST["pais"]) && isset($_POST["ciudad"]) && isset($_POST["direccion"])
-&& isset($_POST["educacion"]) && isset($_POST["idioma"]) && isset($_POST["nivelIdioma"]))
+&& isset($_POST["educacion"]) && isset($_POST["idioma"]) && isset($_POST["nivelIdioma"]) && isset($_POST["estado"]) && isset($_POST["ciudad"]))
 {
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
+    $correo = $_POST["correo"];
     $ci = $_POST["ci"];
     $num1 = $_POST["num1"];
     $puesto = $_POST["puesto"];
@@ -29,6 +30,8 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
     $estadoCivil = $_POST["estadoCivil"];
     $fechaActual = date('Y-m-d');
     $edad = $fechaActual - $fechaNacimiento;
+    $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
+    $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
     
 
 
@@ -43,15 +46,15 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["ci"]) &
         move_uploaded_file($tmp_name, $nueva_path);
         $src = "./curriculum/" . $name;
         
-        $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', num1='$num1', puestoDeseado='$puesto',
+        $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', correo='$correo', num1='$num1', puestoDeseado='$puesto',
         pais='$pais', ciudad='$ciudad', direccion='$direccion', educacion='$educacion', 
-        idioma='$idioma', nivelIdioma='$nivelIdioma', curriculum='$src' where idusuarios='$idusuario'";
+        idioma='$idioma', nivelIdioma='$nivelIdioma', curriculum='$src', estado='$estado', ciudad='$ciudad' where idusuarios='$idusuario'";
     }else{
-        $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', num1='$num1', puestoDeseado='$puesto',
+        $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', correo='$correo', num1='$num1', puestoDeseado='$puesto',
         pais='$pais', ciudad='$ciudad', direccion='$direccion', educacion='$educacion', 
         idioma='$idioma', nivelIdioma='$nivelIdioma', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
         educacion='$educacion', genero='$genero', disponibilidadViajar='$disponibilidadViajar', vehiculo='$vehiculo', estadoCivil='$estadoCivil',
-        edad='$edad'
+        edad='$edad', estado='$estado', ciudad='$ciudad'
         where idusuarios='$idusuario'";
     }
     
