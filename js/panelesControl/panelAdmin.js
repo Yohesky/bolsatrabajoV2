@@ -139,7 +139,6 @@ function graficosGenerales(datos) {
 	}, {
 		responsive: true
 	});
-generadorColor();
 			
 }
 
