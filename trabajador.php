@@ -36,12 +36,12 @@
 							
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria1" name="chkCategoria" form="formularioBuscar" value="Administración">
- 									<label class="custom-control-label" for="categoria1">Administración</label>
+ 									<label class="custom-control-label" for="categoria1">Administración/Oficinas</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria2" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria2">Almacén</label>
+ 									<label class="custom-control-label" for="categoria2">Almacén/Logística/Trasporte</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
@@ -51,72 +51,112 @@
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria4" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria4">Compras</label>
+ 									<label class="custom-control-label" for="categoria4">Servicios generales, aseo y seguridad</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria5" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria5">Construcción</label>
+ 									<label class="custom-control-label" for="categoria5">CallCenter/Telemercadeo</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria6" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria6">Contabilidad</label>
+ 									<label class="custom-control-label" for="categoria6">Producción/Operarios</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria7" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria7">Gerencia</label>
+ 									<label class="custom-control-label" for="categoria7">Manufactura</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria8" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria8">Diseño</label>
+ 									<label class="custom-control-label" for="categoria8">Medicina/Saldud</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria9" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria9">Enseñanza</label>
+ 									<label class="custom-control-label" for="categoria9">Comunicación</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria10" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria10">Turismo</label>
+ 									<label class="custom-control-label" for="categoria10">Construcción y Obras</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria11" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria11">Informática</label>
+ 									<label class="custom-control-label" for="categoria11">Contabilidad/Finanzas</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria12" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria12">Ingeniería</label>
+ 									<label class="custom-control-label" for="categoria12">Mercadotecnía/Publicidad</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria13" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria13">Asesorias</label>
+ 									<label class="custom-control-label" for="categoria13">Diseño/Artes Gráficas</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria14" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria14">Reparación</label>
+ 									<label class="custom-control-label" for="categoria14">Docencia</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria15" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria15">Publicidad</label>
+ 									<label class="custom-control-label" for="categoria15">Compras/Comercio Exterior</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria16" name="chkCategoria"  form="formularioBuscar">
- 									<label class="custom-control-label" for="categoria16">Recursos Humanos</label>
+ 									<label class="custom-control-label" for="categoria16">Dirección/Gerencía</label>
 								</div>
 
 								<div class="custom-control custom-checkbox">
   									<input type="checkbox" class="custom-control-input" id="categoria17" name="chkCategoria"  form="formularioBuscar" value="Ventas">
- 									<label class="custom-control-label" for="categoria17">Ventas</label>
+ 									<label class="custom-control-label" for="categoria17">Técnicas</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria18" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria18">Investigación y Calidad</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria19" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria19">Hostelería/Turismo</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria20" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria20">Informática/Telecomunicaciones</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria21" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria21">Ingeniería</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria22" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria22">Legal/Asesorias</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria23" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria23">Mantenimiento y Reparaciones</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria24" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria24">Recursos Humanos</label>
+								</div>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="categoria25" name="chkCategoria"  form="formularioBuscar" value="Ventas">
+ 									<label class="custom-control-label" for="categoria25">Ventas</label>
 								</div>
 
 
