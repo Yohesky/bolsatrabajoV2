@@ -211,7 +211,7 @@ CREATE TABLE `usuarios` (
   `sueldoDeseado` char(100) DEFAULT NULL,
   `edad` int(100) DEFAULT NULL,
 
-  `esAdmin` tinyint(1) DEFAULT 0
+  `esAdmin` tinyint(1) DEFAULT 0,
 
   `estado` varchar(150) DEFAULT NULL,
   `ciudad` varchar(150) DEFAULT NULL
