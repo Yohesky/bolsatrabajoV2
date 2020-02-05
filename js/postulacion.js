@@ -79,7 +79,7 @@ function mostrarPostulaciones() {
                         <td scope="col"> ${postulacion.descripcion}  </td>
                         <td scope="col"> ${postulacion.vacantes}  </td>
                         <td scope="col"> ${postulacion.sueldo}  </td>
-                        <td scope="col"> ${postulacion.localizacion}  </td>
+                        <td scope="col"> ${postulacion.estado}  </td>
                         <td scope="col"> ${postulacion.funciones}  </td>
                         <td scope="col">   </td>
                         <td scope="col">

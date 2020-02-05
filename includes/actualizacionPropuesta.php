@@ -9,7 +9,6 @@ if(isset($_POST["postulacionId"]))
     $descripcion = $_POST["descripcion"];
     $vacantes = $_POST["vacantes"];
     $sueldo = $_POST["sueldo"];
-    $localizacion = $_POST["localizacion"];
     $funciones = $_POST['funciones'];
     $categoria = $_POST['categoria'];
     $viajes = $_POST['viajes'];
@@ -21,8 +20,7 @@ if(isset($_POST["postulacionId"]))
 
 
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
-    $query = "UPDATE propuesta set titulo='$nombre', descripcion='$descripcion', vacantes='$vacantes', sueldo='$sueldo',
-    localizacion='$localizacion', funciones='$funciones', categoria='$categoria', aExp='$aExp', educacion='$educacion', viajes='$viajes', vehiculo='$vehiculo', estado='$estado', ciudad='$ciudad' WHERE idpropuesta='$id' ";
+    $query = "UPDATE propuesta set titulo='$nombre', descripcion='$descripcion', vacantes='$vacantes', sueldo='$sueldo', funciones='$funciones', categoria='$categoria', aExp='$aExp', educacion='$educacion', viajes='$viajes', vehiculo='$vehiculo', estado='$estado', ciudad='$ciudad' WHERE idpropuesta='$id' ";
 
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 

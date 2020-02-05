@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <link rel="stylesheet" href="css/coreui.min.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/pushbar.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
@@ -40,7 +41,14 @@
              
        <ul class="categories">
 
-       <li id="controlPanel"> <i class="fas fa-solar-panel"></i> Panel de Control </li>
+       <?php
+        session_start();
+
+        if(isset($_SESSION['esAdmin']) && !empty($_SESSION['esAdmin'])){
+            if($_SESSION['esAdmin'] == 1){
+               echo "<li id='controlPanel'> <i class='fas fa-briefcase'></i> Panel de Control </li>";
+            }}
+       ?>
 
         <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
           
@@ -60,6 +68,4 @@
     </div>
 
        
-        
-        
     </nav>

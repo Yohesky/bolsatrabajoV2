@@ -76,7 +76,7 @@ function graficosGenerales(datos) {
 			strokeColor: "rgba(220,220,220,0.8)",
 			highlightFill: "rgba(220,220,220,0.75)",
 			highlightStroke: "rgba(220,220,220,1)",
-			data: [datos.ofertas] //tiene que ser un arreglo
+			data: [datos.trabajadores] //tiene que ser un arreglo
 		}]
 	}, {
 		responsive: true
@@ -139,7 +139,6 @@ function graficosGenerales(datos) {
 	}, {
 		responsive: true
 	});
-generadorColor();
 			
 }
 

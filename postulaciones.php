@@ -1,5 +1,5 @@
 <?php include("includes/headerTrabajador.php") ?>
-<?php include("includes/sesionTrabajador.php") ?>
+<!-- <?php include("includes/sesionTrabajador.php") ?> -->
 <div class="container mx-auto">
 
 <table class="table table-hover table-dark mt-5">
@@ -10,7 +10,7 @@
                         <td scope="col">Descripción</td>
                         <td scope="col">Vacantes</td>
                         <td scope="col">Sueldo</td>
-                        <td scope="col">Localizacion</td>
+                        <td scope="col">Estado</td>
                         <td scope="col">Funciones</td>
                         
 

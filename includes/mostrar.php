@@ -39,7 +39,7 @@ function convertirConsultaJSON($resultado): array{
             "descripcion" =>  $row ["descripcion"],
             "vacantes" => $row ["vacantes"],
             "sueldo" => $row ["sueldo"],
-            "localizacion" => $row ["localizacion"],
+            "estado" => $row ["estado"],
             "publicacion" => $row ["publicacion"],
             "id" =>  $row ["idpropuesta"],
             "idempresa" => $row["idempresa"],
