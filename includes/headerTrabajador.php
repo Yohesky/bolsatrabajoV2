@@ -66,5 +66,38 @@
        </nav>
     </div>
 
-       
+    <?php
+
+  include("includes/conexion.php");
+  $idusuario = $_SESSION['idusuarios'];
+
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario'";
+  $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+
+  function nNotificaciones(){
+  include("includes/conexion.php");
+  global $idusuario;
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario'";
+  $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+  $num = mysqli_num_rows($resultado);
+  return $num;
+  }
+  ?>
+
+
+
+    <li class="dropdown" style="margin-left: auto" style="list-style: none">
+    
+              <button class="dropdown-toggle btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Notificaciones <span class="badge badge-light"> <?php echo nNotificaciones() ?> </span></span></button>
+              <ul class="dropdown-menu">
+                <?php
+
+                while ($row = mysqli_fetch_array($resultado)) {
+                  echo "<li class='mt-2 list-group-item list-group-item-success'> La empresa " . $row['nombreEmpresa'] . " Ha visto tu CV en la propuesta " . $row['titulo'] . " </li>";
+                }
+
+                ?>
+              </ul>
+    </li>
+    
     </nav>

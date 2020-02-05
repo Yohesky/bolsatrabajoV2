@@ -1,8 +1,7 @@
-$(function () {
-
+$(document).ready(function() {
+    alert('pagina cargada')
     enviarNotificacion()
-
-
+    
 })
 
 function getGET() {
@@ -29,10 +28,6 @@ function getGET() {
 }
 
 function enviarNotificacion() {
-    $("#notificacion").click((e) => {
-        console.log('click');
-
-
         $.ajax
             ({
 
@@ -48,5 +43,5 @@ function enviarNotificacion() {
 
 
             });
-    })
+  
 }
