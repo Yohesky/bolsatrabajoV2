@@ -31,7 +31,8 @@ function convertirConsultaJSON($resultado): array{
         (
             "nombre" =>  $row ["nombreEmpresa"],
             "descripcion" =>  $row ["descripcionEmpresa"],
-            "area" => $row ["areaEmpresa"]
+            "area" => $row ["areaEmpresa"],
+            "idempresa" => $row["idempresa"]
         );
 
     }
