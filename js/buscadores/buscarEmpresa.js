@@ -45,7 +45,7 @@ function publicar(publicaciones, ancla){
  <br> <strong>Area:</strong> ${publicaciones.area} 
  <br> 
  <br>
- <a href="propuesta.php?id=${publicaciones.id}&idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
+ <a href="perfilE.php?idempresa=${publicaciones.idempresa}"><button type="button" class="btn btn-pill btn-success">Ver más</button> </a>
 
  </div>
 
