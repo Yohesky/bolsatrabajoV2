@@ -70,5 +70,5 @@ function cargarDatos(){
 		`);
 	}).fail(function(error){
 		console.log(error);
-	})
+	});
 }
