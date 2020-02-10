@@ -34,7 +34,7 @@
 	}else if(isset($_FILES['fotoPerfil']) && !empty($_FILES['fotoPerfil'])){
 		
 		$tmp_name = $_FILES['fotoPerfil']['tmp_name'];
-        $name = $_FILES['fotoPerfil']['name'] = time() . "_$id" . 'jpg';
+        $name = $_FILES['fotoPerfil']['name'] = time() . "_$id" . '.jpg';
 
         $nueva_path = "../img-perfil/" . $name;
         move_uploaded_file($tmp_name, $nueva_path);
