@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/customize.css">
     
 </head>
-<body>
+<body class="h-100">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -20,20 +20,25 @@
             </button>
         </div>
     </nav>
-<div class="grid-2">
-      <div>
-           <a href="loginEmpresa.php">
-           <img src="img/empresa.png" alt="" class="empresa">
+<div class="container h-75">
+    <div class="row align-items-center h-100">
+
+        <div class="col-12 col-sm-6  offset-md-2 col-md-4 text-center login">
+           <a href="loginEmpresa.php" class="text-white">
+               <img src="img/empresa.png" alt="" class="rounded">
+               <h2>Empresas</h2>
            </a>
            
-      </div>
+        </div>
 
 
-      <div>
-           <a href="loginTrabajador.php">
-           <img src="img/trabajador.png" alt="" class="trabajador"> 
+        <div class="col-12 col-sm-6 col-md-4 text-center login">
+           <a href="loginTrabajador.php" class="text-white">
+                <img src="img/trabajador.png" alt="" class="rounded"> 
+                <h2>Trabajadores</h2>
            </a>
-      </div>
+        </div>
+    </div>
 </div>
 
 <?php include("includes/footer.php") ?>

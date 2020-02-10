@@ -7,16 +7,14 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <link rel="stylesheet" href="./css/coreui.min.css">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/fontawesome.css">
     <link rel="stylesheet" href="css/pushbar.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
 <body>

@@ -14,6 +14,7 @@ if(isset($_POST['correo']) && isset($_POST['contrasena']))
       $num_filas = mysqli_num_rows($resultado);
       if($num_filas == "1")
       {  
+         session_unset();
          //almacena el resultado de la consulta en forma de array
          $data = mysqli_fetch_array($resultado);
          $_SESSION['correoEmpresa'] = $data['correoEmpresa'];
