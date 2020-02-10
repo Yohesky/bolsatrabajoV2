@@ -388,6 +388,7 @@ background: linear-gradient(to left, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Fi
   transform: translateX(-50%);
   font-size: 2rem;
   visibility: hidden;
+  cursor: pointer;
 }
 
 

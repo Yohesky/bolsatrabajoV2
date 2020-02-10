@@ -1,4 +1,4 @@
-<?php include("includes/verificacionLoginEmpresa.php") ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

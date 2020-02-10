@@ -13,8 +13,7 @@
 
 <body>
   <?php
-  session_start();
-  include("includes/conexion.php");
+   include("includes/conexion.php");
   $idusuario = $_SESSION['idusuarios'];
 
   $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa WHERE idusuario = '$idusuario'";

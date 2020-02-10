@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/coreui.min.css">
+    <title>Inicio</title>    
+    <link rel="stylesheet" href="./css/bootstrap.min.css.map.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/coreui.min.css">
     <script src="js/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/fontawesome.css">
     <link rel="stylesheet" href="css/pushbar.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
     
     
@@ -67,5 +65,38 @@
        </nav>
     </div>
 
-       
+    <?php
+
+  include("includes/conexion.php");
+  $idusuario = $_SESSION['idusuarios'];
+
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario'";
+  $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+
+  function nNotificaciones(){
+  include("includes/conexion.php");
+  global $idusuario;
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario'";
+  $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+  $num = mysqli_num_rows($resultado);
+  return $num;
+  }
+  ?>
+
+
+
+    <li class="dropdown" style="margin-left: auto" style="list-style: none">
+    
+              <button class="dropdown-toggle btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Notificaciones <span class="badge badge-light"> <?php echo nNotificaciones() ?> </span></span></button>
+              <ul class="dropdown-menu">
+                <?php
+
+                while ($row = mysqli_fetch_array($resultado)) {
+                  echo "<li class='mt-2 list-group-item list-group-item-success'> La empresa " . $row['nombreEmpresa'] . " Ha visto tu CV en la propuesta " . $row['titulo'] . " </li>";
+                }
+
+                ?>
+              </ul>
+    </li>
+    
     </nav>

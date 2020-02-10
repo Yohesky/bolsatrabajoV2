@@ -23,9 +23,9 @@ $(function () {
                  data: datos,
                  success: function(response)
                  {
-                     if(response == 1)
+                    if(response == 1)
                     {
-                        location.href = 'panelControl.php';
+                        location.href = 'perfilEmpresa.php';
                     }
                      else
                       {

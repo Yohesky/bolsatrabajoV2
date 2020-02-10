@@ -45,7 +45,15 @@ function insertarPostulacion()
                       icon: "success",
                       button: "Continuar",
                     });
-                  }
+                }
+                else if(response === 'nInsertado'){
+                    swal({
+                        title: "NO SE HA POSTULADO",
+                        text: "Ya usted se ha postulado previamente",
+                        icon: "error",
+                        button: "Continuar",
+                    });
+                }
             }
           });
     })
