@@ -39,23 +39,31 @@
 
                 <div class="form-group">
                     <select id="sector" name="sector" class="form-control" required>
-                        <option value="Administración">Sector de la Empresa</option>
-                        <option value="Administración">Administración</option>
-                        <option value="Almacén">Almacén</option>
-                        <option value="AtenciónCliente">Atención al Cliente</option>
-                        <option value="Compras">Compras</option>
-                        <option value="Construcción">Construcción</option>
-                        <option value="Contabilidad">Contabilidad</option>
-                        <option value="Gerencia">Gerencia</option>
-                        <option value="Diseño">Diseño</option>
-                        <option value="Enseñanza">Enseñanza</option>
-                        <option value="Turismo">Turismo</option>
-                        <option value="Informatica">Informática</option>
+                    <option value='disabled selected' >Selecciona tu sector</option>
+                        <option value="Administración/Oficinas">Administración/Oficinas</option>
+                        <option value="Almacén/Logística/Trasporte">Almacén/Logística/Trasporte</option>
+                        <option value="Atención al Cliente">Atención al Cliente</option>
+                        <option value="Servicios generales, aseo y seguridad">Servicios generales, aseo y seguridad</option>
+                        <option value="CallCenter/Telemercadeo">CallCenter/Telemercadeo</option>
+                        <option value="Producción/Operarios">Producción/Operarios</option>
+                        <option value="Manufactura">Manufactura</option>
+                        <option value="Medicina/Saldud">Medicina/Saldud</option>
+                        <option value="Comunicación">Comunicación</option>
+                        <option value="Construcción y Obras">Construcción y Obras</option>
+                        <option value="Contabilidad/Finanzas">Contabilidad/Finanzas</option>
+                        <option value="Mercadotecnía/Publicidad">Mercadotecnía/Publicidad</option>
+                        <option value="Diseño/Artes Gráficas">Diseño/Artes Gráficas</option>
+                        <option value="Docencia">Docencia</option>
+                        <option value="Compras/Comercio Exterior">Compras/Comercio Exterior</option>
+                        <option value="Dirección/Gerencía">Dirección/Gerencía</option>
+                        <option value="Técnicas">Técnicas</option>
+                        <option value="Investigación y Calidad">Investigación y Calidad</option>
+                        <option value="Hostelería/Turismo">Hostelería/Turismo</option>
+                        <option value="Informatica/Telecomunicaciones">Informática/Telecomunicaciones</option>
                         <option value="Ingeniería">Ingeniería</option>
-                        <option value="Asesorias">Asesorias</option>
-                        <option value="Reparacion">Reparación</option>
-                        <option value="Publicidad">Publicidad</option>
-                        <option value="RRHH">Recursos Humanos</option>
+                        <option value="Legal/Asesorias">Legal/Asesorias</option>
+                        <option value="Mantenimiento y Reparaciones">Mantenimiento y Reparaciones</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
                         <option value="Ventas">Ventas</option>
                     </select>
                 </div>

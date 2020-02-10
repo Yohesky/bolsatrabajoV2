@@ -114,7 +114,7 @@ $rsquery2 = mysqli_query($conexion, $query2);
                                 <hr>
                                 <?php 
                                     if(!empty($cv["curriculum"])){
-                                      echo "<a id='notificacion' href='".$cv['curriculum']."?idusuario=$id' target='_blank' class='btn btn-success'> Descargar PDF </a>";
+                                      echo "<a href='".$cv['curriculum']."?idusuario=$id' target='_blank' class='btn btn-success'> Descargar PDF </a>";
                                     }
                                 ?>
 

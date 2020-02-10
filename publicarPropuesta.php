@@ -74,7 +74,7 @@
 
                     <div class="form-group">
                         <label for="vehiculo">¿Se requiere automovil?</label>
-                        <select id="vehiculo" name="vehiculo">
+                        <select id="vehiculo" name="vehiculo" class="form-control">
                             <option value="Si">Si</option>
                             <option value="No">No</option>
                         </select>
@@ -82,15 +82,15 @@
 
                     <div class="form-group">
                         <label for="viajes">¿Se requiere viajar?</label>
-                        <select id="viajes" name="viajes">
+                        <select id="viajes" name="viajes" class="form-control">
                             <option value="Si">Si</option>
                             <option value="No">No</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="educacion">Nivel de educacion requerido</label>
-                        <select id="educacion" name="educacion">
+                        <select id="educacion" name="educacion" class="form-control">
+                            <option value='disabled selected' >Selecciona el nivel de Educación</option>
                             <option value="Bachiller">Bachiller</option>
                             <option value="Tecnico Medio">Tecnico Medio</option>
                             <option value="Tecnico Superior Universitario">Tecnico Superior Universitario</option>
@@ -99,12 +99,35 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="categoria" id="categoria">
-                            <option value="Ventas">Ventas</option>
-                            <option value="Mantenimiento">Mantenimiento</option>
-                        </select>
-
-                    </div>
+                    <select id="categoria" name="categoria" class="form-control" required>
+                    <option value='disabled selected' >Selecciona la categoria</option>
+                        <option value="Administración/Oficinas">Administración/Oficinas</option>
+                        <option value="Almacén/Logística/Trasporte">Almacén/Logística/Trasporte</option>
+                        <option value="Atención al Cliente">Atención al Cliente</option>
+                        <option value="Servicios generales, aseo y seguridad">Servicios generales, aseo y seguridad</option>
+                        <option value="CallCenter/Telemercadeo">CallCenter/Telemercadeo</option>
+                        <option value="Producción/Operarios">Producción/Operarios</option>
+                        <option value="Manufactura">Manufactura</option>
+                        <option value="Medicina/Saldud">Medicina/Saldud</option>
+                        <option value="Comunicación">Comunicación</option>
+                        <option value="Construcción y Obras">Construcción y Obras</option>
+                        <option value="Contabilidad/Finanzas">Contabilidad/Finanzas</option>
+                        <option value="Mercadotecnía/Publicidad">Mercadotecnía/Publicidad</option>
+                        <option value="Diseño/Artes Gráficas">Diseño/Artes Gráficas</option>
+                        <option value="Docencia">Docencia</option>
+                        <option value="Compras/Comercio Exterior">Compras/Comercio Exterior</option>
+                        <option value="Dirección/Gerencía">Dirección/Gerencía</option>
+                        <option value="Técnicas">Técnicas</option>
+                        <option value="Investigación y Calidad">Investigación y Calidad</option>
+                        <option value="Hostelería/Turismo">Hostelería/Turismo</option>
+                        <option value="Informatica/Telecomunicaciones">Informática/Telecomunicaciones</option>
+                        <option value="Ingeniería">Ingeniería</option>
+                        <option value="Legal/Asesorias">Legal/Asesorias</option>
+                        <option value="Mantenimiento y Reparaciones">Mantenimiento y Reparaciones</option>
+                        <option value="Recursos Humanos">Recursos Humanos</option>
+                        <option value="Ventas">Ventas</option>
+                    </select>
+                </div>
 
 
 

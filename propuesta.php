@@ -2,7 +2,7 @@
 
 <?php
 			include('includes/conexion.php');
-			session_start();
+	
 				$idpropuesta = $_GET['id'];
 				$idempresa = $_GET['idempresa'];
         $idusuario = $_SESSION['idusuarios'];
