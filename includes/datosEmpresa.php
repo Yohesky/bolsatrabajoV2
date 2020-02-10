@@ -21,7 +21,7 @@ while($row = mysqli_fetch_array($resultado))
    "
    <form id='formularioActualizacion'>
    <div class='form-group'>
-                            <input type='text' id='nombreEmpresa' name='nombreEmpresa' value='".$row['nombreEmpresa']."' class='form-control' required>
+                            <input type='text' id='nombreEmpresa' name='nombreEmpresa' value='".$row['nombreEmpresa']."' class='form-control' required maxlength='50'>
     </div>
 
     <div class='form-group'>
@@ -29,15 +29,15 @@ while($row = mysqli_fetch_array($resultado))
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='direccionEmpresa' name='direccionEmpresa' value='".$row['direccionEmpresa']."' class='form-control' required>
+                            <input type='text' id='direccionEmpresa' name='direccionEmpresa' value='".$row['direccionEmpresa']."' class='form-control' required maxlenth='100'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='areaEmpresa' name='areaEmpresa' value='".$row['areaEmpresa']."' class='form-control' required>
+                            <input type='text' id='areaEmpresa' name='areaEmpresa' value='".$row['areaEmpresa']."' class='form-control' required maxlength='50'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='correoEmpresa' name='correoEmpresa' value='".$row['correoEmpresa']."' class='form-control' required>
+                            <input type='email' id='correoEmpresa' name='correoEmpresa' value='".$row['correoEmpresa']."' class='form-control' required>
     </div>
 
     <div class='form-group'>
