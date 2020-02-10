@@ -19,7 +19,7 @@ function cargarDatos(){
 				</hgroup>
 			</section>
 
-			<section id="infoPersonal" class="row bg-light rounded py-3">
+			<section id="infoPersonal" class="row bg-light rounded py-3 my-3">
 				<div class="col-12 text-center">
 					<h3>Información Personal y de Contacto</h3>
 					<div class="row">
@@ -37,7 +37,7 @@ function cargarDatos(){
 					${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3">Descripción</h3><p class="text-justify mx-3">${resultado.descripcion}</p>`: ''}
 				</div>
 			</section>
-			${resultado.habilidades.length >= 0 ? ` 
+			${resultado.habilidades.length > 0 ? ` 
 			<section id="habilidades" class="row bg-light rounded py-3 my-4">
 				<div class="col-12 text-center">
 					<h3>Habilidades</h3>
@@ -52,7 +52,7 @@ function cargarDatos(){
 						</div>
 				</div>
 			</section>` : ''}
-			${resultado.experiencias.length >= 0 ? ` 
+			${resultado.experiencias.length > 0 ? ` 
 			<section id="habilidades" class="row bg-light rounded py-3 my-4">
 				<div class="col-12 text-center">
 					<h3>Experiencias</h3>
@@ -70,5 +70,5 @@ function cargarDatos(){
 		`);
 	}).fail(function(error){
 		console.log(error);
-	})
+	});
 }

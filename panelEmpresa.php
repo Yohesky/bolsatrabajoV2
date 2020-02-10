@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/bootstrap3.3.7.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+  <link href="ccs/DroidSans.css" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
@@ -212,13 +212,15 @@
     </section>
 
   </section>
-  <script src='http://code.jquery.com/jquery-latest.js'></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-  <script src='js/db.js'></script>
-  <script src="js/Chart.js"></script>
-  <script src="js/Chart.Doughnut.js"></script>
-  <script src="js/direccionesEmpresa.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+      <script src='http://code.jquery.com/jquery-latest.js'></script>
+      <script src="js/bootstrap.min.js"></script>
+      
+      <script src='js/db.js'></script>
+      <script src="js/Chart.js"></script>
+      <script src="js/Chart.Doughnut.js"></script>
+      <script src="js/panelesControl/panelAdmin.js"></script>
+      <script src="js/direcciones.js"></script>
 </body>
 
 </html>

@@ -24,8 +24,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo '' . $_SESSION["nombreEmpresa"] . ''; ?></h3> </h5>
-                            <hr>
+                            <div class="card-title"> 
+                            <h1 class="p-3 mb-5 bg-white display-3 text-break"><?php echo '' . $_SESSION["nombreEmpresa"] . ''; ?></h1> </div>
                         </div>
                     </div>
                 </div>
