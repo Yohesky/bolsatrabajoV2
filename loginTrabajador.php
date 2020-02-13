@@ -18,9 +18,9 @@
         <h3>Postulante</h3>
 </div>
 <div class="row">
-    <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center">
-        <div class="form-group">
-            <input type="text" name="correo" id="correo" placeholder="Correo" class="form-control" autofocus>
+    <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center" >
+        <div class="form-group" >
+            <input type="email" name="correo" id="correo" placeholder="Correo" class="form-control" autofocus>
         </div>
 
         <div class="form-group">
@@ -40,4 +40,5 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/loginTrabajador.js"></script>
+<script src="js/validaciones.js"></script>
 

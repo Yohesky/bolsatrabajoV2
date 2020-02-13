@@ -37,7 +37,7 @@ while($row = mysqli_fetch_array($resultado))
     </div>
 
     <div class='form-group'>
-                            <input type='email' id='correoEmpresa' name='correoEmpresa' value='".$row['correoEmpresa']."' class='form-control' required>
+                            <input type='email' id='correoEmpresa' name='correoEmpresa' value='".$row['correoEmpresa']."' class='form-control' required maxlength='45'>
     </div>
 
     <div class='form-group'>

@@ -34,4 +34,4 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/recuperacionEmpresa.js"></script>
-
+<script src="js/validaciones.js"></script>

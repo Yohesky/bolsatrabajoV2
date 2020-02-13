@@ -57,3 +57,4 @@
 <?php include("includes/footer.php") ?>
 <script src="js/perfilEmpresa.js"></script>
 <script src="js/direccionesEmpresa.js"></script>
+<script src="js/validaciones.js"></script>
