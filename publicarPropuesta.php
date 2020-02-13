@@ -10,11 +10,11 @@
                 <form id="formulario">
                     <input type="hidden" id="postulacionId" name="postulacionId">
                     <div class="form-group">
-                        <input type="text" id="nombre" name="nombre" placeholder="Titular del Empleo" class="form-control" autofocus>
+                        <input type="text" id="nombre" name="nombre" placeholder="Titular del Empleo" class="form-control" autofocus maxlength="45">
                     </div>
 
                     <div class="form-group">
-                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5" placeholder="Describe los requerimientos necesarios" required></textarea>
+                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5" placeholder="Describe los requerimientos necesarios" required maxlength="45"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="number" id="vacantes" name="vacantes" min="1" class="form-control" placeholder="Cantidad de Vacantes" required>
+                        <input type="number" id="vacantes" name="vacantes" min="1" class="form-control" placeholder="Cantidad de Vacantes" required step="1">
                     </div>
 
                     <div class="form-group">
@@ -153,3 +153,4 @@
 <?php include("includes/footer.php") ?>
 <script src="js/propuesta.js"></script>
 <script src="js/direccionesEmpresa.js"></script>
+<script src="js/validaciones.js"></script>

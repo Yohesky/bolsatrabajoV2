@@ -15,19 +15,19 @@
     <div class="row">
     <form id="formulario" class="col-md-6 col-md-offset-4 container text-center">
         <div class="form-group">
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" autofocus>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" autofocus maxlength="45">
         </div>
 
         <div class="form-group">
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" autofocus>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" autofocus maxlength="45">
         </div>
 
         <div class="form-group">
-            <input type="email" name="email" id="email" placeholder="Correo" class="form-control">
+            <input type="email" name="email" id="email" placeholder="Correo" class="form-control" maxlength="45">
         </div>
 
         <div class="form-group">
-            <input type="number" name="ci" id="ci" placeholder="Cédula" class="form-control">
+            <input type="number" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="8">
         </div>
 
         <div class="form-group">
@@ -104,3 +104,4 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/trabajador.js"></script>
+<script src="js/validaciones.js"></script>

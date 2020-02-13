@@ -6,6 +6,12 @@
 <div class="modal fade" id="subirFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
 </div>
 
+<?php 
+    $idusuarios = $_SESSION['idusuarios'];
+    $query = "SELECT nombre, apellido from usuarios where idusuarios = '$idusuarios'";
+    $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+    $fila = mysqli_fetch_assoc($rsQuery);
+?>
 
 
 
@@ -24,9 +30,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo '' . $_SESSION["nombre"] . ''; ?></h3> </h5>
+                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo $fila["nombre"]; ?></h3> </h5>
                             <hr>
-                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white"><?php echo '' . $_SESSION["apellido"] . ''; ?></h3>
+                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white"><?php echo $fila["apellido"]; ?></h3>
                             
                             
                         </div>
@@ -59,7 +65,7 @@
               <form id="habilidades" class="card card-body mt-5">
               <input type="hidden" id="habilidadId" name="habilidadId">
                   <div class="form-group">
-                      <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control">
+                      <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control" maxlength="100">
                   </div>
 
                 <div class='form-group'>
@@ -94,23 +100,23 @@
                             <form class="card card-body" id="formularioExperiencia">
                                 <input type="hidden" id="experienciaID" name="experienciaID">
                                 <div class="form-group">
-                                    <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required>
+                                    <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required maxlength="100">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="expPais" id="expPais" placeholder="País" class="form-control" required>
+                                    <input type="text" name="expPais" id="expPais" placeholder="País" class="form-control" required maxlength="100">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="expSector" id="expSector" placeholder="Sector de Empresa" class="form-control" title="Por favor" required>
+                                    <input type="text" name="expSector" id="expSector" placeholder="Sector de Empresa" class="form-control" title="Por favor" required maxlength="100">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="expArea" id="expArea" placeholder="Área que laboró" class="form-control" title="Por favor" required>
+                                    <input type="text" name="expArea" id="expArea" placeholder="Área que laboró" class="form-control" title="Por favor" required maxlength="100">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="expLabor" id="expLabor" placeholder="Funciones realizadas" class="form-control" title="Por favor" required>
+                                    <input type="text" name="expLabor" id="expLabor" placeholder="Funciones realizadas" class="form-control" title="Por favor" required maxlength="100">
                                 </div>
 
                                 <div class="row">
@@ -192,3 +198,4 @@
 </script>
 <script src="js/habilidad.js"></script>
 <script src="js/direcciones.js"></script>
+<script src="js/validaciones.js"></script>

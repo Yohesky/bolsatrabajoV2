@@ -18,23 +18,23 @@
         <div class="row">
             <form id="formulario" class="col-md-6 col-md-offset-4 container text-center">
                 <div class="form-group">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre de la Empresa (*)" class="form-control" autofocus>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre de la Empresa (*)" class="form-control" autofocus maxlength="45">
                 </div>
 
                 <div class="form-group">
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Breve Descripción de la empresa  (*)"></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Breve Descripción de la empresa  (*)" maxlength="45"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="rif" id="rif" placeholder="RIF  (*)" class="form-control">
+                    <input type="text" name="rif" id="rif" placeholder="RIF  (*)" class="form-control" maxlength="45">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="direccion" id="direccion" placeholder="Dirección  (*)" class="form-control" required>
+                    <input type="text" name="direccion" id="direccion" placeholder="Dirección  (*)" class="form-control" required maxlength="45">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="correo" id="correo" placeholder="Correo  (*)" class="form-control" required>
+                    <input type="email" name="correo" id="correo" placeholder="Correo  (*)" class="form-control" required>
                 </div>
 
                 <div class="form-group">
@@ -151,3 +151,4 @@
 
     <?php include("includes/footer.php") ?>
     <script src="js/empresa.js"></script>
+    <script src="js/validaciones.js"></script>

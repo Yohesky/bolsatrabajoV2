@@ -45,3 +45,4 @@
 
     <?php include("includes/footer.php") ?>
     <script src="js/loginEmpresa.js"></script>
+    <script src="js/validaciones.js"></script>
