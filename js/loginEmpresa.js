@@ -1,6 +1,6 @@
 $(function () {
 
-     $("#ingresar").click(function(e){
+     $("#formulario").submit(function(e){
      
         e.preventDefault();
         
@@ -29,7 +29,7 @@ $(function () {
                     }
                      else
                       {
-                     $("#resultado").html('<div class="alert alert-dismissible alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>ERROR!</strong> El correo o la contraseña son incorrectos.</div>');
+                     $("#resultado").html('<div class="alert alert-dismissible alert-danger my-3"><button type="button" class="close" data-dismiss="alert">&times;</button><strong>ERROR!</strong> El correo o la contraseña son incorrectos.</div>');
                      }
  
                     console.log(response);

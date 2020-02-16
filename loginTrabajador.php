@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
- 
+    <link rel="stylesheet" href="css/bootstrap.min.css.map">
     
 </head>
 <body>
@@ -18,15 +18,17 @@
         <h3>Postulante</h3>
 </div>
 <div class="row">
-    <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center" >
+    <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center needs-validation" novalidate>
         <div class="form-group" >
-            <input type="email" name="correo" id="correo" placeholder="Correo" class="form-control" autofocus>
+            <input type="text" name="correo" id="correo" placeholder="Correo" class="form-control" autofocus>
+            <div class="invalid-feedback text-left">Es necesario un correo ejemplo@ejemplo.com</div>
         </div>
 
         <div class="form-group">
-            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="form-control">
+            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="form-control" required>
+            
         </div>
-        <button class="btn btn-success btn-block mt-5" id="ingresar">Ingresar</button>
+        <button class="btn btn-success btn-block mt-5" id="ingresar" type="submit">Ingresar</button>
         <div id="resultado" class="my-3"></div>
         <a href="registroTrabajador.php" class="mt-4"> ¿No tienes cuenta? Crea una!</a>
         <br>
@@ -39,6 +41,7 @@
 </div>
 
 <?php include("includes/footer.php") ?>
-<script src="js/loginTrabajador.js"></script>
 <script src="js/validaciones.js"></script>
+<script src="js/loginTrabajador.js"></script>
+
 

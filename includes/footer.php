@@ -14,6 +14,5 @@
 
 <script src="js/sweetalert.min.js"></script>
 <script src="js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-<script src="js/bootstrap.min.js.map"></script>
 </body>
 </html>
