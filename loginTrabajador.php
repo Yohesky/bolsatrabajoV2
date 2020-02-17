@@ -21,7 +21,6 @@
     <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center needs-validation" novalidate>
         <div class="form-group" >
             <input type="text" name="correo" id="correo" placeholder="Correo" class="form-control" autofocus>
-            <div class="invalid-feedback text-left">Es necesario un correo ejemplo@ejemplo.com</div>
         </div>
 
         <div class="form-group">
