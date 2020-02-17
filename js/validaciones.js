@@ -23,6 +23,18 @@ $(function(){
 	$('#nombreEmpresa').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras o números)</div>');
 
+	$('#funciones').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
+	}).parent().append('<div class="invalid-feedback text-left">Las funciones que se desempeñara (solo letras o números)</div>');
+
+	$('#vacantes').prop({'pattern': '[0-9]+', 'required': true
+	}).parent().append('<div class="invalid-feedback text-left">Solo numeros (Menor a 1000)</div>');
+
+	$('#aExp').prop({'pattern': '[0-9]+', 'required': true
+}).parent().append('<div class="invalid-feedback text-left">Solo numeros (Menor a 100)</div>');
+
+	$('#sueldo').prop({'pattern': '[0-9]+', 'required': true
+}).parent().append('<div class="invalid-feedback text-left">Solo numeros</div>');
+
 	$('#apellido').prop({'pattern': '[a-z áéíóúñÑA-Z]+',
 	'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un apellido (solo letras)</div>')
@@ -127,6 +139,7 @@ $(function(){
 	$('#estado').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un estado</div>');
 
 	$('#ciudad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una ciudad</div>');
+
 
 	$('#correoEmpresa').keypress(function(e){
 		if(!(/[a-zñÑ@.A-Z0-9]/.test(String.fromCharCode(e.which)))){

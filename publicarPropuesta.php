@@ -7,7 +7,7 @@
         <div class="card mt-4">
             <!-- card-body para un espaciado interno entre los componentes -->
             <div class="card-body">
-                <form id="formulario">
+                <form id="formulario" class="needs-validation" novalidate>
                     <input type="hidden" id="postulacionId" name="postulacionId">
                     <div class="form-group">
                         <input type="text" id="nombre" name="nombre" placeholder="Titular del Empleo" class="form-control" autofocus maxlength="45">
@@ -18,19 +18,19 @@
                     </div>
 
                     <div class="form-group">
-                        <textarea class="form-control" name="funciones" id="funciones" cols="30" rows="5" placeholder="Describe las funciones a realizar" required></textarea>
+                        <textarea class="form-control" name="funciones" id="funciones" cols="30" rows="5" placeholder="Describe las funciones a realizar" required maxlength="140"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <input type="number" id="vacantes" name="vacantes" min="1" class="form-control" placeholder="Cantidad de Vacantes" required step="1">
+                        <input type="number" id="vacantes" name="vacantes" min="1" class="form-control" placeholder="Cantidad de Vacantes" required step="1" max="1000" min="1">
                     </div>
 
                     <div class="form-group">
-                        <input type="number" name="sueldo" id="sueldo" min="1" class="form-control" placeholder="Sueldo" required>
+                        <input type="number" name="sueldo" id="sueldo" min="1" class="form-control" placeholder="Sueldo" required maxlength="1000">
                     </div>
 
                     <div class="form-group">
-                        <input type="number" name="aExp" id="aExp" min="0" class="form-control" placeholder="Años de experiencia" required>
+                        <input type="number" name="aExp" id="aExp" min="0" class="form-control" placeholder="Años de experiencia" required max="100">
                     </div>
 
                     <div class="form-group">
@@ -63,7 +63,8 @@
 
                         </select>
 
-
+                    </div>
+                    <div class="form-group">
                         <select name="ciudad" id="ciudad" class="form-control">
 
 
@@ -89,8 +90,8 @@
                     </div>
 
                     <div class="form-group">
-                        <select id="educacion" name="educacion" class="form-control">
-                            <option value='disabled selected' >Selecciona el nivel de Educación</option>
+                        <select id="educacion" name="educacion" class="form-control" required>
+                            <option value='' >Selecciona el nivel de Educación</option>
                             <option value="Bachiller">Bachiller</option>
                             <option value="Tecnico Medio">Tecnico Medio</option>
                             <option value="Tecnico Superior Universitario">Tecnico Superior Universitario</option>
@@ -100,7 +101,7 @@
 
                     <div class="form-group">
                     <select id="categoria" name="categoria" class="form-control" required>
-                    <option value='disabled selected' >Selecciona la categoria</option>
+                    <option value='' >Selecciona la categoria</option>
                         <option value="Administración/Oficinas">Administración/Oficinas</option>
                         <option value="Almacén/Logística/Trasporte">Almacén/Logística/Trasporte</option>
                         <option value="Atención al Cliente">Atención al Cliente</option>
@@ -151,6 +152,6 @@
 </div>
 
 <?php include("includes/footer.php") ?>
+<script src="js/validaciones.js"></script>
 <script src="js/propuesta.js"></script>
 <script src="js/direccionesEmpresa.js"></script>
-<script src="js/validaciones.js"></script>
