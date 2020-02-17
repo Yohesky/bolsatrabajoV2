@@ -1,25 +1,25 @@
 $(function () {
     seleccion()
-    $("#registro").click(function (e) {
-
+    $("#formulario").submit(function (e) {
+        e.preventDefault();
         let form = $("#formulario").serialize();
 
         console.log(form);
-        if ($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(rif).length > 0 && $.trim(direccion).length > 0 &&
-            $.trim(sector).length > 0 && $.trim(contrasena).length > 0 && $.trim(contrasena2).length > 0
-            && $.trim(preguntas).length > 0 && $.trim(respuesta).length > 0 && $.trim(estado).length > 0 && $.trim(ciudad).length > 0) {
+        if ($.trim(nombreEmpresa.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(rif.value).length > 0 && $.trim(direccion.value).length > 0 &&
+            $.trim(sector.value).length > 0 && $.trim(contrasena.value).length > 0 && $.trim(contrasena2.value).length > 0
+            && $.trim(preguntas.value).length > 0 && $.trim(respuesta.value).length > 0 && $.trim(estado.value).length > 0 && $.trim(ciudad.value).length > 0) {
             $.ajax({
                 method: 'POST',
                 url: 'includes/registrarEmpresa.php',
                 data: form,
                 success: function (response) {
                     $("#resultado").html(response);
+                    location.href = 'loginEmpresa.php';
                 }
             });
         }
 
-        e.preventDefault();
-        $("#formulario").trigger("reset");
+        
     });
 
     function seleccion() {
@@ -608,14 +608,14 @@ $(function () {
 
                 default:
                     $("#ciudad").empty();
-                    $("#ciudad").append("<option>--Select--</option>");
+                    $("#ciudad").append("<option value=''>--Select--</option>");
                     break;
             }
         });
 
         function city(arr) {
             $("#ciudad").empty();//To reset cities
-            $("#ciudad").append("<option>--Select--</option>");
+            $("#ciudad").append("<option value=''>--Select--</option>");
             $(arr).each(function (i) {//to list cities
                 $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
             });

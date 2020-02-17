@@ -4,13 +4,31 @@
 
 <!-- Modal -->
 <div class="modal fade" id="subirFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
-  
+
+<?php
+include("includes/conexion.php");
+
+$idempresa = $_SESSION['idempresa'];
+
+$query = "SELECT nombreEmpresa FROM empresa where idempresa='$idempresa'";
+    
+$resultado = mysqli_query($conexion, $query);
+
+if(!$resultado)
+{
+    die("Conexion fallida, no se pudo traer los datos". mysqli_error($conexion));
+
+}
+
+$nombreEmpresa = mysqli_fetch_array($resultado)[0];
+
+?>
       
 </div>
 
 
 
-<div class="container">
+<div class="container mt-4">
     <div class="row text-center">
         <div class="col-md-6">
             <!-- FOTO DE PERFIL -->
@@ -25,7 +43,7 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <div class="card-title"> 
-                            <h1 class="p-3 mb-5 bg-white display-3 text-break"><?php echo '' . $_SESSION["nombreEmpresa"] . ''; ?></h1> </div>
+                            <h1 class="p-3 mb-5 bg-white text-break"><?php echo $nombreEmpresa; ?></h1> </div>
                         </div>
                     </div>
                 </div>
@@ -55,6 +73,6 @@
 </div>
 
 <?php include("includes/footer.php") ?>
+<script src="js/validaciones.js"></script>
 <script src="js/perfilEmpresa.js"></script>
 <script src="js/direccionesEmpresa.js"></script>
-<script src="js/validaciones.js"></script>

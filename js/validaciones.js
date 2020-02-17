@@ -17,23 +17,25 @@
 	  })();
 $(function(){
 
-	$('#nombre').keypress(function(e){
-		if(!(/[a-z áéíóúñÑA-z]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#nombre').prop({'pattern': '[a-z áéíóúñÑA-Z]+', 'required': true
+	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras)</div>');
 
-	$('#apellido').keypress(function(e){
-		if(!(/[a-z áéíóúñÑA-z]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	})
+	$('#nombreEmpresa').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
+	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras o números)</div>');
 
-	$('#ci').keypress(function(e){
-		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#apellido').prop({'pattern': '[a-z áéíóúñÑA-Z]+',
+	'required': true
+	}).parent().append('<div class="invalid-feedback text-left">Es necesario un apellido (solo letras)</div>')
+
+	$('#rif').prop({'pattern': '^([VEJPG]{1})-([0-9]{7,9})$', 'required': true}).parent().append('<div class="invalid-feedback text-left">Es nesario un rif ejem. J-0000000</div>');
+
+
+	$('#ci').prop({'pattern': '^([VE]{1})-([0-9]{7,9})$', 'required': true
+	}).parent().append('<div class="text-left invalid-feedback">Ingrese una cedula. Ejem. V-0000000</div>');
+
+	$('#preguntas').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una pregunta</div>');
+
+	$('#respuesta').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una pregunta</div>');
 
 	$('#num1').keypress(function(e){
 		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
@@ -59,11 +61,9 @@ $(function(){
 		}
 	})
 
-	$('#direccion').keypress(function(e){
-		if(!(/[a-zñÑA-Z0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#direccion').prop({'pattern': '[a-zñÑA-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
+
+	$('#direccionEmpresa').prop({'pattern': '[a-zñÑA-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
 
 	$('#idioma').keypress(function(e){
 		if(!(/[a-zñÑA-z]/.test(String.fromCharCode(e.which)))){
@@ -113,9 +113,20 @@ $(function(){
 		}
 	});
 
-	$('#correo').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}); 
+	$('#correo').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
+
+	$('#correoEmpresa').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 
 	$('#contrasena').prop('required', true);
+	$('#contrasena2').prop('required', true);
+
+	$('#sector').prop('required', true).parent().append('<div class="text-left invalid-feedback">Selecciones el sector al que se dedica su empresa</div>');
+
+	$('#areaEmpresa').prop('required', true).parent().append('<div class="text-left invalid-feedback">Selecciones el area al que se dedica su empresa</div>');
+
+	$('#estado').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un estado</div>');
+
+	$('#ciudad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una ciudad</div>');
 
 	$('#correoEmpresa').keypress(function(e){
 		if(!(/[a-zñÑ@.A-Z0-9]/.test(String.fromCharCode(e.which)))){
@@ -123,17 +134,8 @@ $(function(){
 		}
 	});
 
-	$('#descripcion').keypress(function(e){
-		if(!(/[a-zñÑáéíóúñ A-z]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
-
-	$('#nombreEmpresa').keypress(function(e){
-		if(!(/[a-z áéíóúñÑA-z]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#descripcion').prop('required', true
+	).parent().append('<div class="invalid-feedback text-left">Es necesario una descripción</div>');
 
 	$('#direccionEmpresa').keypress(function(e){
 		if(!(/[a-z áéíóúñÑA-z]/.test(String.fromCharCode(e.which)))){

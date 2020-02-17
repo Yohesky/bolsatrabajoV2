@@ -5,11 +5,13 @@ $(function () {
     seleccion()
   
     function actualizar() {
-      $("#btnDatos").click(function (e) {
-  
+      $("#formularioActualizacion").submit(function (e) {
+      
+      e.preventDefault();
+
         let form = $("#formularioActualizacion").serialize();
         console.log(form)
-        if ($.trim(nombreEmpresa).length > 0) {
+        if ($.trim($('#nombreEmpresa').val()).length > 0) {
           $.ajax({
             type: 'POST',
             url: 'includes/actDatosEmpresa.php',
@@ -22,7 +24,11 @@ $(function () {
                       icon: "success",
                       button: "Continuar",
                     });
-                  }
+                  }else{
+                    console.log(response);
+                  }                },
+            error: function(error){
+              console.log(error);
             }
           });
         }
@@ -191,11 +197,12 @@ $(function () {
 
   function actualizarDescripcion()
   {
-    $("#btnDescripcion").click(function(e)
+    $("#formularioDescripcionEmpresa").submit(function(e)
     {
       let form = $("#formularioDescripcionEmpresa").serialize();
       console.log(form);
-      if($.trim(descripcion).length > 0 )
+      e.preventDefault();
+      if($.trim(descripcion.value).length > 0 )
       {
         $.ajax(
           {
