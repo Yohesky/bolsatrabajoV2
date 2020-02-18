@@ -41,7 +41,7 @@ function publicar(publicaciones, ancla){
 <div class="card card-body mb-2 container shadow-lg  bg-white rounded text-center">
     <div class="row">
         <div class="col-12 col-md-3">
-            <img src="${publicaciones.foto}" class="img-fluid rounded-circle" width="150px" heigth="150px" style="min-height:150px;">
+            <img src="${publicaciones.foto}" class="img-fluid rounded-circle" width="150px" heigth="150px" style="min-height:150px;max-height:150px;">
         </div>
         <div class="col-12 col-md-9 text-md-left">           
             <article class="ml-md-2">

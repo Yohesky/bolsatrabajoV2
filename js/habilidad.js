@@ -8,7 +8,7 @@ $(function (){
 let editar = false;
 
 function enviarHabilidad(){
-    $("#btnHabilidad").click( (e) =>{
+    $("#habilidades").submit( (e) =>{
 
         let habilidad = $("#habilidades").serialize()
         console.log(habilidad);

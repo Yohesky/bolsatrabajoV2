@@ -62,7 +62,7 @@
                 </button>
 
 
-              <form id="habilidades" class="card card-body mt-5">
+              <form id="habilidades" class="card card-body mt-5 needs-validation" novalidate>
               <input type="hidden" id="habilidadId" name="habilidadId">
                   <div class="form-group">
                       <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control" maxlength="100">
@@ -97,7 +97,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="card card-body" id="formularioExperiencia">
+                            <form class="card card-body" id="formularioExperiencia" class="needs-validation" novalidate>
                                 <input type="hidden" id="experienciaID" name="experienciaID">
                                 <div class="form-group">
                                     <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required maxlength="100">
@@ -196,6 +196,6 @@
         })
     })
 </script>
+<script src="js/validaciones.js"></script>
 <script src="js/habilidad.js"></script>
 <script src="js/direcciones.js"></script>
-<script src="js/validaciones.js"></script>

@@ -50,18 +50,14 @@ $(function(){
 	$('#respuesta').prop('required', true).parent().append('<div class="text-left invalid-feedback">Escriba una respuesta</div>');
 
 	$('#res1').prop('required', true).parent().append('<div class="text-left invalid-feedback">Escriba una respuesta</div>');
+	
+	$('#habilidad').prop('required', true);
 
-	$('#num1').keypress(function(e){
-		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#nivelHabilidad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un nivel</div>');
 
-	$('#puestoDeseado').keypress(function(e){
-		if(!(/[a-zñÑáéíóúñ A-z]]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#num1').prop({'pattern': '[0-9]{11}'}).parent().append('<div class="text-left invalid-feedback">Numero de teléfono 04129409998</div>');
+
+	$('#puestoDeseado').prop({'pattern': '[a-zñÑáéíóúñ A-z]'}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
 
 	$('#sueldoDeseado').keypress(function(e){
 		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
