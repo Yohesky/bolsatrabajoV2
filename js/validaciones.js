@@ -47,7 +47,9 @@ $(function(){
 
 	$('#preguntas').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una pregunta</div>');
 
-	$('#respuesta').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una pregunta</div>');
+	$('#respuesta').prop('required', true).parent().append('<div class="text-left invalid-feedback">Escriba una respuesta</div>');
+
+	$('#res1').prop('required', true).parent().append('<div class="text-left invalid-feedback">Escriba una respuesta</div>');
 
 	$('#num1').keypress(function(e){
 		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
@@ -126,6 +128,8 @@ $(function(){
 	});
 
 	$('#correo').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
+
+	$('#email').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 
 	$('#correoEmpresa').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 

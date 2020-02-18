@@ -1,13 +1,13 @@
 $(function()
 {   seleccion()
-    $("#registro").click(function(e)
+    $("#formulario").submit(function(e)
     {
 
         let form = $("#formulario").serialize();
         
         console.log(form);
-        if ($.trim(nombre).length > 0 && $.trim(apellido).length > 0 && $.trim(email).length > 0 && $.trim(contrasena).length > 0 &&
-        $.trim(contrasena2).length > 0 && $.trim(preguntas).length > 0 && $.trim(res1).length > 0 ) {
+        if ($.trim(nombre.value).length > 0 && $.trim(apellido.value).length > 0 && $.trim(email.value).length > 0 && $.trim(contrasena.value).length > 0 &&
+        $.trim(contrasena2.value).length > 0 && $.trim(preguntas.value).length > 0 && $.trim(res1.value).length > 0 ) {
             $.ajax({
                 method: 'POST',
                 url: 'includes/registrarTrabajador.php',
@@ -610,14 +610,14 @@ $(function()
 
                 default:
                     $("#ciudad").empty();
-                    $("#ciudad").append("<option>--Select--</option>");
+                    $("#ciudad").append("<option value=''>--Select--</option>");
                     break;
             }
         });
 
         function city(arr) {
             $("#ciudad").empty();//To reset cities
-            $("#ciudad").append("<option>--Select--</option>");
+            $("#ciudad").append("<option value=''>--Select--</option>");
             $(arr).each(function (i) {//to list cities
                 $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
             });
