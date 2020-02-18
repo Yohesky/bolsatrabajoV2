@@ -9,9 +9,8 @@ let editar = false;
 
 function enviarHabilidad(){
     $("#habilidades").submit( (e) =>{
-
+e.preventDefault();
         let habilidad = $("#habilidades").serialize()
-        console.log(habilidad);
         let direccion = editar === false ? "includes/insertarHabilidad.php" : "includes/actualizacionHabilidad.php";
         $.ajax
              ({
@@ -20,12 +19,14 @@ function enviarHabilidad(){
                  data: habilidad,
                  success: function(response)
                  {
-                    obtenerHabilidad();
-                    console.log(response);
+                     if(response == 'exito'){
+                         obtenerHabilidad();
+                            console.log(response);
+                     }
                  }
              })
         $("#habilidades").trigger("reset");
-        e.preventDefault();
+        
     })
 }
 
@@ -48,7 +49,11 @@ function obtenerHabilidad(){
                                 <div class="alert alert-dark" role="alert">
                                     <div class="row">
                                         <div class="col-md-8">
-                                        <span> ${habilidad.nombreHabilidad}  </span> - <span> ${habilidad.nivelHabilidad} </span> 
+                                            <div class="row">
+                                                <div class="col-md-6 text-break"> ${habilidad.nombreHabilidad}</div>
+                                                <div class="col-md-1"> - </div>
+                                                <div class="col-md-2"> ${habilidad.nivelHabilidad} </div> 
+                                            </div>
                                         </div>
 
                                         <div class="col-md-2">

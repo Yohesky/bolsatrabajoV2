@@ -4,7 +4,7 @@ include("conexion.php");
 session_start();
 $idusuario = $_SESSION['idusuarios'];
 
-if(isset($_POST["habilidad"]) && isset($_POST["nivelHabilidad"])){
+if(isset($_POST["habilidad"]) && !empty($_POST["habilidad"]) && isset($_POST["nivelHabilidad"])){
      
 $habilidad = $_POST["habilidad"];
 $nivelHabilidad = $_POST["nivelHabilidad"];
@@ -20,9 +20,7 @@ mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 
     echo "exito";
 
-}
-
-else {
+}else {
     echo "no recibo";
 }
 

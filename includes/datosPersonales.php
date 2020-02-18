@@ -19,16 +19,20 @@ while($row = mysqli_fetch_array($resultado))
 {
    echo 
    "
+   <h2>Datos Personales</h2>
    <form id='formularioTarea' enctype='multipart/form-data' class='needs-validation' novalidate>
    <div class='form-group'>
-                            <input type='text' id='nombre' name='nombre' value='".$row['nombre']."' class='form-control' placeholder='Nombre' required maxlength='45'>
+        <input type='text' id='nombre' name='nombre' value='".$row['nombre']."' class='form-control' placeholder='Nombre' required maxlength='45'>
+                            
     </div>
 
     <div class='form-group'>
+    <label>Apellido</label>
                             <input type='text' id='apellido' name='apellido' value='".$row['apellido']."' placeholder='Apellido' class='form-control' required maxlength='45'>
     </div>
 
     <div class='form-group'>
+    <label>Correo Electronico</label>
         <input type='email' id='correo' name='correo' value='".$row['correo']."' placeholder='Correo' class='form-control' required>
     </div>
 
@@ -37,12 +41,12 @@ while($row = mysqli_fetch_array($resultado))
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='fechaNacimiento' name='fechaNacimiento' value='".$row['fechaNacimiento']."' placeholder='Fecha de nacimiento' class='form-control' required>
+                            <input type='text' id='fechaNacimiento' name='fechaNacimiento' value='".$row['fechaNacimiento']."' placeholder='Fecha de nacimiento' class='form-control'>
                             <span id='edadCalculada'> </span>
     </div>
 
     <div class='form-group'>
-                            <input type='tlf' id='num1' name='num1' value='".$row['num1']."' placeholder='Número telefonico' class='form-control' required  maxlength='11'>
+                            <input type='tlf' id='num1' name='num1' value='".$row['num1']."' placeholder='Número telefonico' class='form-control' maxlength='11'>
     </div>
 
     <div class='form-group'>
@@ -53,7 +57,7 @@ while($row = mysqli_fetch_array($resultado))
                             <input type='number' id='sueldoDeseado' name='sueldoDeseado' value='".$row['sueldoDeseado']."' placeholder='Sueldo deseado' class='form-control' step='1' min='1'>
     </div>
 
-    <div class='form-group'>
+    <div class='form-group d-none'>
                             <input type='text' id='pais' name='pais' value='".$row['pais']."' placeholder='Pais' class='form-control' maxlength='45'>
     </div>
 
@@ -98,7 +102,7 @@ while($row = mysqli_fetch_array($resultado))
 </div>
 
     <div class='form-group'>
-                            <input type='text' id='direccion' name='direccion' value='".$row['direccion']."' placeholder='Dirección' class='form-control' required maxlength='45'>
+                            <input type='text' id='direccion' name='direccion' value='".$row['direccion']."' placeholder='Dirección' class='form-control' maxlength='45' required='false'>
     </div>
 
     <div class='form-group'>
@@ -116,7 +120,7 @@ while($row = mysqli_fetch_array($resultado))
                           
     </div>
 
-    <div class='row'>
+    <div class='row d-none'>
     
         <div class='form-group col-md-6'>
         <span> Ingrese su idioma </span>

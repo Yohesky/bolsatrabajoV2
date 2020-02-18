@@ -1,4 +1,5 @@
 $(function () {
+
   let editar = false;
   obtenerFotoPerfil();
   actualizar();
@@ -139,8 +140,9 @@ $(function () {
 
   function actualizarDescripcion()
   {
-    $("#btnDescripcion").click(function(e)
+    $("#formularioDescripcion").submit(function(e)
     {
+
       let form = $("#formularioDescripcion").serialize();
       console.log(form);
       if($.trim(descripcion).length > 0 )

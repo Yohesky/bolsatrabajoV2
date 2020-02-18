@@ -15,7 +15,7 @@
 
 
 
-<div class="container">
+<div class="container mt-3">
     <div class="row text-center">
         <div class="col-md-6">
             <!-- FOTO DE PERFIL -->
@@ -39,30 +39,12 @@
                     </div>
                 </div>
             </div>
-            <h1 class="text-center bg-dark">Habilidades</h1>
-            <div id="mostrar">
-               
-            </div>
-           
-            <div class="container">
-                <?php include("includes/mostrarDescripcion.php") ?>
-            </div>
-            <h1 class="text-center bg-dark">Experiencias Laborales</h1>
-            <div id="experiencia">
-
-            </div>
-        </div>
-
-        <!-- formulario de datos -->
-
-        <div class="col-md-6">
-            <div class="card card-body mt-1" data-toggle="modal">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Añadir experiencia Laboral
-                </button>
 
 
-              <form id="habilidades" class="card card-body mt-5 needs-validation" novalidate>
+<h1 class="text-center bg-dark">Habilidades</h1>
+            <div class="card card-body" data-toggle="modal">
+
+              <form id="habilidades" class="card card-body needs-validation" novalidate>
               <input type="hidden" id="habilidadId" name="habilidadId">
                   <div class="form-group">
                       <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control" maxlength="100">
@@ -81,11 +63,35 @@
                 </div>
                   
 
-                  <button class="btn btn-success" id="btnHabilidad">Guardar</button>
+                  <button class="btn btn-success" id="btnHabilidad">Agregar</button>
               </form>
 
 
             </div>
+            
+            <div id="mostrar" style="max-height: 23rem;overflow: auto;">
+               
+            </div>
+
+           
+
+            <h1 class="text-center bg-dark">Experiencias Laborales</h1>
+            <div class="bg-white p-3 rounded">
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+                    Añadir experiencia Laboral
+                </button>
+                </div>
+            <div id="experiencia" style="max-height: 23rem; overflow: auto;">
+
+            </div>
+
+
+        </div>
+
+        <!-- formulario de datos -->
+
+        <div class="col-md-6">
+
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -140,14 +146,14 @@
                         </div>
                     </div>
                 </div>
+            </div>            
+            <div class="">
+                <?php include("includes/mostrarDescripcion.php") ?>
             </div>
-
-            
-
-
-            <div class="card mt-2">
+        
+            <div class="card">
                 <!-- card-body para un espaciado interno entre los componentes -->
-                <div class="card-body">
+                <div class="card-body col-12">
                     <?php include("includes/datosPersonales.php") ?>
                 </div>
 
