@@ -34,7 +34,7 @@ function cargarDatos(){
 						
 					</div>
 
-					${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3">Descripción</h3><p class="text-justify mx-3">${resultado.descripcion}</p>`: ''}
+					${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3">Descripción</h3><p class="text-justify mx-3 text-break">${resultado.descripcion}</p>`: ''}
 				</div>
 			</section>
 			${resultado.habilidades.length > 0 ? ` 

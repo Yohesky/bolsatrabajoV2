@@ -169,7 +169,7 @@
         $("#fechaNacimiento").datepicker({
             changeMonth: true,
             changeYear: true,
-            yearRange: '1970:' + 2020,
+            yearRange: '1970:' + 2010,
             dateFormat: "yy-mm-dd"
         })
 

@@ -1,7 +1,5 @@
 $(document).ready(function() {
-    alert('pagina cargada')
-    enviarNotificacion()
-    
+    enviarNotificacion()    
 })
 
 function getGET() {
