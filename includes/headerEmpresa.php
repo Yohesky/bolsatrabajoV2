@@ -42,7 +42,8 @@
 
         <li id="mistrabajos"> <i class="fas fa-briefcase"></i> Mis Publicaciones </li>
           
-        
+        <li id="buscarTrabajador">Buscar Trabajador</li>
+
         <li id="perfilEmpresa"> <i class="fa fa-user-o fw"></i> Perfil</li>
 
         <li id="salir"> <i class="fa fa-sign-out"></i> Salir</li>

@@ -47,20 +47,30 @@ $nombreEmpresa = mysqli_fetch_array($resultado)[0];
                         </div>
                     </div>
                 </div>
+
+                
             </div>
 
-            <div class="container">
-                <?php include("includes/mostrarDescripcionEmpresa.php") ?>
-            </div>
+        <h3 class="bg-white p-3 rounded">Trabajadores Seleccionados</h3>
+        <div style="max-height: 23rem; overflow: auto;" >
+            <ul id="empleadosSeleccionados">
+                
+            </ul>
+        </div>
             
         </div>
 
         <!-- formulario de datos -->
         
-        <div class="col-md-6">
+        <div class="col-md-6">        
+        
         <div class="card card-body mt-1">
-        <h3>Edita tu perfil</h3>
-        </div>
+            <h3>Edita tu perfil</h3>
+        </div>            
+        <div>
+                <?php include("includes/mostrarDescripcionEmpresa.php") ?>
+            </div>
+
         <div class="card mt-2">
                 <!-- card-body para un espaciado interno entre los componentes -->
                 <div class="card-body">
