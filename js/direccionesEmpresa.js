@@ -28,3 +28,7 @@ $("#controlPanel").click( (e) => {
     $(location).attr('href','publicarPropuesta.php');
     
   })
+
+  $("#buscarTrabajador").click( (e) => {
+    $(location).attr('href','buscarTrabajador.php');
+  })
