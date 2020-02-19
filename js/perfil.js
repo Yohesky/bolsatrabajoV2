@@ -32,7 +32,7 @@ function cargarDatos(){
 
 						${resultado.disponibilidadViajar != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Disponibilidad de Viajar</strong><br> ${resultado.disponibilidadViajar}</div>` : ''}
 
-						${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary">Curriculum Pdf</a></div>` : ''}
+						${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary" target="_blank">Curriculum Pdf</a></div>` : ''}
 						
 					</div>
 
