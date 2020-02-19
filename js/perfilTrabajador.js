@@ -53,7 +53,7 @@ $(function () {
           success: function (response) {
             console.log(response);
             if (response === 'exito') {
-              alert({
+              swal({
                 title: "Datos actualizados",
                 text: "Sus datos han sido actualizados",
                 icon: "success",

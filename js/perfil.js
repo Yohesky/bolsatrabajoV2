@@ -31,6 +31,8 @@ function cargarDatos(){
 						${resultado.fechaNacimiento != '0000-00-00' ? `<div class="col-12 col-sm-6 my-3"><strong>Fecha de Nacimiento</strong></br> ${resultado.fechaNacimiento}</div>` : ''}
 
 						${resultado.disponibilidadViajar != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Disponibilidad de Viajar</strong><br> ${resultado.disponibilidadViajar}</div>` : ''}
+
+						${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary">Curriculum Pdf</a></div>` : ''}
 						
 					</div>
 
