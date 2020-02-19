@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-02-2020 a las 05:35:56
+-- Tiempo de generación: 19-02-2020 a las 05:12:51
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -26,8 +26,6 @@ SET time_zone = "+00:00";
 
 --
 -- Estructura de tabla para la tabla `empresa`
---
--- Creación: 17-02-2020 a las 03:20:42
 --
 
 CREATE TABLE `empresa` (
@@ -56,8 +54,8 @@ INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`
 (6, 'smartprocess', 'empresa dedicada a ingenieria', 'j-123123', 'tierra negra', 'IngenierÃ­a', 'smartprocess@sp.com', 'www.sp.com', '1234', './img-empresa/1572969657', NULL, NULL, 'Guarico', 'Zaraza'),
 (7, 'asd', 'asd', 'asd', 'asd', 'Asesorias', 'sp@sp.com', 'asd', '1234', './img-empresa/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
 (9, 'asdfasd', 'educacion', '13123', 'c2', 'EnseÃ±anza', 'urbe@gmail.com', 'urbe.com', 'urbe', './img-empresa/1581305473_9.jpg', 'Â¿Cual es tu color favorito?', 'rojo', ' disabled selected>Selecciona tu estado</option>\r\n                            <option value=', 'Miranda'),
-(10, 'petma', 'empresa dedicada a la elaboracion de comida', 'j-123123', 'tierra negra', 'AlmacÃ©n', 'petma@gmail.com', 'www.petma.com', '1234', './img-empresa/perfil-predeterminado', 'Â¿Cual es tu color favorito?', 'negro', 'Amazonas', 'Maroa'),
-(11, 'fullgustazo', 'empresa dedicada a la elaboracion de jugos', 'j-145234', 'tierra negra', 'Reparacion', 'fullgustazo@gmail.com', '', '1234', './img-empresa/perfil-predeterminado', 'Â¿Cual es el segundo apellido de tu padre?', 'pimentel', 'Guarico', 'Zaraza'),
+(10, 'petma', 'empresa dedicada a la elaboracion de comida', 'j-123123', 'tierra negra', 'AlmacÃ©n', 'petma@gmail.com', 'www.petma.com', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'negro', 'Amazonas', 'Maroa'),
+(11, 'fullgustazo', 'empresa dedicada a la elaboracion de jugos', 'j-145234', 'tierra negra', 'Reparacion', 'fullgustazo@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'pimentel', 'Guarico', 'Zaraza'),
 (12, 'asdf', 'asdfas', 'J-000000000', 'adfads', 'Medicina/Saldud', 'j@gk.com', '', '123', './img-empresa/1581909567_12.jpg', 'Â¿Cual es tu color favorito?', 'Azul', ' disabled selected>Selecciona tu estado</option>\r\n                            <option value=', 'Caracas'),
 (13, 'abc inversiones', 'sfgsf', 'J-8888888888', 'asdffffffffffffffffffffff', 'ConstrucciÃ³n y Obras', 'abc@inversiones.com', '', '123', './img-empresa/1581910052_13.jpg', 'Â¿Cual es tu color favorito?', 'aklsjdfklasjdkl', ' disabled selected>Selecciona tu estado</option>\r\n                            <option value=', 'Mellado');
 
@@ -65,8 +63,6 @@ INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`
 
 --
 -- Estructura de tabla para la tabla `experiencia`
---
--- Creación: 05-02-2020 a las 00:19:52
 --
 
 CREATE TABLE `experiencia` (
@@ -95,8 +91,6 @@ INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expAr
 --
 -- Estructura de tabla para la tabla `habilidades`
 --
--- Creación: 05-02-2020 a las 00:19:54
---
 
 CREATE TABLE `habilidades` (
   `idHabilidad` int(11) NOT NULL,
@@ -113,38 +107,61 @@ INSERT INTO `habilidades` (`idHabilidad`, `nombreHabilidad`, `idusuario`, `nivel
 (3, 'ANGULAR', 1, 'Intermedio'),
 (4, 'Guias Sada', 9, 'Avanzado'),
 (5, 'Word', 9, 'Avanzado'),
-(6, 'Excel', 9, 'Avanzado');
+(6, 'Excel', 9, 'Avanzado'),
+(75, 'hfdh', 3, 'Basico'),
+(76, 'gdh', 3, 'Basico'),
+(77, 'gh', 3, 'Intermedio'),
+(78, 'ghg', 3, 'Basico'),
+(79, 'gh', 3, 'Avanzado'),
+(80, 'sdg', 3, 'Basico');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `notificaciones`
 --
--- Creación: 05-02-2020 a las 00:19:55
---
 
 CREATE TABLE `notificaciones` (
   `idempresa` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
-  `idpropuesta` int(11) NOT NULL
+  `idpropuesta` int(11) NOT NULL,
+  `idNotificacion` int(11) NOT NULL,
+  `vista` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `notificaciones`
 --
 
-INSERT INTO `notificaciones` (`idempresa`, `idusuario`, `idpropuesta`) VALUES
-(5, 1, 50),
-(6, 1, 51),
-(6, 1, 51),
-(6, 1, 51);
+INSERT INTO `notificaciones` (`idempresa`, `idusuario`, `idpropuesta`, `idNotificacion`, `vista`) VALUES
+(5, 1, 50, 1, 0),
+(6, 1, 51, 2, 0),
+(6, 1, 51, 3, 0),
+(6, 1, 51, 4, 0),
+(9, 3, 62, 5, 1),
+(9, 3, 62, 6, 1),
+(9, 3, 62, 7, 1),
+(9, 3, 62, 8, 1),
+(9, 3, 62, 9, 1),
+(9, 3, 62, 10, 1),
+(9, 3, 62, 11, 1),
+(9, 3, 62, 12, 1),
+(9, 3, 62, 13, 1),
+(9, 3, 62, 14, 1),
+(9, 3, 62, 15, 1),
+(9, 3, 62, 16, 1),
+(9, 3, 62, 17, 1),
+(9, 3, 62, 18, 1),
+(9, 3, 62, 19, 1),
+(9, 3, 62, 20, 1),
+(9, 3, 62, 21, 1),
+(9, 3, 62, 27, 1),
+(9, 3, 62, 31, 1);
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `propuesta`
---
--- Creación: 05-02-2020 a las 00:19:56
 --
 
 CREATE TABLE `propuesta` (
@@ -184,8 +201,6 @@ INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `su
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
--- Creación: 05-02-2020 a las 00:19:51
---
 
 CREATE TABLE `usuarios` (
   `idusuarios` int(11) NOT NULL,
@@ -217,7 +232,7 @@ CREATE TABLE `usuarios` (
   `expFechaFin` date NOT NULL,
   `curriculum` text,
   `descripcion` varchar(100) DEFAULT NULL,
-  `fotoPerfil` varchar(1000) DEFAULT './img-perfil/perfil-predeterminado',
+  `fotoPerfil` varchar(1000) DEFAULT './img-perfil/perfil-predeterminado.png',
   `pregunta1` varchar(150) DEFAULT NULL,
   `resp1` char(150) DEFAULT NULL,
   `sueldoDeseado` char(100) DEFAULT NULL,
@@ -233,35 +248,44 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`, `esAdmin`, `estado`, `ciudad`) VALUES
 (1, 'Yohesky', 'Pimentel', 26878565, 'yoheskyjpp@gmail.com', '1234', '1998-05-29', 'Casado/a', 'Hombre', 2147483647, 'venezuela', 'UrbanizaciÃ³n el Soler', 'programador', 'Universitario', '', 'Ingles', 'intermedio', 'Si', '', 'No', 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, '400', 22, 0, 'Merida', 'Tovar'),
-(3, 'joseddd', 'aljuria', 2555555, 'josealjuria@gmail.com', 'jose', '0000-00-00', 'Casado/a', '', 2147483647, 'venezuela', 'Venezuela', 'PROGRAMADOR WEB', 'bachiller', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Html', './img-perfil/1581331186_3.jpg', NULL, NULL, '', 2020, 1, ' disabled selected>Selecciona tu estado</option>\r\n        <option value=', 'Maracaibo'),
+(3, 'joseddd', 'aljuria', 0, 'josealjuria@gmail.com', 'jose', '1999-03-09', 'Casado/a', 'Hombre', 2147483647, 'Venezuela', 'adasdf', '', 'Universitario', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CurriculumJoseAljuria.pdf', 'gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', './img-perfil/1581331186_3.jpg', NULL, NULL, '6', 0, 1, ' disabled selected>Selecciona tu estado</option>\r\n        <option value=', 'MontalbÃ¡n'),
 (4, 'luis', 'colmenarez', 2512345, 'luis@gmail.com', 'luis', '0000-00-00', '', '', 2147483647, 'tierra negra', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, '', 2020, 0, 'Zulia', 'Maracaibo'),
 (5, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, 'elinca', 'vzla', 'contratista', 'it', 'instalar computadoras', '0001-11-11', '0011-11-11', NULL, NULL, './img-perfil/perfil-predeterminado.png', NULL, NULL, NULL, NULL, 0, NULL, NULL),
 (7, 'coral', 'portillo', 14901511, 'cportillo@gmail.com', 'coral', '0000-00-00', 'Casado/a', 'Hombre', 2147483647, 'Venezuela', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400', NULL, 0, 'Zulia', 'Maracaibo'),
 (9, 'jecselys', 'torres', 25553618, 'jecselys17@gmail.com', '1234', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1580410567_9', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '', 2020, 0, 'Guarico', 'Santa MarÃ­a de Ipire'),
-(10, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(11, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(12, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(13, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(14, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(15, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(16, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(17, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(18, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(19, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(20, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(21, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(22, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(23, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(24, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(25, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', ''),
-(26, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado', '', '', NULL, NULL, 0, '', '');
+(10, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(11, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(12, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(13, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(14, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(15, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(16, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(17, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(18, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(19, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(20, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(21, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(22, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(23, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(24, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(25, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(26, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(27, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(28, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(29, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(30, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(31, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(32, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(33, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(34, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(35, '', '', 0, '', '', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', '', '', NULL, NULL, 0, '', ''),
+(36, 'josd', 'asdfad dasdf', 0, 'jose@gmail.com', '123', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'asdfasdf', NULL, NULL, 0, 'Amazonas', 'Maroa'),
+(37, 'asdf', 'asdf', 0, 'j@aksdj.com', '123', '0000-00-00', '', '', 0, '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '1232', NULL, NULL, 0, 'Amazonas', 'Maroa');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `usuarios_has_propuesta`
---
--- Creación: 05-02-2020 a las 00:19:57
 --
 
 CREATE TABLE `usuarios_has_propuesta` (
@@ -274,17 +298,14 @@ CREATE TABLE `usuarios_has_propuesta` (
 --
 
 INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropuesta`) VALUES
-(3, 50),
 (1, 50),
 (4, 50),
 (7, 51),
 (9, 50),
 (9, 56),
-(3, 56),
 (4, 56),
 (7, 56),
 (1, 61),
-(3, 61),
 (4, 61),
 (9, 61),
 (7, 61),
@@ -319,6 +340,7 @@ ALTER TABLE `habilidades`
 -- Indices de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
+  ADD PRIMARY KEY (`idNotificacion`),
   ADD KEY `idempresa` (`idempresa`),
   ADD KEY `idusuario` (`idusuario`),
   ADD KEY `idpropuesta` (`idpropuesta`);
@@ -363,7 +385,13 @@ ALTER TABLE `experiencia`
 -- AUTO_INCREMENT de la tabla `habilidades`
 --
 ALTER TABLE `habilidades`
-  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `propuesta`
@@ -375,7 +403,7 @@ ALTER TABLE `propuesta`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Restricciones para tablas volcadas
