@@ -839,12 +839,15 @@ function mostrarPostuladosSeleccionados(){
     }).done(function(respuesta){
       $(empleadosSeleccionados).html(
         respuesta.map((valor) =>{
-          return `<li class="bg-white p-3 d-block"><div class="row">
-          <div class="col-8">
+          return `<li class="bg-white p-3 d-block mt-1 rounded"><div class="row">
+          <div class="col-6 text-break">
           ${valor.nombre} ${valor.apellido}
           </div>
-          <div class="col-4">
-            <button clase="btn btn-danger" type="button" onclick="eleminarSeleccion()">Eliminar</button>
+          <div class="col-2">
+            <a class="btn btn-primary" href="perfil.php?id=${valor.idusuarios}">Ver</a>
+          </div>
+          <div class="col-3">
+            <button clase="btn btn-danger" type="button" onclick="eleminarSeleccion(${valor.idseleccion})">Eliminar</button>
           </div>
           </div>
           </li>`
@@ -858,6 +861,18 @@ function mostrarPostuladosSeleccionados(){
     });
 }
 
-function eleminarSeleccion(){
-  
+function eleminarSeleccion(idseleccion){
+  event.preventDefault();
+  let notificacion = event.target.parentNode.parentNode.parentNode;
+
+  $.ajax({
+    method: 'GET',
+    url: 'includes/eliminarSeleccion.php?idseleccion='+idseleccion,
+  }).done((respuesta) =>{
+    notificacion.remove();
+    console.log(respuesta);
+  }).fail((respuesta) =>{
+    alert('error');
+    console.log(respuesta);
+  })
 }
