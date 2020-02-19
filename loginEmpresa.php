@@ -19,7 +19,7 @@
             <h3>Empresas</h3>
         </div>
         <div class="row">
-            <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center">
+            <form id="formulario" class="col-md-6 col-md-offseet-3 container mt-5 text-center needs-validation" novalidate>
                 <div class="form-group">
                     <input type="text" name="correo" id="correo" placeholder="Correo" class="form-control" autofocus>
                 </div>
@@ -27,21 +27,20 @@
                 <div class="form-group">
                     <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" class="form-control">
                 </div>
-                <button class="btn btn-success btn-block mt-5" id="ingresar">Ingresar</button>
+                <button class="btn btn-success btn-block mt-5" id="ingresar" type="submit">Ingresar</button>
+
                 <div id="resultado"></div>
-                <br>
+
                 <a href="registroEmpresa.php" class="mt-4"> ¿No tienes cuenta empresarial? Crea una!</a>
-                <br> <br>
-
-
                 <br>
+
                 <a href="recuperacionEmpresa.php" class="mt-4"> ¿Olvidó su contraseña? </a>
-                <br> <br>
+                <br>
                 <a href="index.php" class="mt-4 btn btn-success"> Volver</a>
-                <div class="resultado"></div>
             </form>
         </div>
     </div>
 
-    <?php include("includes/footer.php") ?>
+    <?php include("includes/footer.php") ?>    
+    <script src="js/validaciones.js"></script>
     <script src="js/loginEmpresa.js"></script>

@@ -18,11 +18,12 @@ while($row = mysqli_fetch_array($resultado))
 {
    echo 
    "
-  <form  id='formularioDescripcion' class='card card-body' style='max-width: 540px;'>
+   
+  <form  id='formularioDescripcion' class='card card-body' style='max-width: 540px;' novalidate><h2>Descripción</h2>
                 <div class='form-group text-center'>
-    <textarea name='descripcion' id='descripcion' cols='30' rows='4' class='form-control' placeholder='Ingresa una breve descripción' >".$row['descripcion']."</textarea>
+    <textarea name='descripcion' id='descripcion' cols='30' rows='4' class='form-control' placeholder='Ingresa una breve descripción' maxlength='100'>".$row['descripcion']."</textarea>
                 </div>
-                <button id='btnDescripcion' class='btn btn-success' >Actualizar</button>
+    <button id='btnDescripcion' type='submit' class='btn btn-success' >Actualizar</button>
     </form>
    ";
 }

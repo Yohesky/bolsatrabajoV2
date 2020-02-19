@@ -16,30 +16,31 @@
 
     <div class="card-body">
         <div class="row">
-            <form id="formulario" class="col-md-6 col-md-offset-4 container text-center">
+            <form id="formulario" class="col-md-6 col-md-offset-4 container text-center needs-validation" novalidate>
                 <div class="form-group">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre de la Empresa (*)" class="form-control" autofocus>
+                    <input type="text" name="nombre" id="nombreEmpresa" placeholder="Nombre de la Empresa (*)" class="form-control" autofocus maxlength="45" required>
+                    
                 </div>
 
                 <div class="form-group">
-                    <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Breve Descripción de la empresa  (*)"></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Breve Descripción de la empresa  (*)" maxlength="140"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="rif" id="rif" placeholder="RIF  (*)" class="form-control">
+                    <input type="text" name="rif" id="rif" placeholder="RIF  (*)" class="form-control" maxlength="12">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="direccion" id="direccion" placeholder="Dirección  (*)" class="form-control" required>
+                    <input type="text" name="direccion" id="direccion" placeholder="Dirección  (*)" class="form-control" required maxlength="45">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="correo" id="correo" placeholder="Correo  (*)" class="form-control" required>
+                    <input type="email" name="correo" id="correo" placeholder="Correo  (*)" class="form-control" required>
                 </div>
 
                 <div class="form-group">
                     <select id="sector" name="sector" class="form-control" required>
-                    <option value='disabled selected' >Selecciona tu sector</option>
+                    <option value='' >Selecciona tu sector</option>
                         <option value="Administración/Oficinas">Administración/Oficinas</option>
                         <option value="Almacén/Logística/Trasporte">Almacén/Logística/Trasporte</option>
                         <option value="Atención al Cliente">Atención al Cliente</option>
@@ -97,15 +98,15 @@
                         <option value="Zulia">Zulia</option>
 
                     </select>
-
-
-                    <select name="ciudad" id="ciudad" class="form-control">
-                      
-                    
-                    </select>
-
-
                 </div>
+                
+                <div class="form-group">
+                    <select name="ciudad" id="ciudad" class="form-control">
+
+                    </select>
+                </div>
+
+
 
 
                 <div class="form-group">
@@ -136,7 +137,7 @@
                 </div>
 
 
-                <button class="btn btn-success btn-block mt-0" id="registro">Registrarse</button>
+                <button class="btn btn-success btn-block mt-0" id="registro" type="submit">Registrarse</button>
                 <br>
                 <a href="loginEmpresa.php" class="btn btn-success"> Ingresar </a>
                 <a href="loginEmpresa.php" class="btn btn-info"> Volver </a>
@@ -150,4 +151,6 @@
 
 
     <?php include("includes/footer.php") ?>
+    <script src="js/validaciones.js"></script>
     <script src="js/empresa.js"></script>
+    

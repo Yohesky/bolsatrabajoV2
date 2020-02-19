@@ -29,12 +29,7 @@ $(function()
                     <div class="carta mx-auto">
     <div class="additional">
       <div class="user-card">
-        <div class="level center">
-          Level 13
-        </div>
-        <div class="points center">
-          5,312 Points
-        </div>
+
         <img src="${publicacion.foto}" width="110" height="110" class="center bg-white rounded-circle">
          
         </img>
@@ -77,14 +72,24 @@ $(function()
       <div class="text-center mx-auto"> 
       <h3>${publicacion.nombre}</h3> - <h3>${publicacion.apellido}</h3>
       </div>
-      <p>${publicacion.descripcion}</p>
-
-
-      <a class="btn btn-info" href="postulados.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank"> Ver perfil </a>
+      <p style="word-break: break-all;">${publicacion.descripcion}</p>
       
+      <div class="container-fluid">
+      <div class="row justify-content-center">
+      
+      <div class="col-3 p-0">
+      <a class="btn btn-info" href="perfil.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank"> Ver </a>
+      </div>
 
-      <a class="btn btn-secondary" href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}"><i class="far fa-file-pdf"></i> PDF </a>
+      <div class="col-4 p-0">
+      <a class="btn btn-secondary" href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank"><i class="far fa-file-pdf"></i> PDF </a>
+      </div>
 
+      <div class="col-5 p-0">
+      <a class="btn btn-primary" onclick="seleccionar(${publicacion.idusuarios}, ${publicacion.idempresa},${publicacion.idpropuesta})">Seleccionar</a>
+      </div>
+      </div>
+      </div>
     </div>
   </div>
 
@@ -153,4 +158,31 @@ function mostrarPagina(){
           return pagina;
       }
       return 1;
+  }
+
+  function seleccionar(idusuario, idempresa, idpropuesta){
+    $.ajax({
+      method: 'GET',
+      url: `includes/seleccion.php?idusuarios=${idusuario}&idempresa=${idempresa}&idpropuesta=${idpropuesta}`
+    }).done((resultado) => {
+      if(resultado == 'insertado'){
+        swal({
+          title: "Postulate Seleccionado",
+          text: "Puedes ver a este usuario en tu perfil",
+          icon: "success",
+          button: "Aceptar",
+        });
+      }else{
+        swal({
+          title: "El postulante ya fue seleccionado",
+          text: "Ya se a seleccionado con anterioridad este postulante",
+          icon: "success",
+          button: "Aceptar",
+        });
+      }
+      console.log(resultado);
+    }).fail((error) => {
+      alert("fallido");
+      console.log(error);
+    })
   }

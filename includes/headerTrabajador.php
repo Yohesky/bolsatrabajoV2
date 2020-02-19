@@ -70,13 +70,13 @@
   include("includes/conexion.php");
   $idusuario = $_SESSION['idusuarios'];
 
-  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario'";
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario' and vista = 0";
   $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
   function nNotificaciones(){
   include("includes/conexion.php");
   global $idusuario;
-  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario'";
+  $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa JOIN propuesta ON notificaciones.idpropuesta = propuesta.idpropuesta WHERE idusuario = '$idusuario' AND vista = 0";
   $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
   $num = mysqli_num_rows($resultado);
   return $num;
@@ -92,7 +92,9 @@
                 <?php
 
                 while ($row = mysqli_fetch_array($resultado)) {
-                  echo "<li class='mt-2 list-group-item list-group-item-success'> La empresa " . $row['nombreEmpresa'] . " Ha visto tu CV en la propuesta " . $row['titulo'] . " </li>";
+                  echo "<li class='mt-2 list-group-item list-group-item-success text-left'><button class='btn btn-danger' type='button' onclick='eliminarNotificacion(". $row["idNotificacion"] .")'>x</button> 
+                    La empresa " . $row['nombreEmpresa'] . " Ha visto tu CV en la propuesta " . $row['titulo'] . " 
+                  </li>";
                 }
 
                 ?>
@@ -100,3 +102,31 @@
     </li>
     
     </nav>
+
+    <script>
+    $(
+
+    );
+
+      function eliminarNotificacion(idNotificacion){
+        event.preventDefault();
+        event.stopPropagation();
+        
+        let notificacion = event.target.parentNode;
+
+        $.ajax({ 
+                method: 'GET',
+                url: 'includes/notificaciones.php?eliminar=true&idNotificacion=' + idNotificacion,
+                success: function(response)
+                { 
+                    if(response == 'ok'){
+                      notificacion.remove();
+                    }
+                },
+                error: function(error){
+                  alert(error);
+                }
+            });
+
+      }
+    </script>

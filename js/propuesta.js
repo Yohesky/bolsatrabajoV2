@@ -9,12 +9,14 @@ $(function () {
 
     $("#formulario").submit(function(e)
     {
+
+        e.preventDefault();
          let form = $("#formulario").serialize();
          // console.log(form);
          
 
-         if($.trim(nombre).length > 0 && $.trim(descripcion).length > 0 && $.trim(vacantes).length > 0 && $.trim(sueldo).length > 0 && $.trim(funciones).length > 0 && $.trim(categoria).length >0
-         && $.trim(aExp).length >0 && $.trim(vehiculo).length >0 && $.trim(viajes).length >0 && $.trim(educacion).length >0 && $.trim(estado).length >0 && $.trim(ciudad).length >0 && $.trim(aExp).length >0)
+         if($.trim(nombre.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(vacantes.value).length > 0 && $.trim(sueldo.value).length > 0 && $.trim(funciones.value).length > 0 && $.trim(categoria.value).length >0
+         && $.trim(aExp.value).length >0 && $.trim(vehiculo.value).length >0 && $.trim(viajes.value).length >0 && $.trim(educacion.value).length >0 && $.trim(estado.value).length >0 && $.trim(ciudad.value).length >0 && $.trim(aExp.value).length >0)
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
             console.log(direccion);

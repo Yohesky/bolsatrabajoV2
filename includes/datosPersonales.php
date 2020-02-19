@@ -19,46 +19,50 @@ while($row = mysqli_fetch_array($resultado))
 {
    echo 
    "
-   <form id='formularioTarea' enctype='multipart/form-data'>
+   <h2>Datos Personales</h2>
+   <form id='formularioTarea' enctype='multipart/form-data' class='needs-validation' novalidate>
    <div class='form-group'>
-                            <input type='text' id='nombre' name='nombre' value='".$row['nombre']."' class='form-control' placeholder='Nombre' required >
+        <input type='text' id='nombre' name='nombre' value='".$row['nombre']."' class='form-control' placeholder='Nombre' required maxlength='45'>
+                            
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='apellido' name='apellido' value='".$row['apellido']."' placeholder='Apellido' class='form-control' required>
+    <label>Apellido</label>
+                            <input type='text' id='apellido' name='apellido' value='".$row['apellido']."' placeholder='Apellido' class='form-control' required maxlength='45'>
     </div>
 
     <div class='form-group'>
-        <input type='text' id='correo' name='correo' value='".$row['correo']."' placeholder='Correo' class='form-control' required>
+    <label>Correo Electronico</label>
+        <input type='email' id='correo' name='correo' value='".$row['correo']."' placeholder='Correo' class='form-control' required>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='ci' name='ci' value='".$row['ci']."' placeholder='Cedula' class='form-control' required>
+                            <input type='text' id='ci' name='ci' value='".$row['ci']."' placeholder='Cedula' class='form-control' required maxlength='12'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='fechaNacimiento' name='fechaNacimiento' value='".$row['fechaNacimiento']."' placeholder='Fecha de nacimiento' class='form-control' readonly='' required>
+                            <input type='text' id='fechaNacimiento' name='fechaNacimiento' value='".$row['fechaNacimiento']."' placeholder='Fecha de nacimiento' class='form-control'>
                             <span id='edadCalculada'> </span>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='num1' name='num1' value='".$row['num1']."' placeholder='Número telefonico' class='form-control' required>
+                            <input type='tlf' id='num1' name='num1' value='".$row['num1']."' placeholder='Número telefonico' class='form-control' maxlength='11'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='puestoDeseado' name='puesto' value='".$row['puestoDeseado']."' placeholder='Puesto deseado' class='form-control' required>
+                            <input type='text' id='puestoDeseado' name='puesto' value='".$row['puestoDeseado']."' placeholder='Puesto deseado' class='form-control' maxlength='45'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='sueldoDeseado' name='sueldoDeseado' value='".$row['sueldoDeseado']."' placeholder='Sueldo deseado' class='form-control' required>
+                            <input type='number' id='sueldoDeseado' name='sueldoDeseado' value='".$row['sueldoDeseado']."' placeholder='Sueldo deseado' class='form-control' step='1' min='1'>
+    </div>
+
+    <div class='form-group d-none'>
+                            <input type='text' id='pais' name='pais' value='".$row['pais']."' placeholder='Pais' class='form-control' maxlength='45'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='pais' name='pais' value='".$row['pais']."' placeholder='Pais' class='form-control' required>
-    </div>
-
-    <div class='form-group'>
-    <select name='estado' id='estado' class='form-control'>
+    <select name='estado' id='estado' class='form-control' required>
         <option value=' disabled selected>Selecciona tu estado</option>
         <option value='".$row['estado']."'>".$row['estado']."</option>
         <option value='Amazonas'>Amazonas</option>
@@ -98,7 +102,7 @@ while($row = mysqli_fetch_array($resultado))
 </div>
 
     <div class='form-group'>
-                            <input type='text' id='direccion' name='direccion' value='".$row['direccion']."' placeholder='Dirección' class='form-control' required>
+                            <input type='text' id='direccion' name='direccion' value='".$row['direccion']."' placeholder='Dirección' class='form-control' maxlength='45' required='false'>
     </div>
 
     <div class='form-group'>
@@ -116,16 +120,16 @@ while($row = mysqli_fetch_array($resultado))
                           
     </div>
 
-    <div class='row'>
+    <div class='row d-none'>
     
         <div class='form-group col-md-6'>
         <span> Ingrese su idioma </span>
-            <input type='text' id='idioma' placeholder='Idioma' name='idioma' value='".$row['idioma']."' class='form-control' required>
+            <input type='text' id='idioma' placeholder='Idioma' name='idioma' value='".$row['idioma']."' class='form-control' required maxlength='45'>
         </div>
 
         <div class='form-group col-md-6'>
         <span> Nivel de idioma </span>
-            <input type='text' id='nivelIdioma' placeholder='Nivel de Idioma' name='nivelIdioma' value='".$row['nivelIdioma']."' class='form-control' required>
+            <input type='text' id='nivelIdioma' placeholder='Nivel de Idioma' name='nivelIdioma' value='".$row['nivelIdioma']."' class='form-control' required maxlength='45'>
         </div>
 
     </div>
@@ -185,7 +189,7 @@ while($row = mysqli_fetch_array($resultado))
 
     </div>
 
-    <button type='button' class='btn btn-success' id='btnDatos'>
+    <button type='submit' class='btn btn-success' id='btnDatos'>
     Actualizar
     </button>
    </form>

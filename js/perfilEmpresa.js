@@ -2,14 +2,17 @@ $(function () {
     actualizar();
     obtenerFotoPerfil();
     actualizarDescripcion()
-    seleccion()
+    seleccion();
+    mostrarPostuladosSeleccionados();
   
     function actualizar() {
-      $("#btnDatos").click(function (e) {
-  
+      $("#formularioActualizacion").submit(function (e) {
+      
+      e.preventDefault();
+
         let form = $("#formularioActualizacion").serialize();
         console.log(form)
-        if ($.trim(nombreEmpresa).length > 0) {
+        if ($.trim($('#nombreEmpresa').val()).length > 0) {
           $.ajax({
             type: 'POST',
             url: 'includes/actDatosEmpresa.php',
@@ -22,7 +25,11 @@ $(function () {
                       icon: "success",
                       button: "Continuar",
                     });
-                  }
+                  }else{
+                    console.log(response);
+                  }                },
+            error: function(error){
+              console.log(error);
             }
           });
         }
@@ -191,11 +198,12 @@ $(function () {
 
   function actualizarDescripcion()
   {
-    $("#btnDescripcion").click(function(e)
+    $("#formularioDescripcionEmpresa").submit(function(e)
     {
       let form = $("#formularioDescripcionEmpresa").serialize();
       console.log(form);
-      if($.trim(descripcion).length > 0 )
+      e.preventDefault();
+      if($.trim(descripcion.value).length > 0 )
       {
         $.ajax(
           {
@@ -210,6 +218,8 @@ $(function () {
                   icon: "success",
                   button: "Continuar",
                 });
+              }else{
+                alert('Error');
               }
             }   
           }
@@ -819,4 +829,50 @@ $(function () {
             $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
         });
     }
+}
+
+function mostrarPostuladosSeleccionados(){
+    $.ajax({
+      method: 'GET',
+      dataType: 'json',
+      url: 'includes/mostrarSeleccionados.php'
+    }).done(function(respuesta){
+      $(empleadosSeleccionados).html(
+        respuesta.map((valor) =>{
+          return `<li class="bg-white p-3 d-block mt-1 rounded"><div class="row">
+          <div class="col-6 text-break">
+          ${valor.nombre} ${valor.apellido}
+          </div>
+          <div class="col-2">
+            <a class="btn btn-primary" href="perfil.php?id=${valor.idusuarios}">Ver</a>
+          </div>
+          <div class="col-3">
+            <button clase="btn btn-danger" type="button" onclick="eleminarSeleccion(${valor.idseleccion})">Eliminar</button>
+          </div>
+          </div>
+          </li>`
+        })
+      );
+
+      console.log(respuesta);
+    }).fail(function(error){
+      alert('hay problemas');
+      console.log(error);
+    });
+}
+
+function eleminarSeleccion(idseleccion){
+  event.preventDefault();
+  let notificacion = event.target.parentNode.parentNode.parentNode;
+
+  $.ajax({
+    method: 'GET',
+    url: 'includes/eliminarSeleccion.php?idseleccion='+idseleccion,
+  }).done((respuesta) =>{
+    notificacion.remove();
+    console.log(respuesta);
+  }).fail((respuesta) =>{
+    alert('error');
+    console.log(respuesta);
+  })
 }

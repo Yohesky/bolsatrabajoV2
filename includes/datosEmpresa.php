@@ -19,13 +19,13 @@ while($row = mysqli_fetch_array($resultado))
 {
    echo 
    "
-   <form id='formularioActualizacion'>
+   <form id='formularioActualizacion' class='needs-validation' novalidate  >
    <div class='form-group'>
                             <input type='text' id='nombreEmpresa' name='nombreEmpresa' value='".$row['nombreEmpresa']."' class='form-control' required maxlength='50'>
     </div>
 
     <div class='form-group'>
-                            <input type='text' id='rif' name='rif' value='".$row['rif']."' class='form-control' required>
+                            <input type='text' id='rif' name='rif' value='".$row['rif']."' class='form-control' required maxlength='12'>
     </div>
 
     <div class='form-group'>
@@ -37,7 +37,7 @@ while($row = mysqli_fetch_array($resultado))
     </div>
 
     <div class='form-group'>
-                            <input type='email' id='correoEmpresa' name='correoEmpresa' value='".$row['correoEmpresa']."' class='form-control' required>
+                            <input type='email' id='correoEmpresa' name='correoEmpresa' value='".$row['correoEmpresa']."' class='form-control' required maxlength='45'>
     </div>
 
     <div class='form-group'>
@@ -70,7 +70,9 @@ while($row = mysqli_fetch_array($resultado))
                             <option value='Zulia'>Zulia</option>
 
                         </select>
+                    </div>
 
+                    <div class='form-group'>
 
                         <select name='ciudad' id='ciudad' class='form-control'>
 
@@ -81,11 +83,11 @@ while($row = mysqli_fetch_array($resultado))
                     </div>
 
     <div class='form-group'>
-                            <input type='text' id='webEmpresa' name='webEmpresa' value='".$row['webEmpresa']."' class='form-control' required>
+                            <input type='text' id='webEmpresa' name='webEmpresa' value='".$row['webEmpresa']."' class='form-control' placeholder='web de la empresa'>
     </div>
     
 
-    <button type='button' class='btn btn-success' id='btnDatos'>
+    <button type='submit' class='btn btn-success' id='btnDatos'>
     Actualizar
     </button>
    </form>

@@ -1,9 +1,9 @@
 $(function () {
    
-    $("#ingresar").click(function(e){
+    $("#formulario").submit(function(e){
 
-    
-    e.preventDefault();
+        e.preventDefault();
+        
     
         var correo = $("#correo").val();
         var contrasena = $("#contrasena").val();

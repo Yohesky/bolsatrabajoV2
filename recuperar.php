@@ -78,4 +78,4 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/recuperacionTrabajador.js"></script>
-
+<script src="js/validaciones.js"></script>

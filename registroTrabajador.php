@@ -13,21 +13,21 @@
 
 <div class="card-body">
     <div class="row">
-    <form id="formulario" class="col-md-6 col-md-offset-4 container text-center">
+    <form id="formulario" class="col-md-6 col-md-offset-4 container text-center needs-validation" novalidate>
         <div class="form-group">
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" autofocus>
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" autofocus maxlength="45">
         </div>
 
         <div class="form-group">
-            <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" autofocus>
+            <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" autofocus maxlength="45">
         </div>
 
         <div class="form-group">
-            <input type="email" name="email" id="email" placeholder="Correo" class="form-control">
+            <input type="email" name="email" id="email" placeholder="Correo" class="form-control" >
         </div>
 
         <div class="form-group">
-            <input type="number" name="ci" id="ci" placeholder="Cédula" class="form-control">
+            <input type="text" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="11">
         </div>
 
         <div class="form-group">
@@ -60,7 +60,9 @@
 
                     </select>
 
+            </div>
 
+                <div class="form-group">
                     <select name="ciudad" id="ciudad" class="form-control">
                       
                     
@@ -93,7 +95,7 @@
         </div>
 
 
-        <button class="btn btn-success btn-block mt-0" id="registro">Registrarse</button>
+        <button class="btn btn-success btn-block mt-0" id="registro" type="submit">Registrarse</button>
         <br>
         <a href="loginTrabajador.php" class="pt-4"> Ingresar </a>
         <div id="resultado">
@@ -103,4 +105,5 @@
     </div>
 
 <?php include("includes/footer.php") ?>
+<script src="js/validaciones.js"></script>
 <script src="js/trabajador.js"></script>
