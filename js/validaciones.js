@@ -50,18 +50,14 @@ $(function(){
 	$('#respuesta').prop('required', true).parent().append('<div class="text-left invalid-feedback">Escriba una respuesta</div>');
 
 	$('#res1').prop('required', true).parent().append('<div class="text-left invalid-feedback">Escriba una respuesta</div>');
+	
+	$('#habilidad').prop('required', true);
 
-	$('#num1').keypress(function(e){
-		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#nivelHabilidad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un nivel</div>');
 
-	$('#puestoDeseado').keypress(function(e){
-		if(!(/[a-zñÑáéíóúñ A-z]]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#num1').prop({'pattern': '[0-9]{11}'}).parent().append('<div class="text-left invalid-feedback">Numero de teléfono 04129409998</div>');
+
+	$('#puestoDeseado').prop({'pattern': '^[a-zñÑáéíóúñA-Z]+[a-zñÑáéíóúñA-Z]$'}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
 
 	$('#sueldoDeseado').keypress(function(e){
 		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
@@ -75,7 +71,7 @@ $(function(){
 		}
 	})
 
-	$('#direccion').prop({'pattern': '[a-zñÑA-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
+	$('#direccion').prop({'pattern': '[a-zñÑ A-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
 
 	$('#direccionEmpresa').prop({'pattern': '[a-zñÑA-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
 
@@ -121,11 +117,8 @@ $(function(){
 		}
 	});
 
-	$('#habilidad').keypress(function(e){
-		if(!(/[a-zñÑA-Z0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#habilidad').prop({'required': true});
+		
 
 	$('#correo').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 

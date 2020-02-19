@@ -22,6 +22,8 @@ if(isset($_POST["descripcion"]))
     // }
 
     echo "exito";
+}else{
+    echo "fallo";
 }
 
 ?>

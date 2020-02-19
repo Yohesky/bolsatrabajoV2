@@ -217,6 +217,8 @@ $(function () {
                   icon: "success",
                   button: "Continuar",
                 });
+              }else{
+                alert('Error');
               }
             }   
           }

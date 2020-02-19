@@ -8,3 +8,4 @@
 
 <?php include("includes/footer.php") ?>
 <script src="js/perfil.js"></script>
+<script src="js/notificaciones.js"></script>

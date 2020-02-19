@@ -2,6 +2,8 @@
 include("conexion.php");
 
 session_start();
+if(!isset($_GET['eliminar'])){
+
 $idempresa = $_SESSION['idempresa'];
 $idusuario = $_POST["id"];
 $idpropuesta = $_POST["idpropuesta"];
@@ -17,7 +19,7 @@ $idpropuesta = $_POST["idpropuesta"];
 
 //     echo "exito";
 
-$sql = "SELECT COUNT(*) as cantidad FROM notificaciones WHERE idempresa='$idempresa' AND idusuario='$idusuario' AND idpropuesta='$idpropuesta'";
+$sql = "SELECT COUNT(*) as cantidad FROM notificaciones WHERE idempresa='$idempresa' AND idusuario='$idusuario' AND idpropuesta='$idpropuesta";
 $res = mysqli_query($conexion, $sql);
 $data = mysqli_fetch_array($res);
 if($data["cantidad"] > 0)
@@ -30,4 +32,16 @@ else{
      echo "insertado";
 }
 
+}else{
+   $idNotificacion = $_GET["idNotificacion"];
+   $query = "UPDATE notificaciones SET vista = 1 WHERE idNotificacion = '$idNotificacion'";
+   $res = mysqli_query($conexion, $query);
+   if($res)
+   {
+      echo "ok";
+   }else{
+      echo "error";
+   }
+
+}
 ?>
