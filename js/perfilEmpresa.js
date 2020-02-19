@@ -2,7 +2,8 @@ $(function () {
     actualizar();
     obtenerFotoPerfil();
     actualizarDescripcion()
-    seleccion()
+    seleccion();
+    mostrarPostuladosSeleccionados();
   
     function actualizar() {
       $("#formularioActualizacion").submit(function (e) {
@@ -828,4 +829,35 @@ $(function () {
             $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
         });
     }
+}
+
+function mostrarPostuladosSeleccionados(){
+    $.ajax({
+      method: 'GET',
+      dataType: 'json',
+      url: 'includes/mostrarSeleccionados.php'
+    }).done(function(respuesta){
+      $(empleadosSeleccionados).html(
+        respuesta.map((valor) =>{
+          return `<li class="bg-white p-3 d-block"><div class="row">
+          <div class="col-8">
+          ${valor.nombre} ${valor.apellido}
+          </div>
+          <div class="col-4">
+            <button clase="btn btn-danger" type="button" onclick="eleminarSeleccion()">Eliminar</button>
+          </div>
+          </div>
+          </li>`
+        })
+      );
+
+      console.log(respuesta);
+    }).fail(function(error){
+      alert('hay problemas');
+      console.log(error);
+    });
+}
+
+function eleminarSeleccion(){
+  
 }
