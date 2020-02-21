@@ -847,7 +847,7 @@ function mostrarPostuladosSeleccionados(){
             <a class="btn btn-primary" href="perfil.php?id=${valor.idusuarios}">Ver</a>
           </div>
           <div class="col-3">
-            <button clase="btn btn-danger" type="button" onclick="eleminarSeleccion(${valor.idseleccion})">Eliminar</button>
+            <button class="btn btn-danger" type="button" onclick="eleminarSeleccion(${valor.idseleccion})">Eliminar</button>
           </div>
           </div>
           </li>`

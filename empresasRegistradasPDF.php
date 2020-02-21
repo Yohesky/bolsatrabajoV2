@@ -21,13 +21,14 @@ function Header()
     $Query = "SELECT * FROM empresa";
     $rsQuery = mysqli_query($conexion, $Query) or die(mysqli_error($conexion));
     $filas = mysqli_num_rows($rsQuery);
+    $fechaActual = date('Y-m-d');
     // Logo
     $this->Image('img/empresa.png',10,10,33);
     // Arial bold 10
     $this->SetFont('Arial','B',9);
     // Datos de emision del reporte
-    $this->Cell(0,5, utf8_decode('Nombre de la Aplicación'),0,1,'R');
-    $this->Cell(0,5, utf8_decode('Correo de Administrador'),0,1,'R');
+
+    $this->Cell(0,5, utf8_decode('Numero de registros hasta la fecha '.$fechaActual.' '),0,1,'R');
 
     // Arial bold 15
     $this->SetFont('Arial','B',15);

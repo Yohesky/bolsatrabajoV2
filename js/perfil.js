@@ -24,7 +24,7 @@ function cargarDatos(){
 					<h3>Información Personal y de Contacto</h3>
 					<div class="row">
 
-						${resultado.correo != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Corre</strong><br> ${resultado.correo}</div>` : ''}
+						${resultado.correo != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Correo</strong><br> ${resultado.correo}</div>` : ''}
 
 						${resultado.num1 != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Telefono</strong><br> ${resultado.num1}</div>` : ''}
 
@@ -32,11 +32,11 @@ function cargarDatos(){
 
 						${resultado.disponibilidadViajar != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Disponibilidad de Viajar</strong><br> ${resultado.disponibilidadViajar}</div>` : ''}
 
-						${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary" target="_blank">Curriculum Pdf</a></div>` : ''}
+						${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary" target="_blank">Curriculum PDF</a></div>` : ''}
 						
 					</div>
 
-					${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3">Descripción</h3><p class="text-justify mx-3 text-break">${resultado.descripcion}</p>`: ''}
+					${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3">Descripción</h3><p class="text-justify mx-auto text-break">${resultado.descripcion}</p>`: ''}
 				</div>
 			</section>
 			${resultado.habilidades.length > 0 ? ` 
