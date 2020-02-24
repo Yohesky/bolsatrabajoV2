@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            <input type="text" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="11">
+            <input type="text" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="10">  
         </div>
 
         <div class="form-group">

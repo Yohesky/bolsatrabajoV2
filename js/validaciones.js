@@ -17,7 +17,7 @@
 	  })();
 $(function(){
 
-	$('#nombre').prop({'pattern': '[a-z áéíóúñÑA-Z]+', 'required': true
+	$('#nombre').prop({'pattern': '[a-záéíóúñÑA-Z]+', 'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras)</div>');
 
 	$('#nombreEmpresa').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
@@ -35,7 +35,7 @@ $(function(){
 	$('#sueldo').prop({'pattern': '[0-9]+', 'required': true
 }).parent().append('<div class="invalid-feedback text-left">Solo numeros</div>');
 
-	$('#apellido').prop({'pattern': '[a-z áéíóúñÑA-Z]+',
+	$('#apellido').prop({'pattern': '[a-záéíóúñÑA-Z]+',
 	'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un apellido (solo letras)</div>')
 

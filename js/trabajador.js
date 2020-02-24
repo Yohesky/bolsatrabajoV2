@@ -1,8 +1,10 @@
 $(function()
-{   seleccion()
+{   seleccion();
+
     $("#formulario").submit(function(e)
     {
-
+        let formulario = document.getElementById('formulario');
+        if(formulario.checkValidity()){
         let form = $("#formulario").serialize();
         
         console.log(form);
@@ -14,13 +16,17 @@ $(function()
                 data: form,
                 success: function(response)
                 {
+                    console.log(response);
                     $("#resultado").html(response);
+                    setTimeout(() => {location.href = 'loginTrabajador.php'}, 3000);
+                },
+                error: function(error){
+                    console.log(error);
                 }
             });
         }
-
+    }
         e.preventDefault();
-        $("#formulario").trigger("reset");
     });
 
 
