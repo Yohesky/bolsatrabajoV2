@@ -6,7 +6,6 @@ $(function () {
     seleccion()
 
     let editar = false;
-
     $("#formulario").submit(function(e)
     {
 
@@ -15,7 +14,7 @@ $(function () {
          // console.log(form);
          
 
-         if($.trim(nombre.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(vacantes.value).length > 0 && $.trim(sueldo.value).length > 0 && $.trim(funciones.value).length > 0 && $.trim(categoria.value).length >0
+         if($.trim(nombrePropuesta.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(vacantes.value).length > 0 && $.trim(sueldo.value).length > 0 && $.trim(funciones.value).length > 0 && $.trim(categoria.value).length >0
          && $.trim(aExp.value).length >0 && $.trim(vehiculo.value).length >0 && $.trim(viajes.value).length >0 && $.trim(educacion.value).length >0 && $.trim(estado.value).length >0 && $.trim(ciudad.value).length >0 && $.trim(aExp.value).length >0)
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
@@ -27,13 +26,15 @@ $(function () {
                  data: form,
                  success: function(response)
                  {
+                     editar = false;
                      obtenerPublicacion();
+                     $("#formulario").trigger("reset");
                      console.log(response);
                  }
              })
          }
 
-    $("#formulario").trigger("reset");
+    
  
     e.preventDefault();
     });
@@ -118,7 +119,7 @@ $(function () {
               $.post("includes/actPropuesta.php", {id}, function(response)
              {   
                const postulacion = JSON.parse(response);
-               $("#nombre").val(postulacion.titulo);
+               $("#nombrePublicacion").val(postulacion.titulo);
                $("#descripcion").val(postulacion.descripcion);
                $("#funciones").val(postulacion.funciones);
                $("#vacantes").val(postulacion.vacantes);
@@ -727,14 +728,14 @@ $(function () {
 
                 default:
                     $("#ciudad").empty();
-                    $("#ciudad").append("<option>--Select--</option>");
+                    $("#ciudad").append("<option value=''>--Select--</option>");
                     break;
             }
         });
 
         function city(arr) {
             $("#ciudad").empty();//To reset cities
-            $("#ciudad").append("<option>--Select--</option>");
+            $("#ciudad").append("<option value=''>--Select--</option>");
             $(arr).each(function (i) {//to list cities
                 $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
             });

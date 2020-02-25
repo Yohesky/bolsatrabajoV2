@@ -1,4 +1,14 @@
-<?php include("includes/headerTrabajador.php") ?>
+
+<?php 
+session_start();
+if(isset($_SESSION["idusuarios"])){
+	include("includes/headerTrabajador.php");
+}else{
+	include("includes/headerEmpresa.php");
+}
+
+
+?>
 
 <main class="container mx-auto">
 	<div class="row">

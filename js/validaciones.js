@@ -147,4 +147,5 @@ $(function(){
 		}
 	});
 
+	$('#nombrePropuesta').prop({'pattern': '(^[a-zñÑáéíóúA-Z])([a-zñÑáéíóú A-Z]+)', 'required': true}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
 });

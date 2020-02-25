@@ -10,7 +10,7 @@
                 <form id="formulario" class="needs-validation" novalidate>
                     <input type="hidden" id="postulacionId" name="postulacionId">
                     <div class="form-group">
-                        <input type="text" id="nombre" name="nombre" placeholder="Titular del Empleo" class="form-control" autofocus maxlength="45">
+                        <input type="text" id="nombrePropuesta" name="nombre" placeholder="Titular del Empleo" class="form-control" autofocus maxlength="45">
                     </div>
 
                     <div class="form-group">
@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="estado" id="estado" class="form-control">
+                        <select name="estado" id="estado" class="form-control" required>
                             <option value="" disabled selected>Selecciona tu estado</option>
                             <option value="Amazonas">Amazonas</option>
                             <option value="Anzoategui">Anzoategui</option>
@@ -65,7 +65,7 @@
 
                     </div>
                     <div class="form-group">
-                        <select name="ciudad" id="ciudad" class="form-control">
+                        <select name="ciudad" id="ciudad" class="form-control" required>
 
 
                         </select>
@@ -75,7 +75,7 @@
 
                     <div class="form-group">
                         <label for="vehiculo">¿Se requiere automovil?</label>
-                        <select id="vehiculo" name="vehiculo" class="form-control">
+                        <select id="vehiculo" name="vehiculo" class="form-control" required>
                             <option value="Si">Si</option>
                             <option value="No">No</option>
                         </select>
@@ -83,7 +83,7 @@
 
                     <div class="form-group">
                         <label for="viajes">¿Se requiere viajar?</label>
-                        <select id="viajes" name="viajes" class="form-control">
+                        <select id="viajes" name="viajes" class="form-control" required>
                             <option value="Si">Si</option>
                             <option value="No">No</option>
                         </select>
@@ -135,7 +135,7 @@
 
 
                     <!-- btn-block para que ocupe el ancho disponible -->
-                    <button type="submit" class="btn btn-primary btn-block text-center">
+                    <button type="submit" class="btn btn-primary btn-block text-center" id="guardar-publicacion">
                         Guardar
                     </button>
                 </form>

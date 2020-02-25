@@ -10,13 +10,13 @@ function inicio($conexion){
     if(isset($_GET["busqueda"])){
 
         $parametrosDeBusqueda = json_decode($_GET["datos"], true);        
-        $generadorSql = new GeneradorSQL("SELECT * FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa", "parametrosJsonASql", $parametrosDeBusqueda);
-        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, $generadorSql->obtenerSentenciaSQL(), $generadorSql->obtenerCondicionales());
+        $generadorSql = new GeneradorSQL("SELECT * FROM propuesta", "parametrosJsonASql", $parametrosDeBusqueda);
+        $generadorConsulta = new GeneradorConsultaConPaginacion(10, $conexion, $generadorSql->obtenerSentenciaSQL(), $generadorSql->obtenerCondicionales());
         echo $generadorConsulta->obtenerJSON();
 
     }else{
         
-        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion);
+        $generadorConsulta = new GeneradorConsultaConPaginacion(10, $conexion);
         echo $generadorConsulta->obtenerJSON();
 
     }
@@ -39,7 +39,7 @@ function convertirConsultaJSON($resultado): array{
             "descripcion" =>  $row ["descripcion"],
             "vacantes" => $row ["vacantes"],
             "sueldo" => $row ["sueldo"],
-            "estado" => $row ["estado"],
+            "estado" => $row["estado"],
             "publicacion" => $row ["publicacion"],
             "id" =>  $row ["idpropuesta"],
             "idempresa" => $row["idempresa"],
