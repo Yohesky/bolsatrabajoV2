@@ -166,13 +166,6 @@
 <script src="js/perfilTrabajador.js"></script>
 <script>
     $(document).ready(function() {
-        $("#fechaNacimiento").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: '1970:' + 2010,
-            dateFormat: "yy-mm-dd"
-        })
-
         $("#expFechaIni").datepicker({
             changeMonth: true,
             changeYear: true,
@@ -195,7 +188,7 @@
                 url: "includes/calcularEdad.php",
                 success: (r) => {
 
-                    $("#edadCalculada").text(r + "años")
+                    $("#edadCalculada").text(r + " años")
 
                 }
             })
