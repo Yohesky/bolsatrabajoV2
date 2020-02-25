@@ -5,9 +5,8 @@ session_start();
 
 $idusuario = $_SESSION['idusuarios'];
 
-if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]) && isset($_POST["ci"])
-&& isset($_POST["puesto"]) && isset($_POST["pais"]) && isset($_POST["ciudad"])
-&& isset($_POST["educacion"]) && isset($_POST["idioma"]) && isset($_POST["nivelIdioma"]) && isset($_POST["estado"]) && isset($_POST["ciudad"]))
+if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]) && isset($_POST["ci"]) && isset($_POST["ciudad"])
+&& isset($_POST["educacion"]) && isset($_POST["estado"]) && isset($_POST["ciudad"]))
 {
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
@@ -15,12 +14,9 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]
     $ci = $_POST["ci"];
     $num1 = $_POST["num1"];
     $puesto = $_POST["puesto"];
-    $pais = $_POST["pais"];
     $ciudad = $_POST["ciudad"];
     $direccion = $_POST["direccion"];
     $educacion = $_POST["educacion"];
-    $idioma = $_POST["idioma"];
-    $nivelIdioma = $_POST["nivelIdioma"];
     $fechaNacimiento = $_POST["fechaNacimiento"];
     $sueldoDeseado = $_POST["sueldoDeseado"];
     $educacion = $_POST["educacion"];
@@ -29,13 +25,9 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]
     $vehiculo = $_POST["vehiculo"];
     $estadoCivil = $_POST["estadoCivil"];
     $fechaActual = date('Y-m-d', time());
-    echo $fechaNacimiento;
     $edad = (int) $fechaActual - $fechaNacimiento;
     $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
     $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
-    
-
-
 
     if(isset($_FILES['curriculum'])){
         //guardar curricum

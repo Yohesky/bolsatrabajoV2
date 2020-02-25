@@ -2,7 +2,6 @@ $(function () {
 
   let editar = false;
   obtenerFotoPerfil();
-  actualizar();
   insertarExp();
   mostrarExp();
   editarExperiencia();
@@ -30,13 +29,14 @@ $(function () {
  
 
 
-  function actualizar() {
+
     $("#formularioTarea").submit(function (e) {
     e.preventDefault();
     var form;
-    
+    const formulario = document.getElementById("formularioTarea").checkValidity();
+    console.log(formulario);
     form = new FormData(document.getElementById("formularioTarea"));
-
+    if(formulario){
     if(!archivoValidado){
       form.delete('curriculum');
     }
@@ -52,30 +52,49 @@ $(function () {
           processData: false,
           success: function (response) {
             console.log(response);
-            if (response === 'exito') {
+
               swal({
                 title: "Datos actualizados",
                 text: "Sus datos han sido actualizados",
                 icon: "success",
                 button: "Continuar",
               });
-            }
+
+              actualizarCurriculum();
+          },//success
+          error: function(error){
+            console.log(error);
           }
         });
       }
     
-    });
-  }
+    }
+  });
+
+  $('#cerrar-modal').click(function(e){
+    $("#formularioExperiencia").removeClass('was-validated');
+    $("#formularioExperiencia").trigger("reset");
+  });
+
+  $('#anadirExp').click(function(e){
+    editar = false;
+  })
 
   function insertarExp() {
-    $("#guardar").click(function (e) {
+    
+    $("#formularioExperiencia").submit(function (e) {
 
+      let formulario = document.getElementById('formularioExperiencia');
+
+      if(formulario.checkValidity()){
+
+      
       let form = $("#formularioExperiencia").serialize();
-     
+  
       console.log(form);
-      if ($.trim(expEmpresa).length > 0 && $.trim(expPais).length > 0 && $.trim(expSector).length > 0 &&
-        $.trim(expArea).length > 0 && $.trim(expLabor).length > 0 && $.trim(expFechaIni).length > 0 && $.trim(expFechaFin).length > 0) {
-          let direccion = editar === false ? "includes/insertarExp.php" : "includes/actualizacionExperiencia.php";
+      if ($.trim(expEmpresa.value).length > 0 && $.trim(expPais.value).length > 0 && $.trim(expSector.value).length > 0 &&
+        $.trim(expArea.value).length > 0 && $.trim(expLabor.value).length > 0 && $.trim(expFechaIni.value).length > 0 && $.trim(expFechaFin.value).length > 0) {
+          let direccion = editar ?  "includes/actualizacionExperiencia.php":"includes/insertarExp.php";
           console.log(direccion)
         $.ajax({
           method: 'POST',
@@ -83,13 +102,19 @@ $(function () {
           data: form,
           success: function (response) {
             mostrarExp();
+
             console.log(response)
+          },
+          error: function(error){
+            console.log(error);
           }
         });
       }
 
-      e.preventDefault();
-      $("#formularioExperiencia").trigger("reset");
+    $("#formularioExperiencia").trigger("reset");
+    }
+    
+    e.preventDefault();
     });
   }
 
@@ -233,7 +258,7 @@ function monstrarCurriculum(){
   let direcion = curriculum.attr('direccion');
 
   curriculum.html(`
-    <embed class='mostrar-curriculum' src="${direcion}"></embed>
+    <embed class='mostrar-curriculum' src="${direcion}" id="mostrarCurriculum"></embed>
     `);
 
 }
@@ -251,8 +276,22 @@ function returnFileSize(number) {
 }
 
 function actualizarCurriculum(){
-  let archivo = document.getElementById('archivoCurriculum');
-  archivo.addEventListener('')
+
+  const idusuarios = $('#curriculum').attr('idusuarios');
+  console.log(idusuarios);
+  $.ajax({
+    method: 'GET',
+    url: 'includes/obtenerCurriculum.php?idusuarios='+idusuarios,
+  }).done(function(resultado){
+    console.log('curriculum: ' + resultado);
+    let curriculum = $("#curriculum");
+    curriculum.html(`
+    <embed class='mostrar-curriculum' src="${resultado}" id="mostrarCurriculum"></embed>
+    `);
+  }).fail(function(error){
+    console.log(error)
+  })
+  
 	
 }
 
