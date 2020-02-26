@@ -10,9 +10,11 @@ $(function () {
       
       e.preventDefault();
 
-        let form = $("#formularioActualizacion").serialize();
-        console.log(form)
-        if ($.trim($('#nombreEmpresa').val()).length > 0) {
+        const formulario = document.getElementById('formularioActualizacion');
+        
+        if (formulario.checkValidity()) {
+
+          let form = $("#formularioActualizacion").serialize();console.log(form);
           $.ajax({
             type: 'POST',
             url: 'includes/actDatosEmpresa.php',
@@ -817,14 +819,14 @@ $(function () {
 
             default:
                 $("#ciudad").empty();
-                $("#ciudad").append("<option>--Select--</option>");
+                $("#ciudad").append("<option value=''>--Select--</option>");
                 break;
         }
     });
 
     function city(arr) {
         $("#ciudad").empty();//To reset cities
-        $("#ciudad").append("<option>--Select--</option>");
+        $("#ciudad").append("<option value=''>--Select--</option>");
         $(arr).each(function (i) {//to list cities
             $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
         });
