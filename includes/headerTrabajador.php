@@ -50,14 +50,14 @@
             }}
        ?>
 
-        <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
+        <li id="trabajos">Trabajos </li>
           
-        <li id="empresas"> <i class="fa fa-etsy"></i> Empresas</li>
+        <li id="empresas">Empresas</li>
         <li id="misPostulaciones"> <i class="fas fa-bullseye"></i> Mis Postulaciones</li>
         
-        <li id="perfil"> <i class="fa fa-user-o fw"></i> Perfil</li>
+        <li id="perfil">Perfil</li>
 
-        <li id="salir"> <i class="fa fa-sign-out"></i> Salir</li>
+        <li id="salir">Salir</li>
         
       </ul>
      

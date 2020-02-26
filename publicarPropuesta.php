@@ -131,8 +131,16 @@
                 </div>
 
 
-
-
+                <div class=' mb-4'>
+                    <p>Test para el postulante (Opcional)</p>
+                    <p>Formatos permitidos pdf y docx de menos de 10 mb</p>
+                    <input type='file' class='' id='archivoTest' accept='.pdf, .docx' name='curriculum'>
+                    <label class='' for='curriculum'>Ingresar Test</label>
+                 </div>
+    
+                <!--TODO
+                <div id='curriculum' direccion='".$row['curriculum']."' idusuarios='".$_SESSION['idusuarios']."'>
+                -->
 
                     <!-- btn-block para que ocupe el ancho disponible -->
                     <button type="submit" class="btn btn-primary btn-block text-center" id="guardar-publicacion">

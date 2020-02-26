@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-02-2020 a las 05:30:39
+-- Tiempo de generación: 26-02-2020 a las 12:04:04
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -162,23 +162,22 @@ CREATE TABLE `propuesta` (
   `viajes` char(100) DEFAULT NULL,
   `vehiculo` char(100) DEFAULT NULL,
   `estado` varchar(150) DEFAULT NULL,
-  `ciudad` varchar(150) DEFAULT NULL
+  `ciudad` varchar(150) DEFAULT NULL,
+  `test` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `propuesta`
 --
 
-INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `funciones`, `categoria`, `aExp`, `educacion`, `viajes`, `vehiculo`, `estado`, `ciudad`) VALUES
-(50, 'programador', 'saber react', 3, 111, 'Maracaibo', '0000-00-00 00:00:00', 5, 'programar app con react', 'Ventas', NULL, NULL, NULL, NULL, 'Zulia', 'Maracaibo'),
-(51, 'DESARROLLADOR WEB', 'SABER ANGULAR', 3, 222, 'CiudadOjeda', '0000-00-00 00:00:00', 6, 'REALIZAR APP CON ANGULAR', 'Mantenimiento', NULL, NULL, NULL, NULL, 'Zulia', NULL),
-(56, 'ASISTENTE ADMINISTRATIVO', 'QUE SEPA SAINT', 3, 400, '', '0000-00-00 00:00:00', 6, 'SER ASISTENTE', 'Mantenimiento', 8, 'Bachiller', 'Si', 'Si', 'Zulia', 'Maracaibo'),
-(60, 'asd', 'asd', 123, 12, '', '0000-00-00 00:00:00', 6, 'as', 'Ventas', 2, 'Bachiller', 'Si', 'Si', 'Guarico', 'Ortiz'),
-(61, 'GERENTE', 'LIDERAR EQUIPO', 1, 500, '', '0000-00-00 00:00:00', 5, 'REALIZAR REUNIONES INNCESESARIAS', 'Ventas', 8, 'Universitario', 'Si', 'Si', 'Merida', 'Tovar'),
-(74, 'ddd', 'asdf', 1, 1, '', '0000-00-00 00:00:00', 9, 'asdf', 'IngenierÃ­a', 1, 'Bachiller', 'Si', 'Si', 'Tachira', 'Panamericano'),
-(75, 'prueba', 'asdf', 11, 11, '', '0000-00-00 00:00:00', 9, 'asdf', 'InvestigaciÃ³n y Calidad', 11, 'Tecnico Medio', 'Si', 'Si', 'Nueva Esparta', 'Antolin del Campo'),
-(76, 'eee', 'dsg', 11, 11, '', '0000-00-00 00:00:00', 9, 'dfgs', 'DirecciÃ³n/GerencÃ­a', 1, 'Bachiller', 'Si', 'Si', 'Amazonas', 'Maroa'),
-(77, 'eee', 'asa', 11, 11, '', '0000-00-00 00:00:00', 9, 'asdf', 'DiseÃ±o/Artes GrÃ¡ficas', 11, 'Tecnico Medio', 'Si', 'Si', 'Merida', 'Padre Noguera');
+INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `funciones`, `categoria`, `aExp`, `educacion`, `viajes`, `vehiculo`, `estado`, `ciudad`, `test`) VALUES
+(50, 'programador', 'saber react', 3, 111, 'Maracaibo', '0000-00-00 00:00:00', 5, 'programar app con react', 'Ventas', NULL, NULL, NULL, NULL, 'Zulia', 'Maracaibo', NULL),
+(51, 'DESARROLLADOR WEB', 'SABER ANGULAR', 3, 222, 'CiudadOjeda', '0000-00-00 00:00:00', 6, 'REALIZAR APP CON ANGULAR', 'Mantenimiento', NULL, NULL, NULL, NULL, 'Zulia', NULL, NULL),
+(56, 'ASISTENTE ADMINISTRATIVO', 'QUE SEPA SAINT', 3, 400, '', '0000-00-00 00:00:00', 6, 'SER ASISTENTE', 'Mantenimiento', 8, 'Bachiller', 'Si', 'Si', 'Zulia', 'Maracaibo', NULL),
+(60, 'asd', 'asd', 123, 12, '', '0000-00-00 00:00:00', 6, 'as', 'Ventas', 2, 'Bachiller', 'Si', 'Si', 'Guarico', 'Ortiz', NULL),
+(61, 'GERENTE', 'LIDERAR EQUIPO', 1, 500, '', '0000-00-00 00:00:00', 5, 'REALIZAR REUNIONES INNCESESARIAS', 'Ventas', 8, 'Universitario', 'Si', 'Si', 'Merida', 'Tovar', NULL),
+(74, 'ddd', 'asdf', 1, 1, '', '0000-00-00 00:00:00', 9, 'asdf', 'IngenierÃ­a', 1, 'Bachiller', 'Si', 'Si', 'Tachira', 'Panamericano', NULL),
+(75, 'prueba', 'asdf', 11, 11, '', '0000-00-00 00:00:00', 9, 'asdf', 'InvestigaciÃ³n y Calidad', 11, 'Tecnico Medio', 'Si', 'Si', 'Nueva Esparta', 'Antolin del Campo', NULL);
 
 -- --------------------------------------------------------
 
@@ -252,7 +251,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `pais`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`, `esAdmin`, `estado`, `ciudad`) VALUES
 (1, 'Yohesky', 'Pimentel', '26878565', 'yoheskyjpp@gmail.com', '1234', '1998-05-29', 'Casado/a', 'Hombre', '2147483647', 'venezuela', 'UrbanizaciÃ³n el Soler', 'programador', 'Universitario', '', 'Ingles', 'intermedio', 'Si', '', 'No', 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, '400', 22, 0, 'Merida', 'Tovar'),
-(3, 'joswsf', 'aladas', 'V-2554555', 'josealjuria@gmail.com', 'jose', '2002-02-25', 'Casado/a', 'Hombre', '32147483647', 'Venezuela', 'adasdf', 'Desarrollador', 'Universitario', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/Fundamentos_de_jQuery.pdf', 'gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', './img-perfil/1582688129_3.jpg', NULL, NULL, '6', 18, 1, 'Zulia', 'MontalbÃ¡n'),
+(3, 'joswsf', 'aladas', 'V-2554555', 'josealjuria@gmail.com', 'jose', '2002-02-25', 'Casado/a', 'Hombre', '32147483647', 'Venezuela', 'adasdf', 'Desarrollador', 'Universitario', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/Fundamentos_de_jQuery.pdf', 'gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', './img-perfil/1582691920_3.jpg', NULL, NULL, '6', 18, 1, 'Zulia', 'MontalbÃ¡n'),
 (4, 'luis', 'colmenarez', '2512345', 'luis@gmail.com', 'luis', '0000-00-00', '', '', '2147483647', 'tierra negra', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, '', 2020, 0, 'Zulia', 'Maracaibo'),
 (7, 'coral', 'portillo', '14901511', 'cportillo@gmail.com', 'coral', '0000-00-00', 'Casado/a', 'Hombre', '2147483647', 'Venezuela', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400', NULL, 0, 'Zulia', 'Maracaibo'),
 (9, 'jecselys', 'torres', '25553618', 'jecselys17@gmail.com', '1234', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1580410567_9', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '', 2020, 0, 'Guarico', 'Santa MarÃ­a de Ipire'),
@@ -370,7 +369,7 @@ ALTER TABLE `experiencia`
 -- AUTO_INCREMENT de la tabla `habilidades`
 --
 ALTER TABLE `habilidades`
-  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT de la tabla `notificaciones`
