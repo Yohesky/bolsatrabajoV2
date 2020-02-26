@@ -59,7 +59,8 @@ $(function () {
                 icon: "success",
                 button: "Continuar",
               });
-
+              $('#nomG').text($('#nombre').val());
+              $('#ApeG').text($('#apellido').val());
               actualizarCurriculum();
           },//success
           error: function(error){
@@ -102,7 +103,7 @@ $(function () {
           data: form,
           success: function (response) {
             mostrarExp();
-
+            
             console.log(response)
           },
           error: function(error){

@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo $fila["nombre"]; ?></h3> </h5>
+                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white" id="nomG"><?php echo $fila["nombre"]; ?></h3> </h5>
                             <hr>
-                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white"><?php echo $fila["apellido"]; ?></h3>
+                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white" id="ApeG"><?php echo $fila["apellido"]; ?></h3>
                             
                             
                         </div>
