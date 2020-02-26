@@ -40,8 +40,10 @@
        <ul class="categories">
 
        <?php
-        session_start();
-
+        if(!isset($_SESSION)){
+          session_start();
+        }
+        
         if(isset($_SESSION['esAdmin']) && !empty($_SESSION['esAdmin'])){
             if($_SESSION['esAdmin'] == 1){
                echo "<li id='controlPanel'> <i class='fas fa-briefcase'></i> Panel de Control </li>";
@@ -50,6 +52,7 @@
 
         <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
           
+        <li id="empresas"> <i class="fa fa-etsy"></i> Empresas</li>
         <li id="misPostulaciones"> <i class="fas fa-bullseye"></i> Mis Postulaciones</li>
         
         <li id="perfil"> <i class="fa fa-user-o fw"></i> Perfil</li>

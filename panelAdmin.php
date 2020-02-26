@@ -14,6 +14,7 @@
 <body>
   <?php
    include("includes/conexion.php");
+   session_start();
   $idusuario = $_SESSION['idusuarios'];
 
   $query = "SELECT * FROM notificaciones JOIN empresa ON notificaciones.idempresa = empresa.idempresa WHERE idusuario = '$idusuario'";
@@ -42,6 +43,8 @@
     <ul class="categories">
 
       <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
+
+      <li id="empresas"> <i class="fa fa-etsy"></i> Empresas</li>
 
       <li id="misPostulaciones"> <i class="fas fa-bullseye"></i> Mis Postulaciones</li>
 

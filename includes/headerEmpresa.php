@@ -36,9 +36,7 @@
              
        <ul class="categories">
 
-       <li id="controlPanel"> <i class="fas fa-solar-panel"></i> Panel de Control </li>
-
-       <li id="publicar"> <i class="fas fa-briefcase"></i> Publicar </li>
+       <li id="publicar"> <i cla ss="fas fa-briefcase"></i> Publicar </li>
 
         <li id="mistrabajos"> <i class="fas fa-briefcase"></i> Mis Publicaciones </li>
           

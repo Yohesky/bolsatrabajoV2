@@ -28,3 +28,7 @@ $("#controlPanel").click( (e) => {
     $(location).attr('href','includes/logout.php');
     
   })
+
+  $('#empresas').click( (e) => {
+    $(location).attr('href','buscarEmpresa.php');
+  })
