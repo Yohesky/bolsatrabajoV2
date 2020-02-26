@@ -2,19 +2,18 @@ $(function () {
     seleccion()
     $("#formulario").submit(function (e) {
         e.preventDefault();
-        let form = $("#formulario").serialize();
 
-        console.log(form);
-        if ($.trim(nombreEmpresa.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(rif.value).length > 0 && $.trim(direccion.value).length > 0 &&
-            $.trim(sector.value).length > 0 && $.trim(contrasena.value).length > 0 && $.trim(contrasena2.value).length > 0
-            && $.trim(preguntas.value).length > 0 && $.trim(respuesta.value).length > 0 && $.trim(estado.value).length > 0 && $.trim(ciudad.value).length > 0) {
+        const formulario = document.getElementById('formulario');
+
+        if (formulario.checkValidity()) {
+            let form = $("#formulario").serialize();
+            console.log(form);
             $.ajax({
                 method: 'POST',
                 url: 'includes/registrarEmpresa.php',
                 data: form,
                 success: function (response) {
                     $("#resultado").html(response);
-                    location.href = 'loginEmpresa.php';
                 }
             });
         }

@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="url" name="pagina" id="pagina" placeholder="Pagina web" class="form-control">
+                    <input type="url" name="pagina" id="pagina" placeholder="Pagina web (Opcional)" class="form-control">
                 </div>
 
                 <div class="form-group">

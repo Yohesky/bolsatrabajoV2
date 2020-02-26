@@ -148,4 +148,6 @@ $(function(){
 	});
 
 	$('#nombrePropuesta').prop({'pattern': '(^[a-zñÑáéíóúA-Z])([a-zñÑáéíóú A-Z]+)', 'required': true}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
+
+	$('#pagina').prop('pattern', '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$').parent().append('<div class="text-left invalid-feedback">URL mal formada ejem. https://www.ejemplo.com</div>');
 });
