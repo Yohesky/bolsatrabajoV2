@@ -27,6 +27,7 @@ $(function () {
                       icon: "success",
                       button: "Continuar",
                     });
+                    $('#nomG').text($('#nombreEmpresa').val());
                   }else{
                     console.log(response);
                   }                },
