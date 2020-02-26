@@ -167,11 +167,36 @@
 <script src="js/perfilTrabajador.js"></script>
 <script>
     $(document).ready(function() {
+        var maximaFechaInicio = new Date();
+        var minimoFechaInicio = new Date(maximaFechaInicio.getFullYear()-18, 
+        maximaFechaInicio.getMonth(), maximaFechaInicio.getDate());
+
+
+        $.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+prevText: '<Ant',
+nextText: 'Sig>',
+currentText: 'Hoy',
+monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+
         $("#expFechaIni").datepicker({
             changeMonth: true,
             changeYear: true,
             yearRange: '1970:' + 2020,
-            dateFormat: "yy-mm-dd"
+            dateFormat: "yy-mm-dd",
+            maxDate: "0",
         }).keydown(function(e){
             e.preventDefault();
 	    });
@@ -181,7 +206,19 @@
             changeMonth: true,
             changeYear: true,
             yearRange: '1970:' + 2020,
-            dateFormat: "yy-mm-dd"
+            dateFormat: "yy-mm-dd",
+            maxDate: "0"
+        }).keydown(function(e){
+            e.preventDefault();
+        });
+
+        $("#fechaNacimiento").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            maxDate: '0',
+            yearRange: '1950:' + 2002,
+            dateFormat: "yy-mm-dd",
+            maxDate: minimoFechaInicio
         }).keydown(function(e){
             e.preventDefault();
         });

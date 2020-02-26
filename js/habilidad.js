@@ -20,9 +20,11 @@ e.preventDefault();
                  success: function(response)
                  {
                      if(response == 'exito'){
-                         obtenerHabilidad();
-                            console.log(response);
+                         
+                        console.log(response);
                      }
+                     editar = false;
+                     obtenerHabilidad();
                  }
              })
         $("#habilidades").trigger("reset");
@@ -109,7 +111,6 @@ function editarHabilidad(){
                $("#nivelHabilidad").val(habilidad.nivelHabilidad);
                $("#habilidadId").val(habilidad.idHabilidad)
                editar = true;
-              
               });
       
       
