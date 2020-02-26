@@ -17,7 +17,7 @@
 	  })();
 $(function(){
 
-	$('#nombre').prop({'pattern': '[a-z áéíóúñÑA-Z]+', 'required': true
+	$('#nombre').prop({'pattern': '[a-záéíóúñÑA-Z]+', 'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras)</div>');
 
 	$('#nombreEmpresa').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
@@ -35,7 +35,7 @@ $(function(){
 	$('#sueldo').prop({'pattern': '[0-9]+', 'required': true
 }).parent().append('<div class="invalid-feedback text-left">Solo numeros</div>');
 
-	$('#apellido').prop({'pattern': '[a-z áéíóúñÑA-Z]+',
+	$('#apellido').prop({'pattern': '[a-záéíóúñÑA-Z]+',
 	'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un apellido (solo letras)</div>')
 
@@ -57,7 +57,7 @@ $(function(){
 
 	$('#num1').prop({'pattern': '[0-9]{11}'}).parent().append('<div class="text-left invalid-feedback">Numero de teléfono 04129409998</div>');
 
-	$('#puestoDeseado').prop({'pattern': '^[a-zñÑáéíóúñA-Z]+[a-zñÑáéíóúñA-Z]$'}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
+	$('#puestoDeseado').prop({'pattern': '^[a-zñÑáéíóúA-Z]{1}[a-zñÑáéíóú A-Z]+'}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
 
 	$('#sueldoDeseado').keypress(function(e){
 		if(!(/[0-9]/.test(String.fromCharCode(e.which)))){
@@ -87,35 +87,17 @@ $(function(){
 		}
 	})
 
-	$('#expEmpresa').keypress(function(e){
-		if(!(/[[a-zñÑáéíóúñ A-z]]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	})
+	$('#expEmpresa').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Nombre de la experiencia (solo letras)</div>');
 
-	$('#expPais').keypress(function(e){
-		if(!(/[a-zA-z]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	})
+	$('#expPais').prop({'pattern': '^[a-zA-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Pais donde se llevo a cabo (solo letras, sin espacios)</div>');
 
-	$('#expSector').keypress(function(e){
-		if(!(/[a-zñÑáéíóúñ A-z]]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	})
+	$('#expSector').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Sector de la empresa a la que trabajo (solo letras)</div>');
 
-	$('#expArea').keypress(function(e){
-		if(!(/[a-zñÑáéíóúñ A-z]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	})
+	$('#expArea').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Area en la empresa a la que trabajo (solo letras)</div>');
 
-	$('#expLabor').keypress(function(e){
-		if(!(/[a-zA-Z0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
+	$('#expLabor').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Funciones que llevo a cabo (solo letras)</div>');
+
+	$("#expFechaIni").prop({'required': true}).parent().append('<div class="invalid-feedback text-left">Funciones que llevo a cabo (solo letras)</div>');
 
 	$('#habilidad').prop({'required': true});
 		
@@ -165,4 +147,7 @@ $(function(){
 		}
 	});
 
+	$('#nombrePropuesta').prop({'pattern': '(^[a-zñÑáéíóúA-Z])([a-zñÑáéíóú A-Z]+)', 'required': true}).parent().append('<div class="text-left invalid-feedback">Solo letras</div>');
+
+	$('#pagina').prop('pattern', '^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$').parent().append('<div class="text-left invalid-feedback">URL mal formada ejem. https://www.ejemplo.com</div>');
 });

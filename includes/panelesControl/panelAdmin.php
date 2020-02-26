@@ -1,5 +1,5 @@
 <?php
-	
+	session_start();
 
 	function inicio(){
 		
@@ -21,7 +21,7 @@
 
 	function postulaciones($conexion){
                           
-		session_start();
+		
 		$idusuario = '';
 		
 		$query = "SELECT * FROM usuarios_has_propuesta WHERE usuarios_idusuarios='$idusuario' ";

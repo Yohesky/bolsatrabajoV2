@@ -1,4 +1,12 @@
-<?php include("includes/headerTrabajador.php") ?>
+<?php
+session_start();
+if(isset($_SESSION["idusuarios"])){
+	include("includes/headerTrabajador.php");
+}else{
+	include("includes/headerEmpresa.php");
+}
+
+?>
 
 <?php
 			include('includes/conexion.php');
@@ -8,7 +16,6 @@
         $idusuario = $_SESSION['idusuarios'];
 
 				$query = "SELECT * FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa WHERE idpropuesta='$idpropuesta' AND empresa_idempresa='$idempresa'" ;
-
 
 				$rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 				$propuesta = mysqli_fetch_array($rsQuery); 
@@ -37,7 +44,7 @@
   </div>
 
   <div class="card-footer text-muted">
-  <a href="descripcionEmpresa.php?idempresa=<?php echo $idempresa; ?>">Ver información de la empresa</a>
+  <a href="perfilE.php?idempresa=<?php echo $idempresa; ?>">Ver información de la empresa</a>
   </div>
 </div>
 </div>

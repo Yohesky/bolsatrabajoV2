@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio</title>    
-    <link rel="stylesheet" href="./css/bootstrap.min.css.map.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css.map">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/coreui.min.css">
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -40,21 +40,24 @@
        <ul class="categories">
 
        <?php
-        session_start();
-
+        if(!isset($_SESSION)){
+          session_start();
+        }
+        
         if(isset($_SESSION['esAdmin']) && !empty($_SESSION['esAdmin'])){
             if($_SESSION['esAdmin'] == 1){
                echo "<li id='controlPanel'> <i class='fas fa-briefcase'></i> Panel de Control </li>";
             }}
        ?>
 
-        <li id="trabajos"> <i class="fas fa-briefcase"></i> Trabajos </li>
+        <li id="trabajos">Trabajos </li>
           
+        <li id="empresas">Empresas</li>
         <li id="misPostulaciones"> <i class="fas fa-bullseye"></i> Mis Postulaciones</li>
         
-        <li id="perfil"> <i class="fa fa-user-o fw"></i> Perfil</li>
+        <li id="perfil">Perfil</li>
 
-        <li id="salir"> <i class="fa fa-sign-out"></i> Salir</li>
+        <li id="salir">Salir</li>
         
       </ul>
      

@@ -23,6 +23,5 @@ if(isset($_SESSION["idusuarios"])){?>
 	<script src="js/direccionesEmpresa.js"></script>
 <?php 
 }?>
-?>
 </body>
 </html>

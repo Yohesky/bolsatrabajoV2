@@ -1,4 +1,14 @@
-<?php include("includes/headerTrabajador.php") ?>
+
+<?php 
+session_start();
+if(isset($_SESSION["idusuarios"])){
+	include("includes/headerTrabajador.php");
+}else{
+	include("includes/headerEmpresa.php");
+}
+
+
+?>
 
 <main class="container mx-auto">
 	<div class="row">
@@ -207,21 +217,22 @@
 					<div id="ubicacion" class="collapse" data-parent="#filtroUbicacion">
 						<div class="card-body">
 							<form id="">
-								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion1" name="chkUbicacion" form="formularioBuscar" value="Maracaibo">
- 									<label class="custom-control-label" for="ubicacion1" >Maracaibo</label>
+						
+							<?php 
+							include_once('includes/conexion.php');
+							$query = "SELECT DISTINCT estado FROM propuesta";
+							$tabla = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+
+							$contador = 1;
+							while($row = mysqli_fetch_array($tabla)){?>
+							<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="ubicacion<?php echo $contador; ?>" name="chkUbicacion" form="formularioBuscar" value="<?php echo $row["estado"]; ?>">
+ 									<label class="custom-control-label" for="ubicacion<?php echo $contador; ?>" ><?php echo $row["estado"]; ?></label>
 								</div>
 
-								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion2" name="chkUbicacion" form="formularioBuscar" value="Cabimas">
- 									<label class="custom-control-label" for="ubicacion2" value="Cabimas">Cabimas</label>
-								</div>
-
-								<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion3" name="chkUbicacion">
- 									<label class="custom-control-label" for="ubicacion3">Maracay</label>
-								</div>
-
+							<?php 
+							$contador++;
+							} ?>
 							</form>
 						</div>
 					</div>

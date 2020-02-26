@@ -27,6 +27,7 @@ if(isset($_POST["nombre"]))
 
 
 
+    
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
     $query = "INSERT INTO propuesta(titulo, descripcion, vacantes, sueldo,empresa_idempresa, funciones, categoria, aExp, educacion, viajes, vehiculo, estado, ciudad) 
     VALUES('$nombre', '$descripcion', '$vacantes', '$sueldo','$idempresa', '$funciones', '$categoria', '$aExp', '$educacion', '$viajes', '$vehiculo', '$estado', '$ciudad' )";

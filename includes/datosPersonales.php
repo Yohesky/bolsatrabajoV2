@@ -57,13 +57,8 @@ while($row = mysqli_fetch_array($resultado))
                             <input type='number' id='sueldoDeseado' name='sueldoDeseado' value='".$row['sueldoDeseado']."' placeholder='Sueldo deseado' class='form-control' step='1' min='1'>
     </div>
 
-    <div class='form-group d-none'>
-                            <input type='text' id='pais' name='pais' value='".$row['pais']."' placeholder='Pais' class='form-control' maxlength='45'>
-    </div>
-
     <div class='form-group'>
     <select name='estado' id='estado' class='form-control' required>
-        <option value=' disabled selected>Selecciona tu estado</option>
         <option value='".$row['estado']."'>".$row['estado']."</option>
         <option value='Amazonas'>Amazonas</option>
         <option value='Anzoategui'>Anzoategui</option>
@@ -118,21 +113,6 @@ while($row = mysqli_fetch_array($resultado))
 
     </div>
                           
-    </div>
-
-    <div class='row d-none'>
-    
-        <div class='form-group col-md-6'>
-        <span> Ingrese su idioma </span>
-            <input type='text' id='idioma' placeholder='Idioma' name='idioma' value='".$row['idioma']."' class='form-control' required maxlength='45'>
-        </div>
-
-        <div class='form-group col-md-6'>
-        <span> Nivel de idioma </span>
-            <input type='text' id='nivelIdioma' placeholder='Nivel de Idioma' name='nivelIdioma' value='".$row['nivelIdioma']."' class='form-control' required maxlength='45'>
-        </div>
-
-    </div>
 
     <div class='form-group'>
  
@@ -185,7 +165,7 @@ while($row = mysqli_fetch_array($resultado))
         <label class='' for='curriculum'>Ingresar Curriculum</label>
     </div>
     
-    <div id='curriculum' direccion='".$row['curriculum']."'>
+    <div id='curriculum' direccion='".$row['curriculum']."' idusuarios='".$_SESSION['idusuarios']."'>
 
     </div>
 

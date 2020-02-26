@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white"><?php echo $fila["nombre"]; ?></h3> </h5>
+                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white" id="nomG"><?php echo $fila["nombre"]; ?></h3> </h5>
                             <hr>
-                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white"><?php echo $fila["apellido"]; ?></h3>
+                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white" id="ApeG"><?php echo $fila["apellido"]; ?></h3>
                             
                             
                         </div>
@@ -76,11 +76,11 @@
            
 
             <h1 class="text-center bg-dark">Experiencias Laborales</h1>
-            <div class="bg-white p-3 rounded">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+            <div class="bg-white p-3 rounded mb-2">
+            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" id="anadirExp">
                     Añadir experiencia Laboral
                 </button>
-                </div>
+            </div>
             <div id="experiencia" style="max-height: 23rem; overflow: auto;">
 
             </div>
@@ -103,14 +103,14 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="card card-body" id="formularioExperiencia" class="needs-validation" novalidate>
+                            <form class="card card-body needs-validation" id="formularioExperiencia" novalidate>
                                 <input type="hidden" id="experienciaID" name="experienciaID">
                                 <div class="form-group">
                                     <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required maxlength="100">
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" name="expPais" id="expPais" placeholder="País" class="form-control" required maxlength="100">
+                                    <input type="text" name="expPais" id="expPais" placeholder="País" class="form-control" required maxlength="50">
                                 </div>
 
                                 <div class="form-group">
@@ -128,11 +128,11 @@
                                 <div class="row">
 
                                     <div class="col-md-6 form-group">
-                                        <input readonly='' placeholder="Fecha de inicio" type="text" class="form-control" name="expFechaIni" id="expFechaIni">
+                                        <input placeholder="Fecha de inicio" type="text" class="form-control" name="expFechaIni" id="expFechaIni" required autocomplete="off">
                                     </div>
 
                                     <div class="col-md-6 form-group">
-                                        <input type="text" readonly ='' placeholder="Fecha de culminacion" class="form-control" name="expFechaFin" id="expFechaFin">
+                                        <input type="text" autocomplete="off" placeholder="Fecha de culminacion" class="form-control" name="expFechaFin" id="expFechaFin" required>
                                     </div>
                                 </div>
 
@@ -141,8 +141,8 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button id="guardar" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-secondary" id="cerrar-modal" data-dismiss="modal">Cerrar</button>
+                            <button id="guardar" class="btn btn-primary" form="formularioExperiencia" type="submit">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -163,30 +163,65 @@
 </div>
 
 <?php include("includes/footer.php") ?>
+<script src="js/validaciones.js"></script>
 <script src="js/perfilTrabajador.js"></script>
 <script>
     $(document).ready(function() {
-        $("#fechaNacimiento").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            yearRange: '1970:' + 2010,
-            dateFormat: "yy-mm-dd"
-        })
+        var maximaFechaInicio = new Date();
+        var minimoFechaInicio = new Date(maximaFechaInicio.getFullYear()-18, 
+        maximaFechaInicio.getMonth(), maximaFechaInicio.getDate());
+
+
+        $.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+prevText: '<Ant',
+nextText: 'Sig>',
+currentText: 'Hoy',
+monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+weekHeader: 'Sm',
+dateFormat: 'dd/mm/yy',
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
 
         $("#expFechaIni").datepicker({
             changeMonth: true,
             changeYear: true,
             yearRange: '1970:' + 2020,
-            dateFormat: "yy-mm-dd"
-        })
+            dateFormat: "yy-mm-dd",
+            maxDate: "0",
+        }).keydown(function(e){
+            e.preventDefault();
+	    });
 
 
-        $("#expFechaIni"),$("#expFechaFin").datepicker({
+        $("#expFechaFin").datepicker({
             changeMonth: true,
             changeYear: true,
             yearRange: '1970:' + 2020,
-            dateFormat: "yy-mm-dd"
-        })
+            dateFormat: "yy-mm-dd",
+            maxDate: "0"
+        }).keydown(function(e){
+            e.preventDefault();
+        });
+
+        $("#fechaNacimiento").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            maxDate: '0',
+            yearRange: '1950:' + 2002,
+            dateFormat: "yy-mm-dd",
+            maxDate: minimoFechaInicio
+        }).keydown(function(e){
+            e.preventDefault();
+        });
 
         $("#fechaNacimiento").change(() => {
             $.ajax({
@@ -195,13 +230,13 @@
                 url: "includes/calcularEdad.php",
                 success: (r) => {
 
-                    $("#edadCalculada").text(r + "años")
+                    $("#edadCalculada").text(r + " años")
 
                 }
             })
         })
     })
 </script>
-<script src="js/validaciones.js"></script>
+
 <script src="js/habilidad.js"></script>
 <script src="js/direcciones.js"></script>

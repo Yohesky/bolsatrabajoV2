@@ -17,23 +17,8 @@ isset($_POST['email']) && isset($_POST['ci']) && isset($_POST['contrasena2']))
     $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
     $result = '';
 
-    if(strlen($contrasena) > 30)
-    {
-        $result .="<br>-La contraseña supera los 30 caracteres.";
-    }
     
-    if($contrasena != $contrasena2)
-    {
-        $result .="<br>-Las contraseñas no coinciden.";
-    }
-
-    if(strlen($email) > 40)
-    {
-        $result .="<br>-El email supera los 40 caracteres.";
-    }
-    else
-    {
-        if($email)
+    if($email)
         {
             $sql = "SELECT COUNT(*) as cantidad FROM usuarios WHERE correo='$email'";
             $res = mysqli_query($conexion, $sql);
@@ -42,19 +27,19 @@ isset($_POST['email']) && isset($_POST['ci']) && isset($_POST['contrasena2']))
             {
                 $result .="<br>-El email de esta persona ya está registrado.";
             }
-        }
-    }
+    }    
 
     if($result != '')
     {
         echo "<div class='alert alert-dismissible alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Error</strong><br>$result</div>";
 
-    }
-
-    else{
+    }else{
         $sql = "INSERT INTO usuarios (nombre,apellido,correo,ci,contrasena, pregunta1, resp1, estado, ciudad) VALUES ('$nombre', '$apellido', '$email', '$ci', '$contrasena', '$preguntas', '$res1', '$estado', '$ciudad')";
-        mysqli_query($conexion, $sql);
-        echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
+        $bool = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
+    
+        if($bool){
+            echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
+        }
         
     }
 }
