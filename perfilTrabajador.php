@@ -6,11 +6,11 @@
 <div class="modal fade" id="subirFoto" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
 </div>
 
-<?php 
-    $idusuarios = $_SESSION['idusuarios'];
-    $query = "SELECT nombre, apellido from usuarios where idusuarios = '$idusuarios'";
-    $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
-    $fila = mysqli_fetch_assoc($rsQuery);
+<?php
+$idusuarios = $_SESSION['idusuarios'];
+$query = "SELECT nombre, apellido from usuarios where idusuarios = '$idusuarios'";
+$rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+$fila = mysqli_fetch_assoc($rsQuery);
 ?>
 
 
@@ -30,54 +30,56 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title"> <h3 class="p-3 mb-5 bg-white" id="nomG"><?php echo $fila["nombre"]; ?></h3> </h5>
+                            <h5 class="card-title">
+                                <h3 class="p-3 mb-5 bg-white" id="nomG"><?php echo $fila["nombre"]; ?></h3>
+                            </h5>
                             <hr>
                             <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white" id="ApeG"><?php echo $fila["apellido"]; ?></h3>
-                            
-                            
+
+
                         </div>
                     </div>
                 </div>
             </div>
 
 
-<h1 class="text-center bg-dark">Habilidades</h1>
+            <h1 class="text-center bg-dark">Habilidades</h1>
             <div class="card card-body" data-toggle="modal">
 
-              <form id="habilidades" class="card card-body needs-validation" novalidate>
-              <input type="hidden" id="habilidadId" name="habilidadId">
-                  <div class="form-group">
-                      <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control" maxlength="100">
-                  </div>
+                <form id="habilidades" class="card card-body needs-validation" novalidate>
+                    <input type="hidden" id="habilidadId" name="habilidadId">
+                    <div class="form-group">
+                        <input type="text" id="habilidad" name="habilidad" placeholder="Ingresa una habilidad" class="form-control" maxlength="100">
+                    </div>
 
-                <div class='form-group'>
- 
+                    <div class='form-group'>
+
                         <label class='form-control' for='nivelHabilidad'>Nivel Habilidad</label>
                         <select class='form-control' id='nivelHabilidad' name='nivelHabilidad'>
-                    
-                        <option value='Basico'>Basico</option>
-                        <option value='Intermedio'>Intermedio</option>
-                        <option value='Avanzado'>Avanzado</option>
+
+                            <option value='Basico'>Basico</option>
+                            <option value='Intermedio'>Intermedio</option>
+                            <option value='Avanzado'>Avanzado</option>
                         </select>
 
-                </div>
-                  
+                    </div>
 
-                  <button class="btn btn-success" id="btnHabilidad">Agregar</button>
-              </form>
+
+                    <button class="btn btn-success" id="btnHabilidad">Agregar</button>
+                </form>
 
 
             </div>
-            
+
             <div id="mostrar" style="max-height: 23rem;overflow: auto;">
-               
+
             </div>
 
-           
+
 
             <h1 class="text-center bg-dark">Experiencias Laborales</h1>
             <div class="bg-white p-3 rounded mb-2">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" id="anadirExp">
+                <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal" id="anadirExp">
                     Añadir experiencia Laboral
                 </button>
             </div>
@@ -142,15 +144,82 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" id="cerrar-modal" data-dismiss="modal">Cerrar</button>
-                            <button id="guardar" class="btn btn-primary" form="formularioExperiencia" type="submit">Guardar</button>
+                            <button id="guardar" class="btn btn-primary"  type="submit">Guardar</button>
                         </div>
                     </div>
                 </div>
-            </div>            
+            </div>
             <div class="">
                 <?php include("includes/mostrarDescripcion.php") ?>
             </div>
-        
+
+            <div id="redesSociales">
+
+            </div>
+
+            <button class="btn btn-block btn-primary mt-2 mb-2" data-toggle="modal" data-target="#rsModal" id="anadirRs">
+                Agregar tus redes sociales
+            </button>
+
+            <div class="modal fade" id="rsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Añade tu experiencia Laboral</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="rs" class="card card-body mt-3">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <i class="fab fa-instagram fa-2x"> </i>
+                                        </div>
+
+                                        <div class="col-md-10">
+                                            <input type="text" name="instagram" class="form-control" placeholder="Ingrese su Instagram!">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <i class="fab fa-linkedin fa-2x"> </i>
+                                        </div>
+
+                                        <div class="col-md-10">
+                                            <input type="text" name="linkedin" class="form-control" placeholder="Ingrese su Linkedin!">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <i class="fab fa-facebook fa-2x"> </i>
+                                        </div>
+
+                                        <div class="col-md-10">
+                                            <input type="text" name="facebook" class="form-control" placeholder="Ingrese su Facebook!">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-info btn-block">Guardar</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cerrar-modal" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
             <div class="card">
                 <!-- card-body para un espaciado interno entre los componentes -->
                 <div class="card-body col-12">
@@ -168,28 +237,28 @@
 <script>
     $(document).ready(function() {
         var maximaFechaInicio = new Date();
-        var minimoFechaInicio = new Date(maximaFechaInicio.getFullYear()-18, 
-        maximaFechaInicio.getMonth(), maximaFechaInicio.getDate());
+        var minimoFechaInicio = new Date(maximaFechaInicio.getFullYear() + 10,
+            maximaFechaInicio.getMonth(), maximaFechaInicio.getDate());
 
 
         $.datepicker.regional['es'] = {
-closeText: 'Cerrar',
-prevText: '<Ant',
-nextText: 'Sig>',
-currentText: 'Hoy',
-monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
-weekHeader: 'Sm',
-dateFormat: 'dd/mm/yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: ''
-};
-$.datepicker.setDefaults($.datepicker.regional['es']);
+            closeText: 'Cerrar',
+            prevText: '<Ant',
+            nextText: 'Sig>',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
 
         $("#expFechaIni").datepicker({
             changeMonth: true,
@@ -197,9 +266,9 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
             yearRange: '1970:' + 2020,
             dateFormat: "yy-mm-dd",
             maxDate: "0",
-        }).keydown(function(e){
+        }).keydown(function(e) {
             e.preventDefault();
-	    });
+        });
 
 
         $("#expFechaFin").datepicker({
@@ -208,7 +277,7 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
             yearRange: '1970:' + 2020,
             dateFormat: "yy-mm-dd",
             maxDate: "0"
-        }).keydown(function(e){
+        }).keydown(function(e) {
             e.preventDefault();
         });
 
@@ -216,10 +285,10 @@ $.datepicker.setDefaults($.datepicker.regional['es']);
             changeMonth: true,
             changeYear: true,
             maxDate: '0',
-            yearRange: '1950:' + 2002,
+            yearRange: '1950:' + 2020,
             dateFormat: "yy-mm-dd",
             maxDate: minimoFechaInicio
-        }).keydown(function(e){
+        }).keydown(function(e) {
             e.preventDefault();
         });
 

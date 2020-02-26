@@ -1,6 +1,8 @@
 $(function () {
 
   let editar = false;
+  redes()
+  obtenerRedes()
   obtenerFotoPerfil();
   insertarExp();
   mostrarExp();
@@ -10,6 +12,7 @@ $(function () {
   eliminarExperiencia();
   agregarFotoPerfil();
   seleccion()
+  
 
 
   //$('#subirFoto').modal('show');
@@ -1038,4 +1041,61 @@ function seleccion() {
           $("#ciudad").append("<option value=\"" + arr[i].value + "\">" + arr[i].display + "</option>")
       });
   }
+
+  
+}
+
+function redes(){
+
+  $("#rs").submit(function(e){
+    let form = $("#rs").serialize()
+    console.log(form);
+
+    $.ajax({
+      method: 'POST',
+      url: 'includes/insertarRedes.php',
+      data: form,
+      success: function(response){
+          obtenerRedes()
+      }
+    })
+    
+    e.preventDefault()
+  })
+
+}
+
+function obtenerRedes(){
+let plantilla = ""
+    
+    $.ajax({
+      method: 'GET',
+      url: 'includes/obtenerRedes.php',
+      success: function(response){
+        const res = JSON.parse(response)
+        res.forEach(
+           res => {
+             plantilla += `
+             <div class="btn-group btn-group-toggle" data-toggle="buttons">
+             <label class="btn btn-secondary">
+               <input type="radio" name="options" id="option1" autocomplete="off"> ${res.instagram}
+             </label>
+             <label class="btn btn-secondary">
+               <input type="radio" name="options" id="option2" autocomplete="off"> ${res.facebook}
+             </label>
+             <label class="btn btn-secondary">
+               <input type="radio" name="options" id="option3" autocomplete="off"> ${res.linkedin}
+             </label>
+           </div>
+             `
+           }
+        )
+
+        $("#redesSociales").html(plantilla)
+
+      }
+    })
+    
+  
+
 }

@@ -172,11 +172,11 @@ function mostrarPagina(){
           icon: "success",
           button: "Aceptar",
         });
-      }else{
+      }else if(resultado == 'nInsertado'){
         swal({
           title: "El postulante ya fue seleccionado",
-          text: "Ya se a seleccionado con anterioridad este postulante",
-          icon: "success",
+          text: "Ya se ha seleccionado con anterioridad este postulante",
+          icon: "error",
           button: "Aceptar",
         });
       }

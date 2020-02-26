@@ -94,7 +94,7 @@ $(function () {
                         });
                       }
                 
-                    
+                      $(location).attr('href','loginTrabajador.php');
                 }
               });
             

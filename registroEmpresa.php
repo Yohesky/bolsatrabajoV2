@@ -60,7 +60,7 @@
                         <option value="Técnicas">Técnicas</option>
                         <option value="Investigación y Calidad">Investigación y Calidad</option>
                         <option value="Hostelería/Turismo">Hostelería/Turismo</option>
-                        <option value="Informatica/Telecomunicaciones">Informática/Telecomunicaciones</option>
+                        <option value="Informática/Telecomunicaciones">Informática/Telecomunicaciones</option>
                         <option value="Ingeniería">Ingeniería</option>
                         <option value="Legal/Asesorias">Legal/Asesorias</option>
                         <option value="Mantenimiento y Reparaciones">Mantenimiento y Reparaciones</option>

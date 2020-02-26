@@ -13,15 +13,33 @@ function cargarDatos(){
 					<img src="${resultado.fotoPerfil}" class="rounded-circle img-fluid m-auto border" style="width:20rem;">
 				</div>
 				<hgroup class="col-12 text-center">
-					<h1>${resultado.nombre + ' ' + resultado.apellido}</h1>
+					<h1 class="after mt-3">${resultado.nombre + ' ' + resultado.apellido}</h1>
 					<h2 class="h3">${resultado.puestoDeseado}</h2>
 					<h3 >${resultado.pais + '/' + resultado.ciudad}</h3>
+
+					<div class="mx-auto mt-5">
+							<div class="row ml-5">
+
+									<div class="col-md-4">
+										<i class="fab fa-instagram fa-2x"> </i>  <span> ${resultado.instagram} </span>
+									</div>
+
+									<div class="colmd4">
+										<i class="fab fa-facebook fa-2x"> </i>   <span> ${resultado.facebook} </span>
+									</div>
+
+									<div class="col-md-4">
+										<i class="fab fa-linkedin fa-2x"> </i>   <span> ${resultado.linkedin} </span>
+									</div>
+
+							</div>
+					</div>
 				</hgroup>
 			</section>
 
 			<section id="infoPersonal" class="row bg-light rounded py-3 my-3">
 				<div class="col-12 text-center">
-					<h3>Información Personal y de Contacto</h3>
+					<h3 class="after">Información Personal y de Contacto</h3>
 					<div class="row">
 
 						${resultado.correo != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Correo</strong><br> ${resultado.correo}</div>` : ''}
@@ -32,17 +50,21 @@ function cargarDatos(){
 
 						${resultado.disponibilidadViajar != '' ? `<div class="col-12 col-sm-6 my-3"><strong>Disponibilidad de Viajar</strong><br> ${resultado.disponibilidadViajar}</div>` : ''}
 
-						${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary" target="_blank">Curriculum PDF</a></div>` : ''}
+						<div class="mx-auto">
+							${resultado.curriculum != null ? `<div class="col-12 col-sm-6 my-3"><a href="${resultado.curriculum}" class="btn btn-primary" target="_blank">Curriculum PDF</a></div>` : ''}
+						</div>
 						
 					</div>
 
-					${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3">Descripción</h3><p class="text-justify mx-auto text-break">${resultado.descripcion}</p>`: ''}
+					<div class="mx-auto">
+						${resultado.descripcion != null && resultado.descripcion != '' ? `<h3 class="mt-3 after">Descripción</h3><p class=" mx-auto text-break">${resultado.descripcion}</p>`: ''}
+					</div>
 				</div>
 			</section>
 			${resultado.habilidades.length > 0 ? ` 
 			<section id="habilidades" class="row bg-light rounded py-3 my-4">
 				<div class="col-12 text-center">
-					<h3>Habilidades</h3>
+					<h3 class="after">Habilidades</h3>
 						<div class="row">
 							<div class="col-12">
 								<ul>
@@ -57,7 +79,7 @@ function cargarDatos(){
 			${resultado.experiencias.length > 0 ? ` 
 			<section id="habilidades" class="row bg-light rounded py-3 my-4">
 				<div class="col-12 text-center">
-					<h3>Experiencias</h3>
+					<h3 class="after">Experiencias</h3>
 						<div class="row">
 							<div class="col-12">
 								<ul>

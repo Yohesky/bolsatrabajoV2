@@ -119,7 +119,7 @@ $(function () {
               $.post("includes/actPropuesta.php", {id}, function(response)
              {   
                const postulacion = JSON.parse(response);
-               $("#nombrePublicacion").val(postulacion.titulo);
+               $("#nombrePropuesta").val(postulacion.titulo);
                $("#descripcion").val(postulacion.descripcion);
                $("#funciones").val(postulacion.funciones);
                $("#vacantes").val(postulacion.vacantes);

@@ -72,8 +72,8 @@ $(function(){
 	})
 
 	$('#direccion').prop({'pattern': '[a-zñÑ A-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
-
-	$('#direccionEmpresa').prop({'pattern': '[a-zñÑA-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
+	
+	$('#direccionEmpresa').prop({'pattern': '[a-zñÑ A-Z0-9]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Ingrese una dirección</div>');
 
 	$('#idioma').keypress(function(e){
 		if(!(/[a-zñÑA-z]/.test(String.fromCharCode(e.which)))){

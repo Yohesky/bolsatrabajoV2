@@ -19,7 +19,7 @@ $("#controlPanel").click( (e) => {
 
   $("#salir").click( (e) => {
     console.log("click");
-    $(location).attr('href','includes/logout.php');
+    $(location).attr('href','includes/logoutEmpresa.php');
     
   })
 
