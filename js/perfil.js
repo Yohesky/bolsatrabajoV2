@@ -18,18 +18,18 @@ function cargarDatos(){
 					<h3 >${resultado.pais + '/' + resultado.ciudad}</h3>
 
 					<div class="mx-auto mt-5">
-							<div class="row ml-5">
+							<div class="row mx-auto">
 
 									<div class="col-md-4">
-										<i class="fab fa-instagram fa-2x"> </i>  <span> ${resultado.instagram} </span>
-									</div>
-
-									<div class="colmd4">
-										<i class="fab fa-facebook fa-2x"> </i>   <span> ${resultado.facebook} </span>
+										<a href="${resultado.instagram}" target="_blank"> <i class="fab fa-instagram fa-2x"> </i>  </a> 
 									</div>
 
 									<div class="col-md-4">
-										<i class="fab fa-linkedin fa-2x"> </i>   <span> ${resultado.linkedin} </span>
+										<a href="${resultado.facebook}" target="_blank">	<i class="fab fa-facebook fa-2x"> </i> </a>  
+									</div>
+
+									<div class="col-md-4">
+										<a href="${resultado.linkedin}" target="_blank">	<i class="fab fa-linkedin fa-2x"> </i> </a> 
 									</div>
 
 							</div>

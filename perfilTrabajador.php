@@ -165,12 +165,22 @@ $fila = mysqli_fetch_assoc($rsQuery);
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Añade tu experiencia Laboral</h5>
+                            <div class="modal-title text-center">
+                            <h5 class="" id="exampleModalLabel">Añade tus redes Sociales</h5>
+                            </div>
+                                
+                            <hr>
+                            <br>
+                            
+
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
+                        <div class="alert alert-primary" role="alert">
+                                Ingresa el link de tus perfiles para que sea mas fácil para las empresas contactarte!
+                            </div>
                             <form id="rs" class="card card-body mt-3">
                                 <div class="form-group">
                                     <div class="row">

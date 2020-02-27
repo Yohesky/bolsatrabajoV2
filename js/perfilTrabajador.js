@@ -1076,15 +1076,15 @@ let plantilla = ""
         res.forEach(
            res => {
              plantilla += `
-             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-             <label class="btn btn-secondary">
-               <input type="radio" name="options" id="option1" autocomplete="off"> ${res.instagram}
+             <div class="list-group btn-group-toggle" data-toggle="buttons">
+             <label class="btn btn-secondary form-group mt-3">
+               <input type="radio" name="options" id="option1" autocomplete="off"> <p> ${res.instagram} </p>
              </label>
-             <label class="btn btn-secondary">
-               <input type="radio" name="options" id="option2" autocomplete="off"> ${res.facebook}
+             <label class="btn btn-secondary form-group mt-3">
+               <input type="radio" name="options" id="option2" autocomplete="off"> <p> ${res.facebook} </p>
              </label>
-             <label class="btn btn-secondary">
-               <input type="radio" name="options" id="option3" autocomplete="off"> ${res.linkedin}
+             <label class="btn btn-secondary form-group mt-3">
+               <input type="radio" name="options" id="option3" autocomplete="off"> <p> ${res.linkedin} </p>
              </label>
            </div>
              `
