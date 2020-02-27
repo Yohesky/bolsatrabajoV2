@@ -10,6 +10,7 @@ $(function()
         type: 'GET',
         success: function(response)
         {
+          console.log(response);
                 let publicacion =  JSON.parse(response);
                 let plantilla = "";
 
