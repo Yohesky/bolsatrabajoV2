@@ -10,6 +10,7 @@ $(function()
         type: 'GET',
         success: function(response)
         {
+          console.log(response);
                 let publicacion =  JSON.parse(response);
                 let plantilla = "";
 
@@ -108,6 +109,8 @@ function mostrarPagina(){
   let paginas = parseInt(sessionStorage.getItem('paginasPostulado'));
   let plantilla2 = '';
   if(paginas > 1){
+    let a = location.search.split("pagina=")[0];
+    let b = location.search.split("pagina=")[1];  
           let paginaActual = parseInt(obtenerPaginaActual());
           if(paginaActual === 1){var siguiente = 'disabled';}
           if(paginaActual === parseInt(paginas)){var anterior = 'disabled';}
@@ -115,7 +118,7 @@ function mostrarPagina(){
           <nav aria-label="Page navigation example">
          <ul class="pagination justify-content-center">
         <li class="page-item ${siguiente}">
-              <a class="page-link" href="infoPostulados.php?pagina=${paginaActual- 1}" aria-label="Previous">
+              <a class="page-link" href="infoPostulados.php${location.search.split("&pagina=")[0]}&pagina=${paginaActual- 1}" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Previous</span>
               </a>
@@ -123,7 +126,7 @@ function mostrarPagina(){
                   ${obtenerListaPagina(paginas).join('')}
         
         <li class="page-item ${anterior}">
-              <a class="page-link" href="infoPostulados.php?pagina=${paginaActual + 1}" aria-label="Next">
+              <a class="page-link" href="infoPostulados.php${location.search.split("&pagina=")[0]}&pagina=${paginaActual + 1}" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
               </a>
@@ -146,14 +149,14 @@ function mostrarPagina(){
               desactivar = 'disabled';
           }
   
-          liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="infoPostulados.php?pagina=${i}">${i}</a></li>`);
+          liPagina.push(`<li class="page-item ${desactivar}"><a class="page-link" href="infoPostulados.php${location.search.split("&pagina=")[0]}&pagina=${i}">${i}</a></li>`);
       }
 
       return liPagina;
   }
 
   function obtenerPaginaActual(){
-      let pagina = location.search.split('=')[1];
+      let pagina = location.search.split('pagina=')[1];
       if(pagina){
           return pagina;
       }
