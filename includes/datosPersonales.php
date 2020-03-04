@@ -4,7 +4,7 @@ include("conexion.php");
 
 $idusuario = $_SESSION['idusuarios'];
 
-$query = "SELECT * FROM usuarios where idusuarios='$idusuario'";
+$query = "SELECT * FROM usuarios JOIN pais ON usuarios.idpais = pais.id JOIN estado ON usuarios.idestado = estado.idestado WHERE idusuarios='$idusuario'";
     
 $resultado = mysqli_query($conexion, $query);
 
@@ -13,6 +13,11 @@ if(!$resultado)
     die("Conexion fallida, no se pudo traer los datos". mysqli_error($conexion));
 
 }
+
+$queryPais = "SELECT * FROM pais";
+$resultadoPais = mysqli_query($conexion, $queryPais) or die(mysqli_error($conexion));
+
+
 
 
 while($row = mysqli_fetch_array($resultado))
@@ -56,46 +61,35 @@ while($row = mysqli_fetch_array($resultado))
     <div class='form-group'>
                             <input type='number' id='sueldoDeseado' name='sueldoDeseado' value='".$row['sueldoDeseado']."' placeholder='Sueldo deseado' class='form-control' step='1' min='1'>
     </div>
+    ";
 
+    echo " <div class='form-group'>
+    <select class='form-control' id='pais' name='idpais'>
+    ";
+    while($rowPais = mysqli_fetch_array($resultadoPais)){
+     echo "
+        <div class='form-control'>
+           
+                <option value='$rowPais[id]'> $rowPais[paisnombre] </option>
+            
+        </div>
+    ";
+    }
+    
+    echo "
+    </select>
+    </div>";
+
+    
+
+
+    echo "
     <div class='form-group'>
-    <select name='estado' id='estado' class='form-control' required>
-        <option value='".$row['estado']."'>".$row['estado']."</option>
-        <option value='Amazonas'>Amazonas</option>
-        <option value='Anzoategui'>Anzoategui</option>
-        <option value='Apure'>Apure</option>
-        <option value='Aragua'>Aragua</option>
-        <option value='Barinas'>Barinas</option>
-        <option value='Bolivar'>Bolivar</option>
-        <option value='Carabobo'>Carabobo</option>
-        <option value='Cojedes'>Cojedes</option>
-        <option value='Delta Amacuro'>Delta Amacuro</option>
-        <option value='Distrito Capital'>Distrito Capital</option>
-        <option value='Falcon'>Falcon</option>
-        <option value='Guarico'>Guarico</option>
-        <option value='Lara'>Lara</option>
-        <option value='Merida'>Merida</option>
-        <option value='Miranda'>Miranda</option>
-        <option value='Monagas'>Monagas</option>
-        <option value='Nueva Esparta'>Nueva Esparta</option>
-        <option value='Portuguesa'>Portuguesa</option>
-        <option value='Sucre'>Sucre</option>
-        <option value='Tachira'>Tachira</option>
-        <option value='Trujillo'>Trujillo</option>
-        <option value='Vargas'>Vargas</option>
-        <option value='Yaracuy'>Yaracuy</option>
-        <option value='Zulia'>Zulia</option>
-
-    </select>
-
-
-    <select name='ciudad' id='ciudad' class='form-control'>
-
-    <option value='".$row['ciudad']."'>".$row['ciudad']."</option>
-    </select>
-
-
-</div>
-
+        <select class='form-control' name='idestado' id='estado'>
+            <option> $rowPais[estadonombre] </option>
+        </select>
+    </div>
+    
     <div class='form-group'>
                             <input type='text' id='direccion' name='direccion' value='".$row['direccion']."' placeholder='Dirección' class='form-control' maxlength='45' required='false'>
     </div>

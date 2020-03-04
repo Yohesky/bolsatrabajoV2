@@ -115,9 +115,9 @@ $(function(){
 
 	$('#areaEmpresa').prop('required', true).parent().append('<div class="text-left invalid-feedback">Selecciones el area al que se dedica su empresa</div>');
 
-	$('#estado').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un estado</div>');
+	// $('#estado').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un estado</div>');
 
-	$('#ciudad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una ciudad</div>');
+	// $('#ciudad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una ciudad</div>');
 
 
 	$('#correoEmpresa').keypress(function(e){

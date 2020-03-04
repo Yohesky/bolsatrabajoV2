@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,11 +27,43 @@
             <input type="email" name="email" id="email" placeholder="Correo" class="form-control" >
         </div>
 
+        <!-- pais -->
+        <div class="form-group">
+        <select class="form-control" name='idpais' id="pais">
+            
+        <?php 
+            include('includes/conexion.php');
+            session_start();
+            $query = "SELECT * FROM pais";
+            $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+            
+            while ($row = mysqli_fetch_array($resultado)) {
+                echo "<option value='".$row['id']."'>";
+                 echo $row['paisnombre'];
+                echo "</option>";
+            } 
+            ?>
+        </select>
+            
+          
+        </div>
+        <!-- pais -->
+
+        <!-- estado -->
+        <div class="form-group">
+        <select class="form-control" name="idestado" id="estado">
+            <option value="">Estado</option>
+        </select>
+            
+            
+        </div>
+        <!-- estado -->
+
         <div class="form-group">
             <input type="text" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="10">  
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
                     <select name="estado" id="estado" class="form-control">
                         <option value="" disabled selected>Selecciona tu estado</option>
                         <option value="Amazonas">Amazonas</option>
@@ -60,7 +93,7 @@
 
                     </select>
 
-            </div>
+            </div> -->
 
                 <div class="form-group">
                     <select name="ciudad" id="ciudad" class="form-control">
@@ -107,3 +140,19 @@
 <?php include("includes/footer.php") ?>
 <script src="js/validaciones.js"></script>
 <script src="js/trabajador.js"></script>
+<script>
+    	$(document).ready(function(){
+				$("#pais").change(function () {
+                    console.log('cambiando');
+                    
+					$("#pais option:selected").each(function () {
+						idpais = $(this).val();
+						$.post("includes/getEstados.php", { idpais: idpais }, function(data){
+                            console.log(data);
+                            
+							$("#estado").html(data);
+						});            
+					});
+				})
+			});
+</script>

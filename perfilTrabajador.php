@@ -294,10 +294,9 @@ $fila = mysqli_fetch_assoc($rsQuery);
         $("#fechaNacimiento").datepicker({
             changeMonth: true,
             changeYear: true,
-            maxDate: '0',
             yearRange: '1950:' + 2020,
             dateFormat: "yy-mm-dd",
-            maxDate: minimoFechaInicio
+            maxDate: "0",
         }).keydown(function(e) {
             e.preventDefault();
         });
@@ -319,3 +318,19 @@ $fila = mysqli_fetch_assoc($rsQuery);
 
 <script src="js/habilidad.js"></script>
 <script src="js/direcciones.js"></script>
+<script>
+    	$(document).ready(function(){
+				$("#pais").change(function () {
+                    console.log('cambiando');
+                    
+					$("#pais option:selected").each(function () {
+						idpais = $(this).val();
+						$.post("includes/getEstados.php", { idpais: idpais }, function(data){
+                            console.log(data);
+                            
+							$("#estado").html(data);
+						});            
+					});
+				})
+			});
+</script>
