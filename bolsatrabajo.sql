@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2020 at 05:58 PM
+-- Generation Time: Mar 05, 2020 at 09:35 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -41,27 +41,28 @@ CREATE TABLE `empresa` (
   `imagenEmpresa` varchar(1000) NOT NULL DEFAULT './img-empresa/perfil-predeterminado.png',
   `preguntaSeguridad` char(150) DEFAULT NULL,
   `respuestaSeguridad` char(150) DEFAULT NULL,
-  `estado` varchar(150) DEFAULT NULL,
-  `ciudad` varchar(150) DEFAULT NULL
+  `idpais` int(11) DEFAULT NULL,
+  `idestado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `empresa`
 --
 
-INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`, `imagenEmpresa`, `preguntaSeguridad`, `respuestaSeguridad`, `estado`, `ciudad`) VALUES
+INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`, `imagenEmpresa`, `preguntaSeguridad`, `respuestaSeguridad`, `idpais`, `idestado`) VALUES
 (5, 'Colegio Adventista', 'colegio', 'j-123123', 'sierra maestra', 'EnseÃ±anza', 'adv@gmail.com', '', '123', './img-empresa/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
-(6, 'smartprocess', 'empresa dedicada a ingenieria', 'j-123123', 'tierra negra', 'IngenierÃ­a', 'smartprocess@sp.com', 'www.sp.com', '1234', './img-empresa/1572969657', NULL, NULL, 'Guarico', 'Zaraza'),
+(6, 'smartprocess', 'empresa dedicada a ingenieria', 'j-123123', 'tierra negra', 'IngenierÃ­a', 'smartprocess@sp.com', 'www.sp.com', '1234', './img-empresa/1572969657', NULL, NULL, NULL, NULL),
 (7, 'asd', 'asd', 'asd', 'asd', 'Asesorias', 'sp@sp.com', 'asd', '1234', './img-empresa/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
-(9, 'JJ Inversion', 'educacion asdasdf', 'J-5555555', 'adsf', 'Informatica/Telecomunicaciones', 'urbe@gmail.com', 'urbe.com', 'urbe', './img-empresa/1581305473_9.jpg', 'Â¿Cual es tu color favorito?', 'rojo', 'Miranda', 'SimÃ³n BolÃ­var'),
-(10, 'petma', 'empresa dedicada a la elaboracion de comida', 'j-123123', 'tierra negra', 'AlmacÃ©n', 'petma@gmail.com', 'www.petma.com', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'negro', 'Amazonas', 'Maroa'),
-(11, 'fullgustazo', 'empresa dedicada a la elaboracion de jugos', 'j-145234', 'tierra negra', 'Reparacion', 'fullgustazo@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'pimentel', 'Guarico', 'Zaraza'),
-(12, 'asdf', 'asdfas', 'J-000000000', 'adfads', 'Medicina/Saldud', 'j@gk.com', '', '123', './img-empresa/1581909567_12.jpg', 'Â¿Cual es tu color favorito?', 'Azul', ' disabled selected>Selecciona tu estado</option>\r\n                            <option value=', 'Caracas'),
-(13, 'abc inversiones', 'sfgsf', 'J-8888888888', 'asdffffffffffffffffffffff', 'ConstrucciÃ³n y Obras', 'abc@inversiones.com', '', '123', './img-empresa/1581910052_13.jpg', 'Â¿Cual es tu color favorito?', 'aklsjdfklasjdkl', ' disabled selected>Selecciona tu estado</option>\r\n                            <option value=', 'Mellado'),
-(14, 'super dupper', 'adfasd', 'akskasdf', 'asdfasdfa', 'Medicina/Saldud', 'asdlfk@lkas.com', 'www.google.com', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'asdf', 'Guarico', 'Chaguaramas'),
-(15, 'f', 'ad', 'J', 'asd', 'AdministraciÃ³n/Oficinas', 'p@prueba.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', '123', 'Cojedes', 'RÃ³mulo Gallegos'),
-(16, 'asdf', 'asdf', 'J-2222222', 'asdf', 'AdministraciÃ³n/Oficinas', 'ja@adsl.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'ds', 'Anzoategui', 'Aragua de Barcelona'),
-(18, 'Palacio de Aguilas', 'iglesia evangelica', 'J-99859384', 'El soler', 'InformÃ¡tica/Telecomunicaciones', 'palacio@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'rojo', 'Zulia', 'Maracaibo');
+(9, 'JJ Inversion', 'educacion asdasdf', 'J-5555555', 'adsf', 'Informatica/Telecomunicaciones', 'urbe@gmail.com', 'urbe.com', 'urbe', './img-empresa/1581305473_9.jpg', 'Â¿Cual es tu color favorito?', 'rojo', NULL, NULL),
+(10, 'petma', 'empresa dedicada a la elaboracion de comida', 'j-123123', 'tierra negra', 'AlmacÃ©n', 'petma@gmail.com', 'www.petma.com', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'negro', NULL, NULL),
+(11, 'fullgustazo', 'empresa dedicada a la elaboracion de jugos', 'j-145234', 'tierra negra', 'Reparacion', 'fullgustazo@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'pimentel', NULL, NULL),
+(12, 'asdf', 'asdfas', 'J-000000000', 'adfads', 'Medicina/Saldud', 'j@gk.com', '', '123', './img-empresa/1581909567_12.jpg', 'Â¿Cual es tu color favorito?', 'Azul', NULL, NULL),
+(13, 'abc inversiones', 'sfgsf', 'J-8888888888', 'asdffffffffffffffffffffff', 'ConstrucciÃ³n y Obras', 'abc@inversiones.com', '', '123', './img-empresa/1581910052_13.jpg', 'Â¿Cual es tu color favorito?', 'aklsjdfklasjdkl', NULL, NULL),
+(14, 'super dupper', 'adfasd', 'akskasdf', 'asdfasdfa', 'Medicina/Saldud', 'asdlfk@lkas.com', 'www.google.com', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'asdf', NULL, NULL),
+(15, 'f', 'ad', 'J', 'asd', 'AdministraciÃ³n/Oficinas', 'p@prueba.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', '123', NULL, NULL),
+(16, 'asdf', 'asdf', 'J-2222222', 'asdf', 'AdministraciÃ³n/Oficinas', 'ja@adsl.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'ds', NULL, NULL),
+(18, 'Palacio de Aguilas', 'iglesia evangelica', 'J-99859384', 'El soler', 'InformÃ¡tica/Telecomunicaciones', 'palacio@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'rojo', NULL, NULL),
+(19, 'amazon', 'kasdasd', 'J-12345667', 'MARACAIBO', 'ConstrucciÃ³n y Obras', 'amazon@gmail.com', 'https://www.amazon.com', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'rojo', 95, 1864);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`
 --
 
 CREATE TABLE `estado` (
-  `id` int(11) NOT NULL,
+  `idestado` int(11) NOT NULL,
   `ubicacionpaisid` int(11) DEFAULT NULL,
   `estadonombre` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -79,7 +80,7 @@ CREATE TABLE `estado` (
 -- Dumping data for table `estado`
 --
 
-INSERT INTO `estado` (`id`, `ubicacionpaisid`, `estadonombre`) VALUES
+INSERT INTO `estado` (`idestado`, `ubicacionpaisid`, `estadonombre`) VALUES
 (1, 3, 'Azerbaijan'),
 (2, 3, 'Nargorni Karabakh'),
 (3, 3, 'Nakhichevanskaya Region'),
@@ -2107,7 +2108,8 @@ INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expAr
 (39, 'holanormal', 'asdf', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-03', '2020-02-03', 44, 0),
 (40, 'hola', 'kdj', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-11', '2020-02-07', 44, 0),
 (41, 'funcionatodook', 'kdj', 'jasdkjfkl', 'jjjdasas', 'klajsfkj', '2020-02-10', '2020-02-04', 44, 0),
-(42, 'elinca', 'Venezuela', 'contratista', 'soporte', 'realizar mantenimiento', '2013-02-01', '2015-02-01', 1, 2);
+(42, 'elinca', 'Venezuela', 'contratista', 'soporte', 'realizar mantenimiento', '2013-02-01', '2015-02-01', 1, 2),
+(43, 'Smartprocess', 'Venezuela', 'Ingenieria', 'administracion', 'pagar', '2020-03-01', '2020-03-05', 51, 0);
 
 -- --------------------------------------------------------
 
@@ -2131,7 +2133,8 @@ INSERT INTO `habilidades` (`idHabilidad`, `nombreHabilidad`, `idusuario`, `nivel
 (4, 'Guias Sada', 9, 'Avanzado'),
 (5, 'Word', 9, 'Avanzado'),
 (6, 'Excel', 9, 'Avanzado'),
-(81, 'asdaf', 44, 'Intermedio');
+(81, 'asdaf', 44, 'Intermedio'),
+(82, 'Excel', 51, 'Avanzado');
 
 -- --------------------------------------------------------
 
@@ -2213,7 +2216,12 @@ INSERT INTO `notificaciones` (`idempresa`, `idusuario`, `idpropuesta`, `idNotifi
 (6, 1, 56, 60, 1),
 (6, 1, 56, 61, 1),
 (6, 1, 56, 62, 1),
-(6, 1, 56, 63, 1);
+(6, 1, 56, 63, 1),
+(6, 7, 51, 64, 0),
+(6, 51, 56, 65, 0),
+(6, 51, 56, 66, 0),
+(6, 51, 56, 67, 0),
+(6, 51, 56, 68, 0);
 
 -- --------------------------------------------------------
 
@@ -2467,23 +2475,23 @@ CREATE TABLE `propuesta` (
   `educacion` char(150) DEFAULT NULL,
   `viajes` char(100) DEFAULT NULL,
   `vehiculo` char(100) DEFAULT NULL,
-  `estado` varchar(150) DEFAULT NULL,
-  `ciudad` varchar(150) DEFAULT NULL,
-  `test` text
+  `idpais` int(11) DEFAULT NULL,
+  `idestado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `propuesta`
 --
 
-INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `funciones`, `categoria`, `aExp`, `educacion`, `viajes`, `vehiculo`, `estado`, `ciudad`, `test`) VALUES
-(50, 'programador', 'saber react', 3, 111, 'Maracaibo', '0000-00-00 00:00:00', 5, 'programar app con react', 'Ventas', NULL, NULL, NULL, NULL, 'Zulia', 'Maracaibo', NULL),
-(51, 'DESARROLLADOR WEB', 'SABER ANGULAR', 3, 222, 'CiudadOjeda', '0000-00-00 00:00:00', 6, 'REALIZAR APP CON ANGULAR', 'Mantenimiento', NULL, NULL, NULL, NULL, 'Zulia', NULL, NULL),
-(56, 'ASISTENTE ADMINISTRATIVO', 'QUE SEPA SAINT', 3, 400, '', '0000-00-00 00:00:00', 6, 'SER ASISTENTE', 'Mantenimiento', 8, 'Bachiller', 'Si', 'Si', 'Zulia', 'Maracaibo', NULL),
-(61, 'GERENTE', 'LIDERAR EQUIPO', 1, 500, '', '0000-00-00 00:00:00', 5, 'REALIZAR REUNIONES INNCESESARIAS', 'Ventas', 8, 'Universitario', 'Si', 'Si', 'Merida', 'Tovar', NULL),
-(74, 'ddd', 'asdf', 1, 1, '', '0000-00-00 00:00:00', 9, 'asdf', 'IngenierÃ­a', 1, 'Bachiller', 'Si', 'Si', 'Tachira', 'Panamericano', NULL),
-(75, 'prueba', 'asdf', 11, 11, '', '0000-00-00 00:00:00', 9, 'asdf', 'InvestigaciÃ³n y Calidad', 11, 'Tecnico Medio', 'Si', 'Si', 'Nueva Esparta', 'Antolin del Campo', NULL),
-(78, 'Pastor', 'Saber de la biblia', 1, 500, '', '0000-00-00 00:00:00', 18, 'Predicar', 'HostelerÃ­a/Turismo', 4, 'Bachiller', 'No', 'Si', 'Zulia', 'Maracaibo', NULL);
+INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `funciones`, `categoria`, `aExp`, `educacion`, `viajes`, `vehiculo`, `idpais`, `idestado`) VALUES
+(50, 'programador', 'saber react', 3, 111, 'Maracaibo', '0000-00-00 00:00:00', 5, 'programar app con react', 'Ventas', NULL, NULL, NULL, NULL, NULL, NULL),
+(51, 'DESARROLLADOR WEB', 'SABER ANGULAR', 3, 222, 'CiudadOjeda', '0000-00-00 00:00:00', 6, 'REALIZAR APP CON ANGULAR', 'Mantenimiento', NULL, NULL, NULL, NULL, NULL, NULL),
+(56, 'ASISTENTE ADMINISTRATIVO', 'QUE SEPA SAINT', 3, 400, '', '0000-00-00 00:00:00', 6, 'SER ASISTENTE', 'Mantenimiento', 8, 'Bachiller', 'Si', 'Si', NULL, NULL),
+(61, 'GERENTE', 'LIDERAR EQUIPO', 1, 500, '', '0000-00-00 00:00:00', 5, 'REALIZAR REUNIONES INNCESESARIAS', 'Ventas', 8, 'Universitario', 'Si', 'Si', NULL, NULL),
+(74, 'ddd', 'asdf', 1, 1, '', '0000-00-00 00:00:00', 9, 'asdf', 'IngenierÃ­a', 1, 'Bachiller', 'Si', 'Si', NULL, NULL),
+(75, 'prueba', 'asdf', 11, 11, '', '0000-00-00 00:00:00', 9, 'asdf', 'InvestigaciÃ³n y Calidad', 11, 'Tecnico Medio', 'Si', 'Si', NULL, NULL),
+(78, 'Pastor', 'Saber de la biblia', 1, 500, '', '0000-00-00 00:00:00', 18, 'Predicar', 'HostelerÃ­a/Turismo', 4, 'Bachiller', 'No', 'Si', NULL, NULL),
+(83, 'Programador MVC', 'SABER PROGRAMAR EN MODELO VISTA CONTROLADOR', 5, 100, '', '0000-00-00 00:00:00', 19, 'PROGRAMAR REACTIVAMENTE', 'Informatica/Telecomunicaciones', 5, 'Universitario', 'No', 'No', 95, 1864);
 
 -- --------------------------------------------------------
 
@@ -2549,24 +2557,27 @@ CREATE TABLE `usuarios` (
   `instagram` varchar(150) DEFAULT NULL,
   `facebook` varchar(150) DEFAULT NULL,
   `linkedin` varchar(150) DEFAULT NULL,
-  `idpais` int(11) DEFAULT NULL
+  `idpais` int(11) DEFAULT NULL,
+  `idestado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`, `esAdmin`, `instagram`, `facebook`, `linkedin`, `idpais`) VALUES
-(1, 'Yohesky', 'Pimentel', 'V-26878565', 'yoheskyjpp@gmail.com', '1234', '1998-05-29', 'Casado/a', 'Hombre', '04141748892', 'El SAMAN', 'programador', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'Si', '', 'No', 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, '400', 22, 0, 'yjpp', 'https://www.facebook.com/yohesky.jose', 'yohesky', NULL),
-(3, 'joswsf', 'aladas', 'V-2554555', 'josealjuria@gmail.com', 'jose', '2002-02-25', 'Casado/a', 'Hombre', '32147483647', 'adasdf', 'Desarrollador', 'Universitario', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/Fundamentos_de_jQuery.pdf', 'programador', './img-perfil/1582691920_3.jpg', NULL, NULL, '6', 18, 1, NULL, NULL, NULL, NULL),
-(4, 'luis', 'colmenarez', '2512345', 'luis@gmail.com', 'luis', '0000-00-00', '', '', '2147483647', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, '', 2020, 0, NULL, NULL, NULL, NULL),
-(7, 'coral', 'portillo', '14901511', 'cportillo@gmail.com', 'coral', '0000-00-00', 'Casado/a', 'Hombre', '2147483647', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400', NULL, 0, NULL, NULL, NULL, NULL),
-(9, 'jecselys', 'torres', '25553618', 'jecselys17@gmail.com', '1234', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1580410567_9', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '', 2020, 0, NULL, NULL, NULL, NULL),
-(40, 'prueba1', 'prueba2', '0', 'prueba1@prueba', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, NULL, NULL, NULL, NULL),
-(42, 'jose', 'aljuria', '0', 'josejavier@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, NULL, NULL, NULL, NULL),
-(43, 'juan', 'perez', '0', 'juanPerez@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'joo', NULL, NULL, 0, NULL, NULL, NULL, NULL),
-(44, 'john', 'smith', 'V-25802196', 'john@smit.com', '123', '1996-12-15', 'Casado/a', 'Hombre', '', 'jaklsdjfk', '', 'Tecnico Medio', '', '', '', '', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CartaPresentacion.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 24, 0, NULL, NULL, NULL, NULL),
-(45, 'hector', 'torres', 'V-15061283', 'hector@gmail.com', '1234', '1960-05-13', 'Casado/a', 'Hombre', '04141748892', 'Soler', 'CONDUCTOR', '', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '400', 60, 0, NULL, NULL, NULL, NULL);
+INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`, `esAdmin`, `instagram`, `facebook`, `linkedin`, `idpais`, `idestado`) VALUES
+(1, 'Yohesky', 'Pimentel', 'V-26878565', 'yoheskyjpp@gmail.com', '1234', '1998-05-29', 'Casado/a', 'Hombre', '04141748892', 'El SAMAN', 'programador', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'Si', '', 'No', 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, '400', 22, 0, 'yjpp', 'https://www.facebook.com/yohesky.jose', 'yohesky', NULL, NULL),
+(3, 'joswsf', 'aladas', 'V-2554555', 'josealjuria@gmail.com', 'jose', '2002-02-25', 'Casado/a', 'Hombre', '32147483647', 'adasdf', 'Desarrollador', 'Universitario', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/Fundamentos_de_jQuery.pdf', 'programador', './img-perfil/1582691920_3.jpg', NULL, NULL, '6', 18, 1, NULL, NULL, NULL, NULL, NULL),
+(4, 'luis', 'colmenarez', '2512345', 'luis@gmail.com', 'luis', '0000-00-00', '', '', '2147483647', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, '', 2020, 0, NULL, NULL, NULL, NULL, NULL),
+(7, 'coral', 'portillo', '14901511', 'cportillo@gmail.com', 'coral', '0000-00-00', 'Casado/a', 'Hombre', '2147483647', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400', NULL, 0, NULL, NULL, NULL, NULL, NULL),
+(9, 'jecselys', 'torres', '25553618', 'jecselys17@gmail.com', '1234', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1580410567_9', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '', 2020, 0, NULL, NULL, NULL, NULL, NULL),
+(40, 'prueba1', 'prueba2', '0', 'prueba1@prueba', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
+(42, 'jose', 'aljuria', '0', 'josejavier@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
+(43, 'juan', 'perez', '0', 'juanPerez@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'joo', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
+(44, 'john', 'smith', 'V-25802196', 'john@smit.com', '123', '1996-12-15', 'Casado/a', 'Hombre', '', 'jaklsdjfk', '', 'Tecnico Medio', '', '', '', '', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CartaPresentacion.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 24, 0, NULL, NULL, NULL, NULL, NULL),
+(45, 'hector', 'torres', 'V-15061283', 'hector@gmail.com', '1234', '1960-05-13', 'Casado/a', 'Hombre', '04141748892', 'Soler', 'CONDUCTOR', '', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '400', 60, 0, NULL, NULL, NULL, NULL, NULL),
+(50, 'Jose', 'Oropeza', 'V-14901511', 'joseoro@gmail.com', '1234', '1978-12-18', 'Divorciado/a', 'Hombre', '04141234567', 'haticos', 'PROFESOR UNIVERSITARIO DE MATEMATICAS', 'Universitario', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2020.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '1000', 42, 0, NULL, NULL, NULL, 95, 1864),
+(51, 'juneri', 'chourio', 'V-12042234', 'juneri@gmail.com', '1234', '1985-11-16', 'Casado/a', 'Mujer', '04141748892', 'Manzanillo', 'Administradora', 'Universitario', '', '', '', 'Si', '', 'No', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'administradora', './img-perfil/1583435167_51.jpg', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '500', 35, 0, 'inta', 'face', 'link', 95, 1864);
 
 -- --------------------------------------------------------
 
@@ -2599,7 +2610,9 @@ INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropue
 (3, 50),
 (1, 78),
 (45, 56),
-(3, 56);
+(3, 56),
+(51, 56),
+(51, 51);
 
 --
 -- Indexes for dumped tables
@@ -2609,13 +2622,15 @@ INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropue
 -- Indexes for table `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`idempresa`);
+  ADD PRIMARY KEY (`idempresa`),
+  ADD KEY `idx_paisempresa` (`idpais`),
+  ADD KEY `idx_idestadoempresa` (`idestado`);
 
 --
 -- Indexes for table `estado`
 --
 ALTER TABLE `estado`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`idestado`),
   ADD KEY `IDX_4786469191104EC2` (`ubicacionpaisid`);
 
 --
@@ -2652,7 +2667,9 @@ ALTER TABLE `pais`
 --
 ALTER TABLE `propuesta`
   ADD PRIMARY KEY (`idpropuesta`,`empresa_idempresa`),
-  ADD KEY `fk_propuesta_empresa1_idx` (`empresa_idempresa`);
+  ADD KEY `fk_propuesta_empresa1_idx` (`empresa_idempresa`),
+  ADD KEY `idx_paispropuesta` (`idpais`),
+  ADD KEY `idx_idestadopropuesta` (`idestado`);
 
 --
 -- Indexes for table `seleccion`
@@ -2665,7 +2682,8 @@ ALTER TABLE `seleccion`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idusuarios`),
-  ADD KEY `idx_pais` (`idpais`);
+  ADD KEY `idx_pais` (`idpais`),
+  ADD KEY `idx_estado` (`idestado`);
 
 --
 -- Indexes for table `usuarios_has_propuesta`
@@ -2682,31 +2700,31 @@ ALTER TABLE `usuarios_has_propuesta`
 -- AUTO_INCREMENT for table `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2202;
+  MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2202;
 
 --
 -- AUTO_INCREMENT for table `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `habilidades`
 --
 ALTER TABLE `habilidades`
-  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `pais`
@@ -2718,7 +2736,7 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT for table `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `seleccion`
@@ -2730,11 +2748,18 @@ ALTER TABLE `seleccion`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `empresa`
+--
+ALTER TABLE `empresa`
+  ADD CONSTRAINT `fk_idestadoempresa` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
+  ADD CONSTRAINT `fk_idpaisempresa` FOREIGN KEY (`idpais`) REFERENCES `pais` (`id`);
 
 --
 -- Constraints for table `experiencia`
@@ -2760,12 +2785,15 @@ ALTER TABLE `notificaciones`
 -- Constraints for table `propuesta`
 --
 ALTER TABLE `propuesta`
+  ADD CONSTRAINT `fk_idestadopropuesta` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
+  ADD CONSTRAINT `fk_idpaispropuesta` FOREIGN KEY (`idpais`) REFERENCES `pais` (`id`),
   ADD CONSTRAINT `fk_propuesta_empresa1` FOREIGN KEY (`empresa_idempresa`) REFERENCES `empresa` (`idempresa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_idestado` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
   ADD CONSTRAINT `fk_idpais` FOREIGN KEY (`idpais`) REFERENCES `pais` (`id`);
 
 --

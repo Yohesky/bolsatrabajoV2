@@ -4,7 +4,7 @@ include("conexion.php");
 
 if(isset($_POST['nombre']) && isset($_POST['descripcion']) &&
 isset($_POST['rif']) && isset($_POST['direccion']) && isset($_POST['correo']) && isset($_POST['sector']) &&
-isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado']) && isset($_POST['ciudad']))
+isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado']) && isset($_POST['pais']))
 {
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
@@ -18,7 +18,7 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
     $preguntaSeguridad = mysqli_real_escape_string($conexion, $_POST['preguntas']);
     $respuestaSeguridad = mysqli_real_escape_string($conexion, $_POST['respuesta']);
     $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
-    $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
+    $pais = mysqli_real_escape_string($conexion, $_POST['pais']);
     $result = '';
 
     if(strlen($contrasena) > 30)
@@ -56,15 +56,15 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
     }
 
     else{
-        $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad, estado,ciudad) 
-        VALUES('$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad', '$estado', '$ciudad')";
-        mysqli_query($conexion, $sql);
+        $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad, idpais, idestado) 
+        VALUES('$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad', '$pais', '$estado')";
+        mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
         echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
         
     }
 }
 else {
-    echo mysqli_error($conexion);
+    echo 'faltan datos';
 }
 
 

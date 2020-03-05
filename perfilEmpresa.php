@@ -76,6 +76,71 @@ $nombreEmpresa = mysqli_fetch_array($resultado)[0];
                 <div class="card-body">
                     <?php include("includes/datosEmpresa.php") ?>
                 </div>
+
+                <div class="card text-white">
+                <button class="btn btn-warning text-white" data-toggle="modal" data-target="#localizacionModal" id="localizacionM">¿Ha cambiado de País?</button>
+            </div>
+
+
+            <div class="modal fade" id="localizacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title text-center">
+                            <h5 class="" id="exampleModalLabel">Cambia tu Ubicacion</h5>
+                            </div>
+                                
+                            <hr>
+                            <br>
+
+                            
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                       
+                            <form id="localizacion" class="card card-body mt-3">
+
+                                <div class="form-group">
+                                    <select class="form-control" name='pais' id="pais">
+                                        
+                                    <?php 
+                                        include('includes/conexion.php');
+                                        session_start();
+                                        $query = "SELECT * FROM pais";
+                                        $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                                        
+                                        while ($row = mysqli_fetch_array($resultado)) {
+                                            echo "<option value='".$row['id']."'>";
+                                            echo $row['paisnombre'];
+                                            echo "</option>";
+                                        } 
+                                        ?>
+                                    </select>
+                
+            
+                                </div>
+
+                                
+                                <div class="form-group">
+                                     <select class="form-control" name="estado" id="estado">
+                                                <option value="">Estado</option>
+                                    </select>
+                                </div>
+
+
+
+                                <button class="btn btn-info btn-block">Guardar</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cerrar-modal" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 
             </div>
         </div>
@@ -86,3 +151,60 @@ $nombreEmpresa = mysqli_fetch_array($resultado)[0];
 <script src="js/validaciones.js"></script>
 <script src="js/perfilEmpresa.js"></script>
 <script src="js/direccionesEmpresa.js"></script>
+<script>
+    actLocalizacion()
+    	$(document).ready(function(){
+				$("#pais").ready(function () {
+                    
+                   console.log('ready');
+                   $("#pais option:selected").each(function () {
+						idpais = $(this).val();
+						$.post("includes/getEstados.php", { idpais: idpais }, function(data){
+                            console.log(data);
+                            
+							$("#estado").html(data);
+						});            
+					});
+
+                })
+                
+
+                $("#pais").change(function () {
+                    
+                    console.log('cambiando');
+                    $("#pais option:selected").each(function () {
+                         idpais = $(this).val();
+                         $.post("includes/getEstados.php", { idpais: idpais }, function(data){
+                             console.log(data);
+                             
+                             $("#estado").html(data);
+                         });            
+                     });
+ 
+                 })
+            });
+            
+            function actLocalizacion(){
+                $("#localizacion").submit(function (e){
+                   let localizacion = $("#localizacion").serialize()
+                    console.log(localizacion);
+                    
+                    
+                    $.ajax({
+                        method: 'POST',
+                        url: "includes/actualizarLocalizacionEmpresa.php",
+                        data: localizacion,
+                        success: function (response) {
+        
+                            
+                            console.log(response)
+                        },
+                        error: function(error){
+                            console.log(error);
+                        }
+                        });
+
+                    e.preventDefault()
+                })
+            }
+</script>

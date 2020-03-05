@@ -11,7 +11,7 @@ if(isset($_POST["id"]))
     
 
    
-    $query = "SELECT * FROM propuesta where idpropuesta='$id'";
+    $query = "SELECT * FROM propuesta JOIN pais ON propuesta.idpais = pais.id JOIN estado ON propuesta.idestado = estado.idestado WHERE idpropuesta='$id'";
 
     $resultado = mysqli_query($conexion,$query);
 
@@ -35,9 +35,8 @@ while($row = mysqli_fetch_array($resultado))
         "vehiculo" => $row["vehiculo"],
         "educacion" => $row["educacion"],
         "aExp" => $row["aExp"],
-        "ciudad" => $row["ciudad"],
-        "estado" => $row["estado"],
-        "aExp" => $row["aExp"]
+        "paisnombre" => $row["paisnombre"],
+        "estadonombre" => $row["estadonombre"],
     );
 }
 

@@ -15,7 +15,7 @@ function cargarDatos(){
 				<hgroup class="col-12 text-center">
 					<h1 class="after mt-3">${resultado.nombre + ' ' + resultado.apellido}</h1>
 					<h2 class="h3">${resultado.puestoDeseado}</h2>
-					<h3 >${resultado.pais + '/' + resultado.ciudad}</h3>
+					<h3 >${resultado.paisnombre + '/' + resultado.estadonombre}</h3>
 
 					<div class="mx-auto mt-5">
 							<div class="row mx-auto">

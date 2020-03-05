@@ -31,5 +31,7 @@ if(isset($_POST["expEmpresa"]) && isset($_POST["expPais"]) && isset($_POST["expS
 
     echo "guardada";
 }
-
+else{
+    echo "faltan datos";
+}
 ?>

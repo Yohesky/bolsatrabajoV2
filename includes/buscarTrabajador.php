@@ -6,14 +6,14 @@ function inicio($conexion){
 	if(isset($_GET["busqueda"])){
 
         $parametrosDeBusqueda = json_decode($_GET["datos"], true);      
-        $generadorSql = new GeneradorSQL("SELECT * FROM usuarios", $parametrosDeBusqueda);
+        $generadorSql = new GeneradorSQL("SELECT * FROM usuarios JOIN pais ON usuarios.idpais = pais.id JOIN estado ON usuarios.idestado = estado.idestado", $parametrosDeBusqueda);
         $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, $generadorSql->obtenerSentenciaSQL(), $generadorSql->obtenerCondicionales());
         echo $generadorConsulta->obtenerJSON();
    
 
     }else{
         
-        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, "SELECT * FROM usuarios");
+        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, "SELECT * FROM usuarios JOIN pais ON usuarios.idpais = pais.id JOIN estado ON usuarios.idestado = estado.idestado");
         echo $generadorConsulta->obtenerJSON();
 
     }
@@ -32,13 +32,16 @@ function convertirConsultaJSON($resultado): array{
             "nombre" =>  $row ["nombre"],
             "apellido" =>  $row ["apellido"],
             "correo" => $row["correo"],
-            "pais" => $row["pais"],
-            "ciudad" => $row["ciudad"],
+            "idpais" => $row["idpais"],
+            "idestado" => $row["idestado"],
             "edad" => $row["edad"],
             "foto" => $row["fotoPerfil"],
             "educacion" => $row["educacion"],
             "profesion" => $row["puestoDeseado"],
-            "idusuarios" => $row["idusuarios"]
+            "idusuarios" => $row["idusuarios"],
+            "paisnombre" => $row["paisnombre"],
+            "estadonombre" => $row["estadonombre"]
+
         );
 
     }

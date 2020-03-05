@@ -15,7 +15,7 @@ $(function () {
          
 
          if($.trim(nombrePropuesta.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(vacantes.value).length > 0 && $.trim(sueldo.value).length > 0 && $.trim(funciones.value).length > 0 && $.trim(categoria.value).length >0
-         && $.trim(aExp.value).length >0 && $.trim(vehiculo.value).length >0 && $.trim(viajes.value).length >0 && $.trim(educacion.value).length >0 && $.trim(estado.value).length >0 && $.trim(ciudad.value).length >0 && $.trim(aExp.value).length >0)
+         && $.trim(aExp.value).length >0 && $.trim(vehiculo.value).length >0 && $.trim(viajes.value).length >0 && $.trim(educacion.value).length >0 && $.trim(estado.value).length >0 && $.trim(pais.value).length >0 && $.trim(aExp.value).length >0)
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
             console.log(direccion);
@@ -46,7 +46,9 @@ $(function () {
         url: "includes/publicaciones.php",
         type: 'GET',
         success: function(response)
-        {
+        {       
+            console.log(response);
+            
                 let propuesta =  JSON.parse(response);
                 let plantilla = "";
                 propuesta.forEach
@@ -60,7 +62,8 @@ $(function () {
                     <div class="alert alert-primary" role="alert">
                     <div class="row">
                         <div class="col-md-8">
-                        <span> ${propuesta.titulo} </span> -  <span> ${propuesta.descripcion} </span> - <span> ${propuesta.vacantes} </span> -  <span> ${propuesta.sueldo} </span> -  <span> ${propuesta.estado} </span>  
+                        <span> ${propuesta.titulo} </span> -  <span> ${propuesta.descripcion} </span> - <span> ${propuesta.vacantes} </span> -  <span> ${propuesta.sueldo} </span> - <span> ${propuesta.paisnombre} </span> 
+                        - <span> ${propuesta.estadonombre} </span>
                         </div>
 
                         <div class="col-md-2">
@@ -129,8 +132,8 @@ $(function () {
                $("#vehiculo").val(postulacion.vehiculo);
                $("#viajes").val(postulacion.viajes);
                $("#educacion").val(postulacion.educacion);
-               $("#estado").val(postulacion.estado);
-               $("#ciudad").val(postulacion.ciudad);
+               $("#pais").val(postulacion.paisnombre);
+               $("#estado").val(postulacion.estadonombre);
                $("#postulacionId").val(postulacion.id)
                $("#aExp").val(postulacion.aExp)
                editar = true;

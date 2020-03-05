@@ -2,7 +2,7 @@
 	require_once('conexion.php');
 	$id = $_GET["id"];
 
-	$queryUsuario = "SELECT * FROM usuarios  WHERE idusuarios = '$id'";
+	$queryUsuario = "SELECT * FROM usuarios JOIN pais ON usuarios.idpais = pais.id JOIN estado ON usuarios.idestado = estado.idestado WHERE idusuarios='$id'";
 	$rsQuery = mysqli_query($conexion, $queryUsuario) or die(mysqli_error($conexion));
 	$usuario = mysqli_fetch_assoc($rsQuery);
 

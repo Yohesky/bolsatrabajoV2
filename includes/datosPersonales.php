@@ -63,32 +63,7 @@ while($row = mysqli_fetch_array($resultado))
     </div>
     ";
 
-    echo " <div class='form-group'>
-    <select class='form-control' id='pais' name='idpais'>
-    ";
-    while($rowPais = mysqli_fetch_array($resultadoPais)){
-     echo "
-        <div class='form-control'>
-           
-                <option value='$rowPais[id]'> $rowPais[paisnombre] </option>
-            
-        </div>
-    ";
-    }
-    
-    echo "
-    </select>
-    </div>";
-
-    
-
-
-    echo "
-    <div class='form-group'>
-        <select class='form-control' name='idestado' id='estado'>
-            <option> $rowPais[estadonombre] </option>
-        </select>
-    </div>
+    echo " 
     
     <div class='form-group'>
                             <input type='text' id='direccion' name='direccion' value='".$row['direccion']."' placeholder='Dirección' class='form-control' maxlength='45' required='false'>
@@ -98,7 +73,7 @@ while($row = mysqli_fetch_array($resultado))
  
         <label class='form-control' for='educacion'>Nivel de Educacion</label>
         <select class='form-control' id='educacion' name='educacion'>
-        <option value='".$row['educacion']."'>Bachiller</option>
+        <option value='".$row['educacion']."'>".$row['educacion']."</option>
         <option value='Bachiller'>Bachiller</option>
         <option value='Tecnico Medio'>Tecnico Medio</option>
         <option value='Tecnico Superior Universitario'>Tecnico Superior Universitario</option>
