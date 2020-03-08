@@ -15,12 +15,13 @@ if(isset($_POST["postulacionId"]))
     $vehiculo = $_POST['vehiculo'];
     $aExp = $_POST['aExp'];
     $educacion = $_POST['educacion'];
+    $pais = mysqli_real_escape_string($conexion, $_POST['pais']);
     $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
-    $ciudad = mysqli_real_escape_string($conexion, $_POST['ciudad']);
+    
 
 
     //entre parentesis (nombre, descripcion) se llaman las columnas en la BD
-    $query = "UPDATE propuesta set titulo='$nombre', descripcion='$descripcion', vacantes='$vacantes', sueldo='$sueldo', funciones='$funciones', categoria='$categoria', aExp='$aExp', educacion='$educacion', viajes='$viajes', vehiculo='$vehiculo', estado='$estado', ciudad='$ciudad' WHERE idpropuesta='$id' ";
+    $query = "UPDATE propuesta set titulo='$nombre', descripcion='$descripcion', vacantes='$vacantes', sueldo='$sueldo', funciones='$funciones', categoria='$categoria', aExp='$aExp', educacion='$educacion', viajes='$viajes', vehiculo='$vehiculo', idpais='$pais', idestado='$estado' WHERE idpropuesta='$id' ";
 
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 

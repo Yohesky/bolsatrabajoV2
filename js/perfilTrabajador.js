@@ -56,16 +56,16 @@ $(function () {
           success: function (response) {
             console.log(response);
 
-              swal({
-                title: "Datos actualizados",
-                text: "Sus datos han sido actualizados",
-                icon: "success",
-                button: "Continuar",
-              });
-              $('#nomG').text($('#nombre').val());
-              $('#ApeG').text($('#apellido').val());
-              actualizarCurriculum();
-          },//success
+               swal({
+                 title: "Datos actualizados",
+                 text: "Sus datos han sido actualizados",
+                 icon: "success",
+                 button: "Continuar",
+               });
+               $('#nomG').text($('#nombre').val());
+               $('#ApeG').text($('#apellido').val());
+               actualizarCurriculum();
+          },
           error: function(error){
             console.log(error);
           }
@@ -87,7 +87,8 @@ $(function () {
   function insertarExp() {
     
     $("#formularioExperiencia").submit(function (e) {
-
+      console.log('click');
+      
       let formulario = document.getElementById('formularioExperiencia');
 
       if(formulario.checkValidity()){
@@ -105,9 +106,10 @@ $(function () {
           url: direccion,
           data: form,
           success: function (response) {
+            console.log(response)
             mostrarExp();
             
-            console.log(response)
+            
           },
           error: function(error){
             console.log(error);

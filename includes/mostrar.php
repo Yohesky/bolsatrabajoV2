@@ -9,7 +9,7 @@ function inicio($conexion){
     if(isset($_GET["busqueda"])){
 
         $parametrosDeBusqueda = json_decode($_GET["datos"], true);        
-        $generadorSql = new GeneradorSQL("SELECT *, propuesta.estado as estadoP FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa", "parametrosJsonASql", $parametrosDeBusqueda);
+        $generadorSql = new GeneradorSQL("SELECT *, propuesta.idpais as Pais FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa JOIN pais ON propuesta.idpais = pais.id JOIN estado ON propuesta.idestado = estado.idestado", "parametrosJsonASql", $parametrosDeBusqueda);
         $generadorConsulta = new GeneradorConsultaConPaginacion(10, $conexion, $generadorSql->obtenerSentenciaSQL(), $generadorSql->obtenerCondicionales());
         echo $generadorConsulta->obtenerJSON();
 
@@ -38,7 +38,6 @@ function convertirConsultaJSON($resultado): array{
             "descripcion" =>  $row ["descripcion"],
             "vacantes" => $row ["vacantes"],
             "sueldo" => $row ["sueldo"],
-            "estado" => $row["estadoP"],
             "publicacion" => $row ["publicacion"],
             "id" =>  $row ["idpropuesta"],
             "idempresa" => $row["idempresa"],
@@ -144,7 +143,7 @@ class GeneradorConsultaConPaginacion{
     private $limites = "";
     private $condicionales = "";
 
-    public function __construct($postulacionePorPagina = 10, $conexion, $consultaSQL = "SELECT *, propuesta.estado as estadoP FROM propuesta  JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa" , $condicionales = ""){
+    public function __construct($postulacionePorPagina = 10, $conexion, $consultaSQL = "SELECT *, propuesta.idpais as Pais FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa JOIN pais ON propuesta.idpais = pais.id JOIN estado ON propuesta.idestado = estado.idestado" , $condicionales = ""){
 
         $this->postulacionesPorPagina = $postulacionePorPagina;
         $this->conexion = $conexion;

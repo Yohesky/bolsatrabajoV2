@@ -138,14 +138,14 @@ $fila = mysqli_fetch_assoc($rsQuery);
                                     </div>
                                 </div>
 
-
-
-                            </form>
-                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" id="cerrar-modal" data-dismiss="modal">Cerrar</button>
                             <button id="guardar" class="btn btn-primary"  type="submit">Guardar</button>
                         </div>
+
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -237,6 +237,72 @@ $fila = mysqli_fetch_assoc($rsQuery);
                 </div>
 
             </div>
+
+            <div class="card text-white">
+                <button class="btn btn-warning text-white" data-toggle="modal" data-target="#localizacionModal" id="localizacionM">¿Ha cambiado de País?</button>
+            </div>
+
+
+            <div class="modal fade" id="localizacionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-title text-center">
+                            <h5 class="" id="exampleModalLabel">Cambia tu Ubicacion</h5>
+                            </div>
+                                
+                            <hr>
+                            <br>
+
+                            
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                       
+                            <form id="localizacion" class="card card-body mt-3">
+
+                                <div class="form-group">
+                                    <select class="form-control" name='pais' id="pais">
+                                        
+                                    <?php 
+                                        include('includes/conexion.php');
+                                        session_start();
+                                        $query = "SELECT * FROM pais";
+                                        $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+                                        
+                                        while ($row = mysqli_fetch_array($resultado)) {
+                                            echo "<option value='".$row['id']."'>";
+                                            echo $row['paisnombre'];
+                                            echo "</option>";
+                                        } 
+                                        ?>
+                                    </select>
+                
+            
+                                </div>
+
+                                
+                                <div class="form-group">
+                                     <select class="form-control" name="estado" id="estado">
+                                                <option value="">Estado</option>
+                                    </select>
+                                </div>
+
+
+
+                                <button class="btn btn-info btn-block">Guardar</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="cerrar-modal" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -318,12 +384,14 @@ $fila = mysqli_fetch_assoc($rsQuery);
 
 <script src="js/habilidad.js"></script>
 <script src="js/direcciones.js"></script>
+<script src="js/perfilTrabajador.js"></script>
 <script>
+    actLocalizacion()
     	$(document).ready(function(){
-				$("#pais").change(function () {
-                    console.log('cambiando');
+				$("#pais").ready(function () {
                     
-					$("#pais option:selected").each(function () {
+                   console.log('ready');
+                   $("#pais option:selected").each(function () {
 						idpais = $(this).val();
 						$.post("includes/getEstados.php", { idpais: idpais }, function(data){
                             console.log(data);
@@ -331,6 +399,46 @@ $fila = mysqli_fetch_assoc($rsQuery);
 							$("#estado").html(data);
 						});            
 					});
-				})
-			});
+
+                })
+                
+
+                $("#pais").change(function () {
+                    
+                    console.log('cambiando');
+                    $("#pais option:selected").each(function () {
+                         idpais = $(this).val();
+                         $.post("includes/getEstados.php", { idpais: idpais }, function(data){
+                             console.log(data);
+                             
+                             $("#estado").html(data);
+                         });            
+                     });
+ 
+                 })
+            });
+            
+            function actLocalizacion(){
+                $("#localizacion").submit(function (e){
+                   let localizacion = $("#localizacion").serialize()
+                    console.log(localizacion);
+                    
+                    
+                    $.ajax({
+                        method: 'POST',
+                        url: "includes/actualizarLocalizacion.php",
+                        data: localizacion,
+                        success: function (response) {
+        
+                            
+                            console.log(response)
+                        },
+                        error: function(error){
+                            console.log(error);
+                        }
+                        });
+
+                    e.preventDefault()
+                })
+            }
 </script>

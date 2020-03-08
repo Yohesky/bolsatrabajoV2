@@ -5,7 +5,7 @@ include("conexion.php");
 session_start();
 $idempresa = $_SESSION['idempresa'];
 
-$query = "SELECT * from propuesta WHERE empresa_idempresa='$idempresa'";
+$query = "SELECT * FROM propuesta JOIN pais ON propuesta.idpais = pais.id JOIN estado ON propuesta.idestado = estado.idestado WHERE empresa_idempresa='$idempresa'";
 $resultado = mysqli_query($conexion, $query);
 
 if(!$resultado)
@@ -23,8 +23,9 @@ while($row = mysqli_fetch_array($resultado))
         "titulo" => $row["titulo"],
         "descripcion" => $row["descripcion"],
         "vacantes" => $row["vacantes"],
+        "paisnombre" => $row["paisnombre"],
         "sueldo" => $row["sueldo"],
-        "estado" => $row["estado"]
+        "estadonombre" => $row["estadonombre"],
     );
 }
 
