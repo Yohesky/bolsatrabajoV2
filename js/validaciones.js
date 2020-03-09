@@ -17,10 +17,10 @@
 	  })();
 $(function(){
 
-	$('#nombre').prop({'pattern': '[a-záéíóúñÑA-Z]+', 'required': true
+	$('#nombre').prop({'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras)</div>');
 
-	$('#nombreEmpresa').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
+	$('#nombreEmpresa').prop({'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un nombre (solo letras o números)</div>');
 
 	$('#funciones').prop({'pattern': '[a-z áéíóúñÑA-Z0-9]+', 'required': true
@@ -35,7 +35,7 @@ $(function(){
 	$('#sueldo').prop({'pattern': '[0-9]+', 'required': true
 }).parent().append('<div class="invalid-feedback text-left">Solo numeros</div>');
 
-	$('#apellido').prop({'pattern': '[a-záéíóúñÑA-Z]+',
+	$('#apellido').prop({
 	'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un apellido (solo letras)</div>')
 
@@ -102,11 +102,11 @@ $(function(){
 	$('#habilidad').prop({'required': true});
 		
 
-	$('#correo').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
+	$('#correo').prop({'pattern':'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 
-	$('#email').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
+	$('#email').prop({'pattern':'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 
-	$('#correoEmpresa').prop({'pattern':'[a-zñÑA-Z0-9.+_-]+@[a-zñÑA-Z09.-]+\.[a-zA-Z0-9.-]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
+	$('#correoEmpresa').prop({'pattern':'[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+', 'required' : true}).parent().append('<div class="invalid-feedback text-left">Ejem. ejemplo@ejemplo.com</div>'); 
 
 	$('#contrasena').prop('required', true);
 	$('#contrasena2').prop('required', true);
@@ -118,13 +118,6 @@ $(function(){
 	// $('#estado').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione un estado</div>');
 
 	// $('#ciudad').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una ciudad</div>');
-
-
-	$('#correoEmpresa').keypress(function(e){
-		if(!(/[a-zñÑ@.A-Z0-9]/.test(String.fromCharCode(e.which)))){
-			e.preventDefault();
-		}
-	});
 
 	$('#descripcion').prop('required', true
 	).parent().append('<div class="invalid-feedback text-left">Es necesario una descripción</div>');

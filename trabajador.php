@@ -218,7 +218,7 @@ if(isset($_SESSION["idusuarios"])){
 						<div class="card-body">
 							<form id="">
 						
-							<?php 
+							<?php /*
 							include_once('includes/conexion.php');
 							$query = "SELECT DISTINCT estado FROM propuesta";
 							$tabla = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
@@ -232,7 +232,7 @@ if(isset($_SESSION["idusuarios"])){
 
 							<?php 
 							$contador++;
-							} ?>
+							} */?>
 							</form>
 						</div>
 					</div>
@@ -244,7 +244,7 @@ if(isset($_SESSION["idusuarios"])){
 </main>
 
 <div id="paginacion"></div>
-<?php include("includes/footer.php") ?>
+<?php include_once("./includes/footer.php"); ?>
 <script src="./js/buscadores/mostrar.js"></script>
 <!--<script src="js/busqueda.js"></script>-->
 <script src="js/direcciones.js"></script>
