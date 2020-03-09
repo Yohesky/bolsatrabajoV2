@@ -26,6 +26,9 @@ function getGET()
 insertarPostulacion()
 mostrarPostulaciones();
 eliminarPostulacion();
+Seleccionado()
+
+let idpropuesta = ''
 
 function insertarPostulacion()
 {
@@ -74,6 +77,7 @@ function mostrarPostulaciones() {
         {
           
                 let postulacion =  JSON.parse(response);
+                idpropuesta = postulacion.propuesta_idpropuesta
                 let plantilla = "";
                 postulacion.forEach
                 (
@@ -87,11 +91,14 @@ function mostrarPostulaciones() {
                         <td scope="col"> ${postulacion.descripcion}  </td>
                         <td scope="col"> ${postulacion.vacantes}  </td>
                         <td scope="col"> ${postulacion.sueldo}  </td>
-                        <td scope="col"> ${postulacion.estado}  </td>
+                        <td scope="col"> ${postulacion.pais}  </td>
                         <td scope="col"> ${postulacion.funciones}  </td>
+
+                        <td class='seleccionado' scope="col">  </td>
+
                         <td scope="col">   </td>
                         <td scope="col">
-                            <button value="${postulacion.propuesta_idpropuesta}" class="btn btn-danger eliminar-postulacion">Retirarme</button>
+                            <button id='btnEliminar' value="${postulacion.propuesta_idpropuesta}" class="btn btn-danger eliminar-postulacion">Retirarme</button>
                         </td>
                         <td scope="col">
                              <a class="btn btn-info" id="boton" href="estadistica.php?idpropuesta=${postulacion.idpropuesta}&&idusuario=${postulacion.idusuario}">Ver mis estadisticas</a>
@@ -103,6 +110,7 @@ function mostrarPostulaciones() {
                     }
                 )
                 $("#postulaciones").html(plantilla);
+                return idpropuesta
         }
       });
   }
@@ -130,4 +138,10 @@ function mostrarPostulaciones() {
     });
   }
 
+   function Seleccionado(){
+    $(document).ready(function() {
+        alert(mostrarPostulaciones())
+    })
+    
+  }
 

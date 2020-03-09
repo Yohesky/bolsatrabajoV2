@@ -5,7 +5,7 @@ session_start();
 
 $idusuario = $_SESSION['idusuarios'];
 
-$query = "SELECT * FROM usuarios_has_propuesta JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta WHERE usuarios_idusuarios='$idusuario'";
+$query = "SELECT * FROM usuarios_has_propuesta JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta JOIN pais ON propuesta.idpais = pais.id WHERE usuarios_idusuarios='$idusuario'";
 $resultado = mysqli_query($conexion,$query);
 
 
@@ -22,7 +22,7 @@ while($row = mysqli_fetch_array($resultado))
         "titulo" => $row["titulo"],
         "descripcion" => $row["descripcion"],
         "sueldo" => $row["sueldo"],
-        "estado" => $row["estado"],
+        "pais" => $row["paisnombre"],
         "funciones" => $row["funciones"],
         "vacantes" => $row["vacantes"],
         "idpropuesta" => $row["propuesta_idpropuesta"],
