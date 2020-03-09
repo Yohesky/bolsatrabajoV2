@@ -93,7 +93,7 @@
 
                     </select>
 
-            </div> -->
+            </div>
 
                 <div class="form-group">
                     <select name="ciudad" id="ciudad" class="form-control">
@@ -102,7 +102,7 @@
                     </select>
 
 
-                </div>
+                </div> -->
 
         <div class="form-group">
             <select name="preguntas" id="preguntas" class="form-control">
