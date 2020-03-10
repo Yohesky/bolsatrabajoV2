@@ -210,7 +210,7 @@ if(isset($_SESSION["idusuarios"])){
 				<div class="card">
 					<div class="card-header bg-dark" id="ubicacionHeader">
 						<h2 class="mb-0">
-							<button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#ubicacion">Ubicación</button>
+							<button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#ubicacion">Pais</button>
 						</h2>
 					</div>
 
@@ -218,21 +218,21 @@ if(isset($_SESSION["idusuarios"])){
 						<div class="card-body">
 							<form id="">
 						
-							<?php /*
+							<?php 
 							include_once('includes/conexion.php');
-							$query = "SELECT DISTINCT estado FROM propuesta";
+							$query = "SELECT DISTINCT paisnombre FROM propuesta inner join pais on propuesta.idpais = pais.id";
 							$tabla = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
 							$contador = 1;
 							while($row = mysqli_fetch_array($tabla)){?>
 							<div class="custom-control custom-checkbox">
-  									<input type="checkbox" class="custom-control-input" id="ubicacion<?php echo $contador; ?>" name="chkUbicacion" form="formularioBuscar" value="<?php echo $row["estado"]; ?>">
- 									<label class="custom-control-label" for="ubicacion<?php echo $contador; ?>" ><?php echo $row["estado"]; ?></label>
+  									<input type="checkbox" class="custom-control-input" id="ubicacion<?php echo $contador; ?>" name="chkUbicacion" form="formularioBuscar" value="<?php echo $row["paisnombre"]; ?>">
+ 									<label class="custom-control-label" for="ubicacion<?php echo $contador; ?>" ><?php echo $row["paisnombre"]; ?></label>
 								</div>
 
 							<?php 
 							$contador++;
-							} */?>
+							} ?>
 							</form>
 						</div>
 					</div>

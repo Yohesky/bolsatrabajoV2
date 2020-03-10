@@ -41,7 +41,8 @@ function convertirConsultaJSON($resultado): array{
             "publicacion" => $row ["publicacion"],
             "id" =>  $row ["idpropuesta"],
             "idempresa" => $row["idempresa"],
-            "categoria" => $row["categoria"]
+            "categoria" => $row["categoria"],
+            "pais" => $row["paisnombre"]
         );
 
     }
@@ -123,7 +124,7 @@ function parametrosJsonASql($clave, $valor){
                 }
             break;
             case "chkUbicacion":
-                $cadenaSQL = "propuesta.estado = '$valor'";
+                $cadenaSQL = "pais.paisnombre = '$valor'";
             break;
             default:
                 'error clave no valida';
