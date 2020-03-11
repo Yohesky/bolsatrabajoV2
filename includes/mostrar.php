@@ -9,7 +9,7 @@ function inicio($conexion){
     if(isset($_GET["busqueda"])){
 
         $parametrosDeBusqueda = json_decode($_GET["datos"], true);        
-        $generadorSql = new GeneradorSQL("SELECT *, propuesta.idpais as Pais FROM propuesta JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa JOIN pais ON propuesta.idpais = pais.id JOIN estado ON propuesta.idestado = estado.idestado", "parametrosJsonASql", $parametrosDeBusqueda);
+        $generadorSql = new GeneradorSQL("SELECT * FROM propuesta INNER JOIN empresa ON propuesta.empresa_idempresa = empresa.idempresa INNER JOIN pais ON pais.id = propuesta.idpais", "parametrosJsonASql", $parametrosDeBusqueda);
         $generadorConsulta = new GeneradorConsultaConPaginacion(10, $conexion, $generadorSql->obtenerSentenciaSQL(), $generadorSql->obtenerCondicionales());
         echo $generadorConsulta->obtenerJSON();
 
@@ -41,7 +41,8 @@ function convertirConsultaJSON($resultado): array{
             "publicacion" => $row ["publicacion"],
             "id" =>  $row ["idpropuesta"],
             "idempresa" => $row["idempresa"],
-            "categoria" => $row["categoria"]
+            "categoria" => $row["categoria"],
+            "pais" => $row["paisnombre"]
         );
 
     }
@@ -123,7 +124,7 @@ function parametrosJsonASql($clave, $valor){
                 }
             break;
             case "chkUbicacion":
-                $cadenaSQL = "propuesta.estado = '$valor'";
+                $cadenaSQL = "pais.paisnombre = '$valor'";
             break;
             default:
                 'error clave no valida';
@@ -183,11 +184,10 @@ class GeneradorConsultaConPaginacion{
     //Cuenta las publicaciones y regresa la cantidad de paginas 
     private function obtenerNumeroDePaginas(): int{
 
-        $queryPaginacion = "SELECT COUNT(*) FROM propuesta" . $this->condicionales;
+        $queryPaginacion = "SELECT COUNT(*) FROM propuesta INNER JOIN pais ON pais.id = propuesta.idpais" . $this->condicionales;
         $filas = mysqli_query($this->conexion, $queryPaginacion) or die(mysqli_error($this->conexion));
         $aux = mysqli_fetch_row($filas);
         $numeroDePaginas = ceil($aux[0] / $this->postulacionesPorPagina);
-        
         return $numeroDePaginas;
     }
 }
