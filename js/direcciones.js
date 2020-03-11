@@ -1,3 +1,4 @@
+
 $("#controlPanel").click( (e) => {
   console.log("click");
   $(location).attr('href','panelAdmin.php');

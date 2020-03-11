@@ -10,8 +10,10 @@
                         <td scope="col">Descripción</td>
                         <td scope="col">Vacantes</td>
                         <td scope="col">Sueldo</td>
-                        <td scope="col">Estado</td>
+                        <td scope="col">País</td>
                         <td scope="col">Funciones</td>
+
+                        <td scope="col">Has sido seleccionado</td>
                         
 
                         <td scope="col"> </td>

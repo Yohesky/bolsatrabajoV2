@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 09:35 PM
+-- Generation Time: Mar 09, 2020 at 09:01 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -2088,28 +2088,30 @@ INSERT INTO `estado` (`idestado`, `ubicacionpaisid`, `estadonombre`) VALUES
 CREATE TABLE `experiencia` (
   `idexp` int(11) NOT NULL,
   `expEmpresa` varchar(100) NOT NULL,
-  `expPais` varchar(100) NOT NULL,
   `expSector` varchar(100) NOT NULL,
   `expArea` varchar(100) NOT NULL,
   `expLabor` varchar(100) NOT NULL,
   `expFechaIni` date NOT NULL,
   `expFechaFin` date NOT NULL,
   `usuarios_idusuarios` int(11) NOT NULL,
-  `yearExp` int(100) DEFAULT NULL
+  `yearExp` int(100) DEFAULT NULL,
+  `pais` int(11) DEFAULT NULL,
+  `expPais` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `experiencia`
 --
 
-INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`, `yearExp`) VALUES
-(10, 'CONTROVAL', 'Venezuela', 'Ingenieria', 'Logistica', 'Controlar procesos', '2016-01-01', '2020-01-29', 7, NULL),
-(14, 'SMARTPROCESS', 'Venezuela', 'INGENIERIA', 'SOPORTE TECNICO', 'REPARAR TODO', '2015-01-01', '2020-11-18', 1, 5),
-(39, 'holanormal', 'asdf', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-03', '2020-02-03', 44, 0),
-(40, 'hola', 'kdj', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-11', '2020-02-07', 44, 0),
-(41, 'funcionatodook', 'kdj', 'jasdkjfkl', 'jjjdasas', 'klajsfkj', '2020-02-10', '2020-02-04', 44, 0),
-(42, 'elinca', 'Venezuela', 'contratista', 'soporte', 'realizar mantenimiento', '2013-02-01', '2015-02-01', 1, 2),
-(43, 'Smartprocess', 'Venezuela', 'Ingenieria', 'administracion', 'pagar', '2020-03-01', '2020-03-05', 51, 0);
+INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`, `yearExp`, `pais`, `expPais`) VALUES
+(10, 'CONTROVAL', 'Ingenieria', 'Logistica', 'Controlar procesos', '2016-01-01', '2020-01-29', 7, NULL, NULL, ''),
+(14, 'SMARTPROCESS', 'INGENIERIA', 'SOPORTE TECNICO', 'REPARAR TODO', '2015-01-01', '2020-11-18', 1, 5, NULL, ''),
+(39, 'holanormal', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-03', '2020-02-03', 44, 0, NULL, ''),
+(40, 'hola', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-11', '2020-02-07', 44, 0, NULL, ''),
+(41, 'funcionatodook', 'jasdkjfkl', 'jjjdasas', 'klajsfkj', '2020-02-10', '2020-02-04', 44, 0, NULL, ''),
+(42, 'elinca', 'contratista', 'soporte', 'realizar mantenimiento', '2013-02-01', '2015-02-01', 1, 2, NULL, ''),
+(43, 'Smartprocess', 'Ingenieria', 'administracion', 'pagar', '2020-03-01', '2020-03-05', 51, 0, NULL, ''),
+(44, 'urbe', 'urbe', 'urbe', 'urbe', '2020-03-02', '2020-03-08', 50, 0, NULL, 'Anguila');
 
 -- --------------------------------------------------------
 
@@ -2554,9 +2556,9 @@ CREATE TABLE `usuarios` (
   `sueldoDeseado` char(100) DEFAULT NULL,
   `edad` int(100) DEFAULT NULL,
   `esAdmin` tinyint(1) DEFAULT '0',
-  `instagram` varchar(150) DEFAULT NULL,
-  `facebook` varchar(150) DEFAULT NULL,
-  `linkedin` varchar(150) DEFAULT NULL,
+  `instagram` varchar(150) DEFAULT 'IG',
+  `facebook` varchar(150) DEFAULT 'FB',
+  `linkedin` varchar(150) DEFAULT 'IN',
   `idpais` int(11) DEFAULT NULL,
   `idestado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2576,8 +2578,9 @@ INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `con
 (43, 'juan', 'perez', '0', 'juanPerez@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'joo', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
 (44, 'john', 'smith', 'V-25802196', 'john@smit.com', '123', '1996-12-15', 'Casado/a', 'Hombre', '', 'jaklsdjfk', '', 'Tecnico Medio', '', '', '', '', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CartaPresentacion.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 24, 0, NULL, NULL, NULL, NULL, NULL),
 (45, 'hector', 'torres', 'V-15061283', 'hector@gmail.com', '1234', '1960-05-13', 'Casado/a', 'Hombre', '04141748892', 'Soler', 'CONDUCTOR', '', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '400', 60, 0, NULL, NULL, NULL, NULL, NULL),
-(50, 'Jose', 'Oropeza', 'V-14901511', 'joseoro@gmail.com', '1234', '1978-12-18', 'Divorciado/a', 'Hombre', '04141234567', 'haticos', 'PROFESOR UNIVERSITARIO DE MATEMATICAS', 'Universitario', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2020.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '1000', 42, 0, NULL, NULL, NULL, 95, 1864),
-(51, 'juneri', 'chourio', 'V-12042234', 'juneri@gmail.com', '1234', '1985-11-16', 'Casado/a', 'Mujer', '04141748892', 'Manzanillo', 'Administradora', 'Universitario', '', '', '', 'Si', '', 'No', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'administradora', './img-perfil/1583435167_51.jpg', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '500', 35, 0, 'inta', 'face', 'link', 95, 1864);
+(50, 'Jose', 'Oropeza', 'V-14901511', 'joseoro@gmail.com', '1234', '1978-12-18', 'Divorciado/a', 'Hombre', '04141234567', 'haticos', 'PROFESOR UNIVERSITARIO DE MATEMATICAS', 'Universitario', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2020.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '1000', 42, 0, NULL, NULL, NULL, 95, 1850),
+(51, 'juneri', 'chourio', 'V-12042234', 'juneri@gmail.com', '1234', '1985-11-16', 'Casado/a', 'Mujer', '04141748892', 'Manzanillo', 'Administradora', 'Universitario', '', '', '', 'Si', '', 'No', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'administradora', './img-perfil/1583435167_51.jpg', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '500', 35, 0, 'inta', 'face', 'link', 2, 868),
+(52, 'mariangel', 'molero', 'V-25553618', 'mariangel@gmail.com', '12345', '1995-11-16', 'Casado/a', 'Mujer', '04141748892', 'Delicias', 'Administradora', 'Universitario', '', '', '', 'Si', '', 'No', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '500', 25, 0, NULL, NULL, NULL, 5, 1818);
 
 -- --------------------------------------------------------
 
@@ -2612,7 +2615,10 @@ INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropue
 (45, 56),
 (3, 56),
 (51, 56),
-(51, 51);
+(51, 51),
+(50, 83),
+(51, 83),
+(52, 83);
 
 --
 -- Indexes for dumped tables
@@ -2638,7 +2644,8 @@ ALTER TABLE `estado`
 --
 ALTER TABLE `experiencia`
   ADD PRIMARY KEY (`idexp`,`usuarios_idusuarios`),
-  ADD KEY `fk_experiencia_usuarios_idx` (`usuarios_idusuarios`);
+  ADD KEY `fk_experiencia_usuarios_idx` (`usuarios_idusuarios`),
+  ADD KEY `idx_paisexp` (`pais`);
 
 --
 -- Indexes for table `habilidades`
@@ -2712,7 +2719,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT for table `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `habilidades`
@@ -2748,7 +2755,7 @@ ALTER TABLE `seleccion`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Constraints for dumped tables
@@ -2765,7 +2772,8 @@ ALTER TABLE `empresa`
 -- Constraints for table `experiencia`
 --
 ALTER TABLE `experiencia`
-  ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_idpaisexp` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`);
 
 --
 -- Constraints for table `habilidades`

@@ -12,13 +12,13 @@ if(isset($_SESSION["idusuarios"])){
 
 <main class="container mx-auto">
 	<div class="row">
-		<section class="col-12 col-md-9 order-1 order-md-0">
+		<section class="col-8 col-md-9 order-1 order-md-0">
 			<div id="publicaciones" class="mt-4">
 
 			</div>
 		</section>
 
-		<aside class="col-12 col-md-3 mt-4">
+		<aside class="col-4 col-md-3 mt-4">
 			<div class="card">
 				<div class="card-header bg-dark">
 					<h3>Buscar</h3>
@@ -239,6 +239,8 @@ if(isset($_SESSION["idusuarios"])){
 				</div>
 			</div>
 		</aside>
+
+		
 	</div>
 
 </main>

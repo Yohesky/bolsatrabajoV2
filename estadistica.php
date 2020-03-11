@@ -8,7 +8,7 @@ include("includes/conexion.php");
 $idpropuesta = $_GET['idpropuesta'];
 $idusuario = $_SESSION['idusuarios'];
 
-$query = "SELECT estado FROM propuesta WHERE idpropuesta = $idpropuesta";
+$query = "SELECT paisnombre FROM propuesta JOIN pais ON propuesta.idpais = pais.id WHERE idpropuesta = $idpropuesta";
 $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 $inscritos = mysqli_fetch_array($resultado)[0];
 
@@ -28,7 +28,7 @@ $viajar = mysqli_fetch_array($resultadoViajar)[0];
 
 
 
-$estado = $inscritos;
+$pais = $inscritos;
 
 
 function nInscritos()
@@ -123,7 +123,7 @@ function viajarNo(){
                 };
 
                 var medianaData = {
-                  labels: ["Personas en el <?php echo $estado ?>", "Resto de Personas que no estan en <?php echo $estado ?>"],
+                  labels: ["Personas en <?php echo $pais ?>", "Resto de Personas que no estan en <?php echo $pais ?>"],
                   datasets: [{
                     fillColor: "rgba(220,220,220,0.5)",
                     strokeColor: "rgba(220,220,220,0.8)",
@@ -131,27 +131,27 @@ function viajarNo(){
                     highlightStroke: "rgba(220,220,220,1)",
                     data: <?php
 
-                          function estado()
+                          function pais()
                           {
                             include("includes/conexion.php");
 
-                            global $estado;
+                            global $pais;
                             global $idpropuesta;
 
-                            $query = "SELECT * FROM usuarios_has_propuesta JOIN usuarios ON usuarios_has_propuesta.usuarios_idusuarios = usuarios.idusuarios JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta WHERE usuarios.estado = '$estado' AND propuesta.idpropuesta = '$idpropuesta'";
+                            $query = "SELECT * FROM usuarios_has_propuesta JOIN usuarios ON usuarios_has_propuesta.usuarios_idusuarios = usuarios.idusuarios JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta JOIN pais ON usuarios.idpais = pais.id WHERE pais.paisnombre = '$pais' AND propuesta.idpropuesta ='$idpropuesta'";
                             $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
                             $numregistros = mysqli_num_rows($rsQuery);
                             return $numregistros;
                           }
 
-                          function noestado()
+                          function noPais()
                           {
                             include("includes/conexion.php");
 
-                            global $estado;
+                            global $pais;
                             global $idpropuesta;
 
-                            $query = "SELECT * FROM usuarios_has_propuesta JOIN usuarios ON usuarios_has_propuesta.usuarios_idusuarios = usuarios.idusuarios JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta WHERE usuarios.estado != '$estado' AND propuesta.idpropuesta = '$idpropuesta'";
+                            $query = "SELECT * FROM usuarios_has_propuesta JOIN usuarios ON usuarios_has_propuesta.usuarios_idusuarios = usuarios.idusuarios JOIN propuesta ON usuarios_has_propuesta.propuesta_idpropuesta = propuesta.idpropuesta JOIN pais ON usuarios.idpais = pais.id WHERE pais.paisnombre != '$pais' AND propuesta.idpropuesta ='$idpropuesta'";;
                             $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
                             $numregistros = mysqli_num_rows($rsQuery);
                             return $numregistros;
@@ -160,7 +160,7 @@ function viajarNo(){
                           ?>
 
 
-                    [<?php echo estado() ?>, <?php echo noEstado() ?>]
+                    [<?php echo pais() ?>, <?php echo noPais() ?>]
                   }]
 
                 }
@@ -274,5 +274,6 @@ function viajarNo(){
   });
 </script>
 <script src="js/generarPDF.js"></script>
+<script src="js/direcciones.js"></script>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 <script src="js/html2canvas.js"></script>
