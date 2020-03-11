@@ -514,7 +514,7 @@ $fila = mysqli_fetch_assoc($rsQuery);
                                         
                                     <?php 
                                         include('includes/conexion.php');
-                                        session_start();
+  
                                         $query = "SELECT * FROM pais";
                                         $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
                                         
@@ -646,21 +646,6 @@ $fila = mysqli_fetch_assoc($rsQuery);
 					});
 
                 })
-                
-
-                $("#pais").change(function () {
-                    
-                    console.log('cambiando');
-                    $("#pais option:selected").each(function () {
-                         idpais = $(this).val();
-                         $.post("includes/getEstados.php", { idpais: idpais }, function(data){
-                             console.log(data);
-                             
-                             $("#estado").html(data);
-                         });            
-                     });
- 
-                 })
             });
             
             function actLocalizacion(){
