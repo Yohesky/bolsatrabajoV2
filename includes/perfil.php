@@ -6,10 +6,10 @@
 	$rsQuery = mysqli_query($conexion, $queryUsuario) or die(mysqli_error($conexion));
 	$usuario = mysqli_fetch_assoc($rsQuery);
 
-	$queryHabilidades = "SELECT nombreHabilidad, nivelHabilidad FROM habilidades  WHERE idusuario = '$id'";
+	$queryHabilidades = "SELECT * FROM habilidades  WHERE idusuario = '$id'";
 	$rsQueryH = mysqli_query($conexion, $queryHabilidades) or die(mysqli_error($conexion));
 	
-	$queryExperiencias = "SELECT expLabor, yearExp, expEmpresa, expArea FROM experiencia  WHERE usuarios_idusuarios = '$id'";
+	$queryExperiencias = "SELECT * FROM experiencia  WHERE usuarios_idusuarios = '$id'";
 	$rsQueryE = mysqli_query($conexion, $queryExperiencias) or die(mysqli_error($conexion));
 
 	$habilidades = array();

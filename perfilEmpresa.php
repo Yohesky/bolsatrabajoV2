@@ -43,7 +43,7 @@ $nombreEmpresa = mysqli_fetch_array($resultado)[0];
                     <div class="col-md-8">
                         <div class="card-body">
                             <div class="card-title"> 
-                            <h1 class="p-3 mb-5 bg-white text-break" id="nomG"><?php echo $nombreEmpresa; ?></h1> </div>
+                            <h1 class="p-3 mb-5 bg-white text-break" style="text-transform: capitalize" id="nomG"><?php echo $nombreEmpresa; ?></h1> </div>
                         </div>
                     </div>
                 </div>

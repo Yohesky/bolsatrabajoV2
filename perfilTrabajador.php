@@ -31,10 +31,10 @@ $fila = mysqli_fetch_assoc($rsQuery);
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <h3 class="p-3 mb-5 bg-white" id="nomG"><?php echo $fila["nombre"]; ?></h3>
+                                <h3 class="p-3 mb-5 bg-white" style="text-transform: capitalize" id="nomG"><?php echo $fila["nombre"]; ?></h3>
                             </h5>
                             <hr>
-                            <h3 style="margin-top: -70px" class="card-title p-3 mb-5 bg-white" id="ApeG"><?php echo $fila["apellido"]; ?></h3>
+                            <h3 style="margin-top: -70px; text-transform: capitalize" class="card-title p-3 mb-5 bg-white" id="ApeG"><?php echo $fila["apellido"]; ?></h3>
 
 
                         </div>
@@ -515,7 +515,7 @@ $fila = mysqli_fetch_assoc($rsQuery);
                                     <?php 
                                         include('includes/conexion.php');
   
-                                        $query = "SELECT * FROM pais";
+                                        $query = "SELECT * FROM pais ORDER BY paisnombre ASC";
                                         $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
                                         
                                         while ($row = mysqli_fetch_array($resultado)) {

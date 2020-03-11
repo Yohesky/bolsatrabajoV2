@@ -25,77 +25,44 @@ $(function()
                     plantilla += 
                     //le asignamos un atributo para encontrar el ID
                     `
-                    
+                      
+                        <div class='container'>
 
-                    <div class="carta mx-auto">
-    <div class="additional">
-      <div class="user-card">
+                        <div class="card">
 
-        <img src="${publicacion.foto}" width="110" height="110" class="center bg-white rounded-circle">
-         
-        </img>
-      </div>
-      <div class="more-info">
-        <h1> ${publicacion.nombre} </h1>
-        <div class="coords">
-          <span>Group Name</span>
-          <span>Joined January 2019</span>
-        </div>
-        <div class="coords">
-          <span>Position/Role</span>
-          <span>City, Country</span>
-        </div>
-        <div class="stats">
-          <div>
-            <div class="title">Awards</div>
-            <i class="fa fa-trophy"></i>
-            <div class="value">2</div>
-          </div>
-          <div>
-            <div class="title">Matches</div>
-            <i class="fa fa-gamepad"></i>
-            <div class="value">27</div>
-          </div>
-          <div>
-            <div class="title">Pals</div>
-            <i class="fa fa-group"></i>
-            <div class="value">123</div>
-          </div>
-          <div>
-            <div class="title">Coffee</div>
-            <i class="fa fa-coffee"></i>
-            <div class="value infinity">∞</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="general">
-      <div class="text-center mx-auto"> 
-      <h3>${publicacion.nombre}</h3> - <h3>${publicacion.apellido}</h3>
-      </div>
-      <p style="word-break: break-all;">${publicacion.descripcion}</p>
-      
-      <div class="container-fluid">
-      <div class="row justify-content-center">
-      
-      <div class="col-3 p-0">
-      <a class="btn btn-info" href="perfil.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank"> Ver </a>
-      </div>
+          
 
-      <div class="col-4 p-0">
-      <a class="btn btn-secondary" href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank"><i class="far fa-file-pdf"></i> PDF </a>
-      </div>
+                      
+                      <div class="card-body">
 
-      <div class="col-5 p-0">
-      <a class="btn btn-primary" onclick="seleccionar(${publicacion.idusuarios}, ${publicacion.idempresa},${publicacion.idpropuesta})">Seleccionar</a>
-      </div>
-      </div>
-      </div>
-    </div>
-  </div>
+                      <div class="row">
 
-                    
-                   `;
+                      <div class="col-md-4">
+                      
+                        <img src="${publicacion.foto}" class="rounded img-thumbnail" style="width: 170px; height: 170px" alt="...">
+                      
+                      </div>
+
+                      <div class="col-md-8">
+
+                      <h5 class="card-title" style="text-transform: capitalize"><span> ${publicacion.nombre} </span> <span> ${publicacion.apellido} </span> </h5> 
+                      <p class="card-text">${publicacion.descripcion}</p>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                      <a href="perfil.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank" class="btn btn-primary">Ver Perfil</a>
+                      <a href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank" class="btn btn-info">PDF</a>
+                      <a onclick="seleccionar(${publicacion.idusuarios}, ${publicacion.idempresa},${publicacion.idpropuesta})" class="btn btn-success">Seleccionar</a>
+                    </div>
+
+                      </div>
+
+                      </div>
+                
+                      </div>
+                      </div>
+
+                        </div>
+                      
+                    `;
                     }
                 )
                 plantilla += mostrarPagina();

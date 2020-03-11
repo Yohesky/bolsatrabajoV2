@@ -22,7 +22,7 @@ function cargarDatos(){
 					${resultado.descripcionEmpresa}
 				</div>
 				
-				<div class="d-block col-12 mt-5">
+				<div class="d-block col-12 mt-5 mx-auto">
 					<h3 class="text-center">Informacion de Contacto</h3>
 					<div class="row">
 						<div class="col-12 col-sm-6 text-center  ">
@@ -32,7 +32,9 @@ function cargarDatos(){
 						
 						${resultado.webEmpresa != '' ? `<div class="col-12 col-sm-6 text-center">
 						<strong>Web</strong></br>
-						${resultado.correoEmpresa}` : ''}
+						<div class='mx-auto'>
+						<h4 class='text-center'> ${resultado.correoEmpresa}` : ''} </h4>
+						</div>
 					</div>
 					</div>
 				</div>

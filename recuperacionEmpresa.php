@@ -24,6 +24,8 @@
         </div>
 
         <button class="btn btn-success btn-block mt-5" id="enviar">Enviar</button>
+
+        <a href="loginEmpresa.php" class="btn btn-info btn-block mt-5" >Volver</a>
         
         <div id="result" class="mt-5"></div>
     </form>

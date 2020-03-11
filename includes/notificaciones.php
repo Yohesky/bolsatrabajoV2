@@ -26,7 +26,7 @@ if($data["cantidad"] > 0)
 {
    echo "no insertado";
 }
-else{
+else if($data["cantidad"] < 0){
      $query = "INSERT INTO notificaciones (idempresa, idusuario, idpropuesta) VALUES ('$idempresa', '$idusuario', '$idpropuesta') ";
      mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
      echo "insertado";

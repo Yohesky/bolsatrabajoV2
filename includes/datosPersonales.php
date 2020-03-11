@@ -100,6 +100,7 @@ while($row = mysqli_fetch_array($resultado))
         <label class='form-control' for='estadoCivil'>Estado Civil</label>
         <select class='form-control' id='estadoCivil' name='estadoCivil'>
         <option value='".$row['estadoCivil']."'>".$row['estadoCivil']."</option>
+        <option value='Soltero/a'>Soltero/a</option>
         <option value='Casado/a'>Casado/a</option>
         <option value='Divorciado/a'>Divorciado/a</option>
         <option value='Viudo/a'>Viudo/a</option>

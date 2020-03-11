@@ -66,7 +66,7 @@ $fpdf->AddPage();
 require('includes/conexion.php');
 //$id_propuesta = $_GET["idpropuesta"];
 
-$Query2 = "SELECT * FROM usuarios";
+$Query2 = "SELECT * FROM usuarios JOIN pais ON usuarios.idpais = pais.id JOIN estado ON usuarios.idestado = estado.idestado";
 $rsQuery2 = mysqli_query($conexion, $Query2) or die(mysqli_error($conexion));
 $filas2 = mysqli_num_rows($rsQuery2);
 
@@ -89,8 +89,8 @@ for($i=0; $i < $filas2; $i++){
         $fpdf->Cell(80,10, utf8_decode('Nombres: '. $resultado2[$i]['nombre']),1,0,'L',1);
         $fpdf->Cell(90,10, utf8_decode('Apellidos: '. $resultado2[$i]['apellido']),1,1,'L',1);
         $fpdf->Cell(27,10, utf8_decode('DNI: '. $resultado2[$i]['ci']),1,0,'L',1);
-        $fpdf->Cell(28,10, utf8_decode('País: '. $resultado2[$i]['pais']),1,0,'L',1);
-        $fpdf->Cell(35,10, utf8_decode('Ciudad: '. $resultado2[$i]['ciudad']),1,0,'L',1);
+        $fpdf->Cell(28,10, utf8_decode('País: '. $resultado2[$i]['paisnombre']),1,0,'L',1);
+        $fpdf->Cell(35,10, utf8_decode('Estado: '. $resultado2[$i]['estadonombre']),1,0,'L',1);
         $fpdf->Cell(90,10, utf8_decode('Dirección: '. $resultado2[$i]['direccion']),1,1,'L',1);
         $fpdf->Cell(30,10, 'Edad: '. $resultado2[$i]['edad'],1,0,'L',1);
         $fpdf->Cell(60,10, utf8_decode('Fecha de Nacimiento: '. $resultado2[$i]['fechaNacimiento']),1,0,'L',1);
