@@ -3,7 +3,7 @@
 $(function () {
 
     mostrarPublicaciones();
-    agregarEventoCheckboxRadio(['chkCiudad', 'chkEducacion']);
+    agregarEventoCheckboxRadio(['chkPais', 'chkEducacion']);
     agregarEventoFormulario();
 
 });
