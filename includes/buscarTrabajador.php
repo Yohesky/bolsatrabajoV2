@@ -104,8 +104,8 @@ class GeneradorSQL{
 		case "buscar":
 			$cadenaSQL = "(nombre LIKE '%$valor%' OR apellido LIKE '%$valor%')";
 		break;
-		case "chkCiudad":
-			$cadenaSQL = "ciudad = '$valor'";
+		case "chkPais":
+			$cadenaSQL = "pais.paisnombre = '$valor'";
         break;
         case "chkEducacion":
             $cadenaSQL = "educacion = '$valor'";
@@ -168,7 +168,7 @@ class GeneradorConsultaConPaginacion{
     private function obtenerNumeroDePaginas(): int{
 
         //Aqui se hace revisa cuantas filas que cumplan las condificiones de busqueda
-        $queryPaginacion = "SELECT COUNT(*) FROM usuarios" . $this->condicionales;
+        $queryPaginacion = "SELECT COUNT(*) FROM usuarios JOIN pais ON usuarios.idpais = pais.id JOIN estado ON usuarios.idestado = estado.idestado " . $this->condicionales;
         $filas = mysqli_query($this->conexion, $queryPaginacion) or die(mysqli_error($this->conexion));
         $aux = mysqli_fetch_row($filas);
         $numeroDePaginas = ceil($aux[0] / $this->postulacionesPorPagina);

@@ -20,7 +20,7 @@ e.preventDefault();
                  success: function(response)
                  {
                      if(response == 'exito'){
-                         
+                        $("#habilidades").removeClass('was-validated');
                         console.log(response);
                      }
                      editar = false;

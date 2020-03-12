@@ -106,7 +106,8 @@ $(function () {
           url: direccion,
           data: form,
           success: function (response) {
-            console.log(response)
+            console.log(response);
+            $("#formularioExperiencia").removeClass('was-validated');
             mostrarExp();
             
             
