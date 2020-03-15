@@ -87,9 +87,9 @@ $(function(){
 		}
 	})
 
-	$('#expEmpresa').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Nombre de la experiencia (solo letras)</div>');
+	$('#expEmpresa').prop({'required': true}).parent().append('<div class="invalid-feedback text-left">Nombre de la experiencia (solo letras)</div>');
 
-	$('#expPais').prop({'pattern': '^[a-zA-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Pais donde se llevo a cabo (solo letras, sin espacios)</div>');
+	$('#expPais').prop({'required': true}).parent().append('<div class="invalid-feedback text-left">Pais donde se llevo a cabo (solo letras, sin espacios)</div>');
 
 	$('#expSector').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Sector de la empresa a la que trabajo (solo letras)</div>');
 
