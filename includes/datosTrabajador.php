@@ -11,7 +11,9 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]
     $nombre = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $correo = $_POST["correo"];
-    $ci = $_POST["ci"];
+    $ci = mysqli_real_escape_string($conexion, $_POST['ci']);
+    $nacion = mysqli_real_escape_string($conexion, $_POST['nacion']);
+    $ciCompleta = $nacion . '-' . $ci;
     $num1 = $_POST["num1"];
     $puesto = $_POST["puesto"];
     $direccion = $_POST["direccion"];
@@ -40,13 +42,13 @@ if(isset($_POST["nombre"]) && isset($_POST["apellido"])&& isset($_POST["correo"]
          move_uploaded_file($tmp_name, $nueva_path);
          $src = "./curriculum/" . $name;
         
-         $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', correo='$correo', num1='$num1', puestoDeseado='$puesto', direccion='$direccion', educacion='$educacion', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
+         $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ciCompleta', correo='$correo', num1='$num1', puestoDeseado='$puesto', direccion='$direccion', educacion='$educacion', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
          educacion='$educacion', genero='$genero', disponibilidadViajar='$disponibilidadViajar', vehiculo='$vehiculo', estadoCivil='$estadoCivil', edad='$edad', curriculum='$src' WHERE idusuarios='$idusuario'";
          mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
 
          echo 'exito';
      }else{
-        $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ci', correo='$correo', num1='$num1', puestoDeseado='$puesto', direccion='$direccion', educacion='$educacion', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
+        $query = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', ci='$ciCompleta', correo='$correo', num1='$num1', puestoDeseado='$puesto', direccion='$direccion', educacion='$educacion', fechaNacimiento='$fechaNacimiento', sueldoDeseado='$sueldoDeseado',
         educacion='$educacion', genero='$genero', disponibilidadViajar='$disponibilidadViajar', vehiculo='$vehiculo', estadoCivil='$estadoCivil', edad='$edad' WHERE idusuarios='$idusuario'";
         mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
         

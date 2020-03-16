@@ -59,8 +59,14 @@
         </div>
         <!-- estado -->
 
-        <div class="form-group">
-            <input type="text" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="10">  
+        <div class="form-group d-flex row mx-0">
+            <select name="nacion" id="nacion" class="form-control col-2">
+                <option value="V">V</option>
+                <option value="E">E</option>
+            </select>
+            <div class="d-bloc col-10">
+                <input type="text" name="ci" id="ci" placeholder="Cédula" class="form-control" maxlength="10">  
+            </div>
         </div>
 
         <!-- <div class="form-group">

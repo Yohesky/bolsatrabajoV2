@@ -17,11 +17,33 @@ if(!$resultado)
 $queryPais = "SELECT * FROM pais";
 $resultadoPais = mysqli_query($conexion, $queryPais) or die(mysqli_error($conexion));
 
+class Cedula{
+    public $nacion;
+    public $ci;
+    private $opc = ['V', 'E'];
 
+    function __construct(string $cedulaCompleta){
+        $this->nacion = substr($cedulaCompleta, 0, 1);
+        $this->ci = substr($cedulaCompleta, 2);
+    }
+
+    public function opciones(): string{
+        $aux = array();
+        foreach ($this->opc as $key => $value) {
+            if($value == $this->nacion){
+                $aux[] = "<option value='" . $value ."' selected='selected'>". $value ."</option>";
+            }else{
+                $aux[] = "<option value='" . $value ."'>". $value ."</option>";
+            }
+        }
+        return join("", $aux);
+    }
+}
 
 
 while($row = mysqli_fetch_array($resultado))
 {
+   $cedula = new Cedula($row['ci']);
    echo 
    "
    <h2>Datos Personales</h2>
@@ -41,9 +63,14 @@ while($row = mysqli_fetch_array($resultado))
         <input type='email' id='correo' name='correo' value='".$row['correo']."' placeholder='Correo' class='form-control' required>
     </div>
 
-    <div class='form-group'>
-                            <input type='text' id='ci' name='ci' value='".$row['ci']."' placeholder='Cedula' class='form-control' required maxlength='12'>
+    <div class='form-group d-flex row mx-0'>
+    <select name='nacion' id='nacion' class='form-control col-2'>".
+        $cedula->opciones()
+    ."</select>
+    <div class='d-bloc col-10'>
+        <input type='text' name='ci' id='ci' placeholder='Cédula' class='form-control' maxlength='10' value='". $cedula->ci ."'>  
     </div>
+</div>
 
     <div class='form-group'>
                             <input type='text' id='fechaNacimiento' name='fechaNacimiento' value='".$row['fechaNacimiento']."' placeholder='Fecha de nacimiento' class='form-control'>
