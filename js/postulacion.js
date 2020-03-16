@@ -140,7 +140,7 @@ function mostrarPostulaciones() {
 
    function Seleccionado(){
     $(document).ready(function() {
-        alert(mostrarPostulaciones())
+        mostrarPostulaciones();
     })
     
   }

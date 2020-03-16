@@ -105,7 +105,7 @@ $fila = mysqli_fetch_assoc($rsQuery);
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form class="card card-body needs-validation" id="formularioExperiencia">
+                            <form class="card card-body needs-validation" id="formularioExperiencia" novalidate>
                                 <input type="hidden" id="experienciaID" name="experienciaID">
                                 <div class="form-group">
                                     <input type="text" name="expEmpresa" id="expEmpresa" placeholder="Empresa" class="form-control" required maxlength="100">

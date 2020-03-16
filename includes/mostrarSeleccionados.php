@@ -2,7 +2,7 @@
 	require_once('conexion.php');
 	session_start();
 	$idempresa = $_SESSION["idempresa"];
-	$query = "SELECT * FROM usuarios INNER JOIN seleccion WHERE usuarios.idusuarios in (Select idusuarios from seleccion where idempresa = '$idempresa')";
+	$query = "SELECT * FROM usuarios INNER JOIN seleccion where idempresa = '$idempresa' GROUP BY usuarios.idusuarios";
 	$res = mysqli_query($conexion, $query) or die(mysqli_error($conexion).$query);
 
 	$json = array();

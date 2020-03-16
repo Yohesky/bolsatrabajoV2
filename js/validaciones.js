@@ -39,11 +39,13 @@ $(function(){
 	'required': true
 	}).parent().append('<div class="invalid-feedback text-left">Es necesario un apellido (solo letras)</div>')
 
-	$('#rif').prop({'pattern': '^([VEJPG]{1})-([0-9]{7,9})$', 'required': true}).parent().append('<div class="invalid-feedback text-left">Es nesario un rif ejem. J-0000000</div>');
+	$('#rif').prop({'pattern': '([0-9]{6,10})', 'required': true}).parent().append('<div class="invalid-feedback text-left">Es nesario un rif ejem. J-0000000</div>');
 
 
-	$('#ci').prop({'pattern': '^([VE]{1})-([0-9]{7,9})$', 'required': true
-	}).parent().append('<div class="text-left invalid-feedback">Ingrese una cedula. Ejem. V-0000000</div>');
+	$('#ci').prop({'pattern': '([0-9]{6,10})$', 'required': true
+	}).parent().append('<div class="text-left invalid-feedback">Ingrese una cedula. Ejem. V 0000000</div>');
+
+	$('#nacion').prop({'required': true});
 
 	$('#preguntas').prop('required', true).parent().append('<div class="text-left invalid-feedback">Seleccione una pregunta</div>');
 
@@ -87,9 +89,9 @@ $(function(){
 		}
 	})
 
-	$('#expEmpresa').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Nombre de la experiencia (solo letras)</div>');
+	$('#expEmpresa').prop({'required': true}).parent().append('<div class="invalid-feedback text-left">Nombre de la experiencia (solo letras)</div>');
 
-	$('#expPais').prop({'pattern': '^[a-zA-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Pais donde se llevo a cabo (solo letras, sin espacios)</div>');
+	$('#expPais').prop({'required': true}).parent().append('<div class="invalid-feedback text-left">Pais donde se llevo a cabo (solo letras, sin espacios)</div>');
 
 	$('#expSector').prop({'pattern': '^[a-zñÑáéíóúñ A-z]+', 'required': true}).parent().append('<div class="invalid-feedback text-left">Sector de la empresa a la que trabajo (solo letras)</div>');
 

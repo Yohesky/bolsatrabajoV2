@@ -3,7 +3,6 @@
 //incluir la conexion con el servidor
 include("conexion.php");
 include("loginEmpresa.php");
-session_start();
 
 
 $idempresa = $_SESSION['idempresa'];
