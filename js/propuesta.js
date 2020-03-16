@@ -13,9 +13,8 @@ $(function () {
          let form = $("#formulario").serialize();
          // console.log(form);
          
-
-         if($.trim(nombrePropuesta.value).length > 0 && $.trim(descripcion.value).length > 0 && $.trim(vacantes.value).length > 0 && $.trim(sueldo.value).length > 0 && $.trim(funciones.value).length > 0 && $.trim(categoria.value).length >0
-         && $.trim(aExp.value).length >0 && $.trim(vehiculo.value).length >0 && $.trim(viajes.value).length >0 && $.trim(educacion.value).length >0 && $.trim(estado.value).length >0 && $.trim(pais.value).length >0 && $.trim(aExp.value).length >0)
+            const formualario = document.getElementById('formulario');
+         if(formualario.checkValidity())
          {
             let direccion = editar === false ? "includes/propuesta.php" : "includes/actualizacionPropuesta.php";
             console.log(direccion);
@@ -28,8 +27,12 @@ $(function () {
                  {
                      editar = false;
                      obtenerPublicacion();
+                     $("#formulario").removeClass("was-validated");
                      $("#formulario").trigger("reset");
                      console.log(response);
+                 },
+                 error: function(error){
+                     console.log(error);
                  }
              })
          }

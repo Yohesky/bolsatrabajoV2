@@ -40,7 +40,7 @@
                             <?php
                             include('includes/conexion.php');
                             session_start();
-                            $query = "SELECT * FROM pais";
+                            $query = "SELECT * FROM pais ORDER BY paisnombre ASC";
                             $resultado = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
                             while ($row = mysqli_fetch_array($resultado)) {
