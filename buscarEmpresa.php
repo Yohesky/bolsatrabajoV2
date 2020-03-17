@@ -167,6 +167,40 @@
 				</div>
 			</div>
 
+			<div class="accordion" id="filtroPais">
+				<div class="card">
+					<div class="card-header bg-dark" id="areaHeader">
+						<h2 class="mb-0">
+							<button class="btn btn-link text-light" type="button" data-toggle="collapse" data-target="#pais">Paises</button>
+						</h2>
+					</div>
+
+					<div id=pais class="collapse" data-parent="#filtroArea">
+						<div class="card-body">
+
+						<?php
+							include_once("./includes/conexion.php");
+
+							$query = "SELECT DISTINCT paisnombre FROM empresa inner join pais on empresa.idpais = pais.id GROUP BY paisnombre ASC";
+							$tabla = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
+
+							$contador = 1;
+							while($row = mysqli_fetch_array($tabla)){?>
+
+								<div class="custom-control custom-checkbox">
+  									<input type="checkbox" class="custom-control-input" id="pais<?php echo $contador; ?>" name="chkPais" form="formularioBuscar" value="<?php echo $row["paisnombre"]; ?>">
+ 									<label class="custom-control-label" for="pais<?php echo $contador; ?>" value="<?php echo $row["paisnombre"]; ?>"><?php echo $row["paisnombre"]; ?></label>
+								</div>
+
+						<?php
+						$contador++;	
+						}?>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</aside>
 	</div>
 

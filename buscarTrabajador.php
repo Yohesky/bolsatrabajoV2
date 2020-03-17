@@ -45,7 +45,7 @@ if(isset($_SESSION["idusuarios"])){
 						<?php
 							include_once("./includes/conexion.php");
 
-							$query = "SELECT DISTINCT paisnombre FROM usuarios inner join pais on usuarios.idpais = pais.id";
+							$query = "SELECT DISTINCT paisnombre FROM usuarios inner join pais on usuarios.idpais = pais.id GROUP BY paisnombre ASC";
 							$tabla = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
 							$contador = 1;
