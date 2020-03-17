@@ -9,6 +9,8 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $descripcion = mysqli_real_escape_string($conexion, $_POST['descripcion']);
     $rif = mysqli_real_escape_string($conexion, $_POST['rif']);
+    $nacion =  mysqli_real_escape_string($conexion, $_POST['nacion']);
+    $rifCompleto = $nacion . "-" . $rif;
     $direccion = mysqli_real_escape_string($conexion, $_POST['direccion']);
     $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
     $sector = mysqli_real_escape_string($conexion, $_POST['sector']);
@@ -57,7 +59,7 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
 
     else{
         $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad, idpais, idestado) 
-        VALUES('$nombre', '$descripcion', '$rif', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad', '$pais', '$estado')";
+        VALUES('$nombre', '$descripcion', '$rifCompleto', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad', '$pais', '$estado')";
         mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
         echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
         

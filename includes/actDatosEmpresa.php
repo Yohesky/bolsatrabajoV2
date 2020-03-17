@@ -8,7 +8,9 @@ if(isset($_POST["nombreEmpresa"]) && isset($_POST["rif"]) && isset($_POST["direc
 && isset($_POST["areaEmpresa"]) && isset($_POST["correoEmpresa"]) && isset($_POST["webEmpresa"]))
 {
     $nombreEmpresa = $_POST["nombreEmpresa"];
+    $nacion = $_POST["nacion"];
     $rif = $_POST["rif"];
+    $rifCompleto = $nacion . "-" . $rif;
     $direccionEmpresa = $_POST["direccionEmpresa"];
     $areaEmpresa = $_POST["areaEmpresa"];
     $correoEmpresa = $_POST["correoEmpresa"];
@@ -17,7 +19,7 @@ if(isset($_POST["nombreEmpresa"]) && isset($_POST["rif"]) && isset($_POST["direc
     
 
 
-    $query = "UPDATE empresa SET nombreEmpresa='$nombreEmpresa', rif='$rif', direccionEmpresa='$direccionEmpresa', areaEmpresa='$areaEmpresa',
+    $query = "UPDATE empresa SET nombreEmpresa='$nombreEmpresa', rif='$rifCompleto', direccionEmpresa='$direccionEmpresa', areaEmpresa='$areaEmpresa',
     correoEmpresa='$correoEmpresa', webEmpresa='$webEmpresa' where idempresa='$idempresa'";
     
     mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
