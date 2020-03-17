@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 09, 2020 at 09:01 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Servidor: localhost
+-- Tiempo de generación: 17-03-2020 a las 04:03:27
+-- Versión del servidor: 10.1.33-MariaDB
+-- Versión de PHP: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bolsatrabajo`
+-- Base de datos: `bolsatrabajo`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `empresa`
+-- Estructura de tabla para la tabla `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -46,28 +46,18 @@ CREATE TABLE `empresa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `empresa`
+-- Volcado de datos para la tabla `empresa`
 --
 
 INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`, `imagenEmpresa`, `preguntaSeguridad`, `respuestaSeguridad`, `idpais`, `idestado`) VALUES
-(5, 'Colegio Adventista', 'colegio', 'j-123123', 'sierra maestra', 'EnseÃ±anza', 'adv@gmail.com', '', '123', './img-empresa/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
-(6, 'smartprocess', 'empresa dedicada a ingenieria', 'j-123123', 'tierra negra', 'IngenierÃ­a', 'smartprocess@sp.com', 'www.sp.com', '1234', './img-empresa/1572969657', NULL, NULL, NULL, NULL),
-(7, 'asd', 'asd', 'asd', 'asd', 'Asesorias', 'sp@sp.com', 'asd', '1234', './img-empresa/perfil-predeterminado.png', NULL, NULL, NULL, NULL),
-(9, 'JJ Inversion', 'educacion asdasdf', 'J-5555555', 'adsf', 'Informatica/Telecomunicaciones', 'urbe@gmail.com', 'urbe.com', 'urbe', './img-empresa/1581305473_9.jpg', 'Â¿Cual es tu color favorito?', 'rojo', NULL, NULL),
-(10, 'petma', 'empresa dedicada a la elaboracion de comida', 'j-123123', 'tierra negra', 'AlmacÃ©n', 'petma@gmail.com', 'www.petma.com', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'negro', NULL, NULL),
-(11, 'fullgustazo', 'empresa dedicada a la elaboracion de jugos', 'j-145234', 'tierra negra', 'Reparacion', 'fullgustazo@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'pimentel', NULL, NULL),
-(12, 'asdf', 'asdfas', 'J-000000000', 'adfads', 'Medicina/Saldud', 'j@gk.com', '', '123', './img-empresa/1581909567_12.jpg', 'Â¿Cual es tu color favorito?', 'Azul', NULL, NULL),
-(13, 'abc inversiones', 'sfgsf', 'J-8888888888', 'asdffffffffffffffffffffff', 'ConstrucciÃ³n y Obras', 'abc@inversiones.com', '', '123', './img-empresa/1581910052_13.jpg', 'Â¿Cual es tu color favorito?', 'aklsjdfklasjdkl', NULL, NULL),
-(14, 'super dupper', 'adfasd', 'akskasdf', 'asdfasdfa', 'Medicina/Saldud', 'asdlfk@lkas.com', 'www.google.com', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es el segundo apellido de tu padre?', 'asdf', NULL, NULL),
-(15, 'f', 'ad', 'J', 'asd', 'AdministraciÃ³n/Oficinas', 'p@prueba.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', '123', NULL, NULL),
-(16, 'asdf', 'asdf', 'J-2222222', 'asdf', 'AdministraciÃ³n/Oficinas', 'ja@adsl.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'ds', NULL, NULL),
-(18, 'Palacio de Aguilas', 'iglesia evangelica', 'J-99859384', 'El soler', 'InformÃ¡tica/Telecomunicaciones', 'palacio@gmail.com', '', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'rojo', NULL, NULL),
-(19, 'amazon', 'kasdasd', 'J-12345667', 'MARACAIBO', 'ConstrucciÃ³n y Obras', 'amazon@gmail.com', 'https://www.amazon.com', '1234', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'rojo', 95, 1864);
+(1, 'SkySoft', 'empresa de software', 'J-1522222', 'algun lugar', 'InformÃ¡tica/Telecomunicaciones', 'sky@soft.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'verde', 29, 569),
+(20, 'prueba', 'gh', 'P-454345', 'fsg', 'AdministraciÃ³n/Oficinas', 'empresa1@empresa.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', '123', 144, 0),
+(21, 'adfas', 'asdf', 'P-25802196', 'adfadsf', 'AdministraciÃ³n/Oficinas', 'empresa2@empresa.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Donde estudiaste primaria?', '123', 149, 688);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estado`
+-- Estructura de tabla para la tabla `estado`
 --
 
 CREATE TABLE `estado` (
@@ -77,7 +67,7 @@ CREATE TABLE `estado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `estado`
+-- Volcado de datos para la tabla `estado`
 --
 
 INSERT INTO `estado` (`idestado`, `ubicacionpaisid`, `estadonombre`) VALUES
@@ -2082,7 +2072,7 @@ INSERT INTO `estado` (`idestado`, `ubicacionpaisid`, `estadonombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `experiencia`
+-- Estructura de tabla para la tabla `experiencia`
 --
 
 CREATE TABLE `experiencia` (
@@ -2100,23 +2090,16 @@ CREATE TABLE `experiencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `experiencia`
+-- Volcado de datos para la tabla `experiencia`
 --
 
 INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`, `yearExp`, `pais`, `expPais`) VALUES
-(10, 'CONTROVAL', 'Ingenieria', 'Logistica', 'Controlar procesos', '2016-01-01', '2020-01-29', 7, NULL, NULL, ''),
-(14, 'SMARTPROCESS', 'INGENIERIA', 'SOPORTE TECNICO', 'REPARAR TODO', '2015-01-01', '2020-11-18', 1, 5, NULL, ''),
-(39, 'holanormal', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-03', '2020-02-03', 44, 0, NULL, ''),
-(40, 'hola', 'jasdkjfkl', 'jjj', 'klajsfkj', '2020-02-11', '2020-02-07', 44, 0, NULL, ''),
-(41, 'funcionatodook', 'jasdkjfkl', 'jjjdasas', 'klajsfkj', '2020-02-10', '2020-02-04', 44, 0, NULL, ''),
-(42, 'elinca', 'contratista', 'soporte', 'realizar mantenimiento', '2013-02-01', '2015-02-01', 1, 2, NULL, ''),
-(43, 'Smartprocess', 'Ingenieria', 'administracion', 'pagar', '2020-03-01', '2020-03-05', 51, 0, NULL, ''),
-(44, 'urbe', 'urbe', 'urbe', 'urbe', '2020-03-02', '2020-03-08', 50, 0, NULL, 'Anguila');
+(1, 'afads', 'sss', 'adfd', 'sdafasd', '2020-03-06', '2020-03-03', 1, 0, NULL, 'Angola');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `habilidades`
+-- Estructura de tabla para la tabla `habilidades`
 --
 
 CREATE TABLE `habilidades` (
@@ -2127,21 +2110,16 @@ CREATE TABLE `habilidades` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `habilidades`
+-- Volcado de datos para la tabla `habilidades`
 --
 
 INSERT INTO `habilidades` (`idHabilidad`, `nombreHabilidad`, `idusuario`, `nivelHabilidad`) VALUES
-(3, 'ANGULAR', 1, 'Intermedio'),
-(4, 'Guias Sada', 9, 'Avanzado'),
-(5, 'Word', 9, 'Avanzado'),
-(6, 'Excel', 9, 'Avanzado'),
-(81, 'asdaf', 44, 'Intermedio'),
-(82, 'Excel', 51, 'Avanzado');
+(1, '123', 1, 'Avanzado');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notificaciones`
+-- Estructura de tabla para la tabla `notificaciones`
 --
 
 CREATE TABLE `notificaciones` (
@@ -2152,83 +2130,10 @@ CREATE TABLE `notificaciones` (
   `vista` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `notificaciones`
---
-
-INSERT INTO `notificaciones` (`idempresa`, `idusuario`, `idpropuesta`, `idNotificacion`, `vista`) VALUES
-(5, 1, 50, 1, 1),
-(6, 1, 51, 2, 1),
-(6, 1, 51, 3, 1),
-(6, 1, 51, 4, 1),
-(18, 1, 78, 6, 1),
-(6, 1, 56, 7, 1),
-(6, 1, 56, 8, 1),
-(6, 1, 56, 9, 1),
-(6, 1, 56, 10, 1),
-(6, 1, 56, 11, 1),
-(6, 1, 56, 12, 1),
-(6, 1, 56, 13, 1),
-(6, 1, 56, 14, 1),
-(6, 1, 56, 15, 1),
-(6, 1, 56, 16, 1),
-(6, 1, 56, 17, 1),
-(6, 1, 56, 18, 1),
-(6, 1, 56, 19, 1),
-(6, 1, 56, 20, 1),
-(6, 1, 56, 21, 1),
-(6, 1, 56, 22, 1),
-(6, 1, 56, 23, 1),
-(6, 1, 56, 24, 1),
-(6, 1, 56, 25, 1),
-(6, 1, 56, 26, 1),
-(6, 1, 56, 27, 1),
-(6, 1, 56, 28, 1),
-(6, 1, 56, 29, 1),
-(6, 1, 56, 30, 1),
-(6, 1, 56, 31, 1),
-(6, 1, 56, 32, 1),
-(6, 1, 56, 33, 1),
-(6, 1, 56, 34, 1),
-(6, 1, 56, 35, 1),
-(6, 1, 56, 36, 1),
-(6, 1, 56, 37, 1),
-(6, 1, 56, 38, 1),
-(6, 1, 56, 39, 1),
-(6, 1, 56, 40, 1),
-(6, 1, 56, 41, 1),
-(6, 1, 56, 42, 1),
-(6, 1, 56, 43, 1),
-(6, 1, 56, 44, 1),
-(6, 1, 56, 45, 1),
-(6, 1, 56, 46, 1),
-(6, 1, 56, 47, 1),
-(6, 1, 56, 48, 1),
-(6, 1, 56, 49, 1),
-(6, 1, 56, 50, 1),
-(6, 1, 56, 51, 1),
-(6, 1, 56, 52, 1),
-(6, 1, 56, 53, 1),
-(6, 1, 56, 54, 1),
-(6, 1, 56, 55, 1),
-(6, 1, 56, 56, 1),
-(6, 1, 56, 57, 1),
-(6, 1, 56, 58, 1),
-(6, 1, 56, 59, 1),
-(6, 1, 56, 60, 1),
-(6, 1, 56, 61, 1),
-(6, 1, 56, 62, 1),
-(6, 1, 56, 63, 1),
-(6, 7, 51, 64, 0),
-(6, 51, 56, 65, 0),
-(6, 51, 56, 66, 0),
-(6, 51, 56, 67, 0),
-(6, 51, 56, 68, 0);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pais`
+-- Estructura de tabla para la tabla `pais`
 --
 
 CREATE TABLE `pais` (
@@ -2237,7 +2142,7 @@ CREATE TABLE `pais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pais`
+-- Volcado de datos para la tabla `pais`
 --
 
 INSERT INTO `pais` (`id`, `paisnombre`) VALUES
@@ -2459,7 +2364,7 @@ INSERT INTO `pais` (`id`, `paisnombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `propuesta`
+-- Estructura de tabla para la tabla `propuesta`
 --
 
 CREATE TABLE `propuesta` (
@@ -2482,23 +2387,19 @@ CREATE TABLE `propuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `propuesta`
+-- Volcado de datos para la tabla `propuesta`
 --
 
 INSERT INTO `propuesta` (`idpropuesta`, `titulo`, `descripcion`, `vacantes`, `sueldo`, `localizacion`, `publicacion`, `empresa_idempresa`, `funciones`, `categoria`, `aExp`, `educacion`, `viajes`, `vehiculo`, `idpais`, `idestado`) VALUES
-(50, 'programador', 'saber react', 3, 111, 'Maracaibo', '0000-00-00 00:00:00', 5, 'programar app con react', 'Ventas', NULL, NULL, NULL, NULL, NULL, NULL),
-(51, 'DESARROLLADOR WEB', 'SABER ANGULAR', 3, 222, 'CiudadOjeda', '0000-00-00 00:00:00', 6, 'REALIZAR APP CON ANGULAR', 'Mantenimiento', NULL, NULL, NULL, NULL, NULL, NULL),
-(56, 'ASISTENTE ADMINISTRATIVO', 'QUE SEPA SAINT', 3, 400, '', '0000-00-00 00:00:00', 6, 'SER ASISTENTE', 'Mantenimiento', 8, 'Bachiller', 'Si', 'Si', NULL, NULL),
-(61, 'GERENTE', 'LIDERAR EQUIPO', 1, 500, '', '0000-00-00 00:00:00', 5, 'REALIZAR REUNIONES INNCESESARIAS', 'Ventas', 8, 'Universitario', 'Si', 'Si', NULL, NULL),
-(74, 'ddd', 'asdf', 1, 1, '', '0000-00-00 00:00:00', 9, 'asdf', 'IngenierÃ­a', 1, 'Bachiller', 'Si', 'Si', NULL, NULL),
-(75, 'prueba', 'asdf', 11, 11, '', '0000-00-00 00:00:00', 9, 'asdf', 'InvestigaciÃ³n y Calidad', 11, 'Tecnico Medio', 'Si', 'Si', NULL, NULL),
-(78, 'Pastor', 'Saber de la biblia', 1, 500, '', '0000-00-00 00:00:00', 18, 'Predicar', 'HostelerÃ­a/Turismo', 4, 'Bachiller', 'No', 'Si', NULL, NULL),
-(83, 'Programador MVC', 'SABER PROGRAMAR EN MODELO VISTA CONTROLADOR', 5, 100, '', '0000-00-00 00:00:00', 19, 'PROGRAMAR REACTIVAMENTE', 'Informatica/Telecomunicaciones', 5, 'Universitario', 'No', 'No', 95, 1864);
+(1, 'asd', 'dd', 23, 3, '', '0000-00-00 00:00:00', 1, 'd', 'Compras/Comercio Exterior', 3, 'Bachiller', 'Si', 'Si', 50, 381),
+(2, 'fasd', 'sdf', 33, 33, '', '0000-00-00 00:00:00', 1, 'dsf', 'DirecciÃ³n/GerencÃ­a', 3, 'Bachiller', 'Si', 'Si', 1, 381),
+(4, 'fsdg', 'sfg', 234, 33, '', '0000-00-00 00:00:00', 1, 'sfg', 'HostelerÃ­a/Turismo', 3, 'Bachiller', 'Si', 'Si', 16, 20),
+(5, 'sdg', 'sdfg', 4, 4, '', '0000-00-00 00:00:00', 1, 'sdfg', 'TÃ©cnicas', 44, 'Bachiller', 'No', 'No', 1, 21);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seleccion`
+-- Estructura de tabla para la tabla `seleccion`
 --
 
 CREATE TABLE `seleccion` (
@@ -2509,16 +2410,17 @@ CREATE TABLE `seleccion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `seleccion`
+-- Volcado de datos para la tabla `seleccion`
 --
 
 INSERT INTO `seleccion` (`idseleccion`, `idusuarios`, `idempresa`, `idpropuesta`) VALUES
-(10, 1, 18, 78);
+(1, 1, 1, 1),
+(2, 2, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -2564,28 +2466,18 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`, `esAdmin`, `instagram`, `facebook`, `linkedin`, `idpais`, `idestado`) VALUES
-(1, 'Yohesky', 'Pimentel', 'V-26878565', 'yoheskyjpp@gmail.com', '1234', '1998-05-29', 'Casado/a', 'Hombre', '04141748892', 'El SAMAN', 'programador', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'Si', '', 'No', 'EEE', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2019.pdf', 'angular', './img-perfil/yo.png', NULL, NULL, '400', 22, 0, 'yjpp', 'https://www.facebook.com/yohesky.jose', 'yohesky', NULL, NULL),
-(3, 'joswsf', 'aladas', 'V-2554555', 'josealjuria@gmail.com', 'jose', '2002-02-25', 'Casado/a', 'Hombre', '32147483647', 'adasdf', 'Desarrollador', 'Universitario', '', 'ingles', 'intermedio', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/Fundamentos_de_jQuery.pdf', 'programador', './img-perfil/1582691920_3.jpg', NULL, NULL, '6', 18, 1, NULL, NULL, NULL, NULL, NULL),
-(4, 'luis', 'colmenarez', '2512345', 'luis@gmail.com', 'luis', '0000-00-00', '', '', '2147483647', 'Venezuela', 'tecnico', 'Universitario', '', 'ingles', 'basico', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Persona responsable y autodidacta', './img-perfil/perfil-predeterminado.png', NULL, NULL, '', 2020, 0, NULL, NULL, NULL, NULL, NULL),
-(7, 'coral', 'portillo', '14901511', 'cportillo@gmail.com', 'coral', '0000-00-00', 'Casado/a', 'Hombre', '2147483647', 'Soler', 'LOGISTICA', 'Tecnico Superior Universitario', '', 'Ingles', 'intermedio', 'No', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'Asistente de logÃ­stica con 10 aÃ±os de experiencia en el mercado con alta responsabilidad y entrega', './img-perfil/1579706977_7', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '400', NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(9, 'jecselys', 'torres', '25553618', 'jecselys17@gmail.com', '1234', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/1580410567_9', 'Â¿Como se llama tu mejor amigo de la infancia?', 'yohesky', '', 2020, 0, NULL, NULL, NULL, NULL, NULL),
-(40, 'prueba1', 'prueba2', '0', 'prueba1@prueba', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(42, 'jose', 'aljuria', '0', 'josejavier@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(43, 'juan', 'perez', '0', 'juanPerez@gmail.com', '123', '0000-00-00', '', '', '0', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'joo', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL),
-(44, 'john', 'smith', 'V-25802196', 'john@smit.com', '123', '1996-12-15', 'Casado/a', 'Hombre', '', 'jaklsdjfk', '', 'Tecnico Medio', '', '', '', '', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CartaPresentacion.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 24, 0, NULL, NULL, NULL, NULL, NULL),
-(45, 'hector', 'torres', 'V-15061283', 'hector@gmail.com', '1234', '1960-05-13', 'Casado/a', 'Hombre', '04141748892', 'Soler', 'CONDUCTOR', '', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '400', 60, 0, NULL, NULL, NULL, NULL, NULL),
-(50, 'Jose', 'Oropeza', 'V-14901511', 'joseoro@gmail.com', '1234', '1978-12-18', 'Divorciado/a', 'Hombre', '04141234567', 'haticos', 'PROFESOR UNIVERSITARIO DE MATEMATICAS', 'Universitario', '', '', '', 'Si', '', 'Si', '', '', '', '', '', '0000-00-00', '0000-00-00', './curriculum/CVYOHESKY2020.pdf', NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '1000', 42, 0, NULL, NULL, NULL, 95, 1850),
-(51, 'juneri', 'chourio', 'V-12042234', 'juneri@gmail.com', '1234', '1985-11-16', 'Casado/a', 'Mujer', '04141748892', 'Manzanillo', 'Administradora', 'Universitario', '', '', '', 'Si', '', 'No', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, 'administradora', './img-perfil/1583435167_51.jpg', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '500', 35, 0, 'inta', 'face', 'link', 2, 868),
-(52, 'mariangel', 'molero', 'V-25553618', 'mariangel@gmail.com', '12345', '1995-11-16', 'Casado/a', 'Mujer', '04141748892', 'Delicias', 'Administradora', 'Universitario', '', '', '', 'Si', '', 'No', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'rojo', '500', 25, 0, NULL, NULL, NULL, 5, 1818);
+(1, 'jose', 'aljuria', 'V-25802196', 'josejavieral13@gmail.com', '123', '0000-00-00', '', '', '', 'adasdf', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, '', './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'Dios', '', 2020, 0, 'IG', 'FB', 'IN', 95, 1864),
+(2, 'yohesky', 'pimentel', 'V-26856233', 'yohesky@gmail.com', '123', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, 'IG', 'FB', 'IN', 5, 1824),
+(4, 'prueba', 'prueba', 'E-25802196', 'prueba1@prueba.com', '123', '0000-00-00', '', '', '', 'asfasdfasdf', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 2020, 0, 'IG', 'FB', 'IN', 91, 711);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios_has_propuesta`
+-- Estructura de tabla para la tabla `usuarios_has_propuesta`
 --
 
 CREATE TABLE `usuarios_has_propuesta` (
@@ -2594,53 +2486,34 @@ CREATE TABLE `usuarios_has_propuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `usuarios_has_propuesta`
+-- Volcado de datos para la tabla `usuarios_has_propuesta`
 --
 
 INSERT INTO `usuarios_has_propuesta` (`usuarios_idusuarios`, `propuesta_idpropuesta`) VALUES
-(1, 50),
-(4, 50),
-(7, 51),
-(9, 50),
-(9, 56),
-(4, 56),
-(7, 56),
-(1, 61),
-(4, 61),
-(9, 61),
-(7, 61),
-(1, 56),
-(3, 50),
-(1, 78),
-(45, 56),
-(3, 56),
-(51, 56),
-(51, 51),
-(50, 83),
-(51, 83),
-(52, 83);
+(1, 1),
+(2, 1),
+(1, 4);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `empresa`
+-- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`idempresa`),
-  ADD KEY `idx_paisempresa` (`idpais`),
-  ADD KEY `idx_idestadoempresa` (`idestado`);
+  ADD KEY `idx_paisempresa` (`idpais`);
 
 --
--- Indexes for table `estado`
+-- Indices de la tabla `estado`
 --
 ALTER TABLE `estado`
   ADD PRIMARY KEY (`idestado`),
   ADD KEY `IDX_4786469191104EC2` (`ubicacionpaisid`);
 
 --
--- Indexes for table `experiencia`
+-- Indices de la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD PRIMARY KEY (`idexp`,`usuarios_idusuarios`),
@@ -2648,14 +2521,14 @@ ALTER TABLE `experiencia`
   ADD KEY `idx_paisexp` (`pais`);
 
 --
--- Indexes for table `habilidades`
+-- Indices de la tabla `habilidades`
 --
 ALTER TABLE `habilidades`
   ADD PRIMARY KEY (`idHabilidad`),
   ADD KEY `idusuario` (`idusuario`);
 
 --
--- Indexes for table `notificaciones`
+-- Indices de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
   ADD PRIMARY KEY (`idNotificacion`),
@@ -2664,13 +2537,13 @@ ALTER TABLE `notificaciones`
   ADD KEY `idpropuesta` (`idpropuesta`);
 
 --
--- Indexes for table `pais`
+-- Indices de la tabla `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `propuesta`
+-- Indices de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
   ADD PRIMARY KEY (`idpropuesta`,`empresa_idempresa`),
@@ -2679,13 +2552,13 @@ ALTER TABLE `propuesta`
   ADD KEY `idx_idestadopropuesta` (`idestado`);
 
 --
--- Indexes for table `seleccion`
+-- Indices de la tabla `seleccion`
 --
 ALTER TABLE `seleccion`
   ADD PRIMARY KEY (`idseleccion`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idusuarios`),
@@ -2693,96 +2566,96 @@ ALTER TABLE `usuarios`
   ADD KEY `idx_estado` (`idestado`);
 
 --
--- Indexes for table `usuarios_has_propuesta`
+-- Indices de la tabla `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
   ADD KEY `usuarios_idusuarios` (`usuarios_idusuarios`),
   ADD KEY `propuesta_idpropuesta` (`propuesta_idpropuesta`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `empresa`
+-- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `estado`
+-- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
   MODIFY `idestado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2202;
 
 --
--- AUTO_INCREMENT for table `experiencia`
+-- AUTO_INCREMENT de la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `habilidades`
+-- AUTO_INCREMENT de la tabla `habilidades`
 --
 ALTER TABLE `habilidades`
-  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `notificaciones`
+-- AUTO_INCREMENT de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pais`
+-- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
 
 --
--- AUTO_INCREMENT for table `propuesta`
+-- AUTO_INCREMENT de la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
-  MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `idpropuesta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `seleccion`
+-- AUTO_INCREMENT de la tabla `seleccion`
 --
 ALTER TABLE `seleccion`
-  MODIFY `idseleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idseleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `empresa`
+-- Filtros para la tabla `empresa`
 --
 ALTER TABLE `empresa`
   ADD CONSTRAINT `fk_idestadoempresa` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
   ADD CONSTRAINT `fk_idpaisempresa` FOREIGN KEY (`idpais`) REFERENCES `pais` (`id`);
 
 --
--- Constraints for table `experiencia`
+-- Filtros para la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `fk_experiencia_usuarios1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_idpaisexp` FOREIGN KEY (`pais`) REFERENCES `pais` (`id`);
 
 --
--- Constraints for table `habilidades`
+-- Filtros para la tabla `habilidades`
 --
 ALTER TABLE `habilidades`
   ADD CONSTRAINT `fk_habilidades_usuarios1` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `notificaciones`
+-- Filtros para la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
   ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`idempresa`) REFERENCES `empresa` (`idempresa`) ON DELETE CASCADE,
@@ -2790,7 +2663,7 @@ ALTER TABLE `notificaciones`
   ADD CONSTRAINT `notificaciones_ibfk_3` FOREIGN KEY (`idpropuesta`) REFERENCES `propuesta` (`idpropuesta`) ON DELETE CASCADE;
 
 --
--- Constraints for table `propuesta`
+-- Filtros para la tabla `propuesta`
 --
 ALTER TABLE `propuesta`
   ADD CONSTRAINT `fk_idestadopropuesta` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
@@ -2798,14 +2671,14 @@ ALTER TABLE `propuesta`
   ADD CONSTRAINT `fk_propuesta_empresa1` FOREIGN KEY (`empresa_idempresa`) REFERENCES `empresa` (`idempresa`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `usuarios`
+-- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fk_idestado` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
   ADD CONSTRAINT `fk_idpais` FOREIGN KEY (`idpais`) REFERENCES `pais` (`id`);
 
 --
--- Constraints for table `usuarios_has_propuesta`
+-- Filtros para la tabla `usuarios_has_propuesta`
 --
 ALTER TABLE `usuarios_has_propuesta`
   ADD CONSTRAINT `usuarios_has_propuesta_ibfk_1` FOREIGN KEY (`usuarios_idusuarios`) REFERENCES `usuarios` (`idusuarios`) ON DELETE CASCADE,
