@@ -40,7 +40,7 @@ if(isset($_SESSION["idusuarios"])){
 					</div>
 
 					<div id="pais" class="collapse" data-parent="#filtroPais">
-						<div class="card-body">
+						<div class="card-body" style="max-height: 50rem; overflow-y:auto;">
 
 						<?php
 							include_once("./includes/conexion.php");

@@ -176,7 +176,7 @@
 					</div>
 
 					<div id=pais class="collapse" data-parent="#filtroArea">
-						<div class="card-body">
+						<div class="card-body" style="max-height: 50rem; overflow-y:auto;"> 
 
 						<?php
 							include_once("./includes/conexion.php");
