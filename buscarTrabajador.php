@@ -40,12 +40,12 @@ if(isset($_SESSION["idusuarios"])){
 					</div>
 
 					<div id="pais" class="collapse" data-parent="#filtroPais">
-						<div class="card-body">
+						<div class="card-body" style="max-height: 50rem; overflow-y:auto;">
 
 						<?php
 							include_once("./includes/conexion.php");
 
-							$query = "SELECT DISTINCT paisnombre FROM usuarios inner join pais on usuarios.idpais = pais.id";
+							$query = "SELECT DISTINCT paisnombre FROM usuarios inner join pais on usuarios.idpais = pais.id GROUP BY paisnombre ASC";
 							$tabla = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
 							$contador = 1;

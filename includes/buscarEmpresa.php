@@ -6,14 +6,14 @@ function inicio($conexion){
 	if(isset($_GET["busqueda"])){
 
         $parametrosDeBusqueda = json_decode($_GET["datos"], true);      
-        $generadorSql = new GeneradorSQL("SELECT * FROM empresa", $parametrosDeBusqueda);
+        $generadorSql = new GeneradorSQL("SELECT * FROM empresa inner join pais on empresa.idpais = pais.id", $parametrosDeBusqueda);
         $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, $generadorSql->obtenerSentenciaSQL(), $generadorSql->obtenerCondicionales());
         echo $generadorConsulta->obtenerJSON();
    
 
     }else{
         
-        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, "SELECT * FROM empresa");
+        $generadorConsulta = new GeneradorConsultaConPaginacion(5, $conexion, "SELECT * FROM empresa inner join pais on empresa.idpais = pais.id");
         echo $generadorConsulta->obtenerJSON();
 
     }
@@ -98,7 +98,10 @@ class GeneradorSQL{
 		break;
 		case "chkArea":
 			$cadenaSQL = "areaEmpresa = '$valor'";
-		break;
+        break;
+        case "chkPais":
+            $cadenaSQL = "pais.paisnombre = '$valor'";
+        break; 
 		default:
 			return 'error clave no valida';
     }
@@ -156,7 +159,7 @@ class GeneradorConsultaConPaginacion{
     //Cuenta las publicaciones y regresa la cantidad de paginas 
     private function obtenerNumeroDePaginas(): int{
 
-        $queryPaginacion = "SELECT COUNT(*) FROM empresa" . $this->condicionales;
+        $queryPaginacion = "SELECT COUNT(*) FROM empresa inner join pais on empresa.idpais = pais.id" . $this->condicionales;
         $filas = mysqli_query($this->conexion, $queryPaginacion) or die(mysqli_error($this->conexion));
         $aux = mysqli_fetch_row($filas);
         $numeroDePaginas = ceil($aux[0] / $this->postulacionesPorPagina);

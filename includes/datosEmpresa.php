@@ -14,9 +14,33 @@ if(!$resultado)
 
 }
 
+class Cedula{
+    public $nacion;
+    public $ci;
+    private $opc = ['J', 'P', 'G'];
+
+    function __construct(string $cedulaCompleta){
+        $this->nacion = substr($cedulaCompleta, 0, 1);
+        $this->ci = substr($cedulaCompleta, 2);
+    }
+
+    public function opciones(): string{
+        $aux = array();
+        foreach ($this->opc as $key => $value) {
+            if($value == $this->nacion){
+                $aux[] = "<option value='" . $value ."' selected='selected'>". $value ."</option>";
+            }else{
+                $aux[] = "<option value='" . $value ."'>". $value ."</option>";
+            }
+        }
+        return join("", $aux);
+    }
+}
+
 
 while($row = mysqli_fetch_array($resultado))
 {
+    $rif = new Cedula($row["rif"]);
    echo 
    "
    <form id='formularioActualizacion' class='needs-validation' novalidate  >
@@ -24,9 +48,14 @@ while($row = mysqli_fetch_array($resultado))
                             <input type='text' id='nombreEmpresa' name='nombreEmpresa' value='".$row['nombreEmpresa']."' class='form-control' required maxlength='50' placeholder='Nombre de la empresa'>
     </div>
 
-    <div class='form-group'>
-                            <input type='text' id='rif' name='rif' value='".$row['rif']."' class='form-control' required maxlength='12' placeholder='Rif de la empresa'>
+    <div class='form-group d-flex row mx-0'>
+    <select name='nacion' id='nacion' class='form-control col-2'>".
+        $rif->opciones()
+    ."</select>
+    <div class='d-bloc col-10'>
+        <input type='text' name='rif' id='rif' placeholder='Rif de la empresa' class='form-control' maxlength='10' value='". $rif->ci ."'>  
     </div>
+</div>
 
     <div class='form-group'>
                             <input type='text' id='direccionEmpresa' name='direccionEmpresa' value='".$row['direccionEmpresa']."' class='form-control' required maxlenth='100' placeholder='Dirección de la empresa'>

@@ -26,8 +26,16 @@
                     <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="form-control" placeholder="Breve Descripción de la empresa  (*)" maxlength="140"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <input type="text" name="rif" id="rif" placeholder="RIF  (*)" class="form-control" maxlength="12">
+                <div class="form-group d-flex row mx-0">
+                    <select name="nacion" class="form-control col-2">
+                        <option value="J">J</option>
+                        <option value="P">P</option>
+                        <option value="G">G</option>
+                    </select>
+
+                    <div class="d-block col-10">
+                        <input type="text" name="rif" id="rif" placeholder="RIF  (*)" class="form-control" maxlength="12">
+                    </div>
                 </div>
 
                 <div class="form-group">
