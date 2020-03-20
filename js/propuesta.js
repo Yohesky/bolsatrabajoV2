@@ -65,7 +65,7 @@ $(function () {
                     <div class="alert alert-primary" role="alert">
                     <div class="row">
                         <div class="col-md-8">
-                        <span> ${propuesta.titulo} </span> -  <span> ${propuesta.descripcion} </span> - <span> ${propuesta.vacantes} </span> -  <span> ${propuesta.sueldo} </span> - <span>  </span> 
+                        <span> ${propuesta.titulo} </span> -  <span> ${propuesta.descripcion} </span> - <span> ${propuesta.vacantes} </span> -  <span> ${propuesta.sueldo} </span> - <span> ${propuesta.paisnombre}  </span> 
                         - <span> ${propuesta.estadonombre} </span>
                         </div>
 

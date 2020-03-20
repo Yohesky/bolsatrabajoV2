@@ -28,7 +28,7 @@ mostrarPostulaciones();
 eliminarPostulacion();
 Seleccionado()
 
-let idpropuesta = ''
+
 
 function insertarPostulacion()
 {
@@ -72,12 +72,11 @@ function mostrarPostulaciones() {
       ({
         url: "includes/mostrarPostulaciones.php",
         type: 'GET',
-        success: function(response)
+        success: async function(response)
         
         {
           
-                let postulacion =  JSON.parse(response);
-                idpropuesta = postulacion.propuesta_idpropuesta
+                let postulacion =  await JSON.parse(response);                
                 let plantilla = "";
                 postulacion.forEach
                 (
@@ -94,7 +93,7 @@ function mostrarPostulaciones() {
                         <td scope="col"> ${postulacion.pais}  </td>
                         <td scope="col"> ${postulacion.funciones}  </td>
 
-                        <td class='seleccionado' scope="col">  </td>
+                        <td scope="col"> <button class='btn btn-info' id="estado" value='${postulacion.idpropuesta}'> Ver tu estado </button> </td>
 
                         <td scope="col">   </td>
                         <td scope="col">
@@ -109,8 +108,9 @@ function mostrarPostulaciones() {
                    `;
                     }
                 )
+                
                 $("#postulaciones").html(plantilla);
-                return idpropuesta
+                
         }
       });
   }
@@ -139,9 +139,26 @@ function mostrarPostulaciones() {
   }
 
    function Seleccionado(){
-    $(document).ready(function() {
-        mostrarPostulaciones();
+    $(document).on("click", "#estado", function()
+    {
+        let plantilla = ""
+        let elemento = $(this)
+        let id = $(elemento).attr("value")
+        console.log(id);
+        //por hacer: BUSCAR COMO REMOVER CLASES DE CSS
+        $.post("includes/seleccionado.php", {id}, function(response)
+        {   
+            //para que haga de nuevo la peticion al backend y no refresque la pagina
+           if(response == "seleccionado"){
+            console.log(response);
+            plantilla += "<button class='btn btn-success'> Has sido seleccionado! </button>"
+            
+            $("#estado").html(plantilla)
+           }
+
+            
+        });
+        
     })
-    
   }
 
