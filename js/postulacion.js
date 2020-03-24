@@ -150,6 +150,8 @@ function mostrarPostulaciones() {
         {   
             //para que haga de nuevo la peticion al backend y no refresque la pagina
            if(response == "seleccionado"){
+            elemento.removeClass("btn-info")
+            
             console.log(response);
             plantilla += "<button class='btn btn-success'> Has sido seleccionado! </button>"
             
