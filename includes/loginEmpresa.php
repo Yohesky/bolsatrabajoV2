@@ -3,10 +3,13 @@
 session_start();
 include("conexion.php");
 
+
 if(isset($_POST['correo']) && isset($_POST['contrasena']))
 {
       $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
+      
       $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
+      
 
       $sql = "SELECT correoEmpresa, nombreEmpresa, idempresa FROM empresa WHERE correoEmpresa='$correo' AND contrasenaEmpresa='$contrasena'";
       $resultado = mysqli_query($conexion,$sql);

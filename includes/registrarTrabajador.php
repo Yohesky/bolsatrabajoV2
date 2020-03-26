@@ -29,7 +29,17 @@ isset($_POST['email']) && isset($_POST['ci']) && isset($_POST['contrasena2']))
             {
                 $result .="<br>-El email de esta persona ya está registrado.";
             }
-    }    
+    }
+    
+    if(strlen($contrasena) < 5)
+    {
+        $result .="<br>-La contraseña debe tener al menos 5 caracteres.";
+    }
+    
+    if($contrasena != $contrasena2)
+    {
+        $result .="<br>-Las contraseñas no coinciden.";
+    }
 
     if($result != '')
     {

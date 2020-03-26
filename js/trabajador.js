@@ -18,7 +18,7 @@ $(function()
                 {
                     console.log(response);
                     $("#resultado").html(response);
-                    setTimeout(() => {location.href = 'loginTrabajador.php'}, 3000);
+                    
                 },
                 error: function(error){
                     console.log(error);

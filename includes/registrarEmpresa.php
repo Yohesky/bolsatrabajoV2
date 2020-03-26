@@ -16,6 +16,7 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
     $sector = mysqli_real_escape_string($conexion, $_POST['sector']);
     $pagina = mysqli_real_escape_string($conexion, $_POST['pagina']);
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
+    $hpass = password_hash($contrasena, PASSWORD_BCRYPT);
     $contrasena2 = mysqli_real_escape_string($conexion, $_POST['contrasena2']);
     $preguntaSeguridad = mysqli_real_escape_string($conexion, $_POST['preguntas']);
     $respuestaSeguridad = mysqli_real_escape_string($conexion, $_POST['respuesta']);
@@ -23,9 +24,9 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
     $pais = mysqli_real_escape_string($conexion, $_POST['pais']);
     $result = '';
 
-    if(strlen($contrasena) > 30)
+    if(strlen($contrasena) < 5)
     {
-        $result .="<br>-La contraseña supera los 30 caracteres.";
+        $result .="<br>-La contraseña debe tener al menos 5 caracteres.";
     }
     
     if($contrasena != $contrasena2)
@@ -59,7 +60,7 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
 
     else{
         $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad, idpais, idestado) 
-        VALUES('$nombre', '$descripcion', '$rifCompleto', '$direccion', '$sector', '$correo', '$pagina', '$contrasena', '$preguntaSeguridad', '$respuestaSeguridad', '$pais', '$estado')";
+        VALUES('$nombre', '$descripcion', '$rifCompleto', '$direccion', '$sector', '$correo', '$pagina', '$hpass', '$preguntaSeguridad', '$respuestaSeguridad', '$pais', '$estado')";
         mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
         echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
         
@@ -68,6 +69,5 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
 else {
     echo 'faltan datos';
 }
-
 
 ?>
