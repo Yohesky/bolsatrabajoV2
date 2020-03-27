@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 17-03-2020 a las 04:03:27
+-- Tiempo de generación: 27-03-2020 a las 14:15:50
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -37,7 +37,7 @@ CREATE TABLE `empresa` (
   `areaEmpresa` varchar(45) NOT NULL,
   `correoEmpresa` varchar(45) NOT NULL,
   `webEmpresa` varchar(45) DEFAULT NULL,
-  `contrasenaEmpresa` varchar(45) NOT NULL,
+  `contrasenaEmpresa` text NOT NULL,
   `imagenEmpresa` varchar(1000) NOT NULL DEFAULT './img-empresa/perfil-predeterminado.png',
   `preguntaSeguridad` char(150) DEFAULT NULL,
   `respuestaSeguridad` char(150) DEFAULT NULL,
@@ -52,7 +52,8 @@ CREATE TABLE `empresa` (
 INSERT INTO `empresa` (`idempresa`, `nombreEmpresa`, `descripcionEmpresa`, `rif`, `direccionEmpresa`, `areaEmpresa`, `correoEmpresa`, `webEmpresa`, `contrasenaEmpresa`, `imagenEmpresa`, `preguntaSeguridad`, `respuestaSeguridad`, `idpais`, `idestado`) VALUES
 (1, 'SkySoft', 'empresa de software', 'J-1522222', 'algun lugar', 'InformÃ¡tica/Telecomunicaciones', 'sky@soft.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', 'verde', 29, 569),
 (20, 'prueba', 'gh', 'P-454345', 'fsg', 'AdministraciÃ³n/Oficinas', 'empresa1@empresa.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', '123', 144, 0),
-(21, 'adfas', 'asdf', 'P-25802196', 'adfadsf', 'AdministraciÃ³n/Oficinas', 'empresa2@empresa.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Donde estudiaste primaria?', '123', 149, 688);
+(21, 'adfas', 'asdf', 'P-25802196', 'adfadsf', 'AdministraciÃ³n/Oficinas', 'empresa2@empresa.com', '', '123', './img-empresa/perfil-predeterminado.png', 'Â¿Donde estudiaste primaria?', '123', 149, 688),
+(23, 'empresa4', 'aksjdf', 'J-123333', 'asdfasfds', 'AlmacÃ©n/LogÃ­stica/Trasporte', 'empresa4@prueba.com', '', '$2y$10$LKoUCFal8.UhuVOK9GNrO.1LOuIrs/jF6TXVOAMK1NWDUspFq5wkq', './img-empresa/perfil-predeterminado.png', 'Â¿Cual es tu color favorito?', '123', 128, 689);
 
 -- --------------------------------------------------------
 
@@ -2089,13 +2090,6 @@ CREATE TABLE `experiencia` (
   `expPais` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `experiencia`
---
-
-INSERT INTO `experiencia` (`idexp`, `expEmpresa`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `usuarios_idusuarios`, `yearExp`, `pais`, `expPais`) VALUES
-(1, 'afads', 'sss', 'adfd', 'sdafasd', '2020-03-06', '2020-03-03', 1, 0, NULL, 'Angola');
-
 -- --------------------------------------------------------
 
 --
@@ -2108,13 +2102,6 @@ CREATE TABLE `habilidades` (
   `idusuario` int(11) NOT NULL,
   `nivelHabilidad` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `habilidades`
---
-
-INSERT INTO `habilidades` (`idHabilidad`, `nombreHabilidad`, `idusuario`, `nivelHabilidad`) VALUES
-(1, '123', 1, 'Avanzado');
 
 -- --------------------------------------------------------
 
@@ -2472,7 +2459,9 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`idusuarios`, `nombre`, `apellido`, `ci`, `correo`, `contrasena`, `fechaNacimiento`, `estadoCivil`, `genero`, `num1`, `direccion`, `puestoDeseado`, `educacion`, `perfilProfesional`, `idioma`, `nivelIdioma`, `disponibilidadViajar`, `licencia`, `vehiculo`, `expEmpresa`, `expPais`, `expSector`, `expArea`, `expLabor`, `expFechaIni`, `expFechaFin`, `curriculum`, `descripcion`, `fotoPerfil`, `pregunta1`, `resp1`, `sueldoDeseado`, `edad`, `esAdmin`, `instagram`, `facebook`, `linkedin`, `idpais`, `idestado`) VALUES
 (1, 'jose', 'aljuria', 'V-25802196', 'josejavieral13@gmail.com', '123', '0000-00-00', '', '', '', 'adasdf', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, '', './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', 'Dios', '', 2020, 0, 'IG', 'FB', 'IN', 95, 1864),
 (2, 'yohesky', 'pimentel', 'V-26856233', 'yohesky@gmail.com', '123', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, 'IG', 'FB', 'IN', 5, 1824),
-(4, 'prueba', 'prueba', 'E-25802196', 'prueba1@prueba.com', '123', '0000-00-00', '', '', '', 'asfasdfasdf', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 2020, 0, 'IG', 'FB', 'IN', 91, 711);
+(4, 'prueba', 'prueba', 'E-25802196', 'prueba1@prueba.com', '123', '0000-00-00', '', '', '', 'asfasdfasdf', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', '', 2020, 0, 'IG', 'FB', 'IN', 91, 711),
+(5, 'lusito', 'lee', 'E-333333333', 'l@test.com', '123', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, 'IG', 'FB', 'IN', 145, 986),
+(6, 'Usuario', 'encriptado', 'V-345566666', 'u@test.com', '12345', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', NULL, '', '', '', '', '', '0000-00-00', '0000-00-00', NULL, NULL, './img-perfil/perfil-predeterminado.png', 'Â¿Como se llama tu mejor amigo de la infancia?', '123', NULL, NULL, 0, 'IG', 'FB', 'IN', 145, 984);
 
 -- --------------------------------------------------------
 
@@ -2580,7 +2569,7 @@ ALTER TABLE `usuarios_has_propuesta`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idempresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `estado`
@@ -2592,13 +2581,13 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `experiencia`
 --
 ALTER TABLE `experiencia`
-  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idexp` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `habilidades`
 --
 ALTER TABLE `habilidades`
-  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idHabilidad` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `notificaciones`
@@ -2628,18 +2617,11 @@ ALTER TABLE `seleccion`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idusuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD CONSTRAINT `fk_idestadoempresa` FOREIGN KEY (`idestado`) REFERENCES `estado` (`idestado`),
-  ADD CONSTRAINT `fk_idpaisempresa` FOREIGN KEY (`idpais`) REFERENCES `pais` (`id`);
 
 --
 -- Filtros para la tabla `experiencia`
