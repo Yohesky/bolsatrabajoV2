@@ -11,7 +11,7 @@ $idempresa = $_SESSION['idempresa'];
 
      $pais = $_POST['pais'];
      $estado = $_POST['estado'];
-     echo $pais;
+    
 
       $query = "UPDATE empresa SET idpais='$pais', idestado='$estado' WHERE idempresa='$idempresa'";
                   mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);

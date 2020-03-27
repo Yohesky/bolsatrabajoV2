@@ -675,8 +675,14 @@ $fila = mysqli_fetch_assoc($rsQuery);
                         data: localizacion,
                         success: function (response) {
         
-                            
-                            console.log(response)
+                            if (response === 'exito') {
+                        swal({
+                          title: "Ubicación Actualizada",
+                          text: "Su ubicación ha sido actualizada satisfactoriamente",
+                          icon: "success",
+                          button: "Continuar",
+                        });
+                      }
                         },
                         error: function(error){
                             console.log(error);

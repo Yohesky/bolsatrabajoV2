@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     enviarNotificacion()    
 })
 
@@ -26,6 +27,8 @@ function getGET() {
 }
 
 function enviarNotificacion() {
+   
+    
         $.ajax
             ({
 

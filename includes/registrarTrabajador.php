@@ -13,8 +13,10 @@ isset($_POST['email']) && isset($_POST['ci']) && isset($_POST['contrasena2']))
     $ciCompleta = $nacion . '-' . $ci;
     $contrasena = mysqli_real_escape_string($conexion, $_POST['contrasena']);
     $contrasena2 = mysqli_real_escape_string($conexion, $_POST['contrasena2']);
+    $contrasenaHash = password_hash($contrasena, PASSWORD_BCRYPT);
     $preguntas = mysqli_real_escape_string($conexion, $_POST['preguntas']);
     $res1 = mysqli_real_escape_string($conexion, $_POST['res1']);
+    $resHash = password_hash($res1, PASSWORD_BCRYPT);
     $estado = mysqli_real_escape_string($conexion, $_POST['idestado']);
     $pais = mysqli_real_escape_string($conexion, $_POST['idpais']);
     $result = '';
@@ -46,7 +48,7 @@ isset($_POST['email']) && isset($_POST['ci']) && isset($_POST['contrasena2']))
         echo "<div class='alert alert-dismissible alert-danger'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>Error</strong><br>$result</div>";
 
     }else{
-        $sql = "INSERT INTO usuarios (nombre,apellido,correo,ci,contrasena, pregunta1, resp1, idpais, idestado) VALUES ('$nombre', '$apellido', '$email', '$ciCompleta', '$contrasena', '$preguntas', '$res1', '$pais', '$estado')";
+        $sql = "INSERT INTO usuarios (nombre,apellido,correo,ci,contrasena, pregunta1, resp1, idpais, idestado) VALUES ('$nombre', '$apellido', '$email', '$ciCompleta', '$contrasenaHash', '$preguntas', '$resHash', '$pais', '$estado')";
         $bool = mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
     
         if($bool){

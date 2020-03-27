@@ -19,14 +19,14 @@ $idpropuesta = $_POST["idpropuesta"];
 
 //     echo "exito";
 
-$sql = "SELECT COUNT(*) as cantidad FROM notificaciones WHERE idempresa='$idempresa' AND idusuario='$idusuario' AND idpropuesta='$idpropuesta";
-$res = mysqli_query($conexion, $sql);
+$sql = "SELECT COUNT(*) as cantidad FROM notificaciones WHERE idempresa='$idempresa' AND idusuario='$idusuario' AND idpropuesta='$idpropuesta'";
+$res = mysqli_query($conexion,$sql) or die(mysqli_error($conexion).$sql);
 $data = mysqli_fetch_array($res);
 if($data["cantidad"] > 0)
 {
    echo "no insertado";
 }
-else if($data["cantidad"] < 0){
+else if($data["cantidad"] <= 0){
      $query = "INSERT INTO notificaciones (idempresa, idusuario, idpropuesta) VALUES ('$idempresa', '$idusuario', '$idpropuesta') ";
      mysqli_query($conexion,$query) or die(mysqli_error($conexion).$query);
      echo "insertado";

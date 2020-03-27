@@ -10,11 +10,8 @@ if(isset($_POST["respuesta"]) && isset($_POST["empresaid"])){
 
     $data = mysqli_fetch_array($rsQuery);
 
-    if($data["respuestaSeguridad"] === $respuesta){
-
-  
+    if(password_verify($respuesta, $data["respuestaSeguridad"])){
         echo "exito";
-        
     }
         else {
             echo "no se recibio";

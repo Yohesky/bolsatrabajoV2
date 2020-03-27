@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label for="respuesta"> Ingrese su respuesta </label>
-            <input id="respuesta" name="respuesta" type="text" class="form-control">
+            <input type="password" id="respuesta" name="respuesta" type="text" class="form-control">
 
             <input type="hidden" id="empresaid" name="empresaid" value="<?php echo $datos["idempresa"]; ?>">
         </div>

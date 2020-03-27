@@ -9,12 +9,8 @@ if(isset($_POST["respuesta"]) && isset($_POST["iduser"])){
     $rsQuery = mysqli_query($conexion, $query) or die(mysqli_error($conexion));
 
     $data = mysqli_fetch_array($rsQuery);
-
-    if($data["resp1"] === $respuesta){
-
-  
+    if(password_verify($respuesta, $data["resp1"])){
         echo "exito";
-        
     }
         else {
             echo "no se recibio";

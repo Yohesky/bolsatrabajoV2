@@ -20,6 +20,7 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
     $contrasena2 = mysqli_real_escape_string($conexion, $_POST['contrasena2']);
     $preguntaSeguridad = mysqli_real_escape_string($conexion, $_POST['preguntas']);
     $respuestaSeguridad = mysqli_real_escape_string($conexion, $_POST['respuesta']);
+    $resHash = password_hash($respuestaSeguridad, PASSWORD_BCRYPT);
     $estado = mysqli_real_escape_string($conexion, $_POST['estado']);
     $pais = mysqli_real_escape_string($conexion, $_POST['pais']);
     $result = '';
@@ -60,7 +61,7 @@ isset($_POST['pagina']) && isset($_POST['contrasena2']) && isset($_POST['estado'
 
     else{
         $sql = "INSERT INTO empresa (nombreEmpresa,descripcionEmpresa,rif, direccionEmpresa, areaEmpresa, correoEmpresa, webEmpresa, contrasenaEmpresa, preguntaSeguridad, respuestaSeguridad, idpais, idestado) 
-        VALUES('$nombre', '$descripcion', '$rifCompleto', '$direccion', '$sector', '$correo', '$pagina', '$hpass', '$preguntaSeguridad', '$respuestaSeguridad', '$pais', '$estado')";
+        VALUES('$nombre', '$descripcion', '$rifCompleto', '$direccion', '$sector', '$correo', '$pagina', '$hpass', '$preguntaSeguridad', '$resHash', '$pais', '$estado')";
         mysqli_query($conexion, $sql) or die(mysqli_error($conexion));
         echo "<div class='alert alert-dismissible alert-success'><button type='button' class='close' data-dismiss='alert'>&times;</button><strong>¡Correcto!</strong><br>Se ha registrado correctamente.</div>";
         

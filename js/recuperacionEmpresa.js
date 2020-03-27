@@ -93,7 +93,7 @@ $(function () {
                           button: "Continuar",
                         });
                       }
-                      $(location).attr('href','loginTrabajador.php');
+                      $(location).attr('href','loginEmpresa.php');
                     
                 }
               });

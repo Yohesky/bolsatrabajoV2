@@ -196,8 +196,15 @@ $nombreEmpresa = mysqli_fetch_array($resultado)[0];
                         data: localizacion,
                         success: function (response) {
         
-                            
-                            console.log(response)
+                            if (response === 'exito') {
+                            swal({
+                            title: "Ubicación Actualizada",
+                            text: "Su ubicación ha sido actualizada satisfactoriamente",
+                            icon: "success",
+                            button: "Continuar",
+                        })
+                    }   ;
+                          
                         },
                         error: function(error){
                             console.log(error);

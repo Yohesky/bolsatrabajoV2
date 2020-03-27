@@ -46,7 +46,7 @@ $(function()
                       <div class="col-md-8">
 
                       <h5 class="card-title" style="text-transform: capitalize"><span> ${publicacion.nombre} </span> <span> ${publicacion.apellido} </span> </h5> 
-                      <p class="card-text">${publicacion.descripcion}</p>
+                      <p class="card-text">${publicacion.descripcion != 'null' ? `<p> ${publicacion.descripcion} </p>` : `no posee descripcion` }</p>
                       <div class="btn-group" role="group" aria-label="Basic example">
                       <a href="perfil.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank" class="btn btn-primary">Ver Perfil</a>
                       <a href="postuladosPDF.php?id=${publicacion.id}&idpropuesta=${publicacion.idpropuesta}" target="_blank" class="btn btn-info">PDF</a>

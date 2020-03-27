@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="respuesta" id="respuesta" placeholder="Escriba su respuesta" class="form-control">
+                    <input type="password" name="respuesta" id="respuesta" placeholder="Escriba su respuesta" class="form-control">
                 </div>
 
                 <div class="form-group">
