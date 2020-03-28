@@ -5,7 +5,7 @@ $conexion = mysqli_connect
     "localhost",
     "root",
     "",
-    "bolsatrabajo2"
+    "bolsatrabajo"
 );
 $acentos = mysqli_query($conexion, "SET NAMES 'utf8'");
 
