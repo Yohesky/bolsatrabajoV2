@@ -7,6 +7,6 @@ $conexion = mysqli_connect
     "",
     "bolsatrabajo"
 );
-
+$acentos = mysqli_query($conexion, "SET NAMES 'utf8'");
 
 ?>
